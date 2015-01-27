@@ -1,0 +1,190 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Thesis template for Brown University dissertation format
+%%%   http://www.brown.edu/Divisions/Graduate_School/academics/index.php?p=2-11-4&s=2-11
+%%%
+%%% Modified to fit Brown U by: R. M. Strain
+%%% Date: Feb. 2006
+%%%
+%%%  Thrown together by: Duane Q. Nykamp
+%%%  Date: April, 2000
+%%%
+%%%  Use at your own risk. Not guaranteed to meet 
+%%%  requirements. But this is an attempt to make formatting
+%%%  a thesis in LaTeX easier.
+%%%
+%%%  Good luck. Feel free to improve.
+%%%
+%%%  Large parts apparently lifted from Barry Smith and Mark Asch
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\documentclass[12pt,oneside]{amsbook}
+\usepackage{graphicx}
+
+\makeindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Hack for appendices
+%%%
+%%%  If have single appendix remove the [multiple] option
+%%%  from appendixhack, and comment out the
+%%%  list of appendices below
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[multiple]{appendixhack}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Set title, names, and date
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\thesistitle}{Mathematical Lessons from Peanuts}
+\newcommand{\myname}{Charlie Brown}
+\newcommand{\degrees}{B.~S., College of Peanuts, 2000\\  Sc.~M., Brown University, 2002}
+\newcommand{\advisor}{Snoopy}
+\newcommand{\readerone}{Woodstock}
+\newcommand{\readertwo}{Pigpen}
+\newcommand{\readerthree}{Linus}
+\newcommand{\dean}{Marcie}
+\newcommand{\department}{Division of Comic Strips}
+\newcommand{\thesismonth}{May}
+\newcommand{\thesisyear}{2005}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Specify depth of table of contents
+%%%  0 -- include only chapters
+%%%  1 -- include chapters and sections
+%%%  2 -- include chapter, sections, and subsections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{tocdepth}{2}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Set the Margins
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\pdfpagewidth=8.5in  	% Width of the PDF page to create (i.e. size of paper you'd print on)
+%\pdfpageheight=11in 	% Height of the PDF page to create (i.e. size of paper you'd print on)
+\topmargin=0.0in    		% Margin at top of page above all printing
+\oddsidemargin=0.5in	% Left margin on odd numbered pages
+\evensidemargin=0.5in	% Left margin on even numbered pages
+\headheight=0.0in		% Height of the header (the header is text that appears atop all pages
+\topskip=0.0in			% Distance from top of main text box to the baseline of the first line of text in the main text box.
+\textheight=9.0in		% Height of main text box.
+\textwidth=6.0in		% Width of main text box.
+%\headsep=0.0in		% Distance from bottom of header to the body of text on a page.
+%\footskip=0.0in			% Distance from bottom of body to the bottom of the footer 
+%\parskip				% Distance between paragraphs.
+%\parindent				% Amount of indentation at the first line of a paragraph.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Uncomment to include only specfic sections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \includeonly{title,frontispiece,acknowledge,preface,abstract}
+% \includeonly{introduction}
+% \includeonly{concusion}
+
+
+
+\tolerance=400  %allow slightly looser typesetting for fewer
+                %overfull boxes
+
+
+\bibliographystyle{abbrv}
+
+\begin{document}
+
+\linespread{1.6}   %double spaced
+\normalsize        %set to normalsize so double spacing kicks in
+
+\pagenumbering{roman}  % front matter number with roman
+\pagestyle{plain}
+
+\frontmatter
+
+%%-------------------------------------Title page (unnumbered)
+\include{title} % include always starts on a new page
+
+%%-------------------------------------Copyright  (unnumbered)
+\include{copyright}
+
+%%-------------------------------------Signature Page
+\include{signature}
+
+%%-------------------------------------Vitae Page
+\include{vita}
+
+%%-------------------------------------Frontispiece (optional, unnumbered)
+\include{frontispiece} 
+
+
+%%-------------------------------------Dedication, (first numbered)
+\pagestyle{plain}
+\vspace*{3in} 
+\begin{center}
+{\large\em Dedicated to Peppermint Patty}
+\end{center}
+
+\addcontentsline{toc}{chapter}{Dedication}
+\hbox{   } \newpage
+
+%%-------------------------------------Acknowledgements
+\include{acknowledge}
+\newpage
+
+%%-------------------------------------Preface
+\include{preface}
+\newpage
+
+%%-------------------------------------TOC
+\tableofcontents
+
+%%-------------------------------------LOT
+\listoftables
+
+%%-------------------------------------LOF
+\listoffigures
+
+%%-------------------------------------Abstract
+\include{abstract}            
+\newpage
+
+
+
+
+%%-------------------------------------Thesis body
+\mainmatter
+\pagenumbering{arabic}   %start arabic numbering
+
+\include{introduction} 
+
+\include{meetthepeanuts}
+
+\include{conclusion}
+
+%%-------------------------------------Appendix or Appendices
+
+\appendix
+
+\input{appendixA}
+\input{appendixB} % input is the same as include, but it doesn't need to start on a new page
+
+
+
+%%----------------------------BIBLIOGRAPHY
+\backmatter
+\newpage
+
+%\addcontentsline{toc}{chapter}{Bibliography}
+
+\bibliography{thesis}
+
+\renewcommand{\indexname}{(Incomplete) Index of Peanuts}
+\printindex
+
+\end{document}
+

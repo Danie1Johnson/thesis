@@ -1,0 +1,127 @@
+%\lipsum[101-120]
+
+Since the Building Game is a sequential process with several choices at each step, it is natural to consider it as a stochastic process. By putting a distribution on all possible faces that can be colored \colorB\spc at each step of the Building game, a distribution on the space of pathways is implicitly defined. Thus, for a choice of this transition rule, we can ask questions about the likelihood of the different pathways. 
+
+--Math and graphical results about putting a distribution on pathways
+
+\subsection{Forward and Backward Transitions}
+
+If we allow faces be changed both from \colorA\spc to \colorB\spc and from \colorB\spc to \colorA, the process consists of transitions from intermediate to intermediate along state space connections. By specifying a distribution on these transitions, it will induce a stationary measure on the state space.  
+
+We define the Markov process $X_t$ by the transition rate matrix $Q$, with the heuristic that the rate of transition to an intermediate \xk from an intermediate \xk should be proportional to the number of faces of \xj that can be colored to reach the intermediate \xk. For this reason, we include the degeneracy number \Sjk\spc as a factor in the transition rate matrix. Furthermore, we model the process after and energetic model in which each intermediate has an energy and to transtion between intermediates, an energy barrier $E_{jk} = E_{kj}$ must be overcome. 
+%\begin{align}
+%\label{eq:TransitionProbability}
+% P_{jk} = \frac{1}{z_j}S_{jk}\rh 
+%\end{align}
+\begin{align}
+\label{eq:TransitionRate}
+Q_{jk} &= S_{jk}e^{-\beta\left(E_{jk} - E_j\right)} \\
+Q_{jj} &= -z_j \\
+\end{align}
+Here, $z_j \doteq \sum_{\ell: \ell \neq j} S_{j\ell}e^{-\beta\left(E_{j\ell} - E_j\right)}$ is the rate at which the process leaves \xj. 
+
+\begin{mythm}
+\label{thm:StatDist}
+If the transition rate matrix $Q$ can be decomposed as $Q = DC$ where $D$ is diagonal with each entry of the diagonal positive and $C$ is a non-negative symmetric matrix with $C_{jk} > 0$ if and only if $x^j$ and $x^k$ are connected, then $X_t$ has the unique stationary distribution $\pi = \diag\left(D^{-1}\right)$.         
+\end{mythm}
+\begin{proof}
+First, we show $Q$ and $\pi$ satisfy detailed balance.
+\begin{align}
+\pi_jQ_{jk} &= \left(\frac{1}{D_{jj}}\right)\left(D_{jj}C_{jk}\right) \\
+&= C_{jk} \\
+&= C_{kj} \\
+&= \left(\frac{1}{D_{kk}}\right)\left(D_{kk}C_{kj}\right) \\
+                    &= \pi_kQ_{kj}
+\end{align}
+
+-- Prove aperiodicity 
+-- Prove positive reccurence
+
+\end{proof}
+
+In order to use theorem~\ref{thm:StatDist} to find the stationary distribution for the transition rule~\ref{eq:TransitionProbability}, we must be able to decompose the degeneracy number \Sjk\spc to fit the template of $\mathbf{C}$ and $\mathbf{D}$. In the following section we derive group theoretic identities to show that this is possible.
+
+\subsection{Hitting Times}
+
+\begin{align}
+	\tau^{A}_{j} &\doteq \inf\left\{t \geq 0 : X_t \in A, X_0 = x^j\right\}
+\end{align}
+
+\begin{align}
+	\nu^{A}_{j} &\doteq \inf\left\{n \geq 0 : Y_n \in A, Y_0 = x^j\right\}
+\end{align}
+
+For $j \not\in A$.
+\begin{align}
+	E\left[\tau^{A}_{j}\right] &= E\left[E\left[\tau^{A}_{j} | Y_1 \right]\right] \\
+        &= E\left[ Exp\left(z_j\right) + \tau^{A}_{Y_1} \right] \\
+        &=  \frac{1}{z_j} + E\left[\sum_{k}\tau^{A}_{Y_1}\mathbbm{1}_{Y_1 = k}\right] \\
+        &=  \frac{1}{z_j} + \sum_{k: k\neq j}E\left[\tau^{A}_{k}\right] P\left(Y_1 = k\right) \\
+        &=  \frac{1}{z_j}\left(1 + \sum_{k: k\neq j}q_{jk}E\left[\tau^{A}_{k}\right]\right)     \\
+  \sum_{k}q_{jk}E\left[\tau^{A}_{k}\right] &= 1 \\
+\end{align}
+
+For $j \in A$.
+\begin{align}
+	E\left[\tau^{A}_{j}\right] &= 0 \\
+\end{align}
+
+As a linear system:
+\begin{align}
+	\left(\diag\left(\mathbbm{1}_A\right) - \diag\left(\mathbbm{1}_{A^c}\right)Q\right)E\left[\tau^{A}\right] =\mathbbm{1}_{A^c}\\
+\end{align}
+
+
+\begin{align}
+\psi_j^A\left(t\right) &\doteq P\left(\tau^A_j \leq t\right) \\
+\psi_j^A\left(0\right) &= \mathbbm{1}_{j\in A} \\
+\psi_j^A\left(t\right) &= 0 \forall j \in A \\                       
+\end{align}
+
+For $j \not\in A$.
+
+\begin{align}
+\psi_j^A\left(t\right) &\doteq P\left(\tau^A_j \leq t\right) \\
+                       &= \sum_k P\left(\tau^A_j \leq t | Y_1 = x^k\right) P\left(Y_1 = x^k\right) \\ 
+                       &= \frac{1}{z_j}\sum_{k: k \neq j} q_{jk} P\left(Exp\left(z_j\right)\tau^A_j \leq t\right)  \\
+                       &= \frac{1}{z_j}\sum_{k: k \neq j} q_{jk} \int^t_0 P\left(\tau^A_j \leq t - s\right) z_j e^{-z_j s} ds  \\
+                       &= \sum_{k: k \neq j} q_{jk} \int^t_0\psi^A_k\left(t-s\right)e^{-z_j s} ds  \\
+                       &= \sum_{k: k \neq j} q_{jk} \int^t_0\psi^A_k\left(r\right)e^{-z_j\left(t-r\right)} dr  \\
+e^{z_jt}\psi^A_j\left(t\right) &= \sum_{k: k \neq j} q_{jk} \int^t_0 e^{z_jr}\psi^A_k\left(r\right) dr  \\
+e^{z_jt}\frac{d\psi^A_j}{dt} + z_j e^{z_j t} \psi^A_j\left(t\right) &= \sum_{k: k \neq j} q_{jk} e^{z_jt}\psi^A_k\left(t\right)  \\
+\frac{d\psi^A_j}{dt} &= \sum_{k} q_{jk} \psi^A_k\left(t\right) 
+\end{align}
+
+Combining both cases, we get the linear system and solution.
+
+\begin{align}
+        \frac{d\psi^A}{dt} &= \diag\left(\mathbbm{1}_{A^c}\right)Q\psi^A \\
+        \psi^A\left(0\right) &= \mathbbm{1}_{A} \\
+        \psi^A\left(t\right) &= e^{\diag\left(\mathbbm{1}_{A^c}\right)Qt} \mathbbm{1}_{A} \\ 
+\end{align}
+
+This is the solution for the CDF of the stopping time $\tau^A$, but we can also compute the PDF explicitly for $t > 0$.
+
+\begin{align}
+        p\left(\tau^A = t\right) &= \frac{d\psi^A}{dt} \\
+        &= \diag\left(\mathbbm{1}_{A^c}\right)Q\psi^A
+\end{align} 
+
+
+
+\section{Stationarity}
+
+\begin{mythm}
+\label{thm:E}
+The Markov process $X_t$ defined by the transition rate matrix $Q$ in equation~\ref{eq:TransitionRate} admits the unique stationary distribution $\frac{1}{zr_j}e^{-\beta E_j}$ where $z \doteq \sum_\ell \frac{1}{r_\ell}e^{-\beta E_\ell}$ is the partition function. 
+\end{mythm}
+\begin{proof}
+We take $C_{jk} \doteq \frac{S_{jk}}{zr_j}e^{-\beta E_{jk}}$ and notice that it is symmetric by theorem~\ref{thm:J}. With $D_{jj} \doteq zr_je^{\beta E_j}$ we have our partition.  
+\begin{align}
+Q_{jk} &= S_{jk}e^{-\beta\left(E_{jk} - E_j\right)} \\
+       &= \left(zr_je^{\beta E_j}\right) \left(\frac{S_{jk}}{zr_j}e^{-\beta E_{jk}}\right) \\
+       &= D_{jj}C_{jk}   
+\end{align}
+Thus, by theorem~\ref{thm:StatDist},  $\pi_j = \frac{1}{D_{jj}} = \frac{1}{zr_j}e^{-\beta E_j}$.
+\end{proof}
+

@@ -1,0 +1,18 @@
+Thesis template for Brown U dissertation format
+
+%%% Modified to fit Brown U by: R. M. Strain
+%%% Date: Feb. 2006
+
+Use at your own risk. Not guaranteed to meet Brown U
+requirements. But this is an attempt to make formatting
+a thesis in LaTeX easier.
+
+
+After untarring files into a directory, you can compile the thesis by typing:
+
+latex thesis
+bibtex thesis
+makeindex thesis
+latex thesis
+latex thesis
+

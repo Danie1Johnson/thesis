@@ -1,0 +1,165 @@
+%&latex
+\documentclass[12pt]{report}   % SUBMISSION TO GRAD SCHOOL
+%\documentclass[12pt,twoside]{report}  % TWOSIDE DUPLEX OUTPUT%setspace,math
+\usepackage{setspace}
+\usepackage{buthesis}
+\usepackage{algorithm2e}
+\usepackage{mathtools}
+\usepackage{buthesis,amsmath,amssymb,graphicx,amsfonts,amsthm,longtable,relsize,mathrsfs}
+\usepackage{verbatim}
+\usepackage{epsfig}
+\usepackage{wrapfig}
+\usepackage{latexsym,amsfonts,amscd}
+\usepackage{changebar}
+\usepackage{enumerate}
+% Do you use TikZ?
+\usepackage{tikz}
+\usepackage{pgfmath}
+\usetikzlibrary{decorations}
+\usetikzlibrary{shadows}
+
+% Used only for example text
+\usepackage{lipsum}
+
+\usepackage[footnotesize,bf]{caption}  % Reduces caption font sizes
+
+%%%%%%%%%%%%%%%%% Fancy chapter headings %%%%%%%%%%%%%%%%%%%
+\usepackage[Bjarne]{ThesisFncychap}
+\include{BjarneThesisTitles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------
+%% Control the fonts and formatting used in the table of contents, list of
+%% figures, and list of tables
+\usepackage[titles]{tocloft}
+
+%% Aesthetic spacing redefines that look nicer to me than the defaults.
+\setlength{\cftbeforechapskip}{-1ex}
+\setlength{\cftbeforesecskip}{-3.5ex}
+\setlength{\cftbeforesubsecskip}{-3.5ex}
+\setlength{\cftbeforetabskip}{-3.5ex}
+\setlength{\cftbeforefigskip}{-3.5ex}
+%-----------------------------------------------------------------
+\begin{document}
+
+\dissertation % This *is* what you're writing, right?
+
+% Information about the document
+%-----------------------------------------------------------------
+\title{Kinetic Limits of Piecewise Deterministic Markov Processes and Grain Boundary Coarsening}
+
+\author{Joe Klobusicky}
+\degree{Doctor of Philosophy}
+\department{The Division of Applied Mathematics}
+\previousdegrees{
+                B.S., Carnegie Mellon University; Pittsburgh, PA, 2009\\ 
+                M.S., Carnegie Mellon University; Pittsburgh, PA, 2009\\
+                M.Sc., Brown University; Providence, RI, 2010}     
+\thesismonth{May} \thesisyear{2014\\  }
+%-----------------------------------------------------------------
+
+
+
+\doublespacing
+\begin{preliminaries}
+\maketitle
+
+\copyrightpage
+
+\begin{signature}
+  \director{Govind Menon, Ph.D., Advisor}
+  \reader{Robert Pego, Ph.D., Reader}
+  \reader{Kavita Ramanan, Ph.D., Reader}
+\end{signature}
+
+\begin{vita}
+  \input{CV}
+\end{vita}
+
+\begin{acknowledgments}
+  \input{thankyou}
+\end{acknowledgments}
+
+\begin{abstract}
+  \input{Abstract}
+  \thispagestyle{empty}
+  % Do you want this page to exist in the numbering?
+%  \thispagestyle{empty}
+%  \if@twoside
+%    \addtocounter{page}{-2}  
+%  \else
+%    \addtocounter{page}{-1}
+%  \fi
+\end{abstract}
+
+% Why double-space toc,lof, and lot?
+\begin{spacing}{1}
+  \tableofcontents
+  \clearpage{\pagestyle{empty}\cleardoublepage}
+
+%   \footnotesize
+%   \fontsize{11.5pt}{12.5pt}\selectfont
+%   \listoftables
+%   \clearpage{\pagestyle{empty}\cleardoublepage}
+
+  \listoffigures
+  \clearpage{\pagestyle{empty}\cleardoublepage}
+  \normalsize
+\end{spacing}
+
+\end{preliminaries}
+
+\pagestyle{myheadings}
+
+%------------------------ CONTENT ------------------------%
+\newtheorem{lem}{Lemma}
+\newtheorem{deef}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{rem}{Remark}
+
+\chapter{Introduction}
+\input{introduction}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{An Overview of PDMPs}
+\input{pdmpreview}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{Kinetic Limits of Piecewise-Deterministic Markov Processes: The Dynamic Shuffler}
+\input{Measure_valued_PDMP}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{Kinetic Limits of Piecewise-Deterministic Markov Processes: The $k$-Species Model}
+\input{kspecies}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+\chapter{The $k$-species Model Applied to Grain Coarsening}
+\input{grainpdmp}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+
+\chapter{Conclusion}
+\input{conclusion}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+% %------------------------ APPENDIX ------------------------%
+% \appendix
+% \chapter{A Comment on the $n-6$ Rule }
+% \input{app1}
+% \clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+% \chapter{Uniqueness of  Solutions}
+% \input{app3}
+% \clearpage{\pagestyle{empty}\cleardoublepage}
+
+%---------------------- BIBLIOGRAPHY ----------------------%
+
+\bibliographystyle{siam}
+\begin{spacing}{0.9}
+  \bibliography{reference2}
+\end{spacing}
+
+\end{document}

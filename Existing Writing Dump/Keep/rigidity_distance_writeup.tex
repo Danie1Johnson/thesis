@@ -1,0 +1,208 @@
+\title{Quantifying Mobility of Octahedral Intermediates}
+\author{
+        Daniel Johnson \\
+                Division of Applied Mathematics\\
+        Brown University
+}
+\date{\today}
+
+\documentclass[12pt]{article}
+
+\usepackage{graphicx,amsfonts,amsbsy,bbm, amsmath}
+
+\begin{document}
+\bibliographystyle{plain}
+\maketitle
+
+
+\section{Introduction}
+The number of degrees of freedom measures the rigidity of an intermediate, but some intermediates with the same number of degrees of freedom may have varying degrees of mobility. We seek to quantify an intermediate's mobility by the relative amount of movement the intermediate has for a small movement in its configuration space. Intermediates with the most mobility will move less than the less mobile intermediates for the same amount of movement in configuration space.  
+
+\section{Methods}
+% What is the configuration space?
+Each octahedron intermediate is composed of 8 equilateral triangles connected to each other along edges. We make the assumption that these triangles are rigid and cannot be deformed. Furthermore, when two triangles meet at an edge, they move relative to each other as if connected by an ideal hinge. Every configuration has 6 trivial degrees of freedom corresponding to the 3 translation degrees of freedom and the 3 rotational degrees of freedom. Since we are interested in the motion of an intermediate's faces relative to each other, we remove these trivial degrees of freedom by picking a single face to fix in space. Depending on the connectivity of the triangle's edges, an intermediate 
+may still have degrees of freedom. The Octahedron intermediate (83), being a convex polyhedron, is rigid and has no non-trivial degrees of freedom as given by Cauchy's Theorem. However, this is not the case for most of the intermediates.
+
+We formalize the concept of the configuration space, by defining it to be the subset of an ambient parameter space that satisfies constraint equations that correspond to our assumptions. Since the are 8 faces in each intermediate and each face has 3 vertices each with 3 spacial coordinates (x,y,z), we use $\mathbb{R}^{8\times 3 \times 3} = \mathbb{R}^{72}$ as our ambient space. We then have 3 types of constraint equations: base face constraints, rigid face constraints, and hinge constraints. Every admissible configuration of an intermediate will be a point in $\mathbb{R}^{72}$ that satisfies the constraint equations and any admissible movement of a configuration (if possible) is a continuous movement in the subset of $\mathbb{R}^{72}$ where these constraints are satisfied. 
+
+Since our constraint equations can all be expressed as polynomials, the configuration space which is the corresponding solution set is an Algebraic variety. The number of degrees of freedom of a configuration is the local dimension of this algebraic variety as a subset of $\mathbb{R}^{72}$. In the case of octahedron intermediates, the number of degrees of freedom is not an informative way of classifying which intermediates are dominant as intermediates $1-11$ have $7$ degrees of freedom, $12-33$ have $5$, $34-65$ have $3$, $66-82$ have $1$ and the Octahedron (83) and Boat (84) have $0$ degrees of freedom. Thus, a different measure the mobility of a configuration is required to differentiate intermediates. It is important to note that degrees of freedom of in intermediate can theoretically change based on the region of configuration space. However, in practice we have not observed an intermediate's degrees of freedom change in this way. 
+
+We define the \textit{canonical configuration} of an intermediate, to be that in which each hinge forms a $180^\circ$ angle when the hinge does not have a vertex connection at either end and in the case of a closed vertex, the hinge's angle corresponds to the Octahedral angle. In cases where the intermediate cannot form an octahedron, we can use the Boat configuration's angles instead.
+
+% How do we move in the configuration space?
+Given a particular configuration $X$, if we wish to make a small move in configuration space, we first find the null space of the Jacobian matrix of the constraint equations. Since this null space corresponds to the directions in which the constraint equations are not changing, the constraints will remain satisfied. The null space can be represented by an orthonormal basis $N \in \mathbb{R}^{72\times d}$, where $d$ is the number of degrees of freedom of the configuration. Then, by taking a small step of size $\epsilon$ in each of the $d$ directions we get the configurations $X + \epsilon N_{\cdot,k}$. 
+% How do we measure the magnitude of a movement in configuration space?
+
+We define the \textit{mobility} of a configuration to be the $L^2$ norm of the gradient of the configuration space. To approximate this, we measure the mean squared distance between each point of $X$ and $X \pm \epsilon N_{\cdot,k}$ in each of the $d$ directions of $N$, take the norm, and divide by $\epsilon$. This is given by Equation~\ref{eq:r1} where $\triangle_f$ refers to the $f$th face of the intermediate and $r\left(X\right)$ is the point we are integrating over and $r\left(X+\sigma \epsilon N_{\cdot,k}\right)$ is the corresponding point in the altered configuration. 
+
+
+To explicitly define the rotation and translation of each face by the movement in configuration space, we use the algorithm given by Arun et al~\cite{Arunetal1987}. Given two sets of points $P,P' \in \mathbb{R}^{3\times n}$ in 3D space, the algorithm finds the rotation matrix $R$ and translation vector $b$ minimizing the least squares error of $P' \approx R P + b$. By using the three vertices of face $f$ as $P$ and their perturbed values as $P'$, we use this algorithm to find the rotation matrix $R_f$ and translation vector $b_f$ to describe the rigid movement of face $f$ in the configuration space. This leads to the formulation in Equation~\ref{eq:r3}.  
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.61\textwidth]{triangle_fig.png}
+  \caption{Coordinates of rotated triangle for integration.}
+  \label{fig:tri}
+\end{figure}
+
+To make this integral easier to solve, we introduce a change of variables that enables us to integrate in the $x-y$ plane. If the the original triangle $f$ has vertices of $a', b',$ and $c'$, we consider the triangle with vertices at the coordinates $a = (0,0,0), b = (|a-b|,0,0),$ and $c = (\alpha,\beta,0)$ as seen in Figure~\ref{fig:tri}. Here, the choices $\alpha = \frac{|a-b|^2 + |a-c|^2 - |b-c|^2 }{2|a-b|}$ and $\beta = \sqrt{|a-c|^2-\alpha^2}$ yield a triangle congruent to the original. Using the Arun et al~\cite{Arunetal1987} algorithm again, we find the rotation matrix $S_f$ and translation vector $c_f$ that gives $[a',b',c'] = S_f[a,b,c] + c_f$. Using this we perform a change of variables and integrate over $s$ and $t$. This results in an simple double integral over a quadratic function of $s$ and $t$ with constants $u,v,w \in \mathbb{R}^3$ as seen in Equation~\ref{eq:r5}.
+{\tiny
+\begin{align}
+\mathcal{R}\left(x\right) &= \frac{1}{\epsilon}\left(\sum_{k=1}^d \sum_{f=1}^8 \int_{\triangle_f}\left|\frac{r\left(x+\epsilon N_{\cdot,k}\right) - r\left(x\right)}{2\sqrt{3}}\right|^2\right)^{\frac{1}{2}} \label{eq:r1}  \\
+&= \frac{1}{2\sqrt{3}\epsilon}\left( \sum_{k=1}^d \sum_{f=1}^8 \int_{\triangle_f}\left|R_fr+b_f - r\right|^2\right)^{\frac{1}{2}} \label{eq:r2} \\
+&= \frac{1}{2\sqrt{3}\epsilon}\left( \sum_{k=1}^d \sum_{f=1}^8 \int_{\triangle_f}\left|\left(R_f-I\right)r+b_f\right|^2\right)^{\frac{1}{2}} \label{eq:r3} \\
+&= \frac{1}{2\sqrt{3}\epsilon}\left( \sum_{k=1}^d \sum_{f=1}^8 \int_{0}^{\beta}\int_{\frac{\alpha}{\beta}t}^{|a-b| + \frac{\alpha- |a-b|}{\beta}t}\left|\left(R_f-I\right)\left(S_f\begin{bmatrix} s \\[0.3em] t \\[0.3em] 0 \end{bmatrix} + c_f\right)+b_f\right|^2ds dt\right)^{\frac{1}{2}} \label{eq:r4} \\
+&= \frac{1}{2\sqrt{3}\epsilon}\left( \sum_{k=1}^d \sum_{f=1}^8 \int_{0}^{\beta}\int_{\frac{\alpha}{\beta}t}^{|a-b| + \frac{\alpha- |a-b|}{\beta}t}\left|u + sv + tw\right|^2ds dt\right)^{\frac{1}{2}} \label{eq:r5} 
+\end{align} 
+}    
+% Why does the choice of the base constraint matter and how do we deal with it?
+
+Unfortunately, the particular choice of base face affects the mobility. To rectify this bias, we compute the mobility with each of the eight faces as the base and take the average. This gives the final mobility in Equation~\ref{eq:r6}. 
+{\tiny
+\begin{align}
+\mathcal{R} &= \frac{1}{8}\sum_{g=1}^8\mathcal{R}_g \\
+&= \frac{1}{16\sqrt{3}\epsilon}\sum_{g=1}^8\left( \sum_{k=1}^d \sum_{f=1}^8 \int_{0}^{\beta}\int_{\frac{\alpha}{\beta}t}^{|a-b| + \frac{\alpha- |a-b|}{\beta}t}\left|u + sv + tw\right|^2ds dt\right)^{\frac{1}{2}} \label{eq:r6} 
+\end{align}     
+}
+
+\section{Results}
+
+Mobility was computed for all octahedral intermediates in their canonical configuration. The perturbation parameter $\epsilon = 10^{-6}$ was selected, but the mobility showed to be robust to both smaller and larger values. Figure~\ref{fig:t1} outlines the results. From these calculations, it is clear that while mobility is highly correlated to degrees of freedom, mobility gives additional information about an intermediate's configuration space. Interestingly, all nets had the same mobility. Similarly, the symmetric pairs (14,16), (15,18), (19,20), (34,38), and (36,39) have matching mobility values. Of the intermediates with 5 degrees of freedom, 19 and 20 had the lowest mobility and 17 had the highest. As for intermediates with 3 degrees of freedom, 35 was the least mobile and 37 was the most mobile.        
+
+\begin{figure}[h!]
+\label{fig:t1}
+\centering
+\scalebox{.9}{
+\begin{tabular}{ l | c }
+  Intermediate & Mobility  \\
+  \hline\hline
+1 &  0.20518 \\
+2 &  0.20518 \\
+3 &  0.20518 \\
+4 &  0.20518 \\
+5 &  0.20518 \\
+6 &  0.20518 \\
+7 &  0.20518 \\
+8 &  0.20518 \\
+9 &  0.20518 \\
+10 & 0.20518 \\
+11 & 0.20518 \\\hline
+12 & 0.18376 \\
+13 & 0.18313 \\
+14 & 0.18249 \\
+15 & 0.18171 \\
+16 & 0.18249 \\
+17 & 0.18634 \\
+18 & 0.18171 \\
+19 & 0.18102 \\
+20 & 0.18102 \\
+21 & 0.18255 \\
+22 & 0.18485 \\\hline
+34 & 0.14487 \\
+35 & 0.14350 \\
+36 & 0.14530 \\
+37 & 0.14973 \\
+38 & 0.14487 \\
+39 & 0.14530 \\\hline
+66 & 0.07954 \\\hline
+83 & 0.00000 \\
+\end{tabular}
+}
+\caption{A table with the mobility of octahedral intermediates.}
+\end{figure}
+
+\bibliography{Master}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

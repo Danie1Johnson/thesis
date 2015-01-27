@@ -1,0 +1,81 @@
+% LaTeX resume using res.cls
+\documentclass[margin]{res}
+%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
+%\usepackage{newcent}   % uses new century schoolbook postscript font 
+\setlength{\textwidth}{5.1in} % set width of text portion
+
+\begin{document}
+
+% Center the name over the entire width of resume:
+ \moveleft.5\hoffset\centerline{\large\bf Daniel C. L. Johnson}
+% Draw a horizontal line the whole width of resume:
+ \moveleft\hoffset\vbox{\hrule width\resumewidth height 1pt}\smallskip
+% address begins here
+% Again, the address lines must be centered over entire width of resume:
+ \moveleft.5\hoffset\centerline{DanCLJohnson@gmail.com --- (585) 690-2073}
+
+
+\begin{resume}
+
+\section{EDUCATION} 	{\bf Brown University}, Providence, RI \\
+			{\sl Ph.D., Applied Mathematics}, expected December 2014 \\
+			{\sl Sc.M., Applied Mathematics}, May 2012 
+ 
+ 			{\bf Rensselaer Polytechnic Institute}, Troy, NY \\
+			{\sl B.S., magna cum laude, Mathematics}, May 2009 
+
+\section{RESEARCH EXPERIENCE} {\bf Dissertation Research}, Brown University, July 2012 -- Present
+				\begin{itemize}\itemsep -2pt
+                                \item Examined self-assembly processes using geometric models and Markov methods. 
+                                  \item Synthesized information from publications across many different disciplines, including computational chemistry, Bayesian statistics, and nanotechnology.
+                                  \item Developed Python modules, implementing algorithms from a variety of fields.
+                                  \item Visualized computational results to demonstrate research findings.
+				\end{itemize}
+			      {\bf Kobe-Brown Summer Simulation School}, Kobe, Japan, August 2013
+				\begin{itemize}\itemsep -2pt
+                                  \item Collaborated on computing project with Kobe University students.
+                                  \item Created 3D visualizations for CAVE environments using ParaView.
+				\end{itemize}
+
+\section{PROFESSIONAL EXPERIENCE} {\bf Statistical Consultant}, Pleio Health Support Systems, July 2012 -- Present 
+				\begin{itemize}\itemsep -2pt
+                                  \item Developed Python code to parse, clean, and analyze data from over 200,000 prescription records.
+                                  \item Reduced prediction intervals for estimating yield rates of company programs by 46\% using a Bayesian generative model.
+                                  \item Authored report on sampling bias in Pleio trial groups, won Bronze Medal for abstracts at Academy of Managed Care 26th Annual Meeting.
+                                  \item Validated statistical methodology used by Pleio for marketing purposes. 
+				\end{itemize}
+                                			
+
+\section{COMPUTING SKILLS}	{\sl Languages:} Python (with NumPy, SciPy, and matplotlib), C++, MATLAB, \LaTeX.
+
+				{\sl Selected Scientific Algorithms:} Markov chain Monte Carlo, constrained dynamics, dynamic programming, kernel density estimation, ODE solvers.
+
+ 
+\section{PUBLICATIONS} Barranca, V., Johnson, D., et al. ``Dynamics of the exponential integrate-and-fire model with slow currents and adaptation'', {\sl Journal of Computational Neuroscience,} 2014. 
+
+			Pandey, S., Johnson, D., et al. ``Self-assembly of mesoscale isomers: The role of pathways and degrees of freedom,'' {\sl PLOS ONE,} Accepted.
+
+
+\section{PERSONAL INTERESTS} 	{\bf Bayesian Sports Prediction}, February 2013 -- Present 
+				\begin{itemize} \itemsep -2pt
+                                  \item Designed Bayesian models for predicting NCAA Basketball and English Premier League results, implemented inference schemes in Python.  
+                                \end{itemize}
+                                {\bf Squash}, Brown University Squash Club, October 2010 -- Present 
+				\begin{itemize}\itemsep -2pt
+                                  \item Captained team to three consecutive Rhode Island Squash championships.
+				\end{itemize}
+                                
+
+\end{resume}
+\end{document}
+
+
+
+%
+%                {\sl Research Programmer} \hfill            Summer 1990 \\
+%                Psychology Department, Rensselaer Polytechnic 
+%                Institute 
+%                 \begin{itemize}  \itemsep -2pt %reduce space between items
+%                 \item Performed computer aided statistical analysis 
+%                    of data. 
+%                 \end{itemize} 

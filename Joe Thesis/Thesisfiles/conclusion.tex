@@ -1,0 +1,21 @@
+%&latex
+In the previous chapters, we constructed two examples of PDMPs, the dynamic shuffler and the $k$-species model, and proved hydrodynamic limit theorems for their particle densities. While the dynamic shuffler can be seen as an illuminating example for illustrating PDMPs, it would be inaccurate to call it a simplification of the $k$-species model.   Unlike the $k$-species model, the dynamic shuffler conserves total number, and critical events change particle sizes.  This  mixing  behavior allows us to analyze attractors. 
+
+
+
+
+The fluid limit of the $k$-species model can be interpreted as a result in queueing theory for aggressive crowds.  In our model, particles can be seen as customers who are served upon reaching the origin. A served customer triggers other customers to ``cut" into other lines. This carries similarities to a queueing model of call centers from Kang and Ramanan \cite{kang2010fluid} that analyzes fluid limits of queues with ``impatient" customers, who after waiting a certain time without service, remove themselves from the model. Customers  are served on a First-Come-First-Serve basis, and service times are not immediate. The weak formulations of the limiting kinetic equations (3.5) in \cite{kang2010fluid} and (\ref{limeq}) include Stieltjes integrals with cumulative distributions of served customers. In the $k$-species model, if the cumulative densities $F_l(t), l= 1, \dots, M_-$ are sufficiently smooth, then their derivatives $dF_l(t) = v_l(0)u_l(0,t)dt$ are described by  behavior at a single point of limiting densities $u_l(x,t)$.  This is why we require both $L^\infty$ and $L^1$ estimates in the well-posedness analysis of Section  \ref{uniquesect}.     
+
+     The underlying motivation for analyzing such queues, however, is an explanation of grain boundary coarsening.  Direct simulation of coarsening through calculating discrete curvatures involves a great deal of computation.  Also, such methods  inevitably face the fundamental question of flowing through a singularity, which remains an unresolved issue.  On the other hand, mean field models assume, a priori, the existence of continuous fluid limits, and therefore close the question of measure valued behavior. Interpreting the $k$-species model as a mean field description of grain growth carries several advantages.  For instance, prelimiting empirical distributions are, by definition, measure-valued.  This allows for an investigation of coarsening in a much larger class of initial data.  This interpretation also simplifies proofs of certain grain statistics, such as the conservation of area and polyhedral defect, by allow us to pass limits in the uniform metric.  Finally, it should be mentioned that simulation of the grain coarsening PDMP is essentially a sorting problem, and thus is not difficult to implement. 
+
+The generality of the $k$-species model allows for a wide variety of interpretation.  However, there are certainly more places to generalize.  For instance, we may want to consider countable tiers, or particles that advect in domains of $\mathbb R^n$.  Also, a better understanding of well-posedness for measure-valued initial data would exploit the advantages for working with measure-valued empirical distributions in the $k$-species PDMP. Regularity results, along improved results on existence times, can illuminate universal grain statistics.  There are several open questions that deserve attention.  For instance, grain densities do not converge to stationary solutions, but certain statistics, such as the distribution of $n$-gons, seem to reach a steady state. For the dynamic shuffler, we have addressed universal attractors for non-arithmetic redistributions, but understanding limiting cyclic behavior of point masses on a lattice would give a more complete cataloguing of long time behavior for measure-valued solutions.    These questions, among others, all share a common goal:  describe complex phenomena as a  limit of finite systems that obey simple rules.        
+
+    
+
+ 
+
+  
+
+       
+
+  

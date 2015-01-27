@@ -1,0 +1,391 @@
+%\lipsum[81-100]
+
+%\begin{figure}
+%  \centering
+%  \input{tikz/picture1}
+%  \caption[Awesome picture]{Isn't this picture awesome?}
+%\end{figure}
+%
+%\begin{figure}
+%  \centering
+%  \input{tikz/picture2}
+%  \caption[Tubular picture]{Totally tubular, dude}
+%\end{figure}
+
+
+
+\section{Computing the Degrees of Freedom of a 3D Linkage}
+
+We consider the linkage of rigid 2-dimensional polygons in $\mathbb{R}^3$ by means of ideal hinges located at the edges of the polygons. In this way, by treating intermediates of our various models as such a linkage, we can compute the non-trivial degrees of freedom (DoF) each intermediate has. Every linkage of this type has 6 trivial degrees of freedom: 3 corresponding to translational movement and 3 corresponding to rotational freedom. While these freedoms do change the orientation of the intermediate, they do not cause the faces to move relative to each other. For this reason, we label them as trivial degrees of freedom and focus on the calculation the remaining, non-trivial degrees of freedom. Since the concept of degrees of freedom exists in many diverse scientific fields, such as mechanical engineering and statistical physics, many different formal definitions of DoF are used in the literature. McCarthy defines degrees of freedom of a mechanical system as follows. 
+\begin{quote}
+We derive formulas for the number of parameters needed to specify the configuration of a mechanism, in terms of the number of links and joints and the freedom of movement allowed at each joint. This number is the \textit{degrees of freedom} or \textit{mobility} of the mechanism. Changing the values of these parameters changes the configuration of the mechanism. Thus, if we view the set of all configuration available to a mechanism as a manifold, then the mobility of the mechanism is the dimension of this manifold. 
+\end{quote}
+For our purposes, we define the \textbf{degrees of freedom} of a configuration to be the difference between the number of parameters needed to specify a configuration in an ambient parameter space $\Omega$ and the number of independent constraints imposed upon the configuration as a function of these parameters. Consequently, the non-trivial degrees of freedom is the number of degrees of freedom minus the six trivial degrees of freedom. If the ambiant parameter space is $\mathbb{R}^N$ and there are $M$ constraint equations given by $\varphi : \mathbb{R}^N \to \mathbb{R}^M$, we find the degrees of freedom to be $N - \operatorname{rank}(\varphi)$ and the non-trivial degrees of freedom to be $N - \operatorname{rank}(\varphi) - 6$. Here we need $\varphi$ to be a smooth map so that the rank is well defined. Furthermore, we define the \textbf{configuration space} to be the subset of parameter space $\{\omega \in \Omega : \varphi(\omega) = 0\}$ upon which the contraints are satisfied.
+
+In our case, the location and orientation of each polygon in the linkage can be represented by a total of 6 parameters: 3 for location and 3 for roational orientation. Thus, the entire configuration of an intermediate $x$ can be represented in the parameter space $\mathbb{R}^{F_x\times6}$. With constraints corresponding to hinged connections we construct a function $\varphi$ which is zero if and only if the constraints are satisfied. Thus the configuration space is $\{z \in \mathbb{R}^{F_x\times6} : \varphi(z) =0\}$. As we will show below, the constraint equation $\varphi$ can be constructed as a polynomial which means that the configuration space (as the zero set of this polynomial) is an algebraic variety. 
+
+ PARAGRAPH ON DIFFERENT DOF VALS AT DIFFERENT CONFIGS OF SAME INTERMEDIATE We refer to the embedded configuration of $x$ such that $x$ is a subset of the original polyhedron as the \textbf{canonical configuration}.
+
+To mathematically describe a particular configuration, we specify the locations of the vertices of each face. Thus, the configuration space can be described as a manifold embegged in $\mathbb{R}^{3\times N_x}$ where $N_x \doteq \sum_{f\in \left(\mathcal{P}\right)}s_f\mathbbm{1}_{f\subset x}$ and $s_f$ is the number of sides (and verticies) of face $f$. By parameterizing the configuration space as enmedding of the ambient space $\mathbb{R}^{3\times N_x}$, we must then identify the corresponding constaint equations as a function of points in ambient space. It is worth noting that while we represent each face with $3\times s_b$ coordinates, only 6 are required to speciafy a face's position and orientation if they are chosen carefully. However, this redundancy will be removed via the constraint equations. Notationally, we refer to the $k$th vertex of the $j$th face of $x$ as $v^{jk} = \left(v^{jk}_x,v^{jk}_y,v^{jk}_z\right)$. There are five fundamental types of constraint equations: base constraints, edge length constraints, vertex identification constraints, angle constraints, and 2D face constraint. 
+
+The base constaints are put in place to fix one of the intermediate's faces in space to remove the 6 trivial degrees of freedom from the calculation. If $f_b$ is the face we wish to designate as the base we have the following $3\times s_b$ constraint equations
+\begin{align}
+\psi_{base}^{k,x}\left(\mathbf{v}\right)& = v^{b,k}_x - c^{b,k}_x \\
+\psi_{base}^{k,y}\left(\mathbf{v}\right)& = v^{b,k}_y - c^{b,k}_y \\
+\psi_{base}^{k,z}\left(\mathbf{v}\right)& = v^{b,k}_z - c^{b,k}_z
+\end{align}  
+for $k = 1,\dots,s_b$ and with $c^{b,k}_\bullet$ a known constant. The corresponding Jacobian calculation for each constraint equations is:
+\[
+\frac{\partial\psi_{base}^{k,\bullet}}{\partial v} =
+  \begin{cases}
+   1 & \text{if } v = v^{b,k}_\bullet \\
+   0       & \text{else} 
+  \end{cases}
+\]
+
+Edge length constraints enforce that the lengths of the edges of each face in an intermediate cannot change. Since there are $s_j$ edges for each face $f_j$ of intermediate $x$, there are $N_x$ corresponsing edge constraints. 
+\begin{align}
+\psi_{edge}^{j,k}\left(\mathbf{v}\right)& = \left|v^{j,k} - v^{j,k-1}\right|^2 - \ell_{j,k}^2 \\
+& = \left(v_x^{j,k} - v_x^{j,k-1}\right)^2 +\left(v_y^{j,k} - v_y^{j,k-1}\right)^2 +\left(v_z^{j,k} - v_z^{j,k-1}\right)^2 - \ell_{j,k}^2 
+\end{align}  
+for all $j: f_j \subset x$ and with the convention that $v^{j,0} \doteq v^{j,s_j}$ and $\ell_{j,k}$ is a known constant. The resulting partial derivatives are
+\[
+	\frac{\partial\psi_{edge}^{j,k}}{\partial v} =
+  	\begin{cases}
+        	2\left(v^{j,k}_\bullet-v^{j,k-1}_\bullet\right) 	& \text{if } v = v^{j,k}_\bullet \\
+   		-2\left(v^{j,k}_\bullet-v^{j,k-1}_\bullet\right) 	& \text{if } v = v^{j,k-1}_\bullet \\
+   		0       & \text{else} 
+  	\end{cases}
+\]
+%--definiteion of 'base configuration'
+%--representation of config space definition as system of constraint equations
+%--solution of the constraint equations is a manifold except perhaps at some 'sp0ecial' configurations
+%--define DoF as 6N - rank of the jacobian of the CEqs evaluated at the base config
+
+%--go through computation of jacobian  
+
+
+\section{Introduction}\label{introduction}
+Cyclohexane is a molecule composed of six carbon atoms and twelve hydrogen atoms. The carbon atoms are connected in a ring with two hydrogen atoms attaching to each carbon. Since each carbon has four bonds, the energetically preferred bond spacing is at tetrahedral angles. While this preference dictates much of the cyclohexane structure, there are several structurally distinct conformations the molecule can take. 
+
+Of the many forces acting on the cyclohexane molecule, we focus on three. \textbf{Eclipsing strain} refers to the force between the carbon atoms that prevents them from getting too close to each other. This imposes a preferred distance between each pair of bonded atoms. Second, \textbf{angle strain} corresponds to the carbon atom's four bonds trying to spread apart from each other. As mentioned before, tetrahedral angles are preferred. Finally, \textbf{steric crowding} is similar to eclipsing strain, but the eclipsing in this case is between the hydrogen atoms bonded to the carbons.
+
+\subsection{Configurations}
+
+Due to the aforementioned forces, there are a variety of frequently observed configurations with geometries that alleviate these strains to varying amounts. 
+
+The lowest energy configuration is the \textbf{chair}. With the absence of both angle and eclipsing strain, the chair only has a small amount of steric strain. 
+
+Another well studied configuration is the \textbf{boat}. With two sets of parallel carbons arranged in a planar rectangular structure, the remaining two carbon atoms sit at opposite ends slightly above the plain. The structure resembles the bow and stern of a boat. Despite having little angle strain, it does have some steric crowding between the hydrogen atoms at the ends of the boat as well as some eclipsing stain.
+
+
+
+\begin{figure}
+        %\centering
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_chair_1.png}
+%                %\caption{Chair}
+%                %\label{fig:Chair}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_boat_1.png}
+%                %\caption{Boat}
+%                %\label{fig:Boat}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_twist_boat_2.png}
+%                %\caption{Twist Boat}
+%                %\label{fig:TwistBoat}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_twist_chair_2.png}
+%                %\caption{Twist Chair}
+%                %\label{fig:TwistChair}
+%        \end{subfigure}%
+%
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_chair_2.png}
+%                %\caption{Chair}
+%                %\label{fig:Chair}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_boat_2.png}
+%                %\caption{Boat}
+%                %\label{fig:Boat}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_twist_boat_1.png}
+%                %\caption{Twist Boat}
+%                %\label{fig:TwistBoat}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_twist_chair_1.png}
+%                %\caption{Twist Chair}
+%                %\label{fig:TwistChair}
+%        \end{subfigure}%
+%
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_chair_3.png}
+%                \caption{Chair}
+%                \label{fig:Chair}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_boat_3.png}
+%                \caption{Boat}
+%                \label{fig:Boat}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_twist_boat_3.png}
+%                \caption{Twist Boat}
+%                \label{fig:TwistBoat}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_twist_chair_3.png}
+%                \caption{Twist Chair}
+%                \label{fig:TwistChair}
+%        \end{subfigure}%
+%
+%
+%        \caption{Cyclohexane Configurations}\label{fig:animals}
+\end{figure}
+
+
+Besides the chair and boat, there are a few intermediate configurations that cyclohexane assumes as when it transitions between the chair and boat. The aptly named \textbf{twist boat} is similar to the boat, but some of the carbons are rotated from the rest of the molecule. Due to this twisting, the twist boat actually has a lower energy than the boat as the hydrogen atoms at the bow and stern are no longer aligned. Interestingly, the boat can transition via the twist boat to a second boat configuration in which the bow and stern atoms are different, but with an otherwise indistinguishable geometry. As part of the boat's transition to the chair, the \textbf{twist chair} is another distinguished configuration. Having large angle and eclipsing strains, the twist boat represents somewhat of an energy barrier between the chair and boat.  
+
+\subsection{Sachse Model}
+
+Around the turn of the century, it was thought that cyclohexane's carbon atoms must lie in a plane. A young German assistant, Hermann Sachse, had the idea that allowing the carbons to lie outside the plan could alleviate the angle strain. Inspired by polyhedral geometry, he templates and outlined methods for creating 3D models of the chair and boat configurations his new theory conceptualized. Figure~\ref{fig:sachse} shows a construction of these two models. Despite his best efforts, Sachse's ideas were not accepted by that chemistry community until after his death. 
+
+
+
+\begin{figure}
+        %\centering
+        %\begin{subfigure}[b]{0.24\textwidth}
+        %        \includegraphics[width=\textwidth]{chair_model_2.png}
+        %        \caption{Chair (top)}
+        %        \label{fig:CM1}
+        %\end{subfigure}%
+        %~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+        %  %(or a blank line to force the subfigure onto a new line)
+        %\begin{subfigure}[b]{0.24\textwidth}
+        %        \includegraphics[width=\textwidth]{chair_model_1.png}
+        %        \caption{Chair (side)}
+        %        \label{fig:CM2}
+        %\end{subfigure}%
+        %~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+        %  %(or a blank line to force the subfigure onto a new line)
+        %\begin{subfigure}[b]{0.24\textwidth}
+        %        \includegraphics[width=\textwidth]{boat_model_1.png}
+        %        \caption{Boat (top)}
+        %        \label{fig:BM1}
+        %\end{subfigure}%
+        %~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+        %  %(or a blank line to force the subfigure onto a new line)
+        %\begin{subfigure}[b]{0.24\textwidth}
+        %        \includegraphics[width=\textwidth]{boat_model_2.png}
+        %        \caption{Boat (side)}
+        %        \label{fig:BM2}
+        %\end{subfigure}%
+        %\caption{Sachse Models}\label{fig:sachse}
+\end{figure}
+
+
+\section{Idealized Constraint Model}\label{building_game}
+
+Withe the eclipsing and angle strains in mind, we heuristically define an idealized model of cyclohexane by imposing geometric constraints. Each configuration is represented by the 3-dimensional locations of the center of its carbon atoms and we explicitly parameterize these locations as $v_1, v_2, \dots, v_6$ where $v_k \in \mathbb{R}^3$. For ease of exposition, $v_0 \doteq v_6$ and $v_{-1} \doteq v_5$ are notationally identified. 
+
+First, we require that any two atoms sharing a bond have a known and fixed distance $\ell$ from each other. Since we can re-scale our coordinate system, we assume $\ell \doteq 1$. Additionally, we assume that the connectivity of the cyclohexane molecule is such that $v_k$ is bonded to $v_{k-1}$ for $k = 1,\dots,6$. This gives our first six constraint equations.
+$$0 = \varphi_{len}^k\left(v_{k-1},v_{k}\right) = \|v_k-v_{k-1}\| - 1 $$
+for $k = 1,\dots,6$. 
+
+Additionally, we impose constraints representing the angle strain. Since the carbon atoms have the lowest energy when their bonds are at tetrahedral angles, we fix the angle of each set of three adjacent carbons to be at the tetrahedral angle. This is equivalent to the six angle constraint equations 
+$$0 = \phi_{ang}^k\left(v_{k-2},v_{k-1},v_{k}\right) = \left(v_k-v_{k-1}\right)\cdot \left(v_{k-2}-v_{k-1}\right) + \frac{1}{3}$$
+for $k = 1,\dots,6$.
+
+\subsection{Finding Intermediate Coordinates}
+
+Since any configuration has an infinitude of equivalent configurations given by rotations and translations, we fix the first three atoms $v_1, v_2,v_3$, at positions $c_1, c_2, c_3$ that satisfy the length and angle constraints. These account for nine of the twenty-one total constraint equations. 
+
+We wish to examine each of the four cyclohexane configurations to verify if they satisfy these constraints, but to do so, an explicit representation of the coordinates of each configuration is required. Since we know from Sachse's model that the boat and chair have a special polyhedral representation, geometry enables us to find such coordinates. We pick the $c_1 = \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right)$, $c_2 = \left(0,0,0\right)$, $c_3  = \left(\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right)$, and solve for the following coordinates.
+
+\begin{align*}
+v_1^{(chair)} &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) &= v_1^{(boat)} &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) \\
+v_2^{(chair)}  &= \left(0,0,0\right) &= v_2^{(boat)}  &= \left(0,0,0\right) \\
+v_3^{(chair)}  &= \left(\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) &= v_3^{(boat)}  &= \left(\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) \\
+v_4^{(chair)}  &= \left(\sqrt{\frac{2}{3}},\sqrt{\frac{2}{3}},2\sqrt{\frac{1}{3}}\right) &= v_4^{(boat)}  &= \left(\sqrt{\frac{2}{3}},\sqrt{\frac{2}{3}},2\sqrt{\frac{1}{3}}\right) \\
+v_5^{(chair)}  &= \left(0,\sqrt{\frac{2}{3}},\sqrt{3}\right) & v_5^{(boat)}  &= \left(0,\frac{5}{3}\sqrt{\frac{2}{3}},\frac{5}{3}\sqrt{3}\right) \\
+v_6^{(chair)}  &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) &= v_6^{(boat)}  &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right)
+\end{align*}
+%\begin{align*}
+%v_1^{(chair)} &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) & v_4^{(chair)}  &= \left(\sqrt{\frac{2}{3}},\sqrt{\frac{2}{3}},2\sqrt{\frac{1}{3}}\right) \\
+%v_2^{(chair)}  &= \left(0,0,0\right) & v_5^{(chair)}  &= \left(0,\sqrt{\frac{2}{3}},\sqrt{3}\right) \\
+%v_3^{(chair)}  &= \left(\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) & v_6^{(chair)}  &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) \\
+%v_1^{(boat)} &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) & v_4^{(boat)}  &= \left(\sqrt{\frac{2}{3}},\sqrt{\frac{2}{3}},2\sqrt{\frac{1}{3}}\right) \\
+%v_2^{(boat)}  &= \left(0,0,0\right) & v_5^{(boat)}  &= \left(0,\sqrt{\frac{2}{3}},\sqrt{3}\right) \\
+%v_3^{(boat)}  &= \left(\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) & v_6^{(boat)}  &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right)
+%\end{align*}
+
+It is easily verified that both the boat and chair coordinates satisfy all of the constraint equations exactly. As for the twist boat and twist chair, we do not have a precise definition of their coordinates other than they exist somewhere in transition between the boat and chair.  
+
+\section{Dynamics}
+
+As we are interested in transitions between the four configurations, we can use our constraint model to examine such movements. Is it possible to start with the chair coordinates and continuously deform them to the boat coordinates without ever breaking any of the constraints? Is there a similar deformation between different boat configurations that satisfies the constraints? If so, how hard is it to find such a path?
+ 
+\subsection{Degrees of Freedom in Ideal Model}
+
+The first step in answering these questions is determining whether there is any degrees of freedom to each configuration or whether they are rigid. This can be determined by using established theory on rigidity of linkages and degrees of freedom. By computing the Jacobian matrix $J(v)$ of the system of constraint equations, we have the following equation for the degrees of freedom for a constraint satisfying set of coordinates $v$.
+$$DoF(v) = 18 - rank(J(v))$$
+When the Jacobian is of full rank 18, none of the constraints are dependent on each other and thus there is no freedom in the linkage. When testing the chair, we found there to be $0$ degrees of freedom, meaning that it is impossible to make a transition from the chair to another configuration without breaking one or more of the constraint equations. For the boat, however, one degree of freedom was found. This result shows that it is possible to deform the boat continuously while satisfying the constraints, but it is not informative as to which configurations it can deform to. In particular, we are interested in finding a path to he twist boat or another boat configuration. 
+
+\subsection{Transitioning Between Boat Configurations}
+
+Under the conjecture that it is indeed possible to transition between two boat configurations, some numerical and visual experimentation was used to find coordinates to a second boat configuration, $\textbf{boat2}$. Even though it was easily verified that boat2 satisfies all of the constraints and was equivalent to the first boat by translation and rotation up to a permutation of the carbon atoms, it was not clear how to find a path between the two boats. Common in molecular dynamics simulations, a constrained dynamics SHAKE-type scheme was used to explore the admissible paths away from the boat configuration.
+
+The method is a two stage scheme in which we first step to a new configuration in the direction of boat2 and second enforce the constraints with Lagrange multipliers to get the updated configuration. For mathematical simplicity, we represent the coordinates $v_1,\dots,v_6$ as a single point $x \in \mathbb{R}^{18}$ where $\left(v_j\right)_k = x_{3j+k}$. 
+
+It is very important to make the estimate $\hat{x}^{n+1}$ of the next configuration satisfy the constraints reasonably well, as it will make the correction step easier. Rather than just defining the naive update of
+$$\hat{x}^{n+1} = x^n + \frac{1}{2}\left(\Delta t\right)^2\left(x^{boat2}-x^n\right),$$
+we seek a smarter method for making the estimate $\hat{x}^{n+1}$. Since we know the that the boat has one degree of freedom, its null space has one dimension. If we step in the direction of null-space $\nu^n \in \mathbb{R}^{18}$, the constraints should still be close to being satisfied. Thus, we use the following estimate. 
+$$\hat{x}^{n+1} = x^n + \frac{1}{2}\left(\Delta t\right)^2\left[\nu^n\cdot\left(x^{boat2}-x^n\right)\frac{\nu^n}{\|\nu^n\|}\right]$$
+To enforce our constraints on this prediction, we use Lagrange multipliers. We define the update to be
+$$x^{n+1} = \hat{x}^{n+1} + \left(\Delta t\right)^2\sum^{21}_{k=1}\lambda_k^{n+1}\nabla\varphi_k\left(x^n\right)$$ 
+and find $\lambda^{n+1}$ such that $x^{n+1}$ satisfies the constraint equations. To do this, we plug $x^{n+1}$ into the constraint equations $\varphi$ and use Newton iteration to find $\lambda^{n+1}$.
+
+
+\begin{figure}
+	%\includegraphics[width=\textwidth]{coords_v3.png}
+	\caption{Boat to Boat2 Coordinate Transition}
+	\label{fig:Coords}
+\end{figure}
+
+Using this scheme, we were able to simulate the transition between the boat and boat2 configurations. While maintaining the constraints up to arbitrary precision, the carbon coordinates $x$ were updated along a path that lead from the boat to boat2. This serves as confirmation that it is possible to maintain the constraints given by our model and transition between boat and twist boat configurations. The continuous change in carbon coordinates during this transition can be seen in figure~\ref{fig:Coords}.
+
+This algorithm also enabled us to approximate coordinates for the twist boat as they were taken to be midway between the boat and boat2. Also, by relaxing the constraints to only enforce fixed lengths between carbons and allowing some angle strain, a path from the Chair to the twist boat was found. Similarly, this path allowed for the approximation of the twist chair coordinates.
+
+\section{Analogy to Folding Model}
+Transition between the different configurations of cyclohexane can be compared to the transitioning within the folding model configuration space. Just as each folding intermediate is represented by a node in a graph, the Cyclohexane intermediates can similarly be organized. In both graphs an edge would mean that the intermediates at either end could transition into each other. As seen in figure~\ref{fig:cyclofold}, to transition between the chair and the boat, the molecule must first become a twist-chair and then a twist boat before it can finally become a boat. Similarly, to transition between the boat and boat2, the twist boat intermediate must first be visited. This relationship is mirrored by the boat and octahedron folding intermediates.
+
+\begin{figure}[h]
+	%\includegraphics[width=\textwidth]{cyclohexane_folding.png}
+	\caption{Configuration Graphs for Cyclohexane and Folding}
+	\label{fig:cyclofold}
+\end{figure}
+
+
+
+
+
+
+
+\section{Introduction}
+The number of degrees of freedom measures the rigidity of an intermediate, but some intermediates with the same number of degrees of freedom may have varying degrees of mobility. We seek to quantify an intermediate's mobility by the relative amount of movement the intermediate has for a small movement in its configuration space. Intermediates with the most mobility will move less than the less mobile intermediates for the same amount of movement in configuration space.  
+
+\section{Methods}
+% What is the configuration space?
+Each octahedron intermediate is composed of 8 equilateral triangles connected to each other along edges. We make the assumption that these triangles are rigid and cannot be deformed. Furthermore, when two triangles meet at an edge, they move relative to each other as if connected by an ideal hinge. Every configuration has 6 trivial degrees of freedom corresponding to the 3 translation degrees of freedom and the 3 rotational degrees of freedom. Since we are interested in the motion of an intermediate's faces relative to each other, we remove these trivial degrees of freedom by picking a single face to fix in space. Depending on the connectivity of the triangle's edges, an intermediate 
+may still have degrees of freedom. The Octahedron intermediate (83), being a convex polyhedron, is rigid and has no non-trivial degrees of freedom as given by Cauchy's Theorem. However, this is not the case for most of the intermediates.
+
+We formalize the concept of the configuration space, by defining it to be the subset of an ambient parameter space that satisfies constraint equations that correspond to our assumptions. Since the are 8 faces in each intermediate and each face has 3 vertices each with 3 spacial coordinates (x,y,z), we use $\mathbb{R}^{8\times 3 \times 3} = \mathbb{R}^{72}$ as our ambient space. We then have 3 types of constraint equations: base face constraints, rigid face constraints, and hinge constraints. Every admissible configuration of an intermediate will be a point in $\mathbb{R}^{72}$ that satisfies the constraint equations and any admissible movement of a configuration (if possible) is a continuous movement in the subset of $\mathbb{R}^{72}$ where these constraints are satisfied. 
+
+Since our constraint equations can all be expressed as polynomials, the configuration space which is the corresponding solution set is an Algebraic variety. The number of degrees of freedom of a configuration is the local dimension of this algebraic variety as a subset of $\mathbb{R}^{72}$. In the case of octahedron intermediates, the number of degrees of freedom is not an informative way of classifying which intermediates are dominant as intermediates $1-11$ have $7$ degrees of freedom, $12-33$ have $5$, $34-65$ have $3$, $66-82$ have $1$ and the Octahedron (83) and Boat (84) have $0$ degrees of freedom. Thus, a different measure the mobility of a configuration is required to differentiate intermediates. It is important to note that degrees of freedom of in intermediate can theoretically change based on the region of configuration space. However, in practice we have not observed an intermediate's degrees of freedom change in this way. 
+
+We define the \textit{canonical configuration} of an intermediate, to be that in which each hinge forms a $180^\circ$ angle when the hinge does not have a vertex connection at either end and in the case of a closed vertex, the hinge's angle corresponds to the Octahedral angle. In cases where the intermediate cannot form an octahedron, we can use the Boat configuration's angles instead.
+
+% How do we move in the configuration space?
+Given a particular configuration $X$, if we wish to make a small move in configuration space, we first find the null space of the Jacobian matrix of the constraint equations. Since this null space corresponds to the directions in which the constraint equations are not changing, the constraints will remain satisfied. The null space can be represented by an orthonormal basis $N \in \mathbb{R}^{72\times d}$, where $d$ is the number of degrees of freedom of the configuration. Then, by taking a small step of size $\epsilon$ in each of the $d$ directions we get the configurations $X + \epsilon N_{\cdot,k}$. 
+% How do we measure the magnitude of a movement in configuration space?
+
+We define the \textit{mobility} of a configuration to be the $L^2$ norm of the gradient of the configuration space. To approximate this, we measure the mean squared distance between each point of $X$ and $X \pm \epsilon N_{\cdot,k}$ in each of the $d$ directions of $N$, take the norm, and divide by $\epsilon$. This is given by Equation~\ref{eq:r1} where $\triangle_f$ refers to the $f$th face of the intermediate and $r\left(X\right)$ is the point we are integrating over and $r\left(X+\sigma \epsilon N_{\cdot,k}\right)$ is the corresponding point in the altered configuration. 
+
+
+To explicitly define the rotation and translation of each face by the movement in configuration space, we use the algorithm given by Arun et al~\cite{Arunetal1987}. Given two sets of points $P,P' \in \mathbb{R}^{3\times n}$ in 3D space, the algorithm finds the rotation matrix $R$ and translation vector $b$ minimizing the least squares error of $P' \approx R P + b$. By using the three vertices of face $f$ as $P$ and their perturbed values as $P'$, we use this algorithm to find the rotation matrix $R_f$ and translation vector $b_f$ to describe the rigid movement of face $f$ in the configuration space. This leads to the formulation in Equation~\ref{eq:r3}.  
+\begin{figure}[h]
+  %\centering
+  %\includegraphics[width=0.61\textwidth]{triangle_fig.png}
+  %\caption{Coordinates of rotated triangle for integration.}
+  \label{fig:tri}
+\end{figure}
+
+To make this integral easier to solve, we introduce a change of variables that enables us to integrate in the $x-y$ plane. If the the original triangle $f$ has vertices of $a', b',$ and $c'$, we consider the triangle with vertices at the coordinates $a = (0,0,0), b = (|a-b|,0,0),$ and $c = (\alpha,\beta,0)$ as seen in Figure~\ref{fig:tri}. Here, the choices $\alpha = \frac{|a-b|^2 + |a-c|^2 - |b-c|^2 }{2|a-b|}$ and $\beta = \sqrt{|a-c|^2-\alpha^2}$ yield a triangle congruent to the original. Using the Arun et al~\cite{Arunetal1987} algorithm again, we find the rotation matrix $S_f$ and translation vector $c_f$ that gives $[a',b',c'] = S_f[a,b,c] + c_f$. Using this we perform a change of variables and integrate over $s$ and $t$. This results in an simple double integral over a quadratic function of $s$ and $t$ with constants $u,v,w \in \mathbb{R}^3$ as seen in Equation~\ref{eq:r5}.
+{\tiny
+\begin{align}
+\mathcal{R}\left(x\right) &= \frac{1}{\epsilon}\left(\sum_{k=1}^d \sum_{f=1}^8 \int_{\triangle_f}\left|\frac{r\left(x+\epsilon N_{\cdot,k}\right) - r\left(x\right)}{2\sqrt{3}}\right|^2\right)^{\frac{1}{2}} \label{eq:r1}  \\
+&= \frac{1}{2\sqrt{3}\epsilon}\left( \sum_{k=1}^d \sum_{f=1}^8 \int_{\triangle_f}\left|R_fr+b_f - r\right|^2\right)^{\frac{1}{2}} \label{eq:r2} \\
+&= \frac{1}{2\sqrt{3}\epsilon}\left( \sum_{k=1}^d \sum_{f=1}^8 \int_{\triangle_f}\left|\left(R_f-I\right)r+b_f\right|^2\right)^{\frac{1}{2}} \label{eq:r3} \\
+&= \frac{1}{2\sqrt{3}\epsilon}\left( \sum_{k=1}^d \sum_{f=1}^8 \int_{0}^{\beta}\int_{\frac{\alpha}{\beta}t}^{|a-b| + \frac{\alpha- |a-b|}{\beta}t}\left|\left(R_f-I\right)\left(S_f\begin{bmatrix} s \\[0.3em] t \\[0.3em] 0 \end{bmatrix} + c_f\right)+b_f\right|^2ds dt\right)^{\frac{1}{2}} \label{eq:r4} \\
+&= \frac{1}{2\sqrt{3}\epsilon}\left( \sum_{k=1}^d \sum_{f=1}^8 \int_{0}^{\beta}\int_{\frac{\alpha}{\beta}t}^{|a-b| + \frac{\alpha- |a-b|}{\beta}t}\left|u + sv + tw\right|^2ds dt\right)^{\frac{1}{2}} \label{eq:r5} 
+\end{align} 
+}    
+% Why does the choice of the base constraint matter and how do we deal with it?
+
+Unfortunately, the particular choice of base face affects the mobility. To rectify this bias, we compute the mobility with each of the eight faces as the base and take the average. This gives the final mobility in Equation~\ref{eq:r6}. 
+{\tiny
+\begin{align}
+\mathcal{R} &= \frac{1}{8}\sum_{g=1}^8\mathcal{R}_g \\
+&= \frac{1}{16\sqrt{3}\epsilon}\sum_{g=1}^8\left( \sum_{k=1}^d \sum_{f=1}^8 \int_{0}^{\beta}\int_{\frac{\alpha}{\beta}t}^{|a-b| + \frac{\alpha- |a-b|}{\beta}t}\left|u + sv + tw\right|^2ds dt\right)^{\frac{1}{2}} \label{eq:r6} 
+\end{align}     
+}
+
+\section{Results}
+
+Mobility was computed for all octahedral intermediates in their canonical configuration. The perturbation parameter $\epsilon = 10^{-6}$ was selected, but the mobility showed to be robust to both smaller and larger values. Figure~\ref{fig:t1} outlines the results. From these calculations, it is clear that while mobility is highly correlated to degrees of freedom, mobility gives additional information about an intermediate's configuration space. Interestingly, all nets had the same mobility. Similarly, the symmetric pairs (14,16), (15,18), (19,20), (34,38), and (36,39) have matching mobility values. Of the intermediates with 5 degrees of freedom, 19 and 20 had the lowest mobility and 17 had the highest. As for intermediates with 3 degrees of freedom, 35 was the least mobile and 37 was the most mobile.        
+
+\begin{figure}[h!]
+\label{fig:t1}
+%\centering
+\scalebox{.9}{
+\begin{tabular}{ l | c }
+  Intermediate & Mobility  \\
+  \hline\hline
+1 &  0.20518 \\
+2 &  0.20518 \\
+3 &  0.20518 \\
+4 &  0.20518 \\
+5 &  0.20518 \\
+6 &  0.20518 \\
+7 &  0.20518 \\
+8 &  0.20518 \\
+9 &  0.20518 \\
+10 & 0.20518 \\
+11 & 0.20518 \\\hline
+12 & 0.18376 \\
+13 & 0.18313 \\
+14 & 0.18249 \\
+15 & 0.18171 \\
+16 & 0.18249 \\
+17 & 0.18634 \\
+18 & 0.18171 \\
+19 & 0.18102 \\
+20 & 0.18102 \\
+21 & 0.18255 \\
+22 & 0.18485 \\\hline
+34 & 0.14487 \\
+35 & 0.14350 \\
+36 & 0.14530 \\
+37 & 0.14973 \\
+38 & 0.14487 \\
+39 & 0.14530 \\\hline
+66 & 0.07954 \\\hline
+83 & 0.00000 \\
+\end{tabular}
+}
+%\caption{A table with the mobility of octahedral intermediates.}
+\end{figure}

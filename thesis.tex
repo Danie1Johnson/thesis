@@ -1,0 +1,180 @@
+%\documentclass[12pt]{report}   % SUBMISSION TO GRAD SCHOOL
+\documentclass[12pt,twoside]{report}  % TWOSIDE DUPLEX OUTPUT
+\usepackage{setspace}
+\usepackage{buthesis}
+\usepackage{amsmath,amssymb,graphicx,amsfonts,amsthm}
+\usepackage{verbatim}
+\usepackage{epsfig}
+\usepackage{wrapfig}
+\usepackage{latexsym,amsfonts,amscd}
+\usepackage{changebar}
+\usepackage{enumerate}
+\usepackage{yfonts}
+
+\usepackage{mathtools,bbm,enumerate}
+\usepackage{mathrsfs}
+%\usepackage{caption}
+%\usepackage{subcaption}
+
+% Do you use TikZ?
+\usepackage{tikz}
+%\usepackage{pgfmath}
+\usetikzlibrary{decorations}
+\usetikzlibrary{shadows}
+
+% Used only for example text
+%\usepackage{lipsum}
+\DeclareMathOperator{\diag}{diag}
+
+\usepackage[footnotesize,bf]{caption}  % Reduces caption font sizes
+
+%%%%%%%%%%%%%%%%% Fancy chapter headings %%%%%%%%%%%%%%%%%%%
+\usepackage[Bjarne]{ThesisFncychap}
+\include{BjarneThesisTitles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------
+%% Control the fonts and formatting used in the table of contents, list of
+%% figures, and list of tables
+\usepackage[titles]{tocloft}
+
+
+%% Aesthetic spacing redefines that look nicer to me than the defaults.
+\setlength{\cftbeforechapskip}{-1ex}
+\setlength{\cftbeforesecskip}{-3.5ex}
+\setlength{\cftbeforesubsecskip}{-3.5ex}
+\setlength{\cftbeforetabskip}{-3.5ex}
+\setlength{\cftbeforefigskip}{-3.5ex}
+%-----------------------------------------------------------------
+
+\dissertation % This *is* what you're writing, right?
+
+% Information about the document
+%-----------------------------------------------------------------
+\title{
+The Building Game and Other Discrete Geometric Models for the Self-assmbly of Polyhedral Molecular Structures 
+}
+\author{Daniel C. L. Johnson}
+\degree{Doctor of Philosophy}
+\department{The Division of Applied Mathematics}
+\previousdegrees{
+		B.S., Rensselaer Polytechnic Institute; Troy, NY, 2009\\ 
+		Sc.M., Brown University; Providence, RI, 2012}	
+\thesismonth{December} \thesisyear{2014}
+%-----------------------------------------------------------------
+
+\begin{document}
+
+\doublespacing
+\begin{preliminaries}
+\maketitle
+
+\copyrightpage
+
+\begin{signature}
+  \director{Govind Menon, Ph.D., Advisor}
+  \reader{Committee Member II, Ph.D., Reader}
+  \reader{Committee Member III, Ph.D., Reader}
+\end{signature}
+
+\begin{vita}
+  \input{content/vita}
+\end{vita}
+
+\begin{acknowledgments}
+  \input{content/acknowledgments}
+\end{acknowledgments}
+
+\begin{abstract}
+  \input{content/abstract}
+  \thispagestyle{empty}
+  % Do you want this page to exist in the numbering?
+%  \thispagestyle{empty}
+%  \if@twoside
+%    \addtocounter{page}{-2}  
+%  \else
+%    \addtocounter{page}{-1}
+%  \fi
+\end{abstract}
+
+% Why double-space toc,lof, and lot?
+\begin{spacing}{1}
+  \tableofcontents
+  \clearpage{\pagestyle{empty}\cleardoublepage}
+
+  \footnotesize
+  \fontsize{11.5pt}{12.5pt}\selectfont
+  \listoftables
+  \clearpage{\pagestyle{empty}\cleardoublepage}
+
+  \listoffigures
+  \clearpage{\pagestyle{empty}\cleardoublepage}
+  \normalsize
+\end{spacing}
+
+\end{preliminaries}
+
+\pagestyle{myheadings}
+
+%------------------------ CONTENT ------------------------%
+%-----------------------------------------------------------------
+%% Shortcuts
+\newtheorem{mythm}{Theorem}
+\newtheorem{mylem}{Lemma}
+\newtheorem{mycor}{Corollary}
+\newtheorem{mydef}{Definition}
+
+\newcommand{\colorA}{white}
+\newcommand{\colorB}{black}
+\newcommand{\colorAsm}{w}
+\newcommand{\colorBsm}{b}
+\newcommand{\poly}{$\mathscr{P}$}
+\newcommand{\Poly}{\mathscr{P}}
+\newcommand{\PolyGraph}{\textswab{G}_\mathscr{P}}
+\newcommand{\faceset}{F\left(\mathscr{P}\right)}
+\newcommand{\spc}{ }
+\newcommand{\xj}{$x^j$}
+\newcommand{\xk}{$x^k$}
+\newcommand{\Sjk}{$S_{jk}$}
+\newcommand{\Skj}{$S_{kj}$}
+\newcommand{\G}{G_\mathscr{P}}
+
+\chapter{Introduction}
+\input{content/intro}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{The Building Game}
+\input{content/bg}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{Constraint Models, Degrees of Freedom, and Mobility}
+\input{content/constraints}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\chapter{Markov Processes on the Buiding Game State Space}
+\input{content/markov}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+\chapter{Conclusion}
+\input{content/conclusion}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+%------------------------ APPENDIX ------------------------%
+%\appendix
+%\chapter{Stuff Too Complicated To Talk About}
+%\input{content/appendix/app1}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
+%
+%\chapter{Stuff Too Boring to Talk About}
+%\input{content/appendix/app2}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
+
+%---------------------- BIBLIOGRAPHY ----------------------%
+
+\bibliographystyle{plain}
+\begin{spacing}{0.9}
+  \bibliography{content/Master}
+\end{spacing}
+
+\end{document}

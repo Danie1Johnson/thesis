@@ -1,0 +1,71 @@
+\title{Degrees of Freedom}
+\author{
+        Daniel Johnson \\
+                Division of Applied Mathematics\\
+        Brown University
+}
+\date{\today}
+
+\documentclass[12pt]{article}
+
+\usepackage{graphicx,amsfonts,amsbsy,bbm, amsmath}
+
+\begin{document}
+\maketitle
+%\tableofcontents
+
+%\begin{abstract}
+%\end{abstract}
+
+\section{Computing the Degrees of Freedom of a 3D Linkage}
+
+We consider the linkage of rigid 2-dimensional polygons in $\mathbb{R}^3$ by means of ideal hinges located at the edges of the polygons. In this way, by treating intermediates of our various models as such a linkage, we can compute the non-trivial degrees of freedom (DoF) each intermediate has. Every linkage of this type has 6 trivial degrees of freedom: 3 corresponding to translational movement and 3 corresponding to rotational freedom. While these freedoms do change the orientation of the intermediate, they do not cause the faces to move relative to each other. For this reason, we label them as trivial degrees of freedom and focus on the calculation the remaining, non-trivial degrees of freedom. Since the concept of degrees of freedom exists in many diverse scientific fields, such as mechanical engineering and statistical physics, many different formal definitions of DoF are used in the literature. McCarthy defines degrees of freedom of a mechanical system as follows. 
+\begin{quote}
+We derive formulas for the number of parameters needed to specify the configuration of a mechanism, in terms of the number of links and joints and the freedom of movement allowed at each joint. This number is the \textit{degrees of freedom} or \textit{mobility} of the mechanism. Changing the values of these parameters changes the configuration of the mechanism. Thus, if we view the set of all configuration available to a mechanism as a manifold, then the mobility of the mechanism is the dimension of this manifold. 
+\end{quote}
+For our purposes, we define the \textbf{degrees of freedom} of a configuration to be the difference between the number of parameters needed to specify a configuration in an ambient parameter space $\Omega$ and the number of independent constraints imposed upon the configuration as a function of these parameters. Consequently, the non-trivial degrees of freedom is the number of degrees of freedom minus the six trivial degrees of freedom. If the ambiant parameter space is $\mathbb{R}^N$ and there are $M$ constraint equations given by $\varphi : \mathbb{R}^N \to \mathbb{R}^M$, we find the degrees of freedom to be $N - \operatorname{rank}(\varphi)$ and the non-trivial degrees of freedom to be $N - \operatorname{rank}(\varphi) - 6$. Here we need $\varphi$ to be a smooth map so that the rank is well defined. Furthermore, we define the \textbf{configuration space} to be the subset of parameter space $\{\omega \in \Omega : \varphi(\omega) = 0\}$ upon which the contraints are satisfied.
+
+In our case, the location and orientation of each polygon in the linkage can be represented by a total of 6 parameters: 3 for location and 3 for roational orientation. Thus, the entire configuration of an intermediate $x$ can be represented in the parameter space $\mathbb{R}^{F_x\times6}$. With constraints corresponding to hinged connections we construct a function $\varphi$ which is zero if and only if the constraints are satisfied. Thus the configuration space is $\{z \in \mathbb{R}^{F_x\times6} : \varphi(z) =0\}$. As we will show below, the constraint equation $\varphi$ can be constructed as a polynomial which means that the configuration space (as the zero set of this polynomial) is an algebraic variety. 
+
+ PARAGRAPH ON DIFFERENT DOF VALS AT DIFFERENT CONFIGS OF SAME INTERMEDIATE We refer to the embedded configuration of $x$ such that $x$ is a subset of the original polyhedron as the \textbf{canonical configuration}.
+
+To mathematically describe a particular configuration, we specify the locations of the vertices of each face. Thus, the configuration space can be described as a manifold embegged in $\mathbb{R}^{3\times N_x}$ where $N_x \doteq \sum_{f\in \left(\mathcal{P}\right)}s_f\mathbbm{1}_{f\subset x}$ and $s_f$ is the number of sides (and verticies) of face $f$. By parameterizing the configuration space as enmedding of the ambient space $\mathbb{R}^{3\times N_x}$, we must then identify the corresponding constaint equations as a function of points in ambient space. It is worth noting that while we represent each face with $3\times s_b$ coordinates, only 6 are required to speciafy a face's position and orientation if they are chosen carefully. However, this redundancy will be removed via the constraint equations. Notationally, we refer to the $k$th vertex of the $j$th face of $x$ as $v^{jk} = \left(v^{jk}_x,v^{jk}_y,v^{jk}_z\right)$. There are five fundamental types of constraint equations: base constraints, edge length constraints, vertex identification constraints, angle constraints, and 2D face constraint. 
+
+The base constaints are put in place to fix one of the intermediate's faces in space to remove the 6 trivial degrees of freedom from the calculation. If $f_b$ is the face we wish to designate as the base we have the following $3\times s_b$ constraint equations
+\begin{align}
+\psi_{base}^{k,x}\left(\mathbf{v}\right)& = v^{b,k}_x - c^{b,k}_x \\
+\psi_{base}^{k,y}\left(\mathbf{v}\right)& = v^{b,k}_y - c^{b,k}_y \\
+\psi_{base}^{k,z}\left(\mathbf{v}\right)& = v^{b,k}_z - c^{b,k}_z
+\end{align}  
+for $k = 1,\dots,s_b$ and with $c^{b,k}_\bullet$ a known constant. The corresponding Jacobian calculation for each constraint equations is:
+\[
+\frac{\partial\psi_{base}^{k,\bullet}}{\partial v} =
+  \begin{cases}
+   1 & \text{if } v = v^{b,k}_\bullet \\
+   0       & \text{else} 
+  \end{cases}
+\]
+
+Edge length constraints enforce that the lengths of the edges of each face in an intermediate cannot change. Since there are $s_j$ edges for each face $f_j$ of intermediate $x$, there are $N_x$ corresponsing edge constraints. 
+\begin{align}
+\psi_{edge}^{j,k}\left(\mathbf{v}\right)& = \left|v^{j,k} - v^{j,k-1}\right|^2 - \ell_{j,k}^2 \\
+& = \left(v_x^{j,k} - v_x^{j,k-1}\right)^2 +\left(v_y^{j,k} - v_y^{j,k-1}\right)^2 +\left(v_z^{j,k} - v_z^{j,k-1}\right)^2 - \ell_{j,k}^2 
+\end{align}  
+for all $j: f_j \subset x$ and with the convention that $v^{j,0} \doteq v^{j,s_j}$ and $\ell_{j,k}$ is a known constant. The resulting partial derivatives are
+\[
+	\frac{\partial\psi_{edge}^{j,k}}{\partial v} =
+  	\begin{cases}
+        	2\left(v^{j,k}_\bullet-v^{j,k-1}_\bullet\right) 	& \text{if } v = v^{j,k}_\bullet \\
+   		-2\left(v^{j,k}_\bullet-v^{j,k-1}_\bullet\right) 	& \text{if } v = v^{j,k-1}_\bullet \\
+   		0       & \text{else} 
+  	\end{cases}
+\]
+%--definiteion of 'base configuration'
+%--representation of config space definition as system of constraint equations
+%--solution of the constraint equations is a manifold except perhaps at some 'sp0ecial' configurations
+%--define DoF as 6N - rank of the jacobian of the CEqs evaluated at the base config
+
+%--go through computation of jacobian  
+
+\end{document}
+

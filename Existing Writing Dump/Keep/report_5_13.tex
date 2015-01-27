@@ -1,0 +1,397 @@
+\title{Discrete Attachment Models for Self-Assembly of Supramolecular Polyhedral Structures}
+\author{
+        Daniel Johnson \\
+                Division of Applied Mathematics\\
+        Brown University
+}
+\date{\today}
+
+\documentclass[12pt]{article}
+
+\usepackage{graphicx,amsfonts,amsbsy}
+
+
+
+        
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+%\begin{abstract}
+%\end{abstract}
+
+\section{Introduction}
+
+We are primarily interested in understanding different self-assembly processes by using discrete geometrical attachment models. Applications of interest include metal-ligand coordination spheres, molecular cages, and viral capsid assembly. Each involve the progressive formation of a structure from a set of smaller, more basic building blocks. We hope to uncover patterns that these processes share and those that dictate a successful assembly. What are the possible pathways of assembly? When there are many pathways, are some dominant over others, and why?
+
+\subsection{Scientific Motivations}
+
+\begin{figure}[!b]
+\centering
+\includegraphics[width=0.8\textwidth]{fujita.jpg}
+\caption{(A) Polyhedral representations of the five Fujita molecules (B,C) Molecular structure of $M_{24}L_{48}$ and $M_{12}L_{24}$ ~\cite{Sun2010}}
+\label{fig:fujita}
+\end{figure}
+
+
+
+\begin{figure}[!b]
+\centering
+\includegraphics[width=0.8\textwidth]{ward.jpg}
+\caption{Ward's quasi-truncated octahedron molecular cage~\cite{Liu2011}}
+\label{fig:ward}
+\end{figure}
+
+
+Sun et al. theorized five metal-ligand coordination sphereswe refer to as Fujita supermolecules~\cite{Sun2010}. Seen in Figure \ref{fig:fujita}, each is composed of $n$ metallic $M$ molecules each connecting four of the $2n$ bent ligand $L$ molecules. The entire structure is referred to as the $M_nL_{2n}$ supermolecule. Interestingly, geometric reasons only allow for $n \in \{6,12,24,30,60\}$ and thus five different supermolecules. 
+
+As yet, only the first three of Fujita's supermolecules have been synthesized in laberatory experiments: $M_{6}L_{12}$, $M_{12}L_{24}$, and $M_{24}L_{48}$. Our main focus is the mathematical explanation of a phenomenon observed in an experiment involving two different types of ligand molecules, each with slightly different bend angle; call them $L^1$ and $L^2$. For certain ratios $L^1:L^2$ in the experiment, only $M_{12}L_{24}$ were successfully synthesized and for other ratios, only $M_{24}L_{48}$ were synthesized. Most interestingly, there was no ratio found that resulted in the formation of both the $M_{24}L_{48}$ and $M_{12}L_{24}$. This is indicative of a phase transition or some other, similarly steep process. Using discrete attachment models, we hope to uncover the true nature of this phenomena. 
+
+Another self-assembly application of interest is the formation of supramolecular cages. Figure \ref{fig:ward} depicts a molecular cage synthesized by Liu et al. using two types of hexagonal shaped molecules~\cite{Liu2011}. The cage is shaped like a truncatd octahedron, with 8 hexagonal faces and 6 square hols, and thus was names the quasi-truncated octahedron (qTo). In experiments, the qTo was shown to be able to cage a several different types of smaller molecule. 
+
+
+\begin{figure}[!b]
+\centering
+\includegraphics[width=0.8\textwidth]{capsid.jpg}
+\caption{The icosahedral structure of the Adenovirus}
+\label{fig:capsid}
+\end{figure}
+
+While the modeling of the qTo's formation is an interesting question in itself, there are a few other related questions that our discrete attachment models should provide incite toward. Since one of the qTo's two hexagonal molecule types can bond to itself, it would be theoretically possible for a honeycomb-like tiling to occur in experiments, but this was not observed. Perhaps our models can explain why the qTo structure is a more favorable formation to such tiling. Additionally, if one considers a different set of building block molecules, different polyhedral structures should be possible. For example, if square molecules are combined with hexagonal molecules, there are three Archimedean solids that can be formed: truncated octahedron, truncated cuboctahedron, and truncated icosidodecahedron with hexagonal, octagonal, and decogonal holes respectively. Though no lab experiments investigating these possibilities have been performed, perhaps our attachment models could shed light on strategies for synthesizing each polyhedral structure. 
+
+Another notable self-assembly process is the formation of viral capsids. The majority of biological virus capsids have an icosahedral structure (Figure \ref{fig:capsid}) and their formation process is not well understood. While there is evidence that suggests some viral capsids are aided by scafolding protein during formation, discrete attachment models may still be useful and because of the vital implications to the medical community they are the subject of much research. 
+
+
+\subsection{Mathematical Motivations}
+While much of our work is motivated by these thoroughly scientific questions, there are several connections to theoretical mathematics that are pertinent in their own right. The discrete geometric nature of the attachment models we consider lends itself to questions regarding polyhedral construction formalisms such as shellability. Furthermore, what kinds of specimen can our models produce? This provides a natural enumeration problem. After identifying all rotationally unique species, we also seek to understand their connection to each other in the context of the model. The state space of our model is represented by a graph with the related states connected. How can we mathematically determine which states are the most important by examining this graph? Does the graph have special properties? What kind of metrics are reasonable to define on the graph? 
+
+\subsection{Similar Work}
+
+The class of discrete attachment models we consider specify (1) the basic substructures used to assembly the desired structure, and (2) rules that specify the ways in which the substructures may combine during assembly. The study of such models is decades old~\cite{Eden1961}. Several papers have examined a local rules approach to viral capsid assembly in which the subunits each have a specific conformation and the configurations in which these conformations combine is specified by a list of templates ~\cite{Berger1994,Schwartz1998,Hagan2006,Grayson2012}. Other work has focused more on the feasibility of such attachment models by conducting large-scale physical experiments that are easily observed ~\cite{Hosokawa1994,Bishop2005,Klavins2006}. One of the models we consider, which puts minimal constraints on the ways in which substructures can combine was first studied by Zlotnick \cite{Zlotnick1994,Endres2005}.
+
+While Pandey et al. and Gracias et al.~\cite{Pandey2011,Gracias2013} consider a fundamentally different model of self-assembly, our analysis will be of the same nature. First the model's state space is enumerated and organized into a graph and then various tool are used to decipher which states are most important, including energy functions and Markov processes.
+
+\subsection{Research Directions}
+
+Our work currently has two major directions. First, we have done extensive computation and analysis relating to a discrete attachment model called the building game. Secondly, we do a structuarl analysis of Fujita supermolecules composed of the two types of ligand trying to identify the source of the transition phenomenon. Since we both consider physical self-assembly models and corresponding mathematical structures, we hope that our work will be of interest to computational chemists and combinatorialists alike. 
+
+Thus far, the building game work has been presented as a poster at the NSF Building Engineered Complex Systems grant conference and as an hour long talk at the Brown University Graduate Student Statistics Seminar. Currently, a paper focusing on the geometric and combinatorial aspects of the building game is in preparation for submission to \textit{Experimental Mathematics}.
+
+\section{The Building Game}
+ The building game (BG) for a polyhedron $\mathcal{P}$ begins with a single face of $\mathcal{P}$ and iteratively attaches faces to the existing partially formed polyhedron until all faces of $\mathcal{P}$ are present. We denote the set of $\mathcal{P}$'s faces, edges, and verticies as $F(\mathcal{P}),E(\mathcal{P}),$ and $V(\mathcal{P})$ respectively. A building game \textbf{pathway} is a linear ordering $f_1,f_2,f_3,\ldots,f_N$ of the faces of $\mathcal{P}$ such that for $j = 2,\ldots,N$ there exists edges $e_1,e_2,\ldots,e_k \in E(\mathcal{P})$ with  $k \geq 1$ satisfying
+$$\left(e_1\cup\cdots\cup e_k \right)\subset \left(f_j\cap\left(\bigcup_{i=1}^{j-1}f_i\right)\right)$$
+Since the order and location of attachment in the building game can vary, many partially formed polyhedra, called \textbf{intermediates}, are possible. Each intermediate $x$ can be represented as $x = \cup_{i=1}^tf_i$ where $f_1,\ldots,f_t,\ldots,f_N$ is a BG pathway. For a given polyhedron, we are interested in enumerating all of the distinct intermediates up to rotational equivalence. The  \textbf{attachment sites} of an intermediate $x$ are the set of faces $\{f_k\}$ such that $f_k\cap x = e_1\cup e_2 \cup \cdots$ for some edges $e_1,e_2,\ldots \in E(\mathcal{P})$. In other words, the attachment sites are the places in which a new face may join $x$ as part of a valid BG pathway.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{bg.png}
+\caption{Dodecahedron building game example.}
+\label{fig:bg}
+\end{figure}
+
+The \textbf{configuration space} for a particular polhedron $\mathcal{P}$ is a graph that represents the space of all distinct intermediates and the BG pathways for $\mathcal{P}$. Each node of the configuration space represents a single intermediate and a connection exists between two nodes if it is possible to construct one of the corresponding intermediates by adding a single face to the other. Each path through the configuration space, starting at an intermediate with one face and ending at the intermediate with all faces, represents one of the polyhedron's BG pathways. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{cube_bg.png}
+\caption{Configuration space of the cube}
+\label{fig:cube_bg}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{qToSS.png}
+\caption{Configuration space of the quasi-truncated octahedron}
+\label{fig:qToSS}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{dodecahedronSS.png}
+\caption{Configuration space of the dodecahedron}
+\label{fig:dodecahedronSS}
+\end{figure}
+
+
+For a configuration space edge going between an intermediate with $k$ faces to one with $k+1$ faces, the \textbf{degeneracy number} is the number of different attachment sites on the $k$-faced intermediate that will produce the $k+1$-faced intermediate. For example, the configuration space edge between the cube intermediate with 1 face and the intermediate with 2 faces has degeneracy number 4 since each of the first square's four edges will form the same intermediate when a second square is attached. 
+
+
+As we consider polyhedra with more and more faces, there is a combinatorial explosion in the number intermediates in configuration space. While the 6-faced cube configuration space has only 8 vertices and 9 edges, the 20-faced icosahedron configuration space has 2,649 vertices and 17,241 edges and the 26-faced truncated cuboctahedron configuration space has 1,525,605 vertices and 17,672,377. Figure \ref{fig:bgtable} details configuration space sizes of all polyhedra in the Platonic, Archimedean, and Catalan solid classes of up to 26 faces. Computational constraints do not currently allow us to compute the building game configuration space for the remaining polyhedra in these classes.
+
+\begin{figure}[h]
+\scalebox{0.65}{
+%{\footnotesize
+\begin{tabular}{ l | c | c | c | c || r | r }
+Shape Name & Class & Faces & Edges & Vertices & Intermediates & Connections \\
+  \hline    
+Tetrahedron & Platonic & 4 & 6 & 4 & 5 & 4 \\
+Cube & Platonic & 6 & 12 & 8 & 9 & 10 \\
+Octahedron & Platonic & 8 & 12 & 6 & 15 & 22 \\
+Dodecahedron & Platonic & 12 & 30 & 20 & 74 & 264 \\
+Icosahedron & Platonic & 20 & 30 & 12 & 2,650 & 17,242 \\
+Truncated Tetrahedron & Archimedean & 8 & 18 & 12 & 29 & 65 \\
+Cuboctahedron & Archimedean & 14 & 24 & 12 & 341 & 1,636 \\
+Truncated Cube & Archimedean & 14 & 36 & 24 & 500 & 2,731 \\
+Truncated Octahedron & Archimedean & 14 & 36 & 24 & 556 & 3,071 \\
+Rhombicuboctahedron & Archimedean & 26 & 48 & 24 & 638,851 & 6,459,804 \\
+Truncated Cuboctahedron & Archimedean & 26 & 72 & 48 & 1,525,605 & 17,672,377 \\
+Icosidodecahedron & Archimedean & 32 & 60 & 30 & ? & ? \\
+Truncated Dodecahedron & Archimedean & 32 & 90 & 60 & ? & ? \\
+Truncated Icosahedron & Archimedean & 32 & 90 & 60 & ? & ? \\
+Snub Cube & Archimedean & 38 & 60 & 24 & ? & ? \\
+Rhombicosidodecahedron & Archimedean & 62 & 120 & 60 & ? & ? \\
+Truncated Icosidodecahedron & Archimedean & 62 & 180 & 120 & ? & ? \\
+Snub Dodecahedron & Archimedean & 92 & 150 & 60 & ? & ? \\
+Triakis Tetrahedron & Catalan & 12 & 18 & 8 & 99 & 319 \\
+Rhombic Dodecahedron & Catalan & 12 & 24 & 14 & 128 & 494 \\
+Triakis Octahedron & Catalan & 24 & 36 & 14 & 12,749 & 81,297 \\
+Tetrakis Hexahedron & Catalan & 24 & 36 & 14 & 50,768 & 394,278 \\
+Deltoidal Icositetrahedron & Catalan & 24 & 48 & 26 & 209,676 & 1,989,549 \\
+Pentagonal Icositetrahedron & Catalan & 24 & 60 & 38 & 345,939 & 3,544,988 \\
+Rhombic Triacontahedron &Catalan & 30 & 60 & 32 & ? & ? \\
+Disdyakis Dodecahedron & Catalan & 48 & 72 & 26 & ? & ? \\
+Triakis Icosahedron & Catalan & 60 & 90 & 32 & ? & ? \\
+Pentakis Dodecahedron & Catalan & 60 & 90 & 32 & ? & ? \\
+Deltoidal Hexecontahedron & Catalan & 60 & 120 & 62 & ? & ? \\
+Pentagonal Hexecontahedron & Catalan & 60 & 150 & 92 & ? & ? \\
+Disdyakis Tricontahedron & Catalan & 120 & 180 & 62 & ? & ? \\
+  \hline  
+\end{tabular}
+}
+\caption{Table of polyhedra in the Platonic, Archimedean, and Catalan solid classes ordered by number of building game intermediates.}
+\label{fig:bgtable}
+\end{figure}
+
+
+\subsection{Computation}
+
+The configuration space is computed sequentially. Given all of the rotationally unique intermediates that have $t-1$ faces, we compute the rotationally unique intermediates with $t$ faces. The majority of the computation is spent determining if a given intermediate is rotationally equivalent to another. The indices of all possible rotations are precomputed and this comparison reduces to simply checking if two (often binary) vectors are identical. Code for computing the building game configuration space was written in C++ and an outline of the algorithm is in figure \ref{code_alg}.
+
+
+\begin{figure}[h]
+\begin{enumerate}
+\item For $t = 1$ to $F$
+\begin{enumerate}
+\item For each intermediate $x^{t-1}_k$ with $t-1$ faces
+\begin{enumerate}
+\item For each face $j$ that can be added to $x^{t-1}_k$ resulting in the intermediate $x^{t}_{k,j}$
+\begin{enumerate}
+\item Check all rotations of $x^{t}_{k,j}$ to see if it is equivalent to an intermediate already in the list of $t$-faced intermediates
+\item If so: connect $x^{t-1}_{k}$ and $x^{t}_{k,j}$ in the configuration space
+\item If not: add $x^{t}_{k,j}$ to the configuration space and connect it to $x^{t-1}_{k}$
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\caption{Algorithm for computing the building game configuration space}
+\label{code_alg}
+\end{figure}
+
+Because there may be hundreds of potential rotations that must be checked for each comparison of two intermediates, a hash function was developed that takes an intermediate and returns an integer such that any two rotationally equivalent intermediates are mapped to the same integer. However, the hash function is not one to one. Two intermediates with the same hash may not be equivalent. The hash, a serialized histogram of an intermediate's connectivity, is relatively inexpensive to compute and has the potential to eliminate the majority of comparisons required as no two intermediates with different hashes can be equal. In the case when two intermediates are found to have the same hash, the standard method of checking all possible rotations must still be carried out. 
+
+Computational time needed to run our algorithm is heavily dependent on the number of intermediates, which, unfortunately, seems to grow exponentially in the number of faces $F$ a polyhedron has. The gives a worst-case computational complexity of $O\left(|F|^{\frac{3}{2}}2^{|F|}\right)$ under the reasonable assumption that $\frac{|E|}{2|F|} \ll |F|$. While it seems unlikely that an algorithm with improved worst case performance is possible, there is hope for some improvement. Though not an intrinsically parallel problem, there may be ways to significantly reduce the wall-clock computational time by parallelizing the algorithm. It may also be possible to improve the hash to further lessen the number of long form comparisons that must be computed.
+
+\subsection{Pathway Enumeration}
+In the example of the icosahedron, there are 549 intermediates that have 13 faces. How can we quantify the relative importance of each of these intermediates? One natural method is to count the number of distinct building game pathways that go through each intermediate. There are 3 BG pathways for the cube, 17,696 for the dodecahedron, and after that presumably a huge number for polyhedra with more faces. While we have not yet fully explored this problem, it will provide and engaging computatinoal problem and the results should be interesting. 
+
+\subsection{Energy Landscapes}
+
+Another approach to determining the class of dominant intermediates is to think of the configuration space as an energy landscape. By defining energy functions on both the configuration space's nodes (intermediate energies) and connections (transitions energies) using physically motivated heuristics, we hope to recover the relevant behaviors of the self-assembly process. 
+
+To roughly approximate free energy, we define $E_j$ the energy of intermediate $x_j$ to be the number of edges in the intermediate that connect two adjacent faces. We formalize this energy as
+$$E_j = \#\left\{e \in E\left(\mathcal{P}\right): e = f_e^1\cap f_e^2 \textrm{ s.t. }f_e^1,f_e^2\subset x_j \right\}$$
+where $f^{(1)}_e, f^{(2)}_e \in F$ refer to the two faces of the polyhedron $\mathcal{P}$ that edge $e$ joins.
+
+Transitions energies are defined using a simple function that seems to work well, but is not physically motivated. To ensure the transition barrier has a higher energy than the two intermediates it sits between, we use 
+\begin{displaymath}
+   E_{j,k} = \left\{
+     \begin{array}{lr}
+       \max\left(E_j,E_k\right) + \alpha & \textrm{if } x_j \textrm{ connected to } x_k \textrm{ in configuration space}\\
+       \infty & : \textrm{else}
+     \end{array}
+   \right.
+\end{displaymath} 
+
+where $\alpha$ is a constant and roughly on the same order as the average value of $|E_j-E_k|$.
+
+With energies defined on both nodes and connections in the configuration space graph, we construct the Markov chain $X_t$ on the configuration space with the transition rule
+$$p_{jk} \doteq P\left(X_{t+1} = x_k \mid X_{t} = x_j\right) = \frac{d_{jk}}{\gamma}e^{-\beta\left(E_{jk}-E_j\right)}$$  
+where $d_{jk}$ is the degeneracy number between intermediates $x_j$ and $x_k$, and $\gamma$ is a normalization constant.
+Furthermore, we see that $X_t$ has the stationary distribution 
+$$\pi_j \doteq \pi\left(x_j\right) \doteq \frac{1}{z}e^{-\beta E_j}$$
+since the following detailed balance equation holds.
+$$\pi_jp_{jk} = \frac{d_{jk}}{z\gamma}e^{-\beta E_{jk}} = \pi_kp_{kj}$$
+It is important to note that the stationary distributions are Boltzmann by design due to the physical scale of these self-assembly processes.
+
+Protein folding is often framed in the context of energy landscapes and a `folding funnel' refers to the shape of the energy landscape that encourages the protein to fold in an optimal manor. Is there a similar type of `funnel' for our self-assembly processes? What does the energy landscape say about which intermediates are most dominant? Analysis of the spectrum of the transition operator should provide a nice way to quantify each intermediate's importance, though this work is ongoing. 
+
+
+\section{Fujita Ligand Preference Model}
+
+The curious affect of altering the ratio of two different ligand types on the formation of Fujita supermolecules is of principal interest to us. However, the building game will provide little insight as to the root of this phenomenon. To try and discover the true cause we are developing a model that looks at the $M_{12}L_{24}$ and $M_{24}L_{48}$ supermolecules from a more structural engineering inspired viewpoint. Calling the two types of ligands $L^1$ and $L^2$ with preferred bend angles of $\phi^1$ and $\phi^2$ we hope to examine which combinations of the two type will allow successful formation of each supermolecule and which combinations are not physically realistic. Referring to the model as the $M_{n}L^1_{k}L^2_{2n-k}$ model, we first seek to enumerate all rotationally unique ways in which the two kinds of molecules can appear in both of the complete supermolecules. While not yet completed, this task will be very similar to the building gamer intermediate enumeration. Secondly we seek to quantify how feasible each of these ligand configurations are. 
+
+In analyzing the physical plausibility of a particular configuration, we seek to find the minimum value of a cost function $G$ that can be physically achieved. There are two aspects that constitute a well formed supermolecule: the ligands are not bent too much more or less than their preferred angle and at each metallic connector the four attached ligands come in a angles that are nearly orthoganal to each other. For this reason, we define the cost function to be of the form
+$$G\left(\mathbf{\chi},\mathcal{P}\right) = \inf_{\mathbf{m},\boldsymbol\ell}\left[\lambda g_m\left(\mathbf{m},\boldsymbol\ell;\mathbf{\chi},\mathcal{P}\right) + \left(1-\lambda\right) g_\ell\left(\mathbf{m},\boldsymbol\ell;\mathbf{\chi},\mathcal{P}\right) \right]$$ 
+where $\mathbf{\chi} \in \{1,2\}^{2n}$ represents the ligand configuration of interest, $\mathbf{m} \in \mathbb{R}^{n\times 3}$ represent the 3-dimensional positions of the $n$ $M$ molecules, $\boldsymbol\ell \in \mathbb{R}^{2n\times 3}$ represent the 3-dimensional positions of the $2n$ $L$ molecules, $g_\ell$ is the cost function on ligand angles and  $g_m$ is the cost function on angles of attachment to the $M$ molecules. 
+
+We define the cost function $g_\ell$  to be 
+$$g_\ell\left(\mathbf{m},\boldsymbol\ell;\mathbf{\chi},\mathcal{P}\right) = \sum_{e \in E(\mathcal{P})}f_\ell\left(\phi_{\chi_e} - \angle\left(m_e^1\ell_em_e^2\right)\right)$$
+and cost function $g_m$ as  
+$$g_\ell\left(\mathbf{m},\boldsymbol\ell;\mathbf{\chi},\mathcal{P}\right) = \sum_{v \in V(\mathcal{P})}\sum_{k=1}^4f_m\left(\frac{\pi}{2} - \angle\left(\ell_v^km_v\ell_v^{k+1}\right)\right)+f_m\left(\frac{\pi}{2} - \angle\left(\ell_v^k\eta_v\ell_v^{k+1}\right)\right)$$
+where 
+$$\eta_v \doteq m_v + \frac{\sum_{k=1}^4\left(\ell_v^k-m_v\right)}{\left|\sum_{k=1}^4\left(\ell_v^k-m_v\right)\right|}$$
+is a unit vector starting from $m_v$ going in the average direction of the four connected ligands $\ell^{1:4}_v$. The functions $f_\ell ,f_m :\mathbb{R} \to \mathbb{R}$ are even, convex, and satisfy $f(0) = 0$. Currently, we use 
+\begin{displaymath}
+   f_\ell = f_m = \left\{
+     \begin{array}{lr}
+       \rho\left[\frac{1}{\left(x^2-\epsilon^2\right)^\nu} + \frac{1}{\epsilon^{2\nu}}\right] & : x \in \left(-\epsilon,\epsilon\right)\\
+       \infty & : x \not\in \left(-\epsilon,\epsilon\right)
+     \end{array}
+   \right.
+\end{displaymath} 
+
+
+Since there is no simple closed form solution to minimization problem, we must use optimization algorithms to compute the values of $G$ for the various ligand configurations. Currently, off-the-shelf algorithms from the scipy.optimize Python library are being used, but to ensure proper convergence and perhaps to enhance computational efficiency, we may need to code optimization schemes manually. The current code has not yet been fully tested, let alone used on the actual polyhedra on interest, but we hope to start computing results soon.  
+
+
+
+\section*{Acknowledgments}\label{ackowledgements}
+        Supported by NSF grants DMS 07-48482 and EFRI 10-22638
+
+\bibliographystyle{plain}
+%\nocite{*} 
+\bibliography{Master}
+
+\end{document}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Disconnectivity Trees}
+
+While energy landscapes provide a useful framework for analyzing physical processes, they are often difficult to visualize. As visualization and intuition go hand in hand, we adopt the use of disconnectivity trees (DT). First popularized by Wales, disconnectivity trees are projections of the configuration space energy landscape onto a tree structure in a way that helps illustrate how 'close' two intermediates are. 
+
+The disconnectivity tree is a tree embedded in $\mathbb{R}^2$ such that each leaf represents an intermediate and is vertically located at its energy level and each point in 
+
+GQ: I'd like you to take a look at the literature on "discontinuity graphs". Two papers that will get you started are attached. This is a technique used by Wales and co to understand energy landscapes. Essentially it represents a decomposition of an energy landscape into all its minima and the transitions between these. You should then try to translate this notion to the building game. I am very optimistic that we will get nice results.
+
+--cite wales and doye
+
+--Effect of Energy Function Choice
+
+Motivate the need for an informative visual representation of a (potentially
+complex) Markov Process such as for the building game.
+--Formally define disconnectivity tree and give an algorithmic description
+of its construction.
+--Describe the embedding of a disconnectivity tree into R
+2
+.
+--Give proof of the planarity of disconnectivity trees.
+--Show the disconnectivity tree for both the cube and qTo.
+
+
+
+\subsection{Shellability}
+
+MQ: I have read much of the relevant material in Grunbaum and Coxeter. While I learned quite a bit about the rigorous handling of the material, there was very little that discussed construction methods similar to the building game. Shellability was only mentioned as a brief aside in Grunbaum and not at all in Coxeter. I have been able to piece together what a shelling is from a few sources (this the best i could find) but the focus of most of the shellability sources was on whether certain higher dimensional polytopes were shellable. While I did find out that all 3-dim polyhedra are shellable, I found nothing specifically relating to enumeration of unique shelling orders, or relating specifically to regular polyhedra. Perhaps there are a few buzz words I am unaware of that prevent me from finding satisfying literature, but I'm guessing the people that are interested in shelling are not the the combinatorial types interested in enumeration. Other construction methods I read about included the intersection of half-spaces, projection from higher dimensional polytopes, and the convex hull of a set of points, but these don't seem to be as similar to the building game as shelling. Are you aware of any more sources on shelling, especially relating to enumeration?
+
+
+
+
+\section{Local Rules Models}
+
+~\cite{Berger1994}
+~\cite{Schwartz1998}
+~\cite{Klavins2006}
+~\cite{Bishop2005}
+~\cite{Hagan2006}
+--cite b\&s, schwartz, klavins, and bichop, hagan
+
+GQ: This idea has been on the back of my mind for a while. People in robotics tried to use graph grammars to model assembly rules. I'm not too sure what this means, but it seems interesting to decode what they mean since I think it may help organize the graphs of assembly pathways.
+
+MQ: 
+I have implemented a stripped down version of the model I proposed which seems to work on the small range of test examples I've exposed it to so far. This week I've been working on how to visualize the process as I think it will provide much deeper insight. Next I plan to try out some local rules that have more than one possible end state, but there is a modelling question of how much to let these local rules be bent. I.e. the local rules specify and angle of attachment, but there has to be wiggle room if we want more than one possible end state. The question is how much wiggle room do we give it? 
+
+MQ: I've read the Klavins paper and think their local grammar based approach is similar to the approach we want to take. One significant detail is that their graph grammars are embedded into 2D space whereas we need to be doing it in 3D. The hardest part will be sorting out the mess of 'attachment angle' i.e. (for triangular pieces) whether two pieces attach at an angle that forms tetrahedra or at an angle that forms icosahedra. There are two strategies I can picture clearly. The first calls for the grammar to specify the exact attachment angle. The second is like Berger and Shor where a vague attachment angle is specified by the grammar, but it is possible for this angle to change. I think the second strategy will be much more powerful, realistic, and probably the approach we want to take, but there are also more implementation details to sort out. 
+
+
+\subsection{Current Status}
+
+
+
+\subsubsection{Affect of Energy Function Choice}
+
+--Tree space
+
+Metrics on Trees
+--To compare two different disconnectivity trees, examine metrics on trees.
+--Define and describe several tree metrics that may be pertinent to discon-
+nectivity trees.
+6 Robustness of Disconnectivity Trees
+--For a fxed choice of fEjg and dfferent choices of fEj;kg, different discon-
+nectivity trees can result.
+--Defne Ej;k = maxfEj; Ekg + Exp(lambda), where Exp(lambda) is an exponential
+random variable with parameter lambda.
+--For small lambda, diconnectivity tress will not have much variability, but for
+large lambda the variability should be significant.
+--Use tree metrics to measure this variability by comparing the random
+disconnectivity trees with the deterministic mean tree given by Ej;k =
+max(Ej; Ek) + 1/lambda
+--For varying levels of the thermal constant, how does this variability scale?
+
+--cite owen
+
+MQ: I've written a code that computes a random disconnectivity tree based on the random barriers we discussed., but after reading through Billera, Holmes, and Vogtmann, I am worried about the feasibility of implementing their metric in the time I have. While I do understand the bulk of what they did, they provide no formal algorithm (which is supposed to be in a technical report that they cited, but is not available anywhere on the internet as far as I can tell)  and I think that developing the data structures required to represent the space of trees and thus compute geodesics will be a nontrivial task. I am very interested in this material and definitely intend to carry out this work at some point, but I am just worried that the variance of how long it might take to theorize, code, debug, get results, and get them into a poster would be dangerous. To be specific, I think the time it would take would be on the order of how long it took me to originally get the building game up and running since I would have to enumerate all *unique* binary trees with n leaves and associate them in a meaningful way. There are (2n-3)!! such trees and we'd need n > 1000 for icosahedron and even n ~ 20 (as in the qTo) this number is on the order of 10\^21. There may be clever workarounds that won't require me to represent all of these parameters specifically, but figuring everything out could take a month or two. 
+
+--cite nillera, holmes, vogtmann
+
+
+\subsection{Markov Chain Analysis}
+
+In the example of the icosahedron, there are 549 intermediates
+that have 13 faces. How can we quantify the relative importance
+of each of these intermediates? One natural choice is to look at
+runs of the Markov process Xt starting from the intermediate
+with a single face (j=0) and ending with the assembled
+polyhedron (j=N). We calculate the probability of reaching each
+intermediate during such a run as a function of $\beta$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{mca.png}
+\caption{}
+\label{fig:mca}
+\end{figure}
+
+MW: We've developed an energy landscape full of intermediates and transition states. From this, a natural Markov chain can be defined. While it is true that stationary probability of each intermediate will follow the Boltzmann distribution, if we consider the stopped process starting from the initial state (a single face) and running according to the Markov chain until the end state (with all faces present) is reached, the distribution on the rest of the intermediates will not be Boltzmann  I am interested in computing the probability that a given intermediate is reached during a run from the initial state to end state. I suspect that the vast majority of intermediates will have a low probability of being reached (especially for large polyhedra) and this will provide another cool way to understand visualize the state space. The computation will be a simple Monte Carlo empirically and I believe it to also be a fairly agreeable problem to solve analytically. 
+
+use gidas mcmc to analyze spectrum (cite)
+
+Formally define a Markov process on the building game state space graph
+with respect to the energies fEjg and fEj;kg.
+--Defne the corresponding Markov jump process.
+--Show detailed balance and that the stationary distribution is Gibbs.
+-- Remark on how the stationary distribution is not affected by the choice
+of fEj;kg.
+--Show the building game state space of the cube and qTo labeled with
+possible transition rates.
+
+
+
+\subsection{Current Status}
+
+\section{Future Work, Open Questions, \& Conjecture}
+\subsection{Building Game}
+
+--publish in exp maths
+--post data sets online
+--cite exp maths articles here
+--focus more on rigidity
+--rigidity citations
+
+\subsection{Predicting the Size of Configuration Space}

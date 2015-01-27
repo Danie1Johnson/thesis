@@ -1,0 +1,196 @@
+The Building Game (BG) was first considered by Zlotnick~\cite{Zlotnick1994} as a model for the assembly of polyhedral viral capsids. In the model, a capsid is idealized as a polyhedron \poly with each face treated as a subunit. Assembly proceeds from a singe face with a second face attached to the first along an edge with the same dihedral angle as in the completed polyhedron. At each subsequent step of the process, an additional face is added along an edge of one of the already added faces, again with dihedral angle corresponding to the polyhedron. The process ends when all of \poly's face have been added resulting in a completed polyhedron.
+
+We formalize the Building Game as a sequential graph labeling process. If we are interested in the BG of a polyhedron \poly, we represent \poly\spc by a graph $\PolyGraph = \left(F(\Poly), E(\Poly)\right)$ whose nodes are the haves of \poly\spc and connections correspond to the pairs of faces sharing an edge of \poly. In this way, $\PolyGraph$ can be viewed as the polyhedral graph of \poly's dual polyhedron. 
+\begin{mydef}
+A Building Game \textbf{intermediate} $x: F(\Poly) \to \{0,1\}$ is a function that labels the nodes of $\PolyGraph$ such that the set $\left\{f_m \in F\left(\mathscr{P}\right) : x\left(f_m\right) = 1\right\}$ is a connected component of $\PolyGraph$.
+\end{mydef} 
+In Zlotnick's usage of the model, the labeling of $1$ or $0$ to each face would correspond to whether the face had been attached at some point up to the current step of the process. As pictured in figure~\ref{fig:CubeGraph} a cube has 6 faces, 12 edges and 8 vertices. The corresponding $\PolyGraph$ representation is the octahedral graph with 6 vertices and 12 edges. In this example, the intermediate represented labels three faces with a 1 and the others with 0. The embedded geometric interpretation shows three square faces connected along their edges.
+
+\begin{figure}[ht]
+\caption{The cube and its graph representation.}
+\label{fig:CubeGraph}
+\end{figure}
+
+\begin{mydef}
+The Building Game \textbf{rotation group} $\G$ is the permutation group acting on $F(\Poly)$ that corresponds to \poly's rotational symmetry group.
+\end{mydef}
+Many Building Game intermediates are identical to each other under permutation of the nodes of $\PolyGraph$. In particular, we are interested in the intermediates that are identical under the BG rotation group $\G$.    
+\begin{mydef}
+A Building Game \textbf{state} $[x]$ is an equivalence class of BG intermediates given by the eqivalence relation  $x \sim \tilde{x}$ if there is an element $g$ of \poly's rotation group $\G$ that satisfies $x(f_m) = \tilde{x}(g.f_m)$ for every $f_m \in F(\mathscr{P})$. 
+\end{mydef}
+\begin{mydef}
+The Building Game \textbf{stabilizer subgroup} of an intermediate $x$ is the subgroup $\G_x \leq \G$ that fixes each  $F(\Poly)$ that corresponds to \poly's rotational symmetry group.
+\end{mydef}
+
+\begin{figure}[ht]
+\caption{The eight intermediates in a particular BG state.}
+\label{fig:CubeState}
+\end{figure}
+
+For ease of exposition, we use the notational shorthand $\left(x\right)_m$ for $x\left(f_m\right)$ and $x = g.x'$ when $x(f_m) = x'(g.f_m)$ for every $f_m \in F(\mathscr{P})$. Additionally, we denote the intermediate satisfying $\left(x\right)_m = \colorA$ for all $f_m \in \faceset$ as $x^\colorAsm$ and similarly $x^\colorBsm$ is the intermediate with $\left(x\right)_m = \colorB$ for all $f_m \in \faceset$. The function counting the number of \colorB\spc faces an intermediate has is denoted $h\left(x\right) \doteq |\left\{f_m \in \faceset : \left(x\right)_m = \colorB\right\}|$.
+
+\begin{mydef}
+Two intermediates $x^j$ and $x^k$ are \textbf{connected} ($x^j \leftrightarrow x^k$) if $\left(x^j\right)_m = \left(x^k\right)_m$ for all $f_m \in \faceset$ except for exactly one face $f_n$ that has  $\left(x^j\right)_n \neq \left(x^k\right)_n$.
+\end{mydef}
+\begin{mydef}
+A Building Game \textbf{pathway} is a sequence of intermediates $x^{p_0}, x^{p_1}, x^{p_2}, \dots, x^{p_N}$ such that $x^{p_0} = x^\colorAsm$, $x^{p_N} = x^\colorBsm$, $x^{p_i}$ is connected to $x^{p_{i+1}}$ and $h\left(x^{p_i}\right) = i$.
+\end{mydef}
+
+In this way it is useful to think of intermediates as connected if it is possible to color one face of the first intermediate to get the second and a pathway as a sequence of these connections between $x^\colorAsm$ and $x^\colorBsm$. Figure~\ref{fig:DodecBG} shows a Building Game pathway for the dodecahedron using Schlegel diagrams. The pathways has 13 intermediates since there must be exactly one intermediate $x^{p_i}$ satisfying $h\left(x^{p_i}\right) = i$ for each $i = 0,1,2,\dots,12$.
+
+\begin{figure}[ht]
+\caption{One Building Game pathway on the dodecahedron.}
+\label{fig:DodecBG}
+\end{figure}
+
+With many pairs of connected intermediates, we organize these relations in a graph.
+
+\begin{mydef}
+The Building Game \textbf{state space} for a polyhedron \poly\spc is a graph in which the nodes are \poly's intermediates and a graph edge exists between two intermediates if and only if they are connected. 
+\end{mydef}
+
+When the intermediates are partitioned by their value of $h$, it is natural to arrange the state space as a tiered graph according to this partition. Figure~\ref{fig:CubeSS} shows the Building Game state space for the cube. As seen, each tier has intermediates with the same number of \colorB faces and connections thus exist with intermediates that are either in the tier directly above or below them. We can also see that there are three distinct pathways contained in the state space. 
+
+\begin{figure}[ht]
+\caption{The Building Game state space of the cube.}
+\label{fig:CubeSS}    
+\end{figure}
+
+Interestingly, it is not the case that the recoloring of each face of \xj\spc results in a distinct intermediate. 
+\begin{mydef}
+The number of different faces $\left|\left\{f_m \in \faceset : x^j + e^m \in \left[x^k\right]\right\}\right|$ of \xj\spc that can be colored to form \xk\spc is called the \textbf{degeneracy number} \Sjk.
+\end{mydef}
+It is important to note that in general the degeneracy number is not symmetric, i.e. \Sjk$\neq$\Skj\spc for some connections \xj\spc$\leftrightarrow$\spc\xk\spc in the state space. Both figures~\ref{fig:DodecBG} and ~\ref{fig:DodecBG} show the forward and backward degeneracy numbers for each connection.
+
+\subsection{Related Work}
+--Like polyominos on polyhedra
+
+\subsection{Applications}
+--Viral capsid assembly
+
+--Self-assembly of molecular cages
+
+--Self assembly for manufacturing purposes
+%~\cite{Endres2005}
+\subsection{Paper Overview}
+-- Summary of subsequent sections
+
+\section{Enumerative Results}
+
+As we consider polyhedra with more and more faces, there is a combinatorial explosion in the number intermediates in state space. While the 6-faced cube state space has only 8 nodes and 9 nodes, the 20-faced icosahedron state space has 2,649 nodes and 17,241 nodes and the 26-faced truncated cuboctahedron state space has 1,525,605 nodes and 17,672,377. Figure \ref{fig:bgtable} details state space sizes of all polyhedra in the Platonic, Archimedean, and Catalan solid classes of up to 26 faces. 
+
+
+Also something about pathway statistics. 
+
+
+\begin{figure}[ht]
+\scalebox{0.6}{
+%{\footnotesize
+\begin{tabular}{ l | c | c | c | c || r | r | r}
+Polyhedra Name & Class & F$\left(\mathscr{P}\right)$ & E$\left(\mathscr{P}\right)$ & V$\left(\mathscr{P}\right)$ & Intermediates & Connections & Pathways \\
+  \hline    
+Tetrahedron                     & P & 4 & 6 & 4         & 5     	& 4             & 1\\
+Cube                            & P & 6 & 12 & 8        & 9     	& 10    	& 3\\
+Octahedron                      & P & 8 & 12 & 6        & 15    	& 22    	& 14\\
+Dodecahedron                    & P & 12 & 30 & 20      & 74    	& 264   	& 17,696 \\
+Icosahedron                     & P & 20 & 30 & 12      & 2,650 	& 17,242        & 57,396,146,640\\
+Truncated Tetrahedron           & A & 8 & 18 & 12       & 29    	& 65            & 402\\
+Cuboctahedron                   & A & 14 & 24 & 12 	& 341   	& 1,636         & 10,170,968\\
+Truncated Cube                  & A & 14 & 36 & 24 	& 500   	& 2,731         & 101,443,338 \\
+Truncated Octahedron            & A & 14 & 36 & 24 	& 556           & 3,071         & 68,106,377\\
+Rhombicuboctahedron             & A & 26 & 48 & 24 	& 638,851       & 6,459,804     & 16,494,392,631,838,879,380\\
+Truncated Cuboctahedron         & A & 26 & 72 & 48 	& 1,525,605     & 17,672,377    & ? \\
+Icosidodecahedron               & A & 32 & 60 & 30 	& ?             & ?             & ?\\
+Truncated Dodecahedron          & A & 32 & 90 & 60 	& ?             & ? 	        & ? \\
+Truncated Icosahedron           & A & 32 & 90 & 60 	& ?             & ? 	        & ?\\
+Triakis Tetrahedron             & C & 12 & 18 & 8       & 99            & 319           & 38,938\\
+Rhombic Dodecahedron            & C & 12 & 24 & 14 	& 128           & 494           & 76,936\\
+Triakis Octahedron              & C & 24 & 36 & 14 	& 12,749        & 81,297        & 169,402,670,046,670\\
+Tetrakis Hexahedron             & C & 24 & 36 & 14 	& 50,768        & 394,278       & 4,253,948,297,210,346\\
+Deltoidal Icositetrahedron      & C & 24 & 48 & 26 	& 209,676       & 1,989,549     & ? \\
+Pentagonal Icositetrahedron     & C & 24 & 60 & 38 	& 345,939       & 3,544,988     & 2,828,128,000,716,774,492\\
+Rhombic Triacontahedron         & C & 30 & 60 & 32 	& ?             & ?             & 5,266,831,101,345,821,968\\
+  \hline  
+\end{tabular}
+}
+\caption{Table of polyhedra in the Platonic (P), Archimedean (A), and Catalan (C) solid classes of up to 32 faces and their Building Game state space statistics.}
+\label{fig:bgtable}
+\end{figure}
+
+
+\begin{figure}[ht]
+\scalebox{0.6}{
+%{\footnotesize
+\begin{tabular}{ l | c | c | c | c || r | r | r}
+Polyhedra Name & Class & F$\left(\mathscr{P}\right)$ & E$\left(\mathscr{P}\right)$ & V$\left(\mathscr{P}\right)$ & Intermediates & Connections & Pathways \\
+  \hline    
+Tetrahedron                     & P & 4 & 6 & 4         & 5     & 4 & 1\\
+Cube                            & P & 6 & 12 & 8        & 8     & 8 & 2\\
+Octahedron                      & P & 8 & 12 & 6        & 12    & 12 & 14 \\
+Dodecahedron                    & P & 12 & 30 & 20      & 53    & 156 & 2166\\
+Icosahedron                     & P & 20 & 30 & 12      & 468   & 1984 & 105999738\\
+Truncated Tetrahedron           & A & 8 & 18 & 12       & 22	& 42 & 174\\
+Cuboctahedron                   & A & 14 & 24 & 12 	& 137	& 470 & 477776\\
+Truncated Cube                  & A & 14 & 36 & 24 	& 248	& 1002 & 5232294\\
+Truncated Octahedron            & A & 14 & 36 & 24 	& 343	& 1466 & 5704138\\
+Rhombicuboctahedron             & A & 26 & 48 & 24 	& 70836	& 462149 &  48399693494788840\\
+Truncated Cuboctahedron         & A & 26 & 72 & 48 	& ?	& ? & ?\\
+Icosidodecahedron               & A & 32 & 60 & 30 	& ?	& ? & ?\\
+Truncated Dodecahedron          & A & 32 & 90 & 60 	& ?	& ? & ?\\
+Truncated Icosahedron           & A & 32 & 90 & 60 	& ?	& ? & ?\\
+Triakis Tetrahedron             & C & 12 & 18 & 8       & 49	& 116 & 5012\\
+Rhombic Dodecahedron            & C & 12 & 24 & 14 	& 68	& 196 & 6258\\
+Triakis Octahedron              & C & 24 & 36 & 14 	& 667	& 2383 & 15255459\\
+Tetrakis Hexahedron             & C & 24 & 36 & 14 	& 4220	& 21079 & 5854799360107\\
+Deltoidal Icositetrahedron      & C & 24 & 48 & 26 	& ?	& ? & ?\\
+Pentagonal Icositetrahedron     & C & 24 & 60 & 38 	& 95127	& 654537 & 5607231936129109\\
+Rhombic Triacontahedron         & C & 30 & 60 & 32 	& 97368	& 697623 & 6889989896241902854\\
+  \hline  
+\end{tabular}
+}
+\caption{Table of polyhedra in the Platonic (P), Archimedean (A), and Catalan (C) solid classes of up to 32 faces and their Building Game state space shellability statistics.}
+\label{fig:bgtable_shell}
+\end{figure}
+
+
+\subsection{Bounds and Asymptotics}
+Have upper, but what about lower? 
+\subsection{Methods}
+
+
+
+\section{A Finite Geometric Result}
+
+Since we define Building Game intermediates as rotationally unique from each other, it is useful to think about the problem in the context of $\mathscr{P}$'s rotational symmetry group $G \doteq G\left(\mathscr{P}\right)$ and group actions. For an intermediate $x^j$, the number of symmetries $r_j$ is the order of the stabilizer subgroup $G_{x^j} \doteq \left\{g \in G : g.x^j = x^j\right\}$ of $G$ that fixes $x^j$. Suppose $x^j$ and $x^k$ are connected in the state space and $\varphi$ is one of the $S_{jk}$ faces that, when added to $x^j$, forms $x^k$. We say $x^j + \varphi = x^k$. The degeneracy number $S_{jk}$ can then be expressed as the order of the orbit $\left(G_{x^j}\right).\varphi$ of $\varphi$ with respect to $x^j$'s stabilizer subgroup. Analogously, we define the reverse degeneracy number as $S_{kj} \doteq \left|\left(G_{x^k}\right).\varphi\right|$
+
+\begin{mylem}
+\label{lem:I}
+For Building Game intermediates $x^j$ and $x^k$ connected in the state space and a face $f_m \in \faceset$ satisfying $x^j + e^m = x^k$, the stabilizer subgroup $G_{x^j,e^m}$ that fixes both $x^j$ and $e^m$ is the same stabilizer subgroup $G_{x^k,e^m}$ that fixes $x^k$ and $e^m$.
+\end{mylem}
+\begin{proof}
+\begin{align}
+G_{x^j,e^m} &\doteq \left\{g \in G | g.x^j = x^j, g.e^m = e^m \right\} \\
+                &= \left\{g \in G | g.\left(x^k - e^m\right) = x^k - e^m, g.e^m = e^m \right\} \\
+                &= \left\{g \in G | g.x^k = x^k, g.e^m = e^m \right\} \\
+                &\doteq G_{x^k,e^m}
+\end{align}
+\end{proof}
+
+
+\begin{mythm}
+\label{thm:J}
+For two Building Game intermediates $x^j$ and $x^k$ are connected in the BG state space, $r_kS_{jk} = r_jS_{kj}$.
+\end{mythm}
+\begin{proof}
+Let $e^m$ be a face such that $x^k = x^j + e^m$. Then, by the orbit-stabilizer theorem, Lagrange's Theorem and lemma~\ref{lem:I} we have the following~\cite{Rotman1995}.
+\begin{align}
+\frac{r_j}{S_{jk}} &\doteq \frac{\left|G_{x^j}\right|}{\left|\left(G_{x^j}\right).e^m\right|} \\
+                   &= \left[G_{x^j} : \left(G_{x^j}\right).e^m \right] \\
+                   &= \left|G_{x^j,e^m}\right| \\
+                   &= \left|G_{x^k,e^m}\right| \\
+                   &= \left[G_{x^k} : \left(G_{x^k}\right).e^m \right] \\
+                   &= \frac{\left|G_{x^k}\right|}{\left|\left(G_{x^k}\right).e^m\right|} \\
+                   &\doteq \frac{r_k}{S_{kj}} 
+\end{align}
+The result $r_kS_{jk} = r_jS_{kj}$ follows.
+\end{proof}
