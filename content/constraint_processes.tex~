@@ -1,0 +1,226 @@
+\section{Cyclohexane Application}\label{introduction}
+Cyclohexane is a molecule composed of six carbon atoms and twelve hydrogen atoms. The carbon atoms are connected in a ring with two hydrogen atoms attaching to each carbon. Since each carbon has four bonds, the energetically preferred bond spacing is at tetrahedral angles. While this preference dictates much of the cyclohexane structure, there are several structurally distinct conformations the molecule can take. 
+
+Of the many forces acting on the cyclohexane molecule, we focus on three. \textbf{Eclipsing strain} refers to the force between the carbon atoms that prevents them from getting too close to each other. This imposes a preferred distance between each pair of bonded atoms. Second, \textbf{angle strain} corresponds to the carbon atom's four bonds trying to spread apart from each other. As mentioned before, tetrahedral angles are preferred. Finally, \textbf{steric crowding} is similar to eclipsing strain, but the eclipsing in this case is between the hydrogen atoms bonded to the carbons.
+
+\subsection{Configurations}
+
+Due to the aforementioned forces, there are a variety of frequently observed configurations with geometries that alleviate these strains to varying amounts. 
+
+The lowest energy configuration is the \textbf{chair}. With the absence of both angle and eclipsing strain, the chair only has a small amount of steric strain. 
+
+Another well studied configuration is the \textbf{boat}. With two sets of parallel carbons arranged in a planar rectangular structure, the remaining two carbon atoms sit at opposite ends slightly above the plain. The structure resembles the bow and stern of a boat. Despite having little angle strain, it does have some steric crowding between the hydrogen atoms at the ends of the boat as well as some eclipsing stain.
+
+
+
+\begin{figure}
+        %\centering
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_chair_1.png}
+%                %\caption{Chair}
+%                %\label{fig:Chair}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_boat_1.png}
+%                %\caption{Boat}
+%                %\label{fig:Boat}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_twist_boat_2.png}
+%                %\caption{Twist Boat}
+%                %\label{fig:TwistBoat}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_twist_chair_2.png}
+%                %\caption{Twist Chair}
+%                %\label{fig:TwistChair}
+%        \end{subfigure}%
+%
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_chair_2.png}
+%                %\caption{Chair}
+%                %\label{fig:Chair}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_boat_2.png}
+%                %\caption{Boat}
+%                %\label{fig:Boat}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_twist_boat_1.png}
+%                %\caption{Twist Boat}
+%                %\label{fig:TwistBoat}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_twist_chair_1.png}
+%                %\caption{Twist Chair}
+%                %\label{fig:TwistChair}
+%        \end{subfigure}%
+%
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_chair_3.png}
+%                \caption{Chair}
+%                \label{fig:Chair}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_boat_3.png}
+%                \caption{Boat}
+%                \label{fig:Boat}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_twist_boat_3.png}
+%                \caption{Twist Boat}
+%                \label{fig:TwistBoat}
+%        \end{subfigure}%
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+%          %(or a blank line to force the subfigure onto a new line)
+%        \begin{subfigure}[b]{0.24\textwidth}
+%                \includegraphics[width=\textwidth]{pv_twist_chair_3.png}
+%                \caption{Twist Chair}
+%                \label{fig:TwistChair}
+%        \end{subfigure}%
+%
+%
+%        \caption{Cyclohexane Configurations}\label{fig:animals}
+\end{figure}
+
+
+Besides the chair and boat, there are a few intermediate configurations that cyclohexane assumes as when it transitions between the chair and boat. The aptly named \textbf{twist boat} is similar to the boat, but some of the carbons are rotated from the rest of the molecule. Due to this twisting, the twist boat actually has a lower energy than the boat as the hydrogen atoms at the bow and stern are no longer aligned. Interestingly, the boat can transition via the twist boat to a second boat configuration in which the bow and stern atoms are different, but with an otherwise indistinguishable geometry. As part of the boat's transition to the chair, the \textbf{twist chair} is another distinguished configuration. Having large angle and eclipsing strains, the twist boat represents somewhat of an energy barrier between the chair and boat.  
+
+\subsection{Sachse Model}
+
+Around the turn of the century, it was thought that cyclohexane's carbon atoms must lie in a plane. A young German assistant, Hermann Sachse, had the idea that allowing the carbons to lie outside the plan could alleviate the angle strain. Inspired by polyhedral geometry, he templates and outlined methods for creating 3D models of the chair and boat configurations his new theory conceptualized. Figure~\ref{fig:sachse} shows a construction of these two models. Despite his best efforts, Sachse's ideas were not accepted by that chemistry community until after his death. 
+
+
+
+\begin{figure}
+        %\centering
+        %\begin{subfigure}[b]{0.24\textwidth}
+        %        \includegraphics[width=\textwidth]{chair_model_2.png}
+        %        \caption{Chair (top)}
+        %        \label{fig:CM1}
+        %\end{subfigure}%
+        %~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+        %  %(or a blank line to force the subfigure onto a new line)
+        %\begin{subfigure}[b]{0.24\textwidth}
+        %        \includegraphics[width=\textwidth]{chair_model_1.png}
+        %        \caption{Chair (side)}
+        %        \label{fig:CM2}
+        %\end{subfigure}%
+        %~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+        %  %(or a blank line to force the subfigure onto a new line)
+        %\begin{subfigure}[b]{0.24\textwidth}
+        %        \includegraphics[width=\textwidth]{boat_model_1.png}
+        %        \caption{Boat (top)}
+        %        \label{fig:BM1}
+        %\end{subfigure}%
+        %~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+        %  %(or a blank line to force the subfigure onto a new line)
+        %\begin{subfigure}[b]{0.24\textwidth}
+        %        \includegraphics[width=\textwidth]{boat_model_2.png}
+        %        \caption{Boat (side)}
+        %        \label{fig:BM2}
+        %\end{subfigure}%
+        %\caption{Sachse Models}\label{fig:sachse}
+\end{figure}
+
+
+\section{Idealized Constraint Model}\label{building_game}
+
+Withe the eclipsing and angle strains in mind, we heuristically define an idealized model of cyclohexane by imposing geometric constraints. Each configuration is represented by the 3-dimensional locations of the center of its carbon atoms and we explicitly parameterize these locations as $v_1, v_2, \dots, v_6$ where $v_k \in \mathbb{R}^3$. For ease of exposition, $v_0 \doteq v_6$ and $v_{-1} \doteq v_5$ are notationally identified. 
+
+First, we require that any two atoms sharing a bond have a known and fixed distance $\ell$ from each other. Since we can re-scale our coordinate system, we assume $\ell \doteq 1$. Additionally, we assume that the connectivity of the cyclohexane molecule is such that $v_k$ is bonded to $v_{k-1}$ for $k = 1,\dots,6$. This gives our first six constraint equations.
+$$0 = \varphi_{len}^k\left(v_{k-1},v_{k}\right) = \|v_k-v_{k-1}\| - 1 $$
+for $k = 1,\dots,6$. 
+
+Additionally, we impose constraints representing the angle strain. Since the carbon atoms have the lowest energy when their bonds are at tetrahedral angles, we fix the angle of each set of three adjacent carbons to be at the tetrahedral angle. This is equivalent to the six angle constraint equations 
+$$0 = \phi_{ang}^k\left(v_{k-2},v_{k-1},v_{k}\right) = \left(v_k-v_{k-1}\right)\cdot \left(v_{k-2}-v_{k-1}\right) + \frac{1}{3}$$
+for $k = 1,\dots,6$.
+
+\subsection{Finding Intermediate Coordinates}
+
+Since any configuration has an infinitude of equivalent configurations given by rotations and translations, we fix the first three atoms $v_1, v_2,v_3$, at positions $c_1, c_2, c_3$ that satisfy the length and angle constraints. These account for nine of the twenty-one total constraint equations. 
+
+We wish to examine each of the four cyclohexane configurations to verify if they satisfy these constraints, but to do so, an explicit representation of the coordinates of each configuration is required. Since we know from Sachse's model that the boat and chair have a special polyhedral representation, geometry enables us to find such coordinates. We pick the $c_1 = \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right)$, $c_2 = \left(0,0,0\right)$, $c_3  = \left(\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right)$, and solve for the following coordinates.
+
+\begin{align*}
+v_1^{(chair)} &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) &= v_1^{(boat)} &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) \\
+v_2^{(chair)}  &= \left(0,0,0\right) &= v_2^{(boat)}  &= \left(0,0,0\right) \\
+v_3^{(chair)}  &= \left(\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) &= v_3^{(boat)}  &= \left(\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) \\
+v_4^{(chair)}  &= \left(\sqrt{\frac{2}{3}},\sqrt{\frac{2}{3}},2\sqrt{\frac{1}{3}}\right) &= v_4^{(boat)}  &= \left(\sqrt{\frac{2}{3}},\sqrt{\frac{2}{3}},2\sqrt{\frac{1}{3}}\right) \\
+v_5^{(chair)}  &= \left(0,\sqrt{\frac{2}{3}},\sqrt{3}\right) & v_5^{(boat)}  &= \left(0,\frac{5}{3}\sqrt{\frac{2}{3}},\frac{5}{3}\sqrt{3}\right) \\
+v_6^{(chair)}  &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) &= v_6^{(boat)}  &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right)
+\end{align*}
+%\begin{align*}
+%v_1^{(chair)} &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) & v_4^{(chair)}  &= \left(\sqrt{\frac{2}{3}},\sqrt{\frac{2}{3}},2\sqrt{\frac{1}{3}}\right) \\
+%v_2^{(chair)}  &= \left(0,0,0\right) & v_5^{(chair)}  &= \left(0,\sqrt{\frac{2}{3}},\sqrt{3}\right) \\
+%v_3^{(chair)}  &= \left(\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) & v_6^{(chair)}  &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) \\
+%v_1^{(boat)} &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) & v_4^{(boat)}  &= \left(\sqrt{\frac{2}{3}},\sqrt{\frac{2}{3}},2\sqrt{\frac{1}{3}}\right) \\
+%v_2^{(boat)}  &= \left(0,0,0\right) & v_5^{(boat)}  &= \left(0,\sqrt{\frac{2}{3}},\sqrt{3}\right) \\
+%v_3^{(boat)}  &= \left(\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right) & v_6^{(boat)}  &= \left(-\sqrt{\frac{2}{3}},0,\sqrt{\frac{1}{3}}\right)
+%\end{align*}
+
+It is easily verified that both the boat and chair coordinates satisfy all of the constraint equations exactly. As for the twist boat and twist chair, we do not have a precise definition of their coordinates other than they exist somewhere in transition between the boat and chair.  
+
+\section{Dynamics}
+
+As we are interested in transitions between the four configurations, we can use our constraint model to examine such movements. Is it possible to start with the chair coordinates and continuously deform them to the boat coordinates without ever breaking any of the constraints? Is there a similar deformation between different boat configurations that satisfies the constraints? If so, how hard is it to find such a path?
+ 
+\subsection{Degrees of Freedom in Ideal Model}
+
+The first step in answering these questions is determining whether there is any degrees of freedom to each configuration or whether they are rigid. This can be determined by using established theory on rigidity of linkages and degrees of freedom. By computing the Jacobian matrix $J(v)$ of the system of constraint equations, we have the following equation for the degrees of freedom for a constraint satisfying set of coordinates $v$.
+$$DoF(v) = 18 - rank(J(v))$$
+When the Jacobian is of full rank 18, none of the constraints are dependent on each other and thus there is no freedom in the linkage. When testing the chair, we found there to be $0$ degrees of freedom, meaning that it is impossible to make a transition from the chair to another configuration without breaking one or more of the constraint equations. For the boat, however, one degree of freedom was found. This result shows that it is possible to deform the boat continuously while satisfying the constraints, but it is not informative as to which configurations it can deform to. In particular, we are interested in finding a path to he twist boat or another boat configuration. 
+
+\subsection{Transitioning Between Boat Configurations}
+
+Under the conjecture that it is indeed possible to transition between two boat configurations, some numerical and visual experimentation was used to find coordinates to a second boat configuration, $\textbf{boat2}$. Even though it was easily verified that boat2 satisfies all of the constraints and was equivalent to the first boat by translation and rotation up to a permutation of the carbon atoms, it was not clear how to find a path between the two boats. Common in molecular dynamics simulations, a constrained dynamics SHAKE-type scheme was used to explore the admissible paths away from the boat configuration.
+
+The method is a two stage scheme in which we first step to a new configuration in the direction of boat2 and second enforce the constraints with Lagrange multipliers to get the updated configuration. For mathematical simplicity, we represent the coordinates $v_1,\dots,v_6$ as a single point $x \in \mathbb{R}^{18}$ where $\left(v_j\right)_k = x_{3j+k}$. 
+
+It is very important to make the estimate $\hat{x}^{n+1}$ of the next configuration satisfy the constraints reasonably well, as it will make the correction step easier. Rather than just defining the naive update of
+$$\hat{x}^{n+1} = x^n + \frac{1}{2}\left(\Delta t\right)^2\left(x^{boat2}-x^n\right),$$
+we seek a smarter method for making the estimate $\hat{x}^{n+1}$. Since we know the that the boat has one degree of freedom, its null space has one dimension. If we step in the direction of null-space $\nu^n \in \mathbb{R}^{18}$, the constraints should still be close to being satisfied. Thus, we use the following estimate. 
+$$\hat{x}^{n+1} = x^n + \frac{1}{2}\left(\Delta t\right)^2\left[\nu^n\cdot\left(x^{boat2}-x^n\right)\frac{\nu^n}{\|\nu^n\|}\right]$$
+To enforce our constraints on this prediction, we use Lagrange multipliers. We define the update to be
+$$x^{n+1} = \hat{x}^{n+1} + \left(\Delta t\right)^2\sum^{21}_{k=1}\lambda_k^{n+1}\nabla\varphi_k\left(x^n\right)$$ 
+and find $\lambda^{n+1}$ such that $x^{n+1}$ satisfies the constraint equations. To do this, we plug $x^{n+1}$ into the constraint equations $\varphi$ and use Newton iteration to find $\lambda^{n+1}$.
+
+
+\begin{figure}
+	%\includegraphics[width=\textwidth]{coords_v3.png}
+	\caption{Boat to Boat2 Coordinate Transition}
+	\label{fig:Coords}
+\end{figure}
+
+Using this scheme, we were able to simulate the transition between the boat and boat2 configurations. While maintaining the constraints up to arbitrary precision, the carbon coordinates $x$ were updated along a path that lead from the boat to boat2. This serves as confirmation that it is possible to maintain the constraints given by our model and transition between boat and twist boat configurations. The continuous change in carbon coordinates during this transition can be seen in figure~\ref{fig:Coords}.
+
+This algorithm also enabled us to approximate coordinates for the twist boat as they were taken to be midway between the boat and boat2. Also, by relaxing the constraints to only enforce fixed lengths between carbons and allowing some angle strain, a path from the Chair to the twist boat was found. Similarly, this path allowed for the approximation of the twist chair coordinates.
+
+\section{Analogy to Folding Model}
+Transition between the different configurations of cyclohexane can be compared to the transitioning within the folding model configuration space. Just as each folding intermediate is represented by a node in a graph, the Cyclohexane intermediates can similarly be organized. In both graphs an edge would mean that the intermediates at either end could transition into each other. As seen in figure~\ref{fig:cyclofold}, to transition between the chair and the boat, the molecule must first become a twist-chair and then a twist boat before it can finally become a boat. Similarly, to transition between the boat and boat2, the twist boat intermediate must first be visited. This relationship is mirrored by the boat and octahedron folding intermediates.
+
+\begin{figure}[h]
+	%\includegraphics[width=\textwidth]{cyclohexane_folding.png}
+	\caption{Configuration Graphs for Cyclohexane and Folding}
+	\label{fig:cyclofold}
+\end{figure}
+
+
+
