@@ -1,15 +1,16 @@
 %\lipsum[101-120]
 \section{The Building Game as a Mathematical Framework for Self-assembly}
 
-The Building Game (BG) was first considered by Zlotnick~\cite{Zlotnick1994} as a model for the assembly of polyhedral viral capsids. In the model, a capsid is idealized as a polyhedron \poly with each face treated as a subunit. Assembly proceeds from a singe face with a second face attached to the first along an edge with the same dihedral angle as in the completed polyhedron. At each subsequent step of the process, an additional face is added along an edge of one of the already added faces, again with dihedral angle corresponding to the polyhedron. The process ends when all of \poly's face have been added resulting in a completed polyhedron.
+The Building Game (BG) was first considered by Zlotnick~\cite{Zlotnick1994} as a model for the assembly of polyhedral viral capsids. In the model, a capsid is idealized as a polyhedron \poly\spc with each face treated as a subunit. Assembly proceeds from a singe face with a second face attached to the first along an edge with the same dihedral angle as in the completed polyhedron. At each subsequent step of the process, an additional face is added along an edge of one of the already added faces, again with dihedral angle corresponding to the polyhedron. The process ends when all of \poly's face have been added resulting in a completed polyhedron.
+
+A useful way to think about the Building game is as a sequential coloring process. Given a polyhedron with each face painted black, choose a face and paint it white. At each subsequent step, choose a black face that is adjacent to a white face ant paint it white. Repeat until all faces are white. Here the white faces symbolize the ones that are present at a given step of the assembly process.
 
 \section{Formal Definition}
-
-We formalize the Building Game as a sequential graph labeling process. If we are interested in the BG of a polyhedron \poly, we represent \poly\spc by a graph $\PolyGraph = \left(F(\Poly), E(\Poly)\right)$ whose nodes are the haves of \poly\spc and connections correspond to the pairs of faces sharing an edge of \poly. In this way, $\PolyGraph$ can be viewed as the polyhedral graph of \poly's dual polyhedron. 
+We formalize the Building Game as a sequential graph labeling process. If we are interested in the BG of a polyhedron \poly, we represent \poly\spc by a graph $\PolyGraph = \left(F(\Poly), E(\Poly)\right)$ whose nodes are the faces of \poly\spc and connections correspond to the pairs of faces sharing an edge of \poly. In this way, $\PolyGraph$ can be viewed as the polyhedral graph of \poly's dual polyhedron. 
 \begin{mydef}
-A Building Game \textbf{intermediate} $x: F(\Poly) \to \{0,1\}$ is a function that labels the nodes of $\PolyGraph$ such that the set $\left\{f_m \in F\left(\mathscr{P}\right) : x\left(f_m\right) = 1\right\}$ is a connected component of $\PolyGraph$.
+A Building Game \textbf{state} $x: F(\Poly) \to \{0,1\}$ is a function that labels the nodes of $\PolyGraph$ such that the set $\left\{f_m \in F\left(\mathscr{P}\right) : x\left(f_m\right) = 1\right\}$ is a connected component of $\PolyGraph$.
 \end{mydef} 
-In Zlotnick's usage of the model, the labeling of $1$ or $0$ to each face would correspond to whether the face had been attached at some point up to the current step of the process. As pictured in figure~\ref{fig:CubeGraph} a cube has 6 faces, 12 edges and 8 vertices. The corresponding $\PolyGraph$ representation is the octahedral graph with 6 vertices and 12 edges. In this example, the intermediate represented labels three faces with a 1 and the others with 0. The embedded geometric interpretation shows three square faces connected along their edges.
+In Zlotnick's usage of the model, the labeling of $1$ or $0$ to each face would correspond to whether the face had been attached at some point up to the current step of the process. As pictured in figure~\ref{fig:CubeGraph} a cube has 6 faces, 12 edges and 8 vertices. The corresponding $\PolyGraph$ representation is the octahedral graph with 6 vertices and 12 edges. In this example, the state represented labels three faces with a 1 and the others with 0. The embedded geometric interpretation shows three square faces connected along their edges.
 
 \begin{figure}[ht]
 \caption{The cube and its graph representation.}
@@ -19,16 +20,16 @@ In Zlotnick's usage of the model, the labeling of $1$ or $0$ to each face would 
 \begin{mydef}
 The Building Game \textbf{rotation group} $\G$ is the permutation group acting on $F(\Poly)$ that corresponds to \poly's rotational symmetry group.
 \end{mydef}
-Many Building Game intermediates are identical to each other under permutation of the nodes of $\PolyGraph$. In particular, we are interested in the intermediates that are identical under the BG rotation group $\G$.    
+Many Building Game states are identical to each other under permutation of the nodes of $\PolyGraph$. In particular, we are interested in the states that are identical under the BG rotation group $\G$.    
 \begin{mydef}
-A Building Game \textbf{state} $[x]$ is an equivalence class of BG intermediates given by the eqivalence relation  $x \sim \tilde{x}$ if there is an element $g$ of \poly's rotation group $\G$ that satisfies $x(f_m) = \tilde{x}(g.f_m)$ for every $f_m \in F(\mathscr{P})$. 
+A Building Game \textbf{intermediate} $[x]$ is an equivalence class of BG states given by the eqivalence relation  $x \sim \tilde{x}$ if there is an element $g$ of \poly's rotation group $\G$ that satisfies $x(f_m) = \tilde{x}(g.f_m)$ for every $f_m \in F(\mathscr{P})$. 
 \end{mydef}
 \begin{mydef}
-The Building Game \textbf{stabilizer subgroup} of an intermediate $x$ is the subgroup $\G_x \leq \G$ that fixes each  $F(\Poly)$ that corresponds to \poly's rotational symmetry group.
+The Building Game \textbf{stabilizer subgroup} of an intermediate $x$ is the subgroup $\G_x \doteq \left\{g \in \G : x(F) = x(g.F) \right\} \leq \G$ that fixes $x(F(\Poly))$.
 \end{mydef}
 
 \begin{figure}[ht]
-\caption{The eight intermediates in a particular BG state.}
+\caption{The eight states in a particular BG intermediate.}
 \label{fig:CubeState}
 \end{figure}
 
