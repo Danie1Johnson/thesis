@@ -1,39 +1,77 @@
+
 %\lipsum[101-120]
 \section{The Building Game as a Mathematical Framework for Self-assembly}
 
-The Building Game (BG) was first considered by Zlotnick~\cite{Zlotnick1994} as a model for the assembly of polyhedral viral capsids. In the model, a capsid is idealized as a polyhedron \poly\spc with each face treated as a subunit. Assembly proceeds from a singe face with a second face attached to the first along an edge with the same dihedral angle as in the completed polyhedron. At each subsequent step of the process, an additional face is added along an edge of one of the already added faces, again with dihedral angle corresponding to the polyhedron. The process ends when all of \poly's face have been added resulting in a completed polyhedron.
+The Building Game (BG) was first considered by Zlotnick~\cite{Zlotnick1994} as a model for the assembly of polyhedral viral capsids. In the model, a capsid is idealized as a polyhedron \poly\spc with each face treated as a subunit. Assembly proceeds from a singe face with a second face attached to the first along an edge. At each subsequent step of the process, an additional face is added along an edge of one of the already added faces. The process ends when all of \poly's face have been added resulting in a completed polyhedron.
 
 A useful way to think about the Building game is as a sequential coloring process. Given a polyhedron with each face painted black, choose a face and paint it white. At each subsequent step, choose a black face that is adjacent to a white face ant paint it white. Repeat until all faces are white. Here the white faces symbolize the ones that are present at a given step of the assembly process.
 
 \section{Formal Definition}
-We formalize the Building Game as a sequential graph labeling process. If we are interested in the BG of a polyhedron \poly, we represent \poly\spc by a graph $\PolyGraph = \left(F(\Poly), E(\Poly)\right)$ whose nodes are the faces of \poly\spc and connections correspond to the pairs of faces sharing an edge of \poly. In this way, $\PolyGraph$ can be viewed as the polyhedral graph of \poly's dual polyhedron. 
+We formalize the Building Game in terms of the group action of the polyhedron \poly's roation group $\G$ acting on subsets of $F$, \poly's face set. 
+
 \begin{mydef}
-A Building Game \textbf{state} $x: F(\Poly) \to \{0,1\}$ is a function that labels the nodes of $\PolyGraph$ such that the set $\left\{f_m \in F\left(\mathscr{P}\right) : x\left(f_m\right) = 1\right\}$ is a connected component of $\PolyGraph$.
+  A Building Game \textbf{state} $x \subset F$ is a non-empty subset of the faces of \poly such that the union of the faces without the vertices $\left(\cup_{f \in x}f\right) \setminus V$ is path connected. 
 \end{mydef} 
-In Zlotnick's usage of the model, the labeling of $1$ or $0$ to each face would correspond to whether the face had been attached at some point up to the current step of the process. As pictured in figure~\ref{fig:CubeGraph} a cube has 6 faces, 12 edges and 8 vertices. The corresponding $\PolyGraph$ representation is the octahedral graph with 6 vertices and 12 edges. In this example, the state represented labels three faces with a 1 and the others with 0. The embedded geometric interpretation shows three square faces connected along their edges.
+
+%as a sequential graph labeling process. If we are interested in the BG of a polyhedron \poly, we represent \poly\spc by a graph $\PolyGraph = \left(F, E\right)$ whose nodes are the faces $F$ of \poly\spc and connections $E$ correspond to the pairs of faces sharing an edge of \poly. In this way, $\PolyGraph$ can be viewed as the polyhedral graph of \poly's dual polyhedron. 
+
+%In Zlotnick's usage of the model, the labeling of $1$ or $0$ to each face would correspond to whether the face had been attached at some point up to the current step of the process. 
+As pictured in figure~\ref{fig:OctaStates} an octahedron has 8 faces, 12 edges and 6 vertices. 
+
+--More describing fig and what is and is not an intermediate.
+
+%The corresponding $\PolyGraph$ representation is the octahedral graph with 6 vertices and 12 edges. In this example, the state represented labels three faces with a 1 and the others with 0. The embedded geometric interpretation shows three square faces connected along their edges.
 
 \begin{figure}[ht]
+  \includegraphics[scale=0.1, angle=0]{fig_2_1.eps}
 \caption{The cube and its graph representation.}
-\label{fig:CubeGraph}
+\label{fig:OctaStates}
 \end{figure}
 
+%\begin{mydef}
+%The Building Game \textbf{rotation group} $\G$ is the permutation group acting on $F$ that corresponds to \poly's rotational symmetry group.
+%\end{mydef}
+
 \begin{mydef}
-The Building Game \textbf{rotation group} $\G$ is the permutation group acting on $F(\Poly)$ that corresponds to \poly's rotational symmetry group.
+The Building Game \textbf{stabilizer subgroup} for a state $x$ is the subgroup $\G_x \doteq \left\{g \in \G :g. x = x \right\} \leq \G$ permutations that fixes $x$.
 \end{mydef}
-Many Building Game states are identical to each other under permutation of the nodes of $\PolyGraph$. In particular, we are interested in the states that are identical under the BG rotation group $\G$.    
+
 \begin{mydef}
-A Building Game \textbf{intermediate} $[x]$ is an equivalence class of BG states given by the eqivalence relation  $x \sim \tilde{x}$ if there is an element $g$ of \poly's rotation group $\G$ that satisfies $x(f_m) = \tilde{x}(g.f_m)$ for every $f_m \in F(\mathscr{P})$. 
+The \textbf{symmetry number} $r_x$ of a state $x$ is the order of its stabilizer subgroup $\left|\G_x\right|$.
 \end{mydef}
+
+As in Zlotnick, we group the states that are rotations of each other. 
+
 \begin{mydef}
-The Building Game \textbf{stabilizer subgroup} of an intermediate $x$ is the subgroup $\G_x \doteq \left\{g \in \G : x(F) = x(g.F) \right\} \leq \G$ that fixes $x(F(\Poly))$.
+A Building Game \textbf{intermediate} $[x] \doteq \left\{g.x : g \in G\right\}$ is the orbit of the state $x$. 
 \end{mydef}
+Then, since the orbits of a group action form a partition on the set it acts on, each state belongs to a single intermediate and two states $x$ and $y$ are part of the same intermediate if there is a $g\in\G$ such that $y = g.x$. 
+
+
+\begin{mythm}
+If the states $x$ and $y$ are members of the same intermediate $\left[x\right]$, they have the same symmetry number and thus we defin the \textbf{symmetry number} of an intermediate $\left[x\right]$ as $r_x$.
+\end{mythm}
+\begin{proof}
+Let $h \in G$ such that $y = h.x$. Since $G$ is normal to itself, we have $G = h^{-1}Gh = hGh^{-1}$.
+\begin{align}
+  r_x &= \left|\left\{g \in \G :g. x = x \right\}\right| \\
+  &= \left|\left\{g \in h\G h^{-1} : g.x = x \right\}\right| \\
+  &= \left|\left\{ h^{-1}gh \in \G : (h^{-1}gh).x = x \right\}\right| \\
+  &= \left|\left\{ h^{-1}gh \in h^{-1}Gh : (h^{-1}gh).x = x \right\}\right| \\
+  &= \left|\left\{ g \in G : (h^{-1}gh).x = x \right\}\right| \\
+  &= \left|\left\{ g \in G : (gh).x = h.x \right\}\right| \\
+  &= \left|\left\{ g \in G : g.y = y \right\}\right| \\
+  &= r_y
+\end{align}
+\end{proof}
+
 
 \begin{figure}[ht]
 \caption{The eight states in a particular BG intermediate.}
 \label{fig:CubeState}
 \end{figure}
 
-For ease of exposition, we use the notational shorthand $\left(x\right)_m$ for $x\left(f_m\right)$ and $x = g.x'$ when $x(f_m) = x'(g.f_m)$ for every $f_m \in F(\mathscr{P})$. Additionally, we denote the intermediate satisfying $\left(x\right)_m = \colorA$ for all $f_m \in \faceset$ as $x^\colorAsm$ and similarly $x^\colorBsm$ is the intermediate with $\left(x\right)_m = \colorB$ for all $f_m \in \faceset$. The function counting the number of \colorB\spc faces an intermediate has is denoted $h\left(x\right) \doteq |\left\{f_m \in \faceset : \left(x\right)_m = \colorB\right\}|$.
+%For ease of exposition, we use the notational shorthand $\left(x\right)_m$ for $x\left(f_m\right)$ and $x = g.x'$ when $x(f_m) = x'(g.f_m)$ for every $f_m \in F(\mathscr{P})$. Additionally, we denote the intermediate satisfying $\left(x\right)_m = \colorA$ for all $f_m \in \faceset$ as $x^\colorAsm$ and similarly $x^\colorBsm$ is the intermediate with $\left(x\right)_m = \colorB$ for all $f_m \in \faceset$. The function counting the number of \colorB\spc faces an intermediate has is denoted $h\left(x\right) \doteq |\left\{f_m \in \faceset : \left(x\right)_m = \colorB\right\}|$.
 
 \begin{mydef}
 Two intermediates $x^j$ and $x^k$ are \textbf{connected} ($x^j \leftrightarrow x^k$) if $\left(x^j\right)_m = \left(x^k\right)_m$ for all $f_m \in \faceset$ except for exactly one face $f_n$ that has  $\left(x^j\right)_n \neq \left(x^k\right)_n$.
