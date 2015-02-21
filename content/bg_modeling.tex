@@ -74,10 +74,20 @@ Let $h \in G$ such that $y = h.x$. Since $G$ is normal to itself, we have $G = h
 %For ease of exposition, we use the notational shorthand $\left(x\right)_m$ for $x\left(f_m\right)$ and $x = g.x'$ when $x(f_m) = x'(g.f_m)$ for every $f_m \in F(\mathscr{P})$. Additionally, we denote the intermediate satisfying $\left(x\right)_m = \colorA$ for all $f_m \in \faceset$ as $x^\colorAsm$ and similarly $x^\colorBsm$ is the intermediate with $\left(x\right)_m = \colorB$ for all $f_m \in \faceset$. The function counting the number of \colorB\spc faces an intermediate has is denoted $h\left(x\right) \doteq |\left\{f_m \in \faceset : \left(x\right)_m = \colorB\right\}|$.
 
 \begin{mydef}
-Two intermediates $x^j$ and $x^k$ are \textbf{connected} ($x^j \leftrightarrow x^k$) if $\left(x^j\right)_m = \left(x^k\right)_m$ for all $f_m \in \faceset$ except for exactly one face $f_n$ that has  $\left(x^j\right)_n \neq \left(x^k\right)_n$.
+Two distinct intermediates $\left[x\right]$ and $\left[y\right]$ are \textbf{connected} if there exist states $x \in \left[x\right]$ and $y \in \left[y\right]$ such that one of the following holds:
+\begin{itemize}
+\item $\exists f \in y: y = x \cup \left\{f\right\}$
+  \item $\exists f \in x: x = y \cup \left\{f\right\}$
+\end{itemize}
 \end{mydef}
+
+\begin{mylem}
+If intermediates $\left[x\right]$ and $\left[y\right]$ are connected, then for every state $x \in \left[x\right]$ there is a state $y \in \left[y\right]$ such that $\exists f \in y: y = x \cup \left\{f\right\}$ or $\exists f \in x: x = y \cup \left\{f\right\}$.
+\end{mylem}
+\begin{proof}
+\end{proof}
 \begin{mydef}
-A Building Game \textbf{pathway} is a sequence of intermediates $x^{p_0}, x^{p_1}, x^{p_2}, \dots, x^{p_N}$ such that $x^{p_0} = x^\colorAsm$, $x^{p_N} = x^\colorBsm$, $x^{p_i}$ is connected to $x^{p_{i+1}}$ and $h\left(x^{p_i}\right) = i$.
+A Building Game \textbf{pathway} is a sequence of intermediates $[x^{p_1}], [x^{p_2}], \dots, [x^{p_N}]$ such that  $[x^{p_i}]$ is connected to $[x^{p_{i+1}}]$, $|x^{p_i}| = i$, and $x^{p_N} = F$.
 \end{mydef}
 
 In this way it is useful to think of intermediates as connected if it is possible to color one face of the first intermediate to get the second and a pathway as a sequence of these connections between $x^\colorAsm$ and $x^\colorBsm$. Figure~\ref{fig:DodecBG} shows a Building Game pathway for the dodecahedron using Schlegel diagrams. The pathways has 13 intermediates since there must be exactly one intermediate $x^{p_i}$ satisfying $h\left(x^{p_i}\right) = i$ for each $i = 0,1,2,\dots,12$.
@@ -90,10 +100,10 @@ In this way it is useful to think of intermediates as connected if it is possibl
 With many pairs of connected intermediates, we organize these relations in a graph.
 
 \begin{mydef}
-The Building Game \textbf{state space} for a polyhedron \poly\spc is a graph in which the nodes are \poly's intermediates and a graph edge exists between two intermediates if and only if they are connected. 
+The Building Game \textbf{combinatorial configuration space} for a polyhedron \poly\spc is a graph in which the nodes are \poly's intermediates and a graph edge exists between two intermediates if and only if they are connected. 
 \end{mydef}
 
-When the intermediates are partitioned by their value of $h$, it is natural to arrange the state space as a tiered graph according to this partition. Figure~\ref{fig:CubeSS} shows the Building Game state space for the cube. As seen, each tier has intermediates with the same number of \colorB faces and connections thus exist with intermediates that are either in the tier directly above or below them. We can also see that there are three distinct pathways contained in the state space. 
+When the intermediates are partitioned by the number of faces they possess, it is natural to arrange the state space as a tiered graph according to this partition. Figure~\ref{fig:CubeSS} shows the Building Game state space for the cube. As seen, each tier has intermediates with the same number of faces and connections thus exist with intermediates that are either in the tier directly above or below them. We can also see that there are three distinct pathways contained in the state space. 
 
 \begin{figure}[ht]
 \caption{The Building Game state space of the cube.}
@@ -163,23 +173,23 @@ The result $r_kS_{jk} = r_jS_{kj}$ follows.
 
 \section{Stochastic Modeling Results}
 
-If we allow faces be changed both from \colorA\spc to \colorB\spc and from \colorB\spc to \colorA, the process consists of transitions from intermediate to intermediate along state space connections. By specifying a distribution on these transitions, it will induce a stationary measure on the state space.  
+If we considera Building Game process that allows faces to be sequentially added or removed, the process consists of transitions from intermediate to intermediate along connections in the combinatorial configuration space. By specifying a distribution on these transitions, it will induce a stationary measure on the state space.  
 
-We define the Markov process $X_t$ by the transition rate matrix $Q$, with the heuristic that the rate of transition to an intermediate \xk from an intermediate \xk should be proportional to the number of faces of \xj that can be colored to reach the intermediate \xk. For this reason, we include the degeneracy number \Sjk\spc as a factor in the transition rate matrix. Furthermore, we model the process after and energetic model in which each intermediate has an energy and to transtion between intermediates, an energy barrier $E_{jk} = E_{kj}$ must be overcome. 
+We define the Markov process $X_t$ by the transition rate matrix $Q$, with the heuristic that the rate of transition to an intermediate $[x]$ from an intermediate $[y]$ should be proportional to the number of faces that can be added or removed from $[x]$ to reach $[y]$. For this reason, we include the degeneracy number $S_{[x][y]}$ as a factor in the transition rate matrix. Furthermore, we model the process using an energetic interpretation in which each intermediate has an energy and to transtion between intermediates, an energy barrier $E_{[x][y]} = E_{[y][x]}$ must be overcome. 
 %\begin{align}
 %\label{eq:TransitionProbability}
 % P_{jk} = \frac{1}{z_j}S_{jk}\rh 
 %\end{align}
 \begin{align}
 \label{eq:TransitionRate}
-Q_{jk} &= S_{jk}e^{-\beta\left(E_{jk} - E_j\right)} \\
-Q_{jj} &= -z_j \\
+Q_{[x][y]} &= S_{[x][y]}e^{-\beta\left(E_{[x][y]} - E_{[x]}\right)} \\
+Q_{[x][x]} &= -z_j \\
 \end{align}
 Here, $z_j \doteq \sum_{\ell: \ell \neq j} S_{j\ell}e^{-\beta\left(E_{j\ell} - E_j\right)}$ is the rate at which the process leaves \xj. 
 
 \begin{mythm}
 \label{thm:StatDist}
-If the transition rate matrix $Q$ can be decomposed as $Q = DC$ where $D$ is diagonal with each entry of the diagonal positive and $C$ is a non-negative symmetric matrix with $C_{jk} > 0$ if and only if $x^j$ and $x^k$ are connected, then $X_t$ has the unique stationary distribution $\pi = \diag\left(D^{-1}\right)$.         
+If the transition rate matrix $Q$ can be decomposed as $Q = DC$ where $D$ is diagonal with each entry of the diagonal positive and $C$ is a symmetric matrix with the non-diagnal entries $C_{jk} > 0$ if and only if $[x^j]$ and $[x^k]$ are connected and $C_{jk} = 0$ if they are not, then $X_t$ has the unique stationary distribution $\pi = \diag\left(D^{-1}\right)$.         
 \end{mythm}
 \begin{proof}
 First, we show $Q$ and $\pi$ satisfy detailed balance.
@@ -196,7 +206,24 @@ First, we show $Q$ and $\pi$ satisfy detailed balance.
 
 \end{proof}
 
+
+\begin{mythm}
+\label{thm:E}
+The Markov process $X_t$ defined by the transition rate matrix $Q$ in equation~\ref{eq:TransitionRate} admits the unique stationary distribution $\frac{1}{zr_j}e^{-\beta E_j}$ where $z \doteq \sum_\ell \frac{1}{r_\ell}e^{-\beta E_\ell}$ is the partition function. 
+\end{mythm}
+\begin{proof}
+We take $C_{jk} \doteq \frac{S_{jk}}{zr_j}e^{-\beta E_{jk}}$ and notice that it is symmetric by theorem~\ref{thm:J}. With $D_{jj} \doteq zr_je^{\beta E_j}$ we have our partition.  
+\begin{align}
+Q_{jk} &= S_{jk}e^{-\beta\left(E_{jk} - E_j\right)} \\
+       &= \left(zr_je^{\beta E_j}\right) \left(\frac{S_{jk}}{zr_j}e^{-\beta E_{jk}}\right) \\
+       &= D_{jj}C_{jk}   
+\end{align}
+Thus, by theorem~\ref{thm:StatDist},  $\pi_j = \frac{1}{D_{jj}} = \frac{1}{zr_j}e^{-\beta E_j}$.
+\end{proof}
+
+
 In order to use theorem~\ref{thm:StatDist} to find the stationary distribution for the transition rule~\ref{eq:TransitionProbability}, we must be able to decompose the degeneracy number \Sjk\spc to fit the template of $\mathbf{C}$ and $\mathbf{D}$. In the following section we derive group theoretic identities to show that this is possible.
+
 
 \subsection{Hitting Times}
 
@@ -264,21 +291,4 @@ This is the solution for the CDF of the stopping time $\tau^A$, but we can also 
         &= \diag\left(\mathbbm{1}_{A^c}\right)Q\psi^A
 \end{align} 
 
-
-
-\subsection{Stationarity}
-
-\begin{mythm}
-\label{thm:E}
-The Markov process $X_t$ defined by the transition rate matrix $Q$ in equation~\ref{eq:TransitionRate} admits the unique stationary distribution $\frac{1}{zr_j}e^{-\beta E_j}$ where $z \doteq \sum_\ell \frac{1}{r_\ell}e^{-\beta E_\ell}$ is the partition function. 
-\end{mythm}
-\begin{proof}
-We take $C_{jk} \doteq \frac{S_{jk}}{zr_j}e^{-\beta E_{jk}}$ and notice that it is symmetric by theorem~\ref{thm:J}. With $D_{jj} \doteq zr_je^{\beta E_j}$ we have our partition.  
-\begin{align}
-Q_{jk} &= S_{jk}e^{-\beta\left(E_{jk} - E_j\right)} \\
-       &= \left(zr_je^{\beta E_j}\right) \left(\frac{S_{jk}}{zr_j}e^{-\beta E_{jk}}\right) \\
-       &= D_{jj}C_{jk}   
-\end{align}
-Thus, by theorem~\ref{thm:StatDist},  $\pi_j = \frac{1}{D_{jj}} = \frac{1}{zr_j}e^{-\beta E_j}$.
-\end{proof}
 
