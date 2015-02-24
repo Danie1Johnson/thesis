@@ -134,10 +134,36 @@ Since the Building Game is a sequential process with several choices at each ste
 
 --Math and graphical results about putting a distribution on pathways
 
+\begin{mylem}
+For connected intermediates $[x]$ and $[y]$, with $x \cup \{f\} = y$ and $x \cup \{\hat{f}\} \in [y]$, then there is $h \in G_x$ satisfying $x \cup \{\hat{f}\} = h.y$.
+\end{mylem}
+\begin{proof}
+\end{proof}
+
 \begin{mythm}
-For two connected intermediates $[x^j]$ and $[x^k]$, the degeracy numbers are that same as the cardinality of  
+  For two connected intermediates $[x^j]$ and $[x^k]$, the degeracy numbers $S_{jk}$ and $S_{kj}$ are that same as the cardinality of $G_{x^j}.\{f\}$ and $G_{x^k}.\{f\}$ for $x^j \in [x^j], x^k \in [x^k], f \in F$ satisfying $x^k = x^j \cup \{f\}$.  
 \end{mythm}
 \begin{proof}
+First we argue the case of $S_{jk}$ by showing that $G_x^j.\{f\} = \{\hat{f} \in F : x \cup \{\hat{f}\} \in [y]\}$.
+
+Assume $\{\hat{f}\} \in G_{x^j}.\{f\}$. Thus, there is a $g \in G$ such that $g.x = x$ and $g.\{f\} = \{\hat{f}\}$. It follows that
+\begin{align}
+x \cup \{\hat{f}\} &= (g.x)\cup (g.\{f\}) \\
+&= g.(x\cup\{f\}) \\
+&= g.y \in [y].
+\end{align}
+Thus $G_x^j.\{f\} \subset \{\hat{f} \in F : x \cup \{\hat{f}\} \in [y]\}$
+
+Now we assume $\bar{f} \in F$ with $x \cup \{\bar{f}\} \in [y]$ and argue that $\bar{f} \in G_{x^j}.\{f\}$. By lemma XXX we know there is a $h \in G_{x^j}$ such that $x^j \cup \{\bar{f}\} = h.x^k$. It follows that
+\begin{align}
+x^j \cup \{\bar{f}\} &= h.x^k \\
+&= h.(x^j \cup \{f\}) \\
+&= h.x^j \cup h.\{f\}) \\
+&= x^j \cup h.\{f\}) \\
+\end{align}
+and thus $\{\bar{f}\} = h.\{f\}$. This means that $\bar{f} \in G_{x^j}.\{f\}$ and $\{\hat{f} \in F : x \cup \{\hat{f}\} \in [y]\} \subset G_x^j.\{f\}$.
+
+We have shown that $G_x^j.\{f\} = \{\hat{f} \in F : x \cup \{\hat{f}\} \in [y]\}$ and consequently that $S_{jk} = |G_{x^j}.\{f\}|$. The proof for $S_{kj}$ follows similarly.
 \end{proof}
 
 
