@@ -9,8 +9,10 @@ A useful way to think about the Building game is as a sequential coloring proces
 \section{Formal Definition}
 We formalize the Building Game in terms of the group action of the polyhedron \poly's roation group $\G$ acting on subsets of $F$, \poly's face set. 
 
+If we are interested in the Building Game of a polyhedron \poly, we represent \poly\spc by a graph $\PolyGraph = \left(F, E\right)$ whose nodes are the faces $F$ of \poly\spc and connections $E$ correspond to the pairs of faces sharing an edge of \poly. In this way, $\PolyGraph$ can be viewed as the polyhedral graph of \poly's dual polyhedron. 
+
 \begin{mydef}
-  A Building Game \textbf{state} $x \subset F$ is a non-empty subset of the faces of \poly such that the union of the faces without the vertices $\left(\cup_{f \in x}f\right) \setminus V$ is path connected. 
+  A Building Game \textbf{state} $x \subset F$ is a non-empty subset of the faces $F$ of \poly\spc such that the subgraph $\PolyGraph|_x$ restricted to the faces in $x$ is a single conected compoment. 
 \end{mydef} 
 
 %as a sequential graph labeling process. If we are interested in the BG of a polyhedron \poly, we represent \poly\spc by a graph $\PolyGraph = \left(F, E\right)$ whose nodes are the faces $F$ of \poly\spc and connections $E$ correspond to the pairs of faces sharing an edge of \poly. In this way, $\PolyGraph$ can be viewed as the polyhedral graph of \poly's dual polyhedron. 
@@ -66,15 +68,15 @@ Since $G$ is normal to itself, we have $G = h^{-1}Gh = hGh^{-1}$.
 \end{proof}
 
 \begin{mythm}
-If the states $x$ and $y$ are members of the same intermediate $\left[x\right]$, they have the same symmetry number. Thus, we extent the notion of a symmetry number to be a property of an intermediate.
+If the states $x$ and $\hat{x}$ are members of the same intermediate $\left[x\right]$, they have the same symmetry number. Thus, we extend the notion of a symmetry number to be a property of an intermediate.
 \end{mythm}
 \begin{proof}
 By Lemma~\ref{lem:GyhGxh}, the result follows.
 \begin{align}
   r_x &= |G_x| \\
   &= |hG_xh^{-1}| \\
-   &= |G_y| \\
-  &= r_y
+   &= |G_{\hat{x}}| \\
+  &= r_{\hat{x}}
 \end{align}
 \end{proof}
 
@@ -94,16 +96,28 @@ Two distinct intermediates $\left[x\right]$ and $\left[y\right]$ are \textbf{con
 \end{itemize}
 \end{mydef}
 
+-- Language about forward and backward connection directions?
+
 \begin{mylem}
 If intermediates $\left[x\right]$ and $\left[y\right]$ are connected, then for every state $x \in \left[x\right]$ there is a state $y \in \left[y\right]$ such that $\exists f \in y: y = x \cup \left\{f\right\}$ or $\exists f \in x: x = y \cup \left\{f\right\}$.
 \end{mylem}
 \begin{proof}
+  Without loss of generality, assume $|x| < |y|$. Since $[x]$ and $[y]$ are connected, let $\hat{x} \in [x]$, $\hat{y} \in [y]$, and $\hat{f} \in \hat{y}$, be such that $\hat{y} = \hat{x}\cup\{\hat{f}\}$. Then, for any $x \in [x]$, pick $g \in G$ such that $x = g.\hat{x}$. By choosing $y = g.\hat{y}$ and $\{f\} = g.\{\hat{f}\}$, we have
+\begin{align}
+  y &= g.\hat{y} \\
+  &= g.(\hat{x}\cup\{\hat{f}\}) \\
+  &= g.\hat{x}\cup g.\{\hat{f}\} \\
+  &= x \cup \{f\} \\
+\end{align}    
+and our result is shown.
 \end{proof}
+
+
 \begin{mydef}
 A Building Game \textbf{pathway} is a sequence of intermediates $[x^{p_1}], [x^{p_2}], \dots, [x^{p_N}]$ such that  $[x^{p_i}]$ is connected to $[x^{p_{i+1}}]$, $|x^{p_i}| = i$, and $x^{p_N} = F$.
 \end{mydef}
 
-In this way it is useful to think of intermediates as connected if it is possible to color one face of the first intermediate to get the second and a pathway as a sequence of these connections between $x^\colorAsm$ and $x^\colorBsm$. Figure~\ref{fig:DodecBG} shows a Building Game pathway for the dodecahedron using Schlegel diagrams. The pathways has 13 intermediates since there must be exactly one intermediate $x^{p_i}$ satisfying $h\left(x^{p_i}\right) = i$ for each $i = 0,1,2,\dots,12$.
+ Figure~\ref{fig:DodecBG} shows a Building Game pathway for the dodecahedron using Schlegel diagrams. The pathway has 12 intermediates since there must be exactly one intermediate $x^{p_i}$ satisfying $h\left(x^{p_i}\right) = i$ for each $i = 1,2,\dots,12$.
 
 \begin{figure}[ht]
 \caption{One Building Game pathway on the dodecahedron.}
@@ -119,20 +133,19 @@ The Building Game \textbf{combinatorial configuration space} for a polyhedron \p
 When the intermediates are partitioned by the number of faces they possess, it is natural to arrange the state space as a tiered graph according to this partition. Figure~\ref{fig:CubeSS} shows the Building Game state space for the cube. As seen, each tier has intermediates with the same number of faces and connections thus exist with intermediates that are either in the tier directly above or below them. We can also see that there are three distinct pathways contained in the state space. 
 
 \begin{figure}[ht]
-\caption{The Building Game state space of the cube.}
+\caption{The Building Game combinatorial configuration space of the cube.}
 \label{fig:CubeSS}    
 \end{figure}
 
-Interestingly, it is not the case that the recoloring of each face of \xj\spc results in a distinct intermediate. 
+Interestingly, it is not the case that the addition or removal of each face of an intermediate results in a distinct intermediate. 
 \begin{mydef}
-The number of different faces $\left|\left\{f_m \in F: x^j + e^m \in \left[x^k\right]\right\}\right|$ of \xj\spc that can be colored to form \xk\spc is called the \textbf{degeneracy number} \Sjk.
+For two connected intermediates $[x^j]$ and $[x^k]$, the number of different faces $$\left|\left\{f \notin x^j : x^j\cup\{f\} \in [x^k]\right\}\cup\left\{f \in x^j : x^j\setminus\{f\} \in [x^k]\right\} \right|$$ that caan be added or removed to get an element of $[x^k]$  is called the \textbf{degeneracy number} \Sjk.
 \end{mydef}
-It is important to note that in general the degeneracy number is not symmetric, i.e. \Sjk$\neq$\Skj\spc for some connections \xj\spc$\leftrightarrow$\spc\xk\spc in the state space. Both figures~\ref{fig:DodecBG} and ~\ref{fig:DodecBG} show the forward and backward degeneracy numbers for each connection.
-x
 
-Since the Building Game is a sequential process with several choices at each step, it is natural to consider it as a stochastic process. By putting a distribution on all possible faces that can be added or removed at each step of the Building game, a distribution on the space of pathways is implicitly defined. Thus, for a choice of this transition rule, we can ask questions about the likelihood of the different pathways. 
+It is important to note that in general the degeneracy number is not symmetric, i.e. \Sjk$\neq$\Skj\spc for some connections $[x^j] \leftrightarrow [x^k]$ in the state space. Both figures~\ref{fig:DodecBG} and ~\ref{fig:DodecBG} show the forward and backward degeneracy numbers for each connection.
 
---Math and graphical results about putting a distribution on pathways
+--Add figures mentioned above
+
 
 \begin{mylem}
 For connected intermediates $[x]$ and $[y]$, with $x \cup \{f\} = y$ and $x \cup \{\hat{f}\} \in [y]$, then there is $h \in G_x$ satisfying $x \cup \{\hat{f}\} = h.y$.
@@ -140,35 +153,36 @@ For connected intermediates $[x]$ and $[y]$, with $x \cup \{f\} = y$ and $x \cup
 \begin{proof}
 \end{proof}
 
-\begin{mythm}
-  For two connected intermediates $[x^j]$ and $[x^k]$, the degeracy numbers $S_{jk}$ and $S_{kj}$ are that same as the cardinality of $G_{x^j}.\{f\}$ and $G_{x^k}.\{f\}$ for $x^j \in [x^j], x^k \in [x^k], f \in F$ satisfying $x^k = x^j \cup \{f\}$.  
-\end{mythm}
-\begin{proof}
-First we argue the case of $S_{jk}$ by showing that $G_x^j.\{f\} = \{\hat{f} \in F : x \cup \{\hat{f}\} \in [y]\}$.
+%\begin{mythm}
+%  For two connected intermediates $[x^j]$ and $[x^k]$, the degeracy numbers $S_{jk}$ and $S_{kj}$ are that same as the cardinality of $G_{x^j}.\{f\}$ and $G_{x^k}.\{f\}$ for $x^j \in [x^j], x^k \in [x^k], f \in F$ satisfying $x^k = x^j \cup \{f\}$.  
+%\end{mythm}
+%\begin{proof}
+%
+%First we argue the case of $S_{jk}$ by showing that $G_x^j.\{f\} = \{\hat{f} \in F : x \cup \{\hat{f}\} \in [y]\}$.
+%
+%Assume $\{\hat{f}\} \in G_{x^j}.\{f\}$. Thus, there is a $g \in G$ such that $g.x = x$ and $g.\{f\} = \{\hat{f}\}$. It follows that
+%\begin{align}
+%x \cup \{\hat{f}\} &= (g.x)\cup (g.\{f\}) \\
+%&= g.(x\cup\{f\}) \\
+%&= g.y \in [y].
+%\end{align}
+%Thus $G_x^j.\{f\} \subset \{\hat{f} \in F : x \cup \{\hat{f}\} \in [y]\}$
+%
+%Now we assume $\bar{f} \in F$ with $x \cup \{\bar{f}\} \in [y]$ and argue that $\bar{f} \in G_{x^j}.\{f\}$. By lemma XXX we know there is a $h \in G_{x^j}$ such that $x^j \cup \{\bar{f}\} = h.x^k$. It follows that
+%\begin{align}
+%x^j \cup \{\bar{f}\} &= h.x^k \\
+%&= h.(x^j \cup \{f\}) \\
+%&= h.x^j \cup h.\{f\}) \\
+%&= x^j \cup h.\{f\}) \\
+%\end{align}
+%and thus $\{\bar{f}\} = h.\{f\}$. This means that $\bar{f} \in G_{x^j}.\{f\}$ and $\{\hat{f} \in F : x \cup \{\hat{f}\} \in [y]\} \subset G_x^j.\{f\}$.
+%
+%We have shown that $G_x^j.\{f\} = \{\hat{f} \in F : x \cup \{\hat{f}\} \in [y]\}$ and consequently that $S_{jk} = |G_{x^j}.\{f\}|$. The proof for $S_{kj}$ follows similarly.
+%\end{proof}
 
-Assume $\{\hat{f}\} \in G_{x^j}.\{f\}$. Thus, there is a $g \in G$ such that $g.x = x$ and $g.\{f\} = \{\hat{f}\}$. It follows that
-\begin{align}
-x \cup \{\hat{f}\} &= (g.x)\cup (g.\{f\}) \\
-&= g.(x\cup\{f\}) \\
-&= g.y \in [y].
-\end{align}
-Thus $G_x^j.\{f\} \subset \{\hat{f} \in F : x \cup \{\hat{f}\} \in [y]\}$
-
-Now we assume $\bar{f} \in F$ with $x \cup \{\bar{f}\} \in [y]$ and argue that $\bar{f} \in G_{x^j}.\{f\}$. By lemma XXX we know there is a $h \in G_{x^j}$ such that $x^j \cup \{\bar{f}\} = h.x^k$. It follows that
-\begin{align}
-x^j \cup \{\bar{f}\} &= h.x^k \\
-&= h.(x^j \cup \{f\}) \\
-&= h.x^j \cup h.\{f\}) \\
-&= x^j \cup h.\{f\}) \\
-\end{align}
-and thus $\{\bar{f}\} = h.\{f\}$. This means that $\bar{f} \in G_{x^j}.\{f\}$ and $\{\hat{f} \in F : x \cup \{\hat{f}\} \in [y]\} \subset G_x^j.\{f\}$.
-
-We have shown that $G_x^j.\{f\} = \{\hat{f} \in F : x \cup \{\hat{f}\} \in [y]\}$ and consequently that $S_{jk} = |G_{x^j}.\{f\}|$. The proof for $S_{kj}$ follows similarly.
-\end{proof}
 
 
-
-\subsection{A Finite Geometric Result}
+\subsection{Group Theoretic Results}
 
 %Since we define Building Game intermediates as rotationally unique from each other, it is useful to think about the problem in the context of $\mathscr{P}$'s rotational symmetry group $G \doteq G\left(\mathscr{P}\right)$ and group actions. For an intermediate $x^j$, the number of symmetries $r_j$ is the order of the stabilizer subgroup $G_{x^j} \doteq \left\{g \in G : g.x^j = x^j\right\}$ of $G$ that fixes $x^j$. 
 Suppose $x^j$ and $x^k$ are connected in the state space and $\varphi$ is one of the $S_{jk}$ faces that, when added to $x^j$, forms $x^k$. We say $x^j + \varphi = x^k$. The degeneracy number $S_{jk}$ can then be expressed as the order of the orbit $\left(G_{x^j}\right).\varphi$ of $\varphi$ with respect to $x^j$'s stabilizer subgroup. Analogously, we define the reverse degeneracy number as $S_{kj} \doteq \left|\left(G_{x^k}\right).\varphi\right|$
@@ -220,18 +234,30 @@ The result $r_kS_{jk} = r_jS_{kj}$ follows.
 
 \section{Stochastic Modeling Results}
 
+Since the Building Game is a sequential process with several choices at each step, it is natural to consider it as a stochastic process. By putting a distribution on all possible faces that can be added or removed at each step of the Building game, a distribution on the space of pathways is implicitly defined. Thus, for a choice of this transition rule, we can ask questions about the likelihood of the different pathways. 
+
+--Math and graphical results about putting a distribution on pathways
+
+
 If we considera Building Game process that allows faces to be sequentially added or removed, the process consists of transitions from intermediate to intermediate along connections in the combinatorial configuration space. By specifying a distribution on these transitions, it will induce a stationary measure on the state space.  
 
-We define the Markov process $X_t$ by the transition rate matrix $Q$, with the heuristic that the rate of transition to an intermediate $[x]$ from an intermediate $[y]$ should be proportional to the number of faces that can be added or removed from $[x]$ to reach $[y]$. For this reason, we include the degeneracy number $S_{[x][y]}$ as a factor in the transition rate matrix. Furthermore, we model the process using an energetic interpretation in which each intermediate has an energy and to transtion between intermediates, an energy barrier $E_{[x][y]} = E_{[y][x]}$ must be overcome. 
+We define the Markov process $X_t$ by the transition rate matrix $Q$, with the heuristic that the rate of transition to an intermediate $[x^k]$ from an intermediate $[x^j]$ should be proportional to the number of faces that can be added or removed from $[x^j]$ to reach $[x^k]$. For this reason, we include the degeneracy number $S_{jk}$ as a factor in the transition rate matrix. Furthermore, we model the process using an energetic interpretation in which each intermediate has an energy and to transtion between intermediates, an energy barrier $E_{jk} = E_{kj}$ must be overcome. 
 %\begin{align}
 %\label{eq:TransitionProbability}
 % P_{jk} = \frac{1}{z_j}S_{jk}\rh 
 %\end{align}
-\begin{align}
-\label{eq:TransitionRate}
-Q_{[x][y]} &= S_{[x][y]}e^{-\beta\left(E_{[x][y]} - E_{[x]}\right)} \\
-Q_{[x][x]} &= -z_j \\
-\end{align}
+%\begin{align}
+%\label{eq:TransitionRate}
+%\begin{align}
+%$$Q_{jk} = 
+\[
+  Q_{jk} =
+  \begin{cases}
+   S_{jk}e^{-\beta\left(E_{jk} - E_{j}\right)} & \text{if } [x^j] \leftrightarrow [x^k]  \\
+   -z_j       & \text{if } j = k \\
+   0 & \text{else}
+  \end{cases}
+\]
 Here, $z_j \doteq \sum_{\ell: \ell \neq j} S_{j\ell}e^{-\beta\left(E_{j\ell} - E_j\right)}$ is the rate at which the process leaves \xj. 
 
 \begin{mythm}
@@ -269,7 +295,7 @@ Thus, by theorem~\ref{thm:StatDist},  $\pi_j = \frac{1}{D_{jj}} = \frac{1}{zr_j}
 \end{proof}
 
 
-In order to use theorem~\ref{thm:StatDist} to find the stationary distribution for the transition rule~\ref{eq:TransitionProbability}, we must be able to decompose the degeneracy number \Sjk\spc to fit the template of $\mathbf{C}$ and $\mathbf{D}$. In the following section we derive group theoretic identities to show that this is possible.
+%In order to use theorem~\ref{thm:StatDist} to find the stationary distribution for the transition rule~\ref{eq:TransitionProbability}, we must be able to decompose the degeneracy number \Sjk\spc to fit the template of $\mathbf{C}$ and $\mathbf{D}$. In the following section we derive group theoretic identities to show that this is possible.
 
 
 \subsection{Hitting Times}
