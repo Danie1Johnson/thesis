@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  26 FEB 2015 19:28
-=======
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  25 FEB 2015 14:28
->>>>>>> 5bef3508c2ac1e901437ac5791a28f0c03b536a1
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  26 FEB 2015 22:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -830,76 +826,61 @@ File: ./images/octa_state_or_not.eps Graphic file (type eps)
 Underfull \vbox (badness 1092) has occurred while \output is active []
 
  [21]
+[22]
 File: ./images/octa_stabilizers.eps Graphic file (type eps)
-
-<./images/octa_stabilizers.eps> [22] [23]
+ <./images/octa_stabilizers.eps> [23] [24]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 124.
- [24]
-Overfull \hbox (40.39418pt too wide) in paragraph at lines 147--148
-[]\OT1/cmr/bx/n/12 Definition 6. []\OT1/cmr/m/it/12 A Build-ing Game \OT1/cmr/b
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]
+Overfull \hbox (40.39418pt too wide) in paragraph at lines 177--178
+[]\OT1/cmr/bx/n/12 Definition 7. []\OT1/cmr/m/it/12 A Build-ing Game \OT1/cmr/b
 x/it/12 path-way \OT1/cmr/m/it/12 is a se-quence of in-ter-me-di-ates $\OT1/cmr
 /m/n/12 [\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 ; \OT1/cmr/m/n/1
 2 [\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 ; [] ; \OT1/cmr/m/n/12
  [\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ]$
  []
 
-<<<<<<< HEAD
-[25]
-Underfull \vbox (badness 4291) has occurred while \output is active []
-
- [26]
+[26] [27] [28] [29] [30]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27]
-[28] [29]
+ [31]
 
-LaTeX Warning: Reference `eq:TransitionRate' on page 30 undefined on input line
- 315.
-=======
-[24] [25] [26] [27] [28]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [29]
-
-LaTeX Warning: Reference `eq:TransitionRate' on page 30 undefined on input line
- 331.
->>>>>>> 5bef3508c2ac1e901437ac5791a28f0c03b536a1
+LaTeX Warning: Reference `eq:TransitionRate' on page 32 undefined on input line
+ 393.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [30]
-<<<<<<< HEAD
-LaTeX Font Info:    Try loading font information for U+bbm on input line 349.
-=======
-LaTeX Font Info:    Try loading font information for U+bbm on input line 365.
->>>>>>> 5bef3508c2ac1e901437ac5791a28f0c03b536a1
+ [32]
+LaTeX Font Info:    Try loading font information for U+bbm on input line 427.
 
 (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31]
+ [33]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32]
+ [34]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33])
-[34]
+ [35])
+[36]
 Chapter 3.
 
 Underfull \hbox (badness 10000) in alignment at lines 153--153
 []
  []
 
-[35
+[37
 
 
 
-] (./content/bg_enumeration.tex) [36] [37] [38
+] (./content/bg_enumeration.tex) [38] [39] [40
 
 
 ]
@@ -909,99 +890,99 @@ Underfull \hbox (badness 10000) in alignment at lines 157--157
 []
  []
 
-[39
+[41
 
-] (./content/constraint.tex [40]
+] (./content/constraint.tex [42]
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [41]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [42]
-
-LaTeX Warning: Reference `fig:sachse' on page 43 undefined on input line 60.
-
-
-Underfull \vbox (badness 8113) has occurred while \output is active []
 
  [43]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [44]
-Underfull \vbox (badness 1910) has occurred while \output is active []
+
+LaTeX Warning: Reference `fig:sachse' on page 45 undefined on input line 60.
+
+
+Underfull \vbox (badness 8113) has occurred while \output is active []
 
  [45]
-[46]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47]
+ [46]
+Underfull \vbox (badness 1910) has occurred while \output is active []
 
-LaTeX Warning: Citation `Arunetal1987' on page 48 undefined on input line 135.
+ [47]
+[48]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [49]
+
+LaTeX Warning: Citation `Arunetal1987' on page 50 undefined on input line 135.
 
 
 Package caption Warning: \label without proper \caption on input line 140.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:tri' on page 48 undefined on input line 143.
+LaTeX Warning: Reference `fig:tri' on page 50 undefined on input line 143.
 
 
-LaTeX Warning: Citation `Arunetal1987' on page 48 undefined on input line 143.
+LaTeX Warning: Citation `Arunetal1987' on page 50 undefined on input line 143.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [48]
+ [50]
 
 Package caption Warning: \label without proper \caption on input line 168.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:t1' on page 49 undefined on input line 165.
+LaTeX Warning: Reference `fig:t1' on page 51 undefined on input line 165.
 
 
 Underfull \vbox (badness 2229) has occurred while \output is active []
 
- [49])
-[50]
+ [51])
+[52]
 Chapter 5.
 
 Underfull \hbox (badness 10000) in alignment at lines 161--161
 []
  []
 
-[51
+[53
 
 
 
-] (./content/constraint_processes.tex [52] [53]
+] (./content/constraint_processes.tex [54] [55]
 Underfull \vbox (badness 3386) has occurred while \output is active []
 
- [54]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [55]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [56])
+ [56]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [57]
-[58]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [59]
+[60]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in alignment at lines 165--165
 []
  []
 
-[59
+[61
 
 
 
-] (./content/results.tex) [60
+] (./content/results.tex) [62
 
 
-] (./thesis.bbl) [61
+] (./thesis.bbl) [63
 
 ] (./thesis.aux)
 
@@ -1016,16 +997,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12889 strings out of 493305
- 238713 string characters out of 6139898
- 319452 words of memory out of 5000000
- 16012 multiletter control sequences out of 15000+600000
+ 12888 strings out of 493305
+ 238698 string characters out of 6139898
+ 318452 words of memory out of 5000000
+ 16011 multiletter control sequences out of 15000+600000
  24093 words of font info for 101 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,17n,69p,1156b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-<<<<<<< HEAD
-Output written on thesis.dvi (79 pages, 164652 bytes).
-=======
-Output written on thesis.dvi (79 pages, 166248 bytes).
->>>>>>> 5bef3508c2ac1e901437ac5791a28f0c03b536a1
+Output written on thesis.dvi (81 pages, 171012 bytes).
