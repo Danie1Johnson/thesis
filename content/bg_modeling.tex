@@ -32,7 +32,7 @@ As pictured in figure~\ref{fig:OctaStates}, some subsets of faces are not states
 
 
 %as a sequential graph labeling process. If we are interested in the BG of a polyhedron \poly, we represent \poly\spc by a graph $\PolyGraph = \left(F, E\right)$ whose nodes are the faces $F$ of \poly\spc and connections $E$ correspond to the pairs of faces sharing an edge of \poly. In this way, $\PolyGraph$ can be viewed as the polyhedral graph of \poly's dual polyhedron. 
-
+ 
 %In Zlotnick's usage of the model, the labeling of $1$ or $0$ to each face would correspond to whether the face had been attached at some point up to the current step of the process. 
 
 %--More describing fig and what is and is not an intermediate.
@@ -169,7 +169,7 @@ When the intermediates are partitioned by the number of faces they possess, it i
 
 Interestingly, it is not the case that the addition or removal of each face of an intermediate results in a distinct intermediate. 
 \begin{mydef}
-For two connected intermediates $[x^j]$ and $[x^k]$, the number of different faces $$\left|\left\{f \notin x^j : x^j\cup\{f\} \in [x^k]\right\}\cup\left\{f \in x^j : x^j\setminus\{f\} \in [x^k]\right\} \right|$$ that caan be added or removed to get an element of $[x^k]$  is called the \textbf{degeneracy number} \Sjk.
+For two connected intermediates $[x^j]$ and $[x^k]$, the set of different faces $$F_{jk} \doteq \left\{f \notin x^j : x^j\cup\{f\} \in [x^k]\right\}\cup\left\{f \in x^j : x^j\setminus\{f\} \in [x^k]\right\}$$ that can be added or removed from $x^j$ to get an element of $[x^k]$ is called the \textbf{degeneracy set} and the number of such faces $S_{jk} \doteq \left|F_{jk}\right|$ is called the \textbf{degeneracy number}.
 \end{mydef}
 
 It is important to note that in general the degeneracy number is not symmetric, i.e. \Sjk$\neq$\Skj\spc for some connections $[x^j] \leftrightarrow [x^k]$ in the state space. Both figures~\ref{fig:DodecBG} and ~\ref{fig:DodecBG} show the forward and backward degeneracy numbers for each connection.
@@ -177,11 +177,6 @@ It is important to note that in general the degeneracy number is not symmetric, 
 --Add figures mentioned above
 
 
-\begin{mylem}
-For connected intermediates $[x]$ and $[y]$, with $x \cup \{f\} = y$ and $x \cup \{\hat{f}\} \in [y]$, then there is $h \in G_x$ satisfying $x \cup \{\hat{f}\} = h.y$.
-\end{mylem}
-\begin{proof}
-\end{proof}
 
 %\begin{mythm}
 %  For two connected intermediates $[x^j]$ and $[x^k]$, the degeracy numbers $S_{jk}$ and $S_{kj}$ are that same as the cardinality of $G_{x^j}.\{f\}$ and $G_{x^k}.\{f\}$ for $x^j \in [x^j], x^k \in [x^k], f \in F$ satisfying $x^k = x^j \cup \{f\}$.  
@@ -214,8 +209,12 @@ For connected intermediates $[x]$ and $[y]$, with $x \cup \{f\} = y$ and $x \cup
 
 \subsection{Group Theoretic Results}
 
+
+
+
+
 %Since we define Building Game intermediates as rotationally unique from each other, it is useful to think about the problem in the context of $\mathscr{P}$'s rotational symmetry group $G \doteq G\left(\mathscr{P}\right)$ and group actions. For an intermediate $x^j$, the number of symmetries $r_j$ is the order of the stabilizer subgroup $G_{x^j} \doteq \left\{g \in G : g.x^j = x^j\right\}$ of $G$ that fixes $x^j$. 
-Suppose $x^j$ and $x^k$ are connected in the state space and $\varphi$ is one of the $S_{jk}$ faces that, when added to $x^j$, forms $x^k$. We say $x^j + \varphi = x^k$. The degeneracy number $S_{jk}$ can then be expressed as the order of the orbit $\left(G_{x^j}\right).\varphi$ of $\varphi$ with respect to $x^j$'s stabilizer subgroup. Analogously, we define the reverse degeneracy number as $S_{kj} \doteq \left|\left(G_{x^k}\right).\varphi\right|$
+%Suppose $x^j$ and $x^k$ are connected in the state space and $\varphi$ is one of the $S_{jk}$ faces that, when added to $x^j$, forms $x^k$. We say $x^j + \varphi = x^k$. The degeneracy number $S_{jk}$ can then be expressed as the order of the orbit $\left(G_{x^j}\right).\varphi$ of $\varphi$ with respect to $x^j$'s stabilizer subgroup. Analogously, we define the reverse degeneracy number as $S_{kj} \doteq \left|\left(G_{x^k}\right).\varphi\right|$
 
 \begin{mylem}
 Let $g \in G$ and $x,y \subset F$. Then $g.(x\cup y) = g.x \cup g.y$
@@ -229,18 +228,51 @@ Conversely, suppose $\hat{f} \in g.x \cup g.y$ and without loss pick $\hat{f}$ t
 
 \begin{mylem}
 \label{lem:I}
-Let the Building Game intermediates $[x^j]$ and $[x^k]$ be connected in the combinatorial configuration space. Given $x^j \in [x^j]$, $x^k \in [x^k]$ and $f \in F$ such that $x^k = x^j \cup \left\{f\right\}$, the stabilizer subgroup $G_{x^j,\{f\}}$ that fixes both $x^j$ and $\{f\}$ is the same stabilizer subgroup $G_{x^k,\{f\}}$ that fixes $x^k$ and $\{f\}$.
+Let the Building Game intermediates $[x^j]$ and $[x^k]$ be connected in the combinatorial configuration space. Given $x^j \in [x^j]$, $x^k \in [x^k]$ and $f \in F$ such that $x^k = x^j \cup \left\{f\right\}$, the stabilizer subgroups $G_{x^j,\{f\}} = G_{x^k,\{f\}} = G_{x^j,x^k}$ are all equal.
 \end{mylem}
 \begin{proof}
 \begin{align}
-G_{x^k,\{f\}} &\doteq \left\{g \in G : g.x^k = x^k, g.\{f\} = \{f\} \right\} \\
-           &\doteq \left\{g \in G : g.(x^j \cup \{f\}) = x^j \cup \{f\}, g.\{f\} = \{f\} \right\} \\
-           &\doteq \left\{g \in G : g.x^j \cup g.\{f\} = x^j \cup \{f\}, g.\{f\} = \{f\} \right\} \\
-           &\doteq \left\{g \in G : g.x^j \cup \{f\} = x^j \cup \{f\}, g.\{f\} = \{f\} \right\} \\
-           &\doteq \left\{g \in G : g.x^j  = x^j, g.\{f\} = \{f\} \right\} \\
-           &\doteq G_{x^j,\{f\}}
+G_{x^k,\{f\}} &= \left\{g \in G : g.x^k = x^k, g.\{f\} = \{f\} \right\} \\
+           &= \left\{g \in G : g.(x^j \cup \{f\}) = x^j \cup \{f\}, g.\{f\} = \{f\} \right\} \\
+           &= \left\{g \in G : g.x^j \cup g.\{f\} = x^j \cup \{f\}, g.\{f\} = \{f\} \right\} \\
+           &= \left\{g \in G : g.x^j \cup \{f\} = x^j \cup \{f\}, g.\{f\} = \{f\} \right\} \\
+           &= \left\{g \in G : g.x^j  = x^j, g.\{f\} = \{f\} \right\} \\
+           &= G_{x^j,\{f\}} \\
+&= \left\{g \in G : g.x^j  = x^j, g.\{f\} = \{f\} \right\} \\           
+&= \left\{g \in G : g.x^j  = x^j, g.x^j \cup g.\{f\} = x^j \cup \{f\} \right\} \\     
+&= \left\{g \in G : g.x^j  = x^j, g.(x^j \cup \{f\}) = x^j \cup \{f\} \right\} \\ 
+&= \left\{g \in G : g.x^j  = x^j, g.x^k = x^k \right\} \\ 
+&= G_{x^j,x^k}
 \end{align}
+%--Add prrof that G-xy = G-xf = G-yf???
 \end{proof}
+
+
+
+\begin{mylem}
+For connected intermediates $[x]$ and $[y]$, with $x \cup \{f\} = y$ and $x \cup \{\hat{f}\} \doteq \hat{y}\in [y]$, the stabilizer subgroups $|G_{x,y}|$ and  $|G_{x,\hat{y}}$ satisfy $|G_{x,y}| = |G_{x,\hat{y}}|$. 
+\end{mylem}
+\begin{proof}
+If there is an $h \in G_x$ such that $\{f\} = h.\{\hat{f}\}$, the result follows similar to lemma XXX as $|G_{x,y}| = |hG_{x,\hat{y}}h^{-1}| = |G_{x,\hat{y}}|$.
+
+However, if $\{f\} \neq h.\{\hat{f}\}$ for every $h \in G_x$, THE RESULT STILL NEEDS TO BE PROOVEN. 
+--use the fact that such subgroups fix f, so they must be cycles generated by single rotation. --show that if rotation of f by that single element produces [y] then that same rotation of f-hat will too.  
+\end{proof}
+
+
+
+\begin{mylem}
+\label{lem:I}
+Let the Building Game intermediates $[x^j]$ and $[x^k]$ be connected in the combinatorial configuration space, the number of orbits $|F_{jk}/G_{x^j}| = |F_{kj}/G_{x^k}|$.
+\end{mylem}
+\begin{proof}
+Let $G_{x^j}.\{f\} \in F_{jk}/G_{x^j}$. Then, since $f \in F_{jk}$ we know that $x^j\cup\{f\} \in [x^k]$ and thus there is a $g \in G$ such that $g.(x^j\cup\{f\}) = x^k$. Since $g.x^j \in [x^j]$, we know that $g.\{f\} \in F_{kj}$. Then, for any $h \in G_{x^k}$ we see that $hg.(x^j\cup\{f\}) = h.x^k = x^k$. This means that $G_{x^k}.(g.\{f\}) \in F_{kj}/G_{x^k}$.
+
+Now, we similarly assume $G_{x^k}.\{\hat{f}\} \in F_{kj}/G_{x^k}$. Then, $x^k \setminus \{\hat{f}\} \in [x^j]$ and there is a $\hat{g} \in G$ such that $\hat{g}.(x^k \setminus \{\hat{f}\}) = x^j$. Therefore, $\hat{g}.\{\hat{f}\} \in F_{jk}$ as $\hat{g}.x^k \in [x^k]$. So, for every $\hat{h} \in G_{x^j}$ we get $\hat{h}\hat{g}.(x^k\setminus\{\hat{f}\}) = \hat{h}.x^j = x^j$. Thus $G_{x^j}.(\hat{g}.\{\hat{f}\}) \in F_{jk}/G_{x^j}$.
+
+Since we have shown that for every orbit in $F_{jk}/G_{x^j}$ there is a corresponding orbit in $F_{kj}/G_{x^k}|$ and vice versa, the total number of orbits in each set must be the same and our result $|F_{jk}/G_{x^j}| = |F_{kj}/G_{x^k}|$ holds.
+\end{proof}
+
 
 
 \begin{mythm}
@@ -248,17 +280,31 @@ G_{x^k,\{f\}} &\doteq \left\{g \in G : g.x^k = x^k, g.\{f\} = \{f\} \right\} \\
 For two Building Game intermediates $[x^j]$ and $[x^k]$ are connected in the combinatorial configuration space, $r_kS_{jk} = r_jS_{kj}$.
 \end{mythm}
 \begin{proof}
-Without loss of generality, assumer that $[x^j]$ has one fewer face than $[x^k]$ and pick $x^j \in [x^j]$, $x^k \in [x^k]$ and $f \in F$ such that $x^k = x^j \cup \left\{f\right\}$ . Then, by the orbit-stabilizer theorem, Lagrange's Theorem and lemma~\ref{lem:I} we have the following~\cite{Rotman1995}.
+Without loss of generality, assume that $[x^j]$ has one fewer face than $[x^k]$ and pick $x^j \in [x^j]$, $x^k \in [x^k]$ and $f \in F$ such that $x^k = x^j \cup \left\{f\right\}$. Then by Burnside lemma, we have the following~\cite{Rotman1995}. 
 \begin{align}
-\frac{r_j}{S_{jk}} &\doteq \frac{\left|G_{x^j}\right|}{\left|\left(G_{x^j}\right).\{f\}\right|} \\
-                   &= \left[G_{x^j} : \left(G_{x^j}\right).\{f\} \right] \\
-                   &= \left|G_{x^j,\{f\}}\right| \\
-                   &= \left|G_{x^k,\{f\}}\right| \\
-                   &= \left[G_{x^k} : \left(G_{x^k}\right).\{f\} \right] \\
-                   &= \frac{\left|G_{x^k}\right|}{\left|\left(G_{x^k}\right).\{f\}y\right|} \\
-                   &\doteq \frac{r_k}{S_{kj}} 
+\left|F_{jk} / G_{x^j}\right| &= \frac{1}{|G_{x^j}|}\sum_{g \in G_{x^j}}|(F_{jk})^g| \\
+&= \frac{1}{|G_{x^j}|}\sum_{\hat{f} \in F_{jk}}|G_{x^j,\{\hat{f}\}}| \\
+&= \frac{|G_{x^j,\{f\}}|}{r_j}\sum_{\hat{f} \in F_{jk}}1 \\
+&= \frac{|G_{x^j,\{f\}}|S_{jk}}{r_j}
 \end{align}
-The result $r_kS_{jk} = r_jS_{kj}$ follows.
+Then, by lemmas XXX and YYY we have,
+\begin{align}
+\frac{r_j}{S_{jk}} &= \frac{|G_{x^j,\{f\}}|}{\left|F_{jk} / G_{x^j}\right|} \\
+&= \frac{|G_{x^k,\{f\}}|}{\left|F_{kj} / G_{x^k}\right|} \\
+&\doteq \frac{r_k}{S_{kj}} 
+\end{align}
+and the result $r_kS_{jk} = r_jS_{kj}$ follows.
+% Then, by the orbit-stabilizer theorem, Lagrange's Theorem and lemma~\ref{lem:I} we have the following~\cite{Rotman1995}.
+%\begin{align}
+%\frac{r_j}{S_{jk}} &\doteq \frac{\left|G_{x^j}\right|}{\left|\left(G_{x^j}\right).\{f\}\right|} \\
+%                   &= \left[G_{x^j} : \left(G_{x^j}\right).\{f\} \right] \\
+%                   &= \left|G_{x^j,\{f\}}\right| \\
+%                   &= \left|G_{x^k,\{f\}}\right| \\
+%                   &= \left[G_{x^k} : \left(G_{x^k}\right).\{f\} \right] \\
+%                   &= \frac{\left|G_{x^k}\right|}{\left|\left(G_{x^k}\right).\{f\}y\right|} \\
+%                   &\doteq \frac{r_k}{S_{kj}} 
+%\end{align}
+%The result $r_kS_{jk} = r_jS_{kj}$ follows.
 \end{proof}
 
 
