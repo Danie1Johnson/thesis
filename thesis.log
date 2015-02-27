@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  26 FEB 2015 22:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  26 FEB 2015 23:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -830,37 +830,34 @@ Underfull \vbox (badness 1092) has occurred while \output is active []
 File: ./images/octa_stabilizers.eps Graphic file (type eps)
  <./images/octa_stabilizers.eps> [23] [24]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 155.
  [25]
-Overfull \hbox (40.39418pt too wide) in paragraph at lines 177--178
-[]\OT1/cmr/bx/n/12 Definition 7. []\OT1/cmr/m/it/12 A Build-ing Game \OT1/cmr/b
+Overfull \hbox (40.39418pt too wide) in paragraph at lines 178--179
+[]\OT1/cmr/bx/n/12 Definition 8. []\OT1/cmr/m/it/12 A Build-ing Game \OT1/cmr/b
 x/it/12 path-way \OT1/cmr/m/it/12 is a se-quence of in-ter-me-di-ates $\OT1/cmr
 /m/n/12 [\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 ; \OT1/cmr/m/n/1
 2 [\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 ; [] ; \OT1/cmr/m/n/12
  [\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ]$
  []
 
-[26] [27] [28] [29] [30]
+[26] [27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28]
+[29] [30]
+Underfull \vbox (badness 1715) has occurred while \output is active []
 
  [31]
+[32]
 
-LaTeX Warning: Reference `eq:TransitionRate' on page 32 undefined on input line
- 393.
+LaTeX Warning: Reference `eq:TransitionRate' on page 33 undefined on input line
+ 394.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [32]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 427.
-
+LaTeX Font Info:    Try loading font information for U+bbm on input line 428.
 (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1337) has occurred while \output is active []
 
  [33]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -999,10 +996,10 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  12888 strings out of 493305
  238698 string characters out of 6139898
- 318452 words of memory out of 5000000
+ 319452 words of memory out of 5000000
  16011 multiletter control sequences out of 15000+600000
  24093 words of font info for 101 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,17n,69p,1156b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (81 pages, 171012 bytes).
+Output written on thesis.dvi (81 pages, 172252 bytes).

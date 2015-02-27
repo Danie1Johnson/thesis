@@ -52,19 +52,21 @@ As pictured in figure~\ref{fig:OctaStates}, some subsets of faces are not states
 
 \subsection{Group Actions}
 
-\begin{mydef}%[~\cite{Rotman1995}]
-Let $G$ be a group acting on a set $X$, the \textbf{orbit} of an element $x \in X$ is the subset $G.x \doteq \left\{g.x : g \in G \right\}$ of $X$.
+It is easy to see that many states are combinatorially equivalent and are just rotations of each other. As in Zlotnick, we group the states into sets that are rotations of each other. However, to do so, we must first build the mathematical infrastructure using group actions. 
+
+\begin{mydef}%[~\cite{Rotman1995} CITE]
+A \textbf{group action} of a group $G$ on a set $X$ is a function mapping $G \times X$ to $X$ with $(g\in G, x \in X) \mapsto g.x$ that satisfies: (i) $(gh).x = g.(h.x)$ for $g,h \in G$ and (ii) $e.x = x$ for $e$ the identity element of $G$.
 \end{mydef}
 
-We also use the shorthand notation $[x]$ to refer to the orbit $G.x$. 
-
+We typically use a polyhedron's rotation group or one of its subsgroups as $G$ and $2^F$, the set of subsets of $F$ as the set $X$ that $G$ acts on. In this case, the action $g.x$ permutes the faces of the polyhedron according to the element $g$ of the rotation group and results in a new subset of faces. Here, we introduce the group action concepts of orbits and stabilizer subgroups as they play an important role in out later analyses. 
+\begin{mydef}%[~\cite{Rotman1995}]
+Let $G$ be a group acting on a set $X$, the \textbf{orbit} of an element $x \in X$ is the subset $G.x \doteq \left\{g.x : g \in G \right\}$ of $X$~\cite{Rotman1995}.
+\end{mydef}
+We also use the shorthand notation $[x]$ to refer to the orbit $G.x$ for convenience. 
 \begin{mydef}%[~\cite{Rotman1995}]
 For a  group $G$ acting on a set $X$, the \textbf{stabilizer subgroup} for an element $x\in X$ is the subgroup $G_x \doteq \left\{g \in \G :g. x = x \right\}$ of $G$ that fixes $x$~\cite{Rotman1995}.
 \end{mydef}
 
-
----Talk of group action
----explanation of polyhedral group
 ---statement of the orbit stabilizer theorem
 \begin{mythm}[Orbit-Stabilizer~\cite{Rotman1995}]
 Let $G$ be a group acting on a set $X$, then for any $x \in X, |G.x| = [G:G_x]$   
@@ -102,7 +104,6 @@ The \textbf{symmetry number} $r_x$ of a state $x$ is the order of its stabilizer
 
 \subsection{Building Game Intermediates}
 
-As in Zlotnick, we group the states that are rotations of each other. 
 
 \begin{mydef}
 A Building Game \textbf{intermediate} $[x] \doteq \left\{g.x : g \in G\right\}$ is the orbit of the state $x$. 
