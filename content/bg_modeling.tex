@@ -142,8 +142,8 @@ By Correlary~\ref{cor:OST} and since $G.x \doteq [x] = [\hat{x}] \doteq G.\hat{x
 %\end{figure}
 
 %For ease of exposition, we use the notational shorthand $\left(x\right)_m$ for $x\left(f_m\right)$ and $x = g.x'$ when $x(f_m) = x'(g.f_m)$ for every $f_m \in F(\mathscr{P})$. Additionally, we denote the intermediate satisfying $\left(x\right)_m = \colorA$ for all $f_m \in \faceset$ as $x^\colorAsm$ and similarly $x^\colorBsm$ is the intermediate with $\left(x\right)_m = \colorB$ for all $f_m \in \faceset$. The function counting the number of \colorB\spc faces an intermediate has is denoted $h\left(x\right) \doteq |\left\{f_m \in \faceset : \left(x\right)_m = \colorB\right\}|$.
----bg fundamentally attachment. interested in which ints can be formed from others.
 
+Since the building game is at its core an attachment model, we are interested in which intermediates can be formed from others by attaching a face to a particular intermediate.
 \begin{mydef}
 Two distinct intermediates $\left[x\right]$ and $\left[y\right]$ are \textbf{connected} if there exist states $x \in \left[x\right]$ and $y \in \left[y\right]$ such that one of the following holds:
 \begin{itemize}
@@ -151,8 +151,8 @@ Two distinct intermediates $\left[x\right]$ and $\left[y\right]$ are \textbf{con
   \item $\exists f \in x: x = y \cup \left\{f\right\}$
 \end{itemize}
 \end{mydef}
-
--- Language about forward and backward connection directions?
+The act of attaching an additional face is refered to as a forward step in the building game and the removal of a face is a backward step. 
+-- Language about forward and ckward connection directions?
 
 \begin{mylem}
 If intermediates $\left[x\right]$ and $\left[y\right]$ are connected, then for every state $x \in \left[x\right]$ there is a state $y \in \left[y\right]$ such that $\exists f \in y: y = x \cup \left\{f\right\}$ or $\exists f \in x: x = y \cup \left\{f\right\}$.
@@ -200,7 +200,7 @@ Interestingly, it is not the case that the addition or removal of each face of a
 For two connected intermediates $[x^j]$ and $[x^k]$, the set of different faces $$F_{jk} \doteq \left\{f \notin x^j : x^j\cup\{f\} \in [x^k]\right\}\cup\left\{f \in x^j : x^j\setminus\{f\} \in [x^k]\right\}$$ that can be added or removed from $x^j$ to get an element of $[x^k]$ is called the \textbf{degeneracy set} and the number of such faces $S_{jk} \doteq \left|F_{jk}\right|$ is called the \textbf{degeneracy number}.
 \end{mydef}
 
-It is important to note that in general the degeneracy number is not symmetric, i.e. \Sjk$\neq$\Skj\spc for some connections $[x^j] \leftrightarrow [x^k]$ in the state space. Both figures~\ref{fig:DodecBG} and ~\ref{fig:DodecBG} show the forward and backward degeneracy numbers for each connection.
+It is important to note that in general the degeneracy number is not symmetric, i.e. \Sjk$\neq$\Skj\spc for some connections $[x^j] \leftrightarrow [x^k]$ in the state space. Figure~\ref{fig:CubeDegen} dipicts the forward and backward degeneracy numbers for a particular connection. As illustrated, there are two faces that can be added to the first intermediate to form the second. However, removing any of the three faces of the second intermediate will result in the first. Thus the forward degeneracy number is two and the backward degeneracy number is three.  
 
 
 \begin{figure}[ht]

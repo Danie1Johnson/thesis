@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  27 FEB 2015 14:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  27 FEB 2015 14:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -854,21 +854,13 @@ File: ./images/cube_ccs.eps Graphic file (type eps)
 Underfull \vbox (badness 2856) has occurred while \output is active []
 
  [27]
-
-LaTeX Warning: Reference `fig:DodecBG' on page 28 undefined on input line 203.
-
-
-LaTeX Warning: Reference `fig:DodecBG' on page 28 undefined on input line 203.
-
 File: ./images/cube_degen.eps Graphic file (type eps)
-<./images/cube_degen.eps>
-Underfull \vbox (badness 1009) has occurred while \output is active []
 
- [28]
+<./images/cube_degen.eps>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [29]
-[30] [31]
+ [28]
+[29] [30] [31]
 Underfull \vbox (badness 1715) has occurred while \output is active []
 
  [32]
@@ -1019,12 +1011,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12897 strings out of 493305
- 238841 string characters out of 6139898
+ 12896 strings out of 493305
+ 238828 string characters out of 6139898
  319452 words of memory out of 5000000
- 16017 multiletter control sequences out of 15000+600000
+ 16016 multiletter control sequences out of 15000+600000
  24093 words of font info for 101 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,17n,69p,1156b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (83 pages, 173492 bytes).
+Output written on thesis.dvi (83 pages, 173872 bytes).
