@@ -1,4 +1,7 @@
 \section{Known Enumerative Results}
+--like polyominos
+--Endres/Zlotnick
+--Integer database
 \section{New Enumerative Results}
 
 As we consider polyhedra with more and more faces, there is a combinatorial explosion in the number intermediates in state space. While the 6-faced cube state space has only 8 nodes and 9 nodes, the 20-faced icosahedron state space has 2,649 nodes and 17,241 nodes and the 26-faced truncated cuboctahedron state space has 1,525,605 nodes and 17,672,377. Figure \ref{fig:bgtable} details state space sizes of all polyhedra in the Platonic, Archimedean, and Catalan solid classes of up to 26 faces. 
@@ -8,39 +11,73 @@ Also something about pathway statistics.
 
 
 \begin{figure}[ht]
-\scalebox{0.6}{
+%\scalebox{0.6}{
 %{\footnotesize
-\begin{tabular}{ l | c | c | c | c || r | r | r}
-Polyhedra Name & Class & F$\left(\mathscr{P}\right)$ & E$\left(\mathscr{P}\right)$ & V$\left(\mathscr{P}\right)$ & Intermediates & Connections & Pathways \\
+\centering
+%\textbf{Building Game Enumerative Results for the Platonic Solids}
+\begin{tabular}{ l | c | r | r | r}
+Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
   \hline    
-Tetrahedron                     & P & 4 & 6 & 4         & 5     	& 4             & 1\\
-Cube                            & P & 6 & 12 & 8        & 9     	& 10    	& 3\\
-Octahedron                      & P & 8 & 12 & 6        & 15    	& 22    	& 14\\
-Dodecahedron                    & P & 12 & 30 & 20      & 74    	& 264   	& 17,696 \\
-Icosahedron                     & P & 20 & 30 & 12      & 2,650 	& 17,242        & 57,396,146,640\\
-Truncated Tetrahedron           & A & 8 & 18 & 12       & 29    	& 65            & 402\\
-Cuboctahedron                   & A & 14 & 24 & 12 	& 341   	& 1,636         & 10,170,968\\
-Truncated Cube                  & A & 14 & 36 & 24 	& 500   	& 2,731         & 101,443,338 \\
-Truncated Octahedron            & A & 14 & 36 & 24 	& 556           & 3,071         & 68,106,377\\
-Rhombicuboctahedron             & A & 26 & 48 & 24 	& 638,851       & 6,459,804     & 16,494,392,631,838,879,380\\
-Truncated Cuboctahedron         & A & 26 & 72 & 48 	& 1,525,605     & 17,672,377    & ? \\
-Icosidodecahedron               & A & 32 & 60 & 30 	& ?             & ?             & ?\\
-Truncated Dodecahedron          & A & 32 & 90 & 60 	& ?             & ? 	        & ? \\
-Truncated Icosahedron           & A & 32 & 90 & 60 	& ?             & ? 	        & ?\\
-Triakis Tetrahedron             & C & 12 & 18 & 8       & 99            & 319           & 38,938\\
-Rhombic Dodecahedron            & C & 12 & 24 & 14 	& 128           & 494           & 76,936\\
-Triakis Octahedron              & C & 24 & 36 & 14 	& 12,749        & 81,297        & 169,402,670,046,670\\
-Tetrakis Hexahedron             & C & 24 & 36 & 14 	& 50,768        & 394,278       & 4,253,948,297,210,346\\
-Deltoidal Icositetrahedron      & C & 24 & 48 & 26 	& 209,676       & 1,989,549     & ? \\
-Pentagonal Icositetrahedron     & C & 24 & 60 & 38 	& 345,939       & 3,544,988     & 2,828,128,000,716,774,492\\
-Rhombic Triacontahedron         & C & 30 & 60 & 32 	& ?             & ?             & 5,266,831,101,345,821,968\\
-  \hline  
+Tetrahedron                     & 4        & 5     	& 4             & 1\\
+Cube                            & 6        & 9     	& 10    	& 3\\
+Octahedron                      & 8        & 15    	& 22    	& 14\\
+Dodecahedron                    & 12       & 74    	& 264   	& 17,696 \\
+Icosahedron                     & 20       & 2,650 	& 17,242        & 57,396,146,640\\
 \end{tabular}
-}
-\caption{Table of polyhedra in the Platonic (P), Archimedean (A), and Catalan (C) solid classes of up to 32 faces and their Building Game state space statistics.}
-\label{fig:bgtable}
+%}
+\caption{Building game enumerative results for the Platonic solids.}
+\label{tab:bgePlat}
 \end{figure}
 
+
+\begin{figure}[ht]
+%\scalebox{0.6}{
+%{\footnotesize
+\centering
+%\textbf{Building Game Enumerative Results for the Platonic Solids}
+\begin{tabular}{ l | c | r | r | r}
+Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
+  \hline    
+Truncated Tetrahedron           & 8        & 29    	& 65            & 402\\
+Cuboctahedron                   & 14  	& 341   	& 1,636         & 10,170,968\\
+Truncated Cube                  & 14  	& 500   	& 2,731         & 101,443,338 \\
+Truncated Octahedron            & 14  	& 556           & 3,071         & 68,106,377\\
+Rhombicuboctahedron             & 26  	& 638,851       & 6,459,804     & 16,494,392,631,838,879,380\\
+Truncated Cuboctahedron         & 26  	& 1,525,605     & 17,672,377    & ? \\
+Icosidodecahedron               & 32  	& ?             & ?             & ?\\
+Truncated Dodecahedron          & 32  	& ?             & ? 	        & ? \\
+Truncated Icosahedron           & 32  	& ?             & ? 	        & ?\\
+\end{tabular}
+%}
+\caption{Building game enumerative results for the Archimedean solids.}
+\label{tab:bgeArch}
+\end{figure}
+
+
+\begin{figure}[ht]
+%\scalebox{0.6}{
+%{\footnotesize
+\centering
+%\textbf{Building Game Enumerative Results for the Platonic Solids}
+\begin{tabular}{ l | c | r | r | r}
+Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
+  \hline    
+Triakis Tetrahedron             & 12       & 99            & 319           & 38,938\\
+Rhombic Dodecahedron            & 12  	& 128           & 494           & 76,936\\
+Triakis Octahedron              & 24  	& 12,749        & 81,297        & 169,402,670,046,670\\
+Tetrakis Hexahedron             & 24  	& 50,768        & 394,278       & 4,253,948,297,210,346\\
+Deltoidal Icositetrahedron      & 24  	& 209,676       & 1,989,549     & ? \\
+Pentagonal Icositetrahedron     & 24  	& 345,939       & 3,544,988     & 2,828,128,000,716,774,492\\
+Rhombic Triacontahedron         & 30  	& ?             & ?             & 5,266,831,101,345,821,968\\
+\end{tabular}
+%}
+\caption{Building game enumerative results for the Catalan solids.}
+\label{tab:bgeCat}
+\end{figure}
+
+
+
+\subsection{Shellability}
 
 \begin{figure}[ht]
 \scalebox{0.6}{
