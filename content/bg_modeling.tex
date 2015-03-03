@@ -6,8 +6,12 @@ The Building Game (BG) was first considered by Zlotnick~\cite{Zlotnick1994} as a
 
 A useful way to think about the Building game is as a sequential coloring process. Given a polyhedron with each face painted white, choose a face and paint it black. At each subsequent step, choose a white face that is adjacent to a black face and paint it black. Repeat until all faces are black. Here the black faces represent a face being present at a given step of the assembly process.
 
+--Comparison with approaches in artificial life paper
+
+
 \section{Formal Definition}
 We formalize the Building Game in terms of the group action of the polyhedron's rotation group $G$ acting on subsets of $F$, the polyhedron's face set. Using the polyhedron's dual graph representation $\PolyGraph = \left(F, E\right)$ whose nodes are the faces $F$ of the polyhedron and connections $E$ correspond to the pairs of faces sharing an edge we can define the mathematical structures that comprise different building game configurations.
+
 
 %If we are interested in the Building Game of a polyhedron, we represent the its combinatorial structure by a graph $\PolyGraph = \left(F, E\right)$ whose nodes are the faces $F$ of the polyhedron and connections $E$ correspond to the pairs of faces sharing an edge. In this way, $\PolyGraph$ can be viewed as the polyhedral graph of \poly's dual polyhedron. 
 
@@ -58,7 +62,7 @@ It is easy to see that many states are combinatorially equivalent and are just r
 A \textbf{group action} of a group $G$ on a set $X$ is a function mapping $G \times X$ to $X$ with $(g, x) \mapsto g.x$ that satisfies: (i) $(gh).x = g.(h.x)$ for $g,h \in G$ and (ii) $e.x = x$ for $e$ the identity element of $G$.
 \end{mydef}
 
-We typically use a polyhedron's rotation group or one of its subsgroups as $G$ and $2^F$, the set of subsets of $F$, as the set $X$ that $G$ acts on. In this case, the action $g.x$ permutes the faces of the polyhedron according to the element $g$ of the rotation group and results in a new subset of faces. Here, we introduce the group action concepts of orbits and stabilizer subgroups as they play an important role in out later analyses. 
+We typically use a polyhedron's rotation group or one of its subgroups as $G$ and $2^F$, the set of subsets of $F$, as the set $X$ that $G$ acts on. In this case, the action $g.x$ permutes the faces of the polyhedron according to the element $g$ of the rotation group and results in a new subset of faces. Here, we introduce the group action concepts of orbits and stabilizer subgroups as they play an important role in out later analyses. 
 \begin{mydef}%[~\cite{Rotman1995}]
 Let $G$ be a group acting on a set $X$, the \textbf{orbit} of an element $x \in X$ is the subset $G.x \doteq \left\{g.x : g \in G \right\}$ of $X$~\cite{Rotman1995}.
 \end{mydef}
@@ -91,7 +95,7 @@ With this framework of group actions, we now formally define the principle unit 
 \begin{mydef}
 A Building Game \textbf{intermediate} $[x] \doteq \left\{g.x : g \in G\right\}$ is the orbit of the state $x$. 
 \end{mydef}
-Since the orbits of a group action form a partition on the set it acts on, each state belongs to a single intermediate and two states $x$ and $y$ are part of the same intermediate if there is a $g\in\G$ such that $y = g.x$. In the case of the tetrahedron, as pictured in figure~\ref{fig:TetraStates}, there are only four intermediates since any state with the same nummber of faces can be rotated to reach the others. 
+Since the orbits of a group action form a partition on the set it acts on, each state belongs to a single intermediate and two states $x$ and $y$ are part of the same intermediate if there is a $g\in\G$ such that $y = g.x$. In the case of the tetrahedron, as pictured in figure~\ref{fig:TetraStates}, there are only four intermediates since any state with the same number of faces can be rotated to reach the others. 
 
 %\begin{mylem}
 %\label{lem:GyhGxh}
@@ -125,7 +129,7 @@ In figure~\ref{OctaStabs} we see
 If the states $x$ and $\hat{x}$ are members of the same intermediate $\left[x\right]$, they have the same symmetry number. Thus, we extend the notion of a symmetry number to be a property of an intermediate.
 \end{mythm}
 \begin{proof}
-By Correlary~\ref{cor:OST} and since $G.x \doteq [x] = [\hat{x}] \doteq G.\hat{x}$, the result follows.
+By Corollary~\ref{cor:OST} and since $G.x \doteq [x] = [\hat{x}] \doteq G.\hat{x}$, the result follows.
 \begin{align}
   r_x &= |G_x| \\
   &= \frac{|G|}{|G.x|} \\
@@ -151,8 +155,8 @@ Two distinct intermediates $\left[x\right]$ and $\left[y\right]$ are \textbf{con
   \item $\exists f \in x: x = y \cup \left\{f\right\}$
 \end{itemize}
 \end{mydef}
-The act of attaching an additional face is refered to as a forward step in the building game and the removal of a face is a backward step. 
--- Language about forward and ckward connection directions?
+The act of attaching an additional face is referred to as a forward step in the building game and the removal of a face is a backward step. 
+-- Language about forward and backward connection directions?
 
 \begin{mylem}
 If intermediates $\left[x\right]$ and $\left[y\right]$ are connected, then for every state $x \in \left[x\right]$ there is a state $y \in \left[y\right]$ such that $\exists f \in y: y = x \cup \left\{f\right\}$ or $\exists f \in x: x = y \cup \left\{f\right\}$.
@@ -200,7 +204,7 @@ Interestingly, it is not the case that the addition or removal of each face of a
 For two connected intermediates $[x^j]$ and $[x^k]$, the set of different faces $$F_{jk} \doteq \left\{f \notin x^j : x^j\cup\{f\} \in [x^k]\right\}\cup\left\{f \in x^j : x^j\setminus\{f\} \in [x^k]\right\}$$ that can be added or removed from $x^j$ to get an element of $[x^k]$ is called the \textbf{degeneracy set} and the number of such faces $S_{jk} \doteq \left|F_{jk}\right|$ is called the \textbf{degeneracy number}.
 \end{mydef}
 
-It is important to note that in general the degeneracy number is not symmetric, i.e. \Sjk$\neq$\Skj\spc for some connections $[x^j] \leftrightarrow [x^k]$ in the state space. Figure~\ref{fig:CubeDegen} dipicts the forward and backward degeneracy numbers for a particular connection. As illustrated, there are two faces that can be added to the first intermediate to form the second. However, removing any of the three faces of the second intermediate will result in the first. Thus the forward degeneracy number is two and the backward degeneracy number is three.  
+It is important to note that in general the degeneracy number is not symmetric, i.e. \Sjk$\neq$\Skj\spc for some connections $[x^j] \leftrightarrow [x^k]$ in the state space. Figure~\ref{fig:CubeDegen} depicts the forward and backward degeneracy numbers for a particular connection. As illustrated, there are two faces that can be added to the first intermediate to form the second. However, removing any of the three faces of the second intermediate will result in the first. Thus the forward degeneracy number is two and the backward degeneracy number is three.  
 
 
 \begin{figure}[ht]
@@ -210,6 +214,10 @@ It is important to note that in general the degeneracy number is not symmetric, 
 \end{figure}
 
 
+Finally, we extend the notion of a pathway to to be a sequence of intermediates of arbitrary lengths, such that the sequence begins at an intermediate with a single face and ends with the completed polyhedron and each pair of successive intrmediates are connected.
+\begin{mydef}
+A Building Game \textbf{reversible pathway} is a sequence of intermediates $[x^{p_1}], [x^{p_2}], \dots, [x^{p_N}]$ such that  $[x^{p_i}]$ is connected to $[x^{p_{i+1}}]$, $|x^{p_0}| = 1$, and $|x^{p_N}| = |F|$.
+\end{mydef}
 
 
 %\begin{mythm}
@@ -284,13 +292,14 @@ G_{x^k,\{f\}} &= \left\{g \in G : g.x^k = x^k, g.\{f\} = \{f\} \right\} \\
 
 
 \begin{mylem}
-For connected intermediates $[x]$ and $[y]$, with $x \cup \{f\} = y$ and $x \cup \{\hat{f}\} \doteq \hat{y}\in [y]$, the stabilizer subgroups $|G_{x,y}|$ and  $|G_{x,\hat{y}}$ satisfy $|G_{x,y}| = |G_{x,\hat{y}}|$. 
+For connected intermediates $[x]$ and $[y]$, with $x \cup \{f\} = y$ and $x \cup \{\hat{f}\} \doteq \hat{y}\in [y]$, the stabilizer subgroups $|G_{x,y}|$ and  $|G_{x,\hat{y}}|$ satisfy $|G_{x,y}| = |G_{x,\hat{y}}|$. 
 \end{mylem}
 \begin{proof}
 If there is an $h \in G_x$ such that $\{f\} = h.\{\hat{f}\}$, the result follows similar to lemma XXX as $|G_{x,y}| = |hG_{x,\hat{y}}h^{-1}| = |G_{x,\hat{y}}|$.
 
-However, if $\{f\} \neq h.\{\hat{f}\}$ for every $h \in G_x$, THE RESULT STILL NEEDS TO BE PROOVEN. 
---use the fact that such subgroups fix f, so they must be cycles generated by single rotation. --show that if rotation of f by that single element produces [y] then that same rotation of f-hat will too.  
+However, if $\{f\} \neq h.\{\hat{f}\}$ for every $h \in G_x$, the result STILL NEEDS PROOF. In the cases we consider, the lemma has been confirmed to be true through brute force computation. 
+
+%--use the fact that such subgroups fix f, so they must be cycles generated by single rotation. --show that if rotation of f by that single element produces [y] then that same rotation of f-hat will too.  
 \end{proof}
 
 
@@ -344,12 +353,13 @@ and the result $r_kS_{jk} = r_jS_{kj}$ follows.
 
 \section{Stochastic Modeling Results}
 
-Since the Building Game is a sequential process with several choices at each step, it is natural to consider it as a stochastic process. By putting a distribution on all possible faces that can be added or removed at each step of the Building game, a distribution on the space of pathways is implicitly defined. Thus, for a choice of this transition rule, we can ask questions about the likelihood of the different pathways. 
-
---Math and graphical results about putting a distribution on pathways
+Since the Building Game is a sequential process with several choices at each step, it is natural to consider it as a stochastic process. If we define a Building Game process that allows faces to be reversibly sequentially added or removed, the process consists of transitions from intermediate to intermediate along connections in the combinatorial configuration space. By specifying a distribution on these transitions, it will induce a stationary distribution on the state space and provide a framework for compute relevant statistics such as expected formation times.
 
 
-If we consider a Building Game process that allows faces to be sequentially added or removed, the process consists of transitions from intermediate to intermediate along connections in the combinatorial configuration space. By specifying a distribution on these transitions, it will induce a stationary measure on the state space.  
+%By putting a distribution on all possible faces that can be added at each step of the Building game, a distribution on the space of pathways is implicitly defined. Thus, for a choice of this transition rule, we can ask questions about the likelihood of the different pathways. Analogously, if we allow the process to be reverseable, with a transition rule at each step assigning probabilities to both 
+
+%--Math and graphical results about putting a distribution on pathways
+
 
 We define the Markov process $X_t$ by the transition rate matrix $Q$, with the heuristic that the rate of transition to an intermediate $[x^k]$ from an intermediate $[x^j]$ should be proportional to the number of faces that can be added or removed from $[x^j]$ to reach $[x^k]$. For this reason, we include the degeneracy number $S_{jk}$ as a factor in the transition rate matrix. Furthermore, we model the process using an energetic interpretation in which each intermediate has an energy and to transition between intermediates, an energy barrier $E_{jk} = E_{kj}$ must be overcome. 
 %\begin{align}
@@ -360,14 +370,17 @@ We define the Markov process $X_t$ by the transition rate matrix $Q$, with the h
 %\label{eq:TransitionRate}
 %\begin{align}
 %$$Q_{jk} = 
-\[
+%\[
+\begin{align}
+  \label{eq:Qdef}
   Q_{jk} =
   \begin{cases}
    S_{jk}e^{-\beta\left(E_{jk} - E_{j}\right)} & \text{if } [x^j] \leftrightarrow [x^k]  \\
    -z_j       & \text{if } j = k \\
    0 & \text{else}
   \end{cases}
-\]
+\end{align}
+%\]
 Here, $z_j \doteq \sum_{\ell: \ell \neq j} S_{j\ell}e^{-\beta\left(E_{j\ell} - E_j\right)}$ is the rate at which the process leaves \xj. 
 
 \subsection{Stationary Distribution}
@@ -386,15 +399,13 @@ First, we show $Q$ and $\pi$ satisfy detailed balance.
                     &= \pi_kQ_{kj}
 \end{align}
 
--- Prove aperiodicity 
--- Prove positive recurrence
-
+Since the combinatorial state space is connected and $Q_{jk}, Q_{kj} > 0$ for all connected intermediates $[x^j]$ and $[x^k]$, the process it trivially aperiodic and positive recurrent.
 \end{proof}
 
 
 \begin{mythm}
 \label{thm:E}
-The Markov process $X_t$ defined by the transition rate matrix $Q$ in equation~\ref{eq:TransitionRate} admits the unique stationary distribution $\frac{1}{zr_j}e^{-\beta E_j}$ where $z \doteq \sum_\ell \frac{1}{r_\ell}e^{-\beta E_\ell}$ is the partition function. 
+The Markov process $X_t$ defined by the transition rate matrix  $Q$ in equation~\ref{eq:Qdef} admits the unique stationary distribution $\frac{1}{zr_j}e^{-\beta E_j}$ where $z \doteq \sum_\ell \frac{1}{r_\ell}e^{-\beta E_\ell}$ is the partition function. 
 \end{mythm}
 \begin{proof}
 We take $C_{jk} \doteq \frac{S_{jk}}{zr_j}e^{-\beta E_{jk}}$ and notice that it is symmetric by theorem~\ref{thm:J}. With $D_{jj} \doteq zr_je^{\beta E_j}$ we have our partition.  
@@ -412,53 +423,66 @@ Thus, by theorem~\ref{thm:StatDist},  $\pi_j = \frac{1}{D_{jj}} = \frac{1}{zr_j}
 
 \subsection{Hitting Times}
 
+While the stationary distribution is an important piece in understanding the nature of our Markov process, other statistics which describe the dynamics are also useful. For instance, we may be interested in the expected time it will take the process to travel from an intermediate $[x^]$ to a specific subset $A$ of the combinatorial configuration space. Equation~\ref{eq:taudef} provides a mathematical definition for such a stopping time.
 \begin{align}
+  \label{eq:taudef}
 	\tau^{A}_{j} &\doteq \inf\left\{t \geq 0 : X_t \in A, X_0 = x^j\right\}
 \end{align}
-
+Oftentimes, we choose $A$ to be the intermediate of the fully completed polyhedron. This means the the stopping time will represent the expected formation time from a given intermediate.
+ 
+Since we are looking at events in which the process first reaches a particular set of intermediates, it is helpful to use $X_t$'s discrete time partner process $Y_n$ which simply records the sequence of intermediates that $X_t$ passes through. Here we formally define $Y_n$ in a recursive manner, such that it is the first intermediate visited after the process $X_t$ leaves $Y_{n-1}$.
 \begin{align}
-	\nu^{A}_{j} &\doteq \inf\left\{n \geq 0 : Y_n \in A, Y_0 = x^j\right\}
+  \label{eq:Ydef}
+	Y_n &\doteq \arg\min_{y \neq X_t}\{s : s > t, X_s = y, X_t = Y_{n-1}\} \\
+        &\sim X_{\tau_{Y_{n-1}}^{\{Y_{n-1}\}^C}} 
 \end{align}
 
-For $j \not\in A$.
+
+%\begin{align}
+%	\nu^{A}_{j} &\doteq \inf\left\{n \geq 0 : Y_n \in A, Y_0 = x^j\right\}
+%\end{align}
+
+Using first step analysis, we derive the expected hitting time $\tau_j^A$. Consider the case of $j \not\in A$.
 \begin{align}
 	E\left[\tau^{A}_{j}\right] &= E\left[E\left[\tau^{A}_{j} | Y_1 \right]\right] \\
         &= E\left[ Exp\left(z_j\right) + \tau^{A}_{Y_1} \right] \\
         &=  \frac{1}{z_j} + E\left[\sum_{k}\tau^{A}_{Y_1}\mathbbm{1}_{Y_1 = k}\right] \\
         &=  \frac{1}{z_j} + \sum_{k: k\neq j}E\left[\tau^{A}_{k}\right] P\left(Y_1 = k\right) \\
-        &=  \frac{1}{z_j}\left(1 + \sum_{k: k\neq j}q_{jk}E\left[\tau^{A}_{k}\right]\right)     \\
-  \sum_{k}q_{jk}E\left[\tau^{A}_{k}\right] &= 1 \\
+        &=  \frac{1}{z_j}\left(1 + \sum_{k: k\neq j}Q_{jk}E\left[\tau^{A}_{k}\right]\right)     \\
+  -\sum_{k}Q_{jk}E\left[\tau^{A}_{k}\right] &= 1 \\
 \end{align}
-
-For $j \in A$.
+Now, clearly for $j \in A$ we trivially have a stopping time of zero:
 \begin{align}
-	E\left[\tau^{A}_{j}\right] &= 0 \\
+	E\left[\tau^{A}_{j}\right] &= 0. \\
 \end{align}
-
-As a linear system:
+Putting together the two case, we write the solution as a linear system with $\tau^A$ the vector of stopping times with each possible initial intermediate.
 \begin{align}
 	\left(\diag\left(\mathbbm{1}_A\right) - \diag\left(\mathbbm{1}_{A^c}\right)Q\right)E\left[\tau^{A}\right] =\mathbbm{1}_{A^c}\\
 \end{align}
-
-
+Thus, we have
+\begin{align}
+	E\left[\tau^{A}\right] = \left[\left(\diag\left(\mathbbm{1}_A\right) - \diag\left(\mathbbm{1}_{A^c}\right)Q\right)\right]^{-1} \mathbbm{1}_{A^c}.\\
+\end{align}
+which contains the particular value $E[\tau^A_j]$ that we are interested in.
+ 
+Further, we can also compute the exact distribution of the stopping times $\tau^A$. First, we define the CDF as follows.
 \begin{align}
 \psi_j^A\left(t\right) &\doteq P\left(\tau^A_j \leq t\right) \\
 \psi_j^A\left(0\right) &= \mathbbm{1}_{j\in A} \\
 \psi_j^A\left(t\right) &= 0 \forall j \in A \\                       
 \end{align}
 
-For $j \not\in A$.
-
+Thus, for the case of $j \not\in A$ we find
 \begin{align}
 \psi_j^A\left(t\right) &\doteq P\left(\tau^A_j \leq t\right) \\
                        &= \sum_k P\left(\tau^A_j \leq t | Y_1 = x^k\right) P\left(Y_1 = x^k\right) \\ 
-                       &= \frac{1}{z_j}\sum_{k: k \neq j} q_{jk} P\left(Exp\left(z_j\right)\tau^A_j \leq t\right)  \\
-                       &= \frac{1}{z_j}\sum_{k: k \neq j} q_{jk} \int^t_0 P\left(\tau^A_j \leq t - s\right) z_j e^{-z_j s} ds  \\
-                       &= \sum_{k: k \neq j} q_{jk} \int^t_0\psi^A_k\left(t-s\right)e^{-z_j s} ds  \\
-                       &= \sum_{k: k \neq j} q_{jk} \int^t_0\psi^A_k\left(r\right)e^{-z_j\left(t-r\right)} dr  \\
-e^{z_jt}\psi^A_j\left(t\right) &= \sum_{k: k \neq j} q_{jk} \int^t_0 e^{z_jr}\psi^A_k\left(r\right) dr  \\
+                       &= \frac{1}{z_j}\sum_{k: k \neq j} Q_{jk} P\left(Exp\left(z_j\right) + \tau^A_k \leq t\right)  \\
+                       &= \frac{1}{z_j}\sum_{k: k \neq j} Q_{jk} \int^t_0 P\left(\tau^A_k \leq t - s\right) z_j e^{-z_j s} ds  \\
+                       &= \sum_{k: k \neq j} Q_{jk} \int^t_0\psi^A_k\left(t-s\right)e^{-z_j s} ds  \\
+                       &= \sum_{k: k \neq j} Q_{jk} \int^t_0\psi^A_k\left(r\right)e^{-z_j\left(t-r\right)} dr  \\
+e^{z_jt}\psi^A_j\left(t\right) &= \sum_{k: k \neq j} Q_{jk} \int^t_0 e^{z_jr}\psi^A_k\left(r\right) dr  \\
 e^{z_jt}\frac{d\psi^A_j}{dt} + z_j e^{z_j t} \psi^A_j\left(t\right) &= \sum_{k: k \neq j} q_{jk} e^{z_jt}\psi^A_k\left(t\right)  \\
-\frac{d\psi^A_j}{dt} &= \sum_{k} q_{jk} \psi^A_k\left(t\right) 
+\frac{d\psi^A_j}{dt} &= \sum_{k} q_{jk} \psi^A_k\left(t\right).
 \end{align}
 
 Combining both cases, we get the linear system and solution.
@@ -477,3 +501,34 @@ This is the solution for the CDF of the stopping time $\tau^A$, but we can also 
 \end{align} 
 
 
+Another hitting time statistic we may be interested in is, given an initial intermediate, what is the probability we will hit a subset of intermediates $A$ before some other disjoint subset of intermediates $B$. 
+
+\begin{align}
+\rho^{A,B}_j &\doteq P(\tau^A_j < \tau^B)
+\end{align}
+
+Trivially, we have 
+\begin{align}
+\rho^{A,B}_j &= 1 \text{ if } j\in A \\ 
+\rho^{A,B}_j &= 0 \text{ if } j\in B 
+\end{align}
+but must compute the case of $j \in (A\cup B)^C$.
+
+\begin{align}
+\rho^{A,B}_j &= P(\tau^A_j < \tau^B_j) \\
+&= \sum_{k}P(\tau^A_j < \tau^B_j, Y_1 = k) \\
+&= \sum_{k}P(\tau^A_j < \tau^B_j|Y_1 = k)P(Y_1 = k) \\
+&= \sum_{k}P(\tau^A_k < \tau^B_k)P(Y_1 = k) \\
+&= \frac{1}{z_j}\sum_{k \neq j} \rho^{A,B}_kQ_{jk} \\
+0 &= Q\rho^{A,B}
+\end{align}
+Again, putting each of these cases together, we get the linear system
+\begin{align}
+\left(\diag\left(\mathbbm{1}_A\right) + \diag\left(\mathbbm{1}_B\right) + \diag\left(\mathbbm{1}_{(A\cup B)^c}\right)Q\right)\rho^{A,B} =\mathbbm{1}_{A}
+\end{align}
+and our solution is
+\begin{align}
+\rho^{A,B} = \left[\diag\left(\mathbbm{1}_A\right) + \diag\left(\mathbbm{1}_B\right) + \diag\left(\mathbbm{1}_{(A\cup B)^c}\right)Q\right]^{-1}\mathbbm{1}_{A}
+\end{align}
+
+Using this result, an insightful choice for $A$ and $B$ would be $A = \{x_k\}$ and $B = x_{|F|}$. Then, the value of $\rho_1^{A,B}$ would correspond to the probability that a particular intermediate $x^k$ is in a reversible pathway between the intermediate with a single face and the completed polyhedron. 
