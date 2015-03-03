@@ -1,0 +1,31 @@
+Ch.1 Introduction:
+
+(i) scientific motivation -- shell molecules, viruses, synthetic self-assembly;
+(ii) mathematical problems that these give rise to --
+(iii) prior work -- e.g. on viruses, energy landscape.
+(iv) original contributions.
+
+Ch. 2. Building game: modeling
+
+(i) brief discussion of use as a mathematical framework for understanding self-assembly. -- (e.g. compare with artificial life paper).
+(ii) precise definition;
+(iii) expected time to self-assembly given rates.
+
+Ch. 3: Building game: new enumerative results
+
+(i) known enumeration results;
+(ii) new enumeration;
+(iii) outline of computational scheme.
+
+Ch.4: Embedding intermediates in space
+
+(i) Intro on linkages;
+(ii) Definition of geometric configuration space;
+(iii) Reflected Brownian motion as a method of exploring configurations;
+
+Ch. 5: Results
+
+(i) Numerical scheme + brief comments on implementation;
+(ii) Computed rates;
+(iii) Assembly pathways;
+(iv) Other notions such as "typical configuration" shape.
