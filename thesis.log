@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  3 MAR 2015 14:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  4 MAR 2015 13:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -596,6 +596,15 @@ Package tocloft Info: The document has chapter divisions on input line 44.
 
 LaTeX Warning: Label `lem:I' multiply defined.
 
+
+LaTeX Warning: Label `tab:bgeCat' multiply defined.
+
+
+LaTeX Warning: Label `tab:bgeCat' multiply defined.
+
+
+LaTeX Warning: Label `tab:bgeCat' multiply defined.
+
 )
 \openout1 = `thesis.aux'.
 
@@ -900,108 +909,135 @@ Overfull \hbox (54.62502pt too wide) in paragraph at lines 62--74
  [][] 
  []
 
-) [42] [43] [44]
+
+Overfull \hbox (14.58376pt too wide) in paragraph at lines 105--119
+ [][] 
+ []
+
+
+Overfull \hbox (35.04189pt too wide) in paragraph at lines 127--139
+ [][] 
+ []
+
+
+Underfull \vbox (badness 2418) has occurred while \output is active []
+
+ [42]
+Underfull \vbox (badness 3668) has occurred while \output is active []
+
+ [43]
+Underfull \vbox (badness 6741) has occurred while \output is active []
+
+ [44]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [46])
+[47] [48
+
+
+]
 Chapter 4.
 
 Underfull \hbox (badness 10000) in alignment at lines 157--157
 []
  []
 
-[45
+[49
 
-
-
-] (./content/constraint.tex [46]
+] (./content/constraint.tex [50]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47]
+ [51]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [48]
+ [52]
 
-LaTeX Warning: Reference `fig:sachse' on page 49 undefined on input line 60.
+LaTeX Warning: Reference `fig:sachse' on page 53 undefined on input line 60.
 
 
 Underfull \vbox (badness 8113) has occurred while \output is active []
 
- [49]
+ [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [50]
+ [54]
 Underfull \vbox (badness 1910) has occurred while \output is active []
 
- [51]
-[52]
+ [55]
+[56]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [53]
+ [57]
 
-LaTeX Warning: Citation `Arunetal1987' on page 54 undefined on input line 135.
+LaTeX Warning: Citation `Arunetal1987' on page 58 undefined on input line 135.
 
 
 Package caption Warning: \label without proper \caption on input line 140.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:tri' on page 54 undefined on input line 143.
+LaTeX Warning: Reference `fig:tri' on page 58 undefined on input line 143.
 
 
-LaTeX Warning: Citation `Arunetal1987' on page 54 undefined on input line 143.
+LaTeX Warning: Citation `Arunetal1987' on page 58 undefined on input line 143.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [54]
+ [58]
 
 Package caption Warning: \label without proper \caption on input line 168.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:t1' on page 55 undefined on input line 165.
+LaTeX Warning: Reference `fig:t1' on page 59 undefined on input line 165.
 
 
 Underfull \vbox (badness 2229) has occurred while \output is active []
 
- [55])
-[56]
+ [59])
+[60]
 Chapter 5.
 
 Underfull \hbox (badness 10000) in alignment at lines 161--161
 []
  []
 
-[57
+[61
 
 
 
-] (./content/constraint_processes.tex [58] [59]
+] (./content/constraint_processes.tex [62] [63]
 Underfull \vbox (badness 3386) has occurred while \output is active []
 
- [60]
+ [64]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61]
+ [65]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62])
+ [66])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [63]
-[64]
+ [67]
+[68]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in alignment at lines 165--165
 []
  []
 
-[65
+[69
 
 
 
-] (./content/results.tex) [66
+] (./content/results.tex) [70
 
 
-] (./thesis.bbl) [67
+] (./thesis.bbl) [71
 
 ] (./thesis.aux)
 
@@ -1017,11 +1053,11 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  12901 strings out of 493305
- 238876 string characters out of 6139898
- 314452 words of memory out of 5000000
+ 238867 string characters out of 6139898
+ 303452 words of memory out of 5000000
  16021 multiletter control sequences out of 15000+600000
  24093 words of font info for 101 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,17n,69p,1156b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (85 pages, 179332 bytes).
+Output written on thesis.dvi (89 pages, 186236 bytes).

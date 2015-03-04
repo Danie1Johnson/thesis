@@ -78,43 +78,96 @@ Rhombic Triacontahedron         & 30  	& ?             & ?             & 5,266,8
 
 
 \subsection{Shellability}
+--Def shellability
 
 \begin{figure}[ht]
-\scalebox{0.6}{
-%{\footnotesize
-\begin{tabular}{ l | c | c | c | c || r | r | r}
-Polyhedra Name & Class & F$\left(\mathscr{P}\right)$ & E$\left(\mathscr{P}\right)$ & V$\left(\mathscr{P}\right)$ & Intermediates & Connections & Pathways \\
+%\scalebox{0.6}{
+\centering
+%\textbf{Building Game Enumerative Results for the Platonic Solids}
+\begin{tabular}{ l | c | r | r | r}
+Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
   \hline    
-Tetrahedron                     & P & 4 & 6 & 4         & 5     & 4 & 1\\
-Cube                            & P & 6 & 12 & 8        & 8     & 8 & 2\\
-Octahedron                      & P & 8 & 12 & 6        & 12    & 12 & 14 \\
-Dodecahedron                    & P & 12 & 30 & 20      & 53    & 156 & 2166\\
-Icosahedron                     & P & 20 & 30 & 12      & 468   & 1984 & 105999738\\
-Truncated Tetrahedron           & A & 8 & 18 & 12       & 22	& 42 & 174\\
-Cuboctahedron                   & A & 14 & 24 & 12 	& 137	& 470 & 477776\\
-Truncated Cube                  & A & 14 & 36 & 24 	& 248	& 1002 & 5232294\\
-Truncated Octahedron            & A & 14 & 36 & 24 	& 343	& 1466 & 5704138\\
-Rhombicuboctahedron             & A & 26 & 48 & 24 	& 70836	& 462149 &  48399693494788840\\
-Truncated Cuboctahedron         & A & 26 & 72 & 48 	& ?	& ? & ?\\
-Icosidodecahedron               & A & 32 & 60 & 30 	& ?	& ? & ?\\
-Truncated Dodecahedron          & A & 32 & 90 & 60 	& ?	& ? & ?\\
-Truncated Icosahedron           & A & 32 & 90 & 60 	& ?	& ? & ?\\
-Triakis Tetrahedron             & C & 12 & 18 & 8       & 49	& 116 & 5012\\
-Rhombic Dodecahedron            & C & 12 & 24 & 14 	& 68	& 196 & 6258\\
-Triakis Octahedron              & C & 24 & 36 & 14 	& 667	& 2383 & 15255459\\
-Tetrakis Hexahedron             & C & 24 & 36 & 14 	& 4220	& 21079 & 5854799360107\\
-Deltoidal Icositetrahedron      & C & 24 & 48 & 26 	& ?	& ? & ?\\
-Pentagonal Icositetrahedron     & C & 24 & 60 & 38 	& 95127	& 654537 & 5607231936129109\\
-Rhombic Triacontahedron         & C & 30 & 60 & 32 	& 97368	& 697623 & 6889989896241902854\\
-  \hline  
+Tetrahedron                     & 4     & 5     & 4 	& 1\\
+Cube                            & 6     & 8     & 8 	& 2\\
+Octahedron                      & 8     & 12    & 12 	& 14 \\
+Dodecahedron                    & 12    & 53    & 156 	& 2166\\
+Icosahedron                     & 20    & 468   & 1984 	& 105999738\\
 \end{tabular}
-}
-\caption{Table of polyhedra in the Platonic (P), Archimedean (A), and Catalan (C) solid classes of up to 32 faces and their Building Game state space shellability statistics.}
-\label{fig:bgtable_shell}
+%}
+\caption{Building game enumerative shellability results for the Platonic solids.}
+\label{tab:bgeCat}
 \end{figure}
 
+\begin{figure}[ht]
+%\scalebox{0.6}{
+\centering
+%\textbf{Building Game Enumerative Results for the Platonic Solids}
+\begin{tabular}{ l | c | r | r | r}
+Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
+  \hline    
+Truncated Tetrahedron           & 8     & 22	& 42 		& 174\\
+Cuboctahedron                   & 14	& 137	& 470 		& 477776\\
+Truncated Cube                  & 14	& 248	& 1002 		& 5232294\\
+Truncated Octahedron            & 14	& 343	& 1466 		& 5704138\\
+Rhombicuboctahedron             & 26	& 70836	& 462149 	& 48399693494788840\\
+Truncated Cuboctahedron         & 26	& ?	& ? 		& ?\\
+Icosidodecahedron               & 32	& ?	& ? 		& ?\\
+Truncated Dodecahedron          & 32	& ?	& ? 		& ?\\
+Truncated Icosahedron           & 32	& ?	& ? 		& ?\\
+\end{tabular}
+%}
+\caption{Building game enumerative shellability results for the Archimedean solids.}
+\label{tab:bgeCat}
+\end{figure}
+
+\begin{figure}[ht]
+%\scalebox{0.6}{
+\centering
+%\textbf{Building Game Enumerative Results for the Platonic Solids}
+\begin{tabular}{ l | c | r | r | r}
+Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
+  \hline    
+Triakis Tetrahedron             & 12    & 49	& 116 		& 5012\\
+Rhombic Dodecahedron            & 12 	& 68	& 196 		& 6258\\
+Triakis Octahedron              & 24	& 667	& 2383 		& 15255459\\
+Tetrakis Hexahedron             & 24	& 4220	& 21079 	& 5854799360107\\
+Deltoidal Icositetrahedron      & 24	& ?	& ? 		& ?\\
+Pentagonal Icositetrahedron     & 24	& 95127	& 654537 	& 5607231936129109\\
+Rhombic Triacontahedron         & 30	& 97368	& 697623 	& 6889989896241902854\\
+\end{tabular}
+%}
+\caption{Building game enumerative shellability results for the Catalan solids.}
+\label{tab:bgeCat}
+\end{figure}
 
 \subsection{Bounds and Asymptotics}
-Have upper, but what about lower? 
+There is a clear relation between the number of faces in a polyhedron and then number of intermediates it has. However, that relationship also greatly depends on the polyhedral symmetry group. For instance, if you have a polyhedron with a small number of faces and a trivial rotation group consisting only of the identity, every edge-connected subset of the polyhedron's faces will be a distinct intermediate. In agregate, this may mean that the polyhedron has more intermediates than another polyhedron with more faces, yet a larger symmetry group. 
+
+An upper bound on the number of intermediates is possible using the theory of group actions. Consider the set of all subsets $2^F$ of a polyhedron with rotation group $G$. Trivially $|2^F/G|$ is an upper bound on the number of intermediates since it simply relaxes the connectivity requirement for a subset to be a building game state. Using Burnside's lemma, we see that 
+\begin{align}
+  \label{eq:IntUB}
+  |2^F/G| &= \frac{1}{|G|}\sum_{g \in G}|(2^F)^g| \\
+  &> \frac{|(2^F)^e|}{|G|} \\
+  &= \frac{|2^F|}{|G|} \\
+  &= \frac{2^{|F|}}{|G|}
+\end{align}
+which is not a particularly good bound in practice. The exact value of $|2^F/G|$ is calcuable with minimal computer assistance. For the cube, the bound is fairly tight, only including the two non-intermediates corresponding to the empty subset of faces, and the non-connected subset consisting of the top and bottom faces. Thus the cube has the bound $|2^F/G| = 10 \geq 8$. In the case of the tetrahedron, the only overcounted subset of faces is the empty one and the bound is $|2^F/G| = 5 \geq 4$. However, in the case of the icosahedron we have $|2^F/G| \geq \frac{2^{20}}{60} \approx 17476.3 \gg 2649$. Here we use the approximate bound $\frac{2^{|F|}}{|G|}$ which is the largely dominant term in the sum from equation~\ref{eq:IntUB}.
+
+We can get a similar bound on the number of intermediates with a particular number of faces,
+\begin{align}
+  |\{x \in 2^F: |x| = k\} /G| &= \frac{1}{|G|}\sum_{g \in G}|\{x \in 2^F: |x| = k\}^g| \\
+  &> \frac{|\{x \in 2^F: |x| = k\}^e|}{|G|} \\
+  &= \frac{|\{x \in 2^F: |x| = k\}|}{|G|} \\
+  &= \frac{{|F| \choose k}}{|G|}
+\end{align}
+but again, this is not particularly useful, especially for intermediates with $\sim\frac{|F|}{2}$ faces.
+
+Since the building game is similar in spirit to polyomino enumeration, one might try to assimilate some the techniques used for polyominos. For example, through fairly simple arguments, one can show that $s_ms_n \leq s_{m+n}$ where $s_m$ is the number of unique polyominos with $m$ subunits CITE. This leads to the bound $s_m \leq (const)^m$. Trying to set up such a relation in the building game is sounds initially appealing, but there is a fundamental diefference between the two growth models that makes this approach futile. In the polyomino case, there is no limit to the number of subunits that can be considered. Importantly, this is not the case for the bulding game since an intermediate can only have $|F|$ faces at most. Thus any such reccurrence relation for the building game will result in a good upper bound for the intermediates with a small number of faces at best.
+
+The formulation of meaningful bounds for the number of building game intermediates with $k$ faces remains an open problem, especially for $k \sim \frac{1}{2}|F|$. At the root of the problem is the difficulty in mathematicallly describing the subsets of $F$ are edge connected. Future approches may incorperate enumeration results for connected subgraphs or Hamiltonian paths since these topics explicitly acknowledge connectedness properties. 
+
+From looking at the statistics on number of faces $|F|$ of a polyhedron and the number of intermediates in its commbintorial configuration space, it is natural to want to make statements about the asymptotic growth of thr combinatorial configuration space's size. Unfortunately, when formed in this way, the problem is ill-posed. To discuss assymptotics, we must first specify an infinite class of polyhedra. The Platonic, Archimedean, and Catalan Solid classes that we've worked with thus far are all finite though, so other choices must be consider. One option is to take an existing polyhedron in one of these classes and create an infinite family by describing finer and finer tiling on top of the polyhedron's faces. If designed cafefully each member of the tiled polyhedron family will have the same symmetry group, even as the number of faces grows. 
+
+Similar to polyhedra with tiled faces are the icosahedron viral capsids indexed by T-number. This number is related to the number of protein subunits in the virust. When each subunit is idealized as a polygon, a T-capsid will consist of $12$ pentagons and $10(T-1)$ hexagons. Interestingly, this makes most of the icosahedral viral capsid equivalent to the dual of an icosahedron with each face consisting of $T$ trianglular tiles. This would certainly be an interesting an relevant familty of polyhedra to consider, though we leave it as an opn problem.
 
 \section{Computational Methods}
