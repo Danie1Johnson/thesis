@@ -171,3 +171,48 @@ From looking at the statistics on number of faces $|F|$ of a polyhedron and the 
 Similar to polyhedra with tiled faces are the icosahedron viral capsids indexed by T-number. This number is related to the number of protein subunits in the virust. When each subunit is idealized as a polygon, a T-capsid will consist of $12$ pentagons and $10(T-1)$ hexagons. Interestingly, this makes most of the icosahedral viral capsid equivalent to the dual of an icosahedron with each face consisting of $T$ trianglular tiles. This would certainly be an interesting an relevant familty of polyhedra to consider, though we leave it as an opn problem.
 
 \section{Computational Methods}
+
+To compute the combinatorial configuration space and enumerate the intermediates for a particular polyhedron, we use a brute force method. Computation begins with first enumerating the intermediates with a single face. This enumeration is then used to compute the intermediates with two faces. This process proceeds iteratively until all intermediates are accounted for. Figure~\ref{alg:CCS} outlines the detailed algorithm for this computation. 
+
+At each stage of our algorith, we know the set of intermedites that have $k$ faces, which we call $A_k$, and use this information to compute the set of faces with $k+1$ faces, $A_{k+1}$. Since all intermediates in $A_{k+1}$ must be formed by adding a single face to an intermediate from $A_k$, we take each intermediate $[x] \in A_k$ and try adding each face to $x$ that is allowable under the Building game rules. This means we look at every face $f \in F$ and check if $f \not\in x$ and also that $x$ is edge connected to a face $\hat{f}$ that is in $x$. For every such faces $f$, we look at the new $(k+1)$-faced state $y \doteq x\cup \{f\}$. Since we know that $[y]$ is a building intermediate, it must be represented in $A_{k+1}$, however before adding $y$ to $A_{k+1}$, we must verify that there is no $\hat{y}$ already in $A_{k+1}$ such that $y \in [\hat{y}]$.
+
+\begin{figure}[ht]
+\centering
+\begin{algorithmic}
+  \State $A_0 \gets \{\emptyset\}$ 
+  \State $A_1, \dots, A_{|F|} \gets \{\}$ 
+  \For{$k = 0,\dots,|F|-1$}
+  \For{$x \in A_k$ }
+  \For{$f \in F\setminus x$ such that $\exists \hat{f} \in x$ with $f$ and $\hat{f}$ sharing an edge. }
+  \State NewIntermediate $\gets True$
+  \For{$\hat{y} \in A_{k+1}$}
+  \If{$y \in [\hat{y}]$}
+  \State NewIntermediate $\gets False$
+  \State Add connection $x \leftrightarrow \hat{y}$ to combinatorial configuration space.
+  \EndIf
+  \EndFor
+  \If{NewIntermediate $= True$}
+  \State $A_{k+1} \gets A_{k+1} \cup \{y\}$
+  \State Add connection $x \leftrightarrow y$ to combinatorial configuration space.
+  \EndIf
+  \EndFor
+  \EndFor
+  \EndFor
+\end{algorithmic}
+\caption{Algorithm for interatively enumerating the Building Game combinatorial configuration space.}
+\label{alg:CCS}
+\end{figure}
+
+The act of comparing two states $y$ and $\hat{y}$ to check if they are members of the same intrmediate is the task where the majority of computational time is spent on. The brute force method of checking if $y \sim \hat{y}$ involves checking if $g.y = \hat{y}$ for each $g \ in G$. If a $g$ is found that makes this equality hold, then $y \sim \hat{y}$ and the computation terminates and we know that $[y]$ is not a new intermediate. In this case, nothing is added to $A_{k+1}$ but a connection $x \leftrightarrow \hat{y}$ is added in the combinatorial configuration space.
+
+\subsection{Implementation}
+In practice, we implement a hash function $\textswab{h}$ that maps each state to an integer with the property that if $[y] = [\hat{y}]$, then $\textswab{h}(y) = \textswab{h}(\hat{y})$. If we can design such a function and it is computable in significantly less time relative to the brute force method of trying every rotation, the overall computation can be majorly diminished. 
+
+When checking if two states $y$ and $\hat{y}$ are members of the same intermediate, we first check if $\textswab{h}(y) = \textswab{h}(\hat{y})$. If they do not have the same hash, then they cannot be members of the same intermediate and the check is complete. Alternatively, if they do have identical hashes, it is not a guarentee that they are members of the same intermediate, so the brute force rotation method must be used. If the hash is carefully designed then this false positive rate ($\textswab{h}(y) = \textswab{h}(\hat{y})$ when $[y] \neq [\hat{y}]$) is small and almost all of the brute force calculations will result in a positive match. 
+
+In an ideal world, a hash function that also gives the property $[x] = [\hat{x}]$ whenever $\textswab{h}(x) = \textswab{h}(\hat{x})$ would be best. However we have not been able to find such an $\textswab{h}$ that is computable in a relatively reduced amount of time in comparison to the brute force method. We leave the existance of such a hash as a possibility. 
+
+--hash used. 
+
+
+Data Structures

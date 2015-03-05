@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  4 MAR 2015 13:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  5 MAR 2015 14:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -146,7 +146,29 @@ Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks27
 \verbatim@in@stream=\read1
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count100
+\c@ALG@rem=\count101
+\c@ALG@nested=\count102
+\ALG@tlm=\skip49
+\ALG@thistlm=\skip50
+\c@ALG@Lnr=\count103
+\c@ALG@blocknr=\count104
+\c@ALG@storecount=\count105
+\c@ALG@tmpcounter=\count106
+\ALG@tmplength=\skip51
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 \epsfxsize=\dimen114
 \epsfysize=\dimen115
@@ -154,7 +176,7 @@ Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen116
 \WF@size=\dimen117
-\c@WF@wrappedlines=\count100
+\c@WF@wrappedlines=\count107
 \WF@box=\box28
 \WF@everypar=\toks28
 Package: wrapfig 2003/01/31  v 3.6
@@ -174,25 +196,25 @@ Package: amscd 1999/11/29 v2.0
 )
 (/usr/share/texlive/texmf-dist/tex/latex/changebar/changebar.sty
 Package: changebar 2005/09/18 v3.5c Indicate changes with marginal bars
-\cb@nextpoint=\count101
-\cb@topleft=\count102
-\cb@topright=\count103
-\cb@botleft=\count104
-\cb@botright=\count105
-\cb@cnta=\count106
-\cb@cntb=\count107
+\cb@nextpoint=\count108
+\cb@topleft=\count109
+\cb@topright=\count110
+\cb@botleft=\count111
+\cb@botright=\count112
+\cb@cnta=\count113
+\cb@cntb=\count114
 \cb@dima=\dimen121
 \cb@curbarwd=\dimen122
-\cb@page=\count108
-\cb@pagecount=\count109
+\cb@page=\count115
+\cb@pagecount=\count116
 \cb@odd@left=\dimen123
 \cb@odd@right=\dimen124
 \cb@even@left=\dimen125
 \cb@even@right=\dimen126
-\changebarwidth=\skip49
-\deletebarwidth=\skip50
-\changebarsep=\skip51
-\c@changebargrey=\count110
+\changebarwidth=\skip52
+\deletebarwidth=\skip53
+\changebarsep=\skip54
+\c@changebargrey=\count117
 \cb@write=\write3
 \cb@read=\read2
 \openout3 = `thesis.cb'.
@@ -210,25 +232,25 @@ Package: mathtools 2013/02/12 v1.13 mathematical typesetting tools
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count111
-\calc@Bcount=\count112
+\calc@Acount=\count118
+\calc@Bcount=\count119
 \calc@Adimen=\dimen127
 \calc@Bdimen=\dimen128
-\calc@Askip=\skip52
-\calc@Bskip=\skip53
+\calc@Askip=\skip55
+\calc@Bskip=\skip56
 LaTeX Info: Redefining \setlength on input line 76.
 LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count113
-\calc@Cskip=\skip54
+\calc@Ccount=\count120
+\calc@Cskip=\skip57
 )
 (/usr/share/texlive/texmf-dist/tex/latex/mh/mhsetup.sty
 Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 )
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count114
+\g_MT_multlinerow_int=\count121
 \l_MT_multwidth_dim=\dimen129
-\origjot=\skip55
+\origjot=\skip58
 \l_MT_shortvdotswithinadjustabove_dim=\dimen130
 \l_MT_shortvdotswithinadjustbelow_dim=\dimen131
 \l_MT_above_intertext_sep=\dimen132
@@ -286,10 +308,10 @@ Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
 \pgf@yc=\dimen143
 \w@pgf@writea=\write4
 \r@pgf@reada=\read3
-\c@pgf@counta=\count115
-\c@pgf@countb=\count116
-\c@pgf@countc=\count117
-\c@pgf@countd=\count118
+\c@pgf@counta=\count122
+\c@pgf@countb=\count123
+\c@pgf@countc=\count124
+\c@pgf@countd=\count125
 
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -301,12 +323,12 @@ File: pgfsys-dvips.def 2008/04/03  (rcs-revision 1.20)
 
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsys-common-postscript.def
 File: pgfsys-common-postscript.def 2008/10/01  (rcs-revision 1.22)
-\pgf@objectcount=\count119
+\pgf@objectcount=\count126
 )))
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
-\pgfsyssoftpath@smallbuffer@items=\count120
-\pgfsyssoftpath@bigbuffer@items=\count121
+\pgfsyssoftpath@smallbuffer@items=\count127
+\pgfsyssoftpath@bigbuffer@items=\count128
 )
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
@@ -335,7 +357,7 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen144
-\pgfmath@count=\count122
+\pgfmath@count=\count129
 \pgfmath@box=\box30
 \pgfmath@toks=\toks35
 \pgfmath@stack@operand=\toks36
@@ -350,7 +372,7 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count123
+\c@pgfmathroundto@lastzeros=\count130
 ))
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
@@ -384,7 +406,7 @@ File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
 \pgfpic=\box31
 \pgf@hbox=\box32
 \pgf@layerbox@main=\box33
-\pgf@picture@serial@count=\count124
+\pgf@picture@serial@count=\count131
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
@@ -411,7 +433,7 @@ File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
 \pgf@max=\dimen167
-\pgf@sys@shading@range@num=\count125
+\pgf@sys@shading@range@num=\count132
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
@@ -459,7 +481,7 @@ Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
-\pgf@plot@mark@count=\count126
+\pgf@plot@mark@count=\count133
 \pgfplotmarksize=\dimen172
 )
 \tikz@lastx=\dimen173
@@ -470,18 +492,18 @@ File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
 \tikzsiblingdistance=\dimen178
 \tikz@figbox=\box36
 \tikz@tempbox=\box37
-\tikztreelevel=\count127
-\tikznumberofchildren=\count128
-\tikznumberofcurrentchild=\count129
-\tikz@fig@count=\count130
+\tikztreelevel=\count134
+\tikznumberofchildren=\count135
+\tikznumberofcurrentchild=\count136
+\tikz@fig@count=\count137
 
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
-\pgfmatrixcurrentrow=\count131
-\pgfmatrixcurrentcolumn=\count132
-\pgf@matrix@numberofcolumns=\count133
+\pgfmatrixcurrentrow=\count138
+\pgfmatrixcurrentcolumn=\count139
+\pgf@matrix@numberofcolumns=\count140
 )
-\tikz@expandcount=\count134
+\tikz@expandcount=\count141
 
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
@@ -495,7 +517,7 @@ ations.code.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen181
 \pgfdecoratedinputsegmentremainingdistance=\dimen182
 \pgf@decorate@distancetomove=\dimen183
-\pgf@decorate@repeatstate=\count135
+\pgf@decorate@repeatstate=\count142
 \pgfdecorationsegmentamplitude=\dimen184
 \pgfdecorationsegmentlength=\dimen185
 )
@@ -530,7 +552,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \caption@parindent=\dimen191
 \caption@hangindent=\dimen192
 )
-\c@ContinuedFloat=\count136
+\c@ContinuedFloat=\count143
 Package caption Info: wrapfig package is loaded.
 )
 (./ThesisFncychap.sty
@@ -539,15 +561,15 @@ LaTeX Warning: You have requested package `ThesisFncychap',
                but the package provides `fncychap'.
 
 Package: fncychap 1997/04/06 v1.11 LaTeX package (Revised chapters)
-\RW=\skip56
-\mylen=\skip57
-\myhi=\skip58
-\px=\skip59
-\py=\skip60
-\pyy=\skip61
-\pxx=\skip62
-\c@AlphaCnt=\count137
-\c@AlphaDecCnt=\count138
+\RW=\skip59
+\mylen=\skip60
+\myhi=\skip61
+\px=\skip62
+\py=\skip63
+\pyy=\skip64
+\pxx=\skip65
+\c@AlphaCnt=\count144
+\c@AlphaDecCnt=\count145
 )
 \@input{BjarneThesisTitles.aux}
 \openout2 = `BjarneThesisTitles.aux'.
@@ -556,42 +578,42 @@ Package: fncychap 1997/04/06 v1.11 LaTeX package (Revised chapters)
 (/usr/share/texlive/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
 Package tocloft Info: The document has chapter divisions on input line 44.
-\cftparskip=\skip63
-\cftbeforetoctitleskip=\skip64
-\cftaftertoctitleskip=\skip65
-\cftbeforepartskip=\skip66
-\cftpartnumwidth=\skip67
-\cftpartindent=\skip68
-\cftbeforechapskip=\skip69
-\cftchapindent=\skip70
-\cftchapnumwidth=\skip71
-\cftbeforesecskip=\skip72
-\cftsecindent=\skip73
-\cftsecnumwidth=\skip74
-\cftbeforesubsecskip=\skip75
-\cftsubsecindent=\skip76
-\cftsubsecnumwidth=\skip77
-\cftbeforesubsubsecskip=\skip78
-\cftsubsubsecindent=\skip79
-\cftsubsubsecnumwidth=\skip80
-\cftbeforeparaskip=\skip81
-\cftparaindent=\skip82
-\cftparanumwidth=\skip83
-\cftbeforesubparaskip=\skip84
-\cftsubparaindent=\skip85
-\cftsubparanumwidth=\skip86
-\cftbeforeloftitleskip=\skip87
-\cftafterloftitleskip=\skip88
-\cftbeforefigskip=\skip89
-\cftfigindent=\skip90
-\cftfignumwidth=\skip91
-\c@lofdepth=\count139
-\c@lotdepth=\count140
-\cftbeforelottitleskip=\skip92
-\cftafterlottitleskip=\skip93
-\cftbeforetabskip=\skip94
-\cfttabindent=\skip95
-\cfttabnumwidth=\skip96
+\cftparskip=\skip66
+\cftbeforetoctitleskip=\skip67
+\cftaftertoctitleskip=\skip68
+\cftbeforepartskip=\skip69
+\cftpartnumwidth=\skip70
+\cftpartindent=\skip71
+\cftbeforechapskip=\skip72
+\cftchapindent=\skip73
+\cftchapnumwidth=\skip74
+\cftbeforesecskip=\skip75
+\cftsecindent=\skip76
+\cftsecnumwidth=\skip77
+\cftbeforesubsecskip=\skip78
+\cftsubsecindent=\skip79
+\cftsubsecnumwidth=\skip80
+\cftbeforesubsubsecskip=\skip81
+\cftsubsubsecindent=\skip82
+\cftsubsubsecnumwidth=\skip83
+\cftbeforeparaskip=\skip84
+\cftparaindent=\skip85
+\cftparanumwidth=\skip86
+\cftbeforesubparaskip=\skip87
+\cftsubparaindent=\skip88
+\cftsubparanumwidth=\skip89
+\cftbeforeloftitleskip=\skip90
+\cftafterloftitleskip=\skip91
+\cftbeforefigskip=\skip92
+\cftfigindent=\skip93
+\cftfignumwidth=\skip94
+\c@lofdepth=\count146
+\c@lotdepth=\count147
+\cftbeforelottitleskip=\skip95
+\cftafterlottitleskip=\skip96
+\cftbeforetabskip=\skip97
+\cfttabindent=\skip98
+\cfttabnumwidth=\skip99
 ) (./thesis.aux
 
 LaTeX Warning: Label `lem:I' multiply defined.
@@ -608,22 +630,22 @@ LaTeX Warning: Label `tab:bgeCat' multiply defined.
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for LY/yfrak/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for LYG/ygoth/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for LY/yfrak/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for LYG/ygoth/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
  ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
@@ -635,29 +657,29 @@ Package caption Info: End \AtBeginDocument code.
 
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 74.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 76.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
-LaTeX Font Info:    Try loading font information for U+msa on input line 74.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 76.
+LaTeX Font Info:    Try loading font information for U+msa on input line 76.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 74.
+LaTeX Font Info:    Try loading font information for U+msb on input line 76.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 74.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 76.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 74.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 76.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -693,7 +715,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [12]
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <11.5> not available
-(Font)              size <12> substituted on input line 108.
+(Font)              size <12> substituted on input line 110.
 
 (./thesis.lot)
 \tf@lot=\write6
@@ -735,14 +757,14 @@ LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <11.5> not available
 
 
 ]
-\c@mythm=\count141
-\c@mylem=\count142
-\c@mycor=\count143
-\c@mydef=\count144
+\c@mythm=\count148
+\c@mylem=\count149
+\c@mycor=\count150
+\c@mydef=\count151
 
 Chapter 1.
 
-Underfull \hbox (badness 10000) in alignment at lines 145--145
+Underfull \hbox (badness 10000) in alignment at lines 147--147
 []
  []
 
@@ -813,7 +835,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in alignment at lines 149--149
+Underfull \hbox (badness 10000) in alignment at lines 151--151
 []
  []
 
@@ -887,7 +909,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [40]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in alignment at lines 153--153
+Underfull \hbox (badness 10000) in alignment at lines 155--155
 []
  []
 
@@ -934,110 +956,113 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [45]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [46])
-[47] [48
+ [46]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
+[48]) [49] [50
 
 
 ]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in alignment at lines 157--157
+Underfull \hbox (badness 10000) in alignment at lines 159--159
 []
  []
 
-[49
+[51
 
-] (./content/constraint.tex [50]
+] (./content/constraint.tex [52]
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [51]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [52]
-
-LaTeX Warning: Reference `fig:sachse' on page 53 undefined on input line 60.
-
-
-Underfull \vbox (badness 8113) has occurred while \output is active []
 
  [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [54]
-Underfull \vbox (badness 1910) has occurred while \output is active []
+
+LaTeX Warning: Reference `fig:sachse' on page 55 undefined on input line 60.
+
+
+Underfull \vbox (badness 8113) has occurred while \output is active []
 
  [55]
-[56]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [57]
+ [56]
+Underfull \vbox (badness 1910) has occurred while \output is active []
 
-LaTeX Warning: Citation `Arunetal1987' on page 58 undefined on input line 135.
+ [57]
+[58]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [59]
+
+LaTeX Warning: Citation `Arunetal1987' on page 60 undefined on input line 135.
 
 
 Package caption Warning: \label without proper \caption on input line 140.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:tri' on page 58 undefined on input line 143.
+LaTeX Warning: Reference `fig:tri' on page 60 undefined on input line 143.
 
 
-LaTeX Warning: Citation `Arunetal1987' on page 58 undefined on input line 143.
+LaTeX Warning: Citation `Arunetal1987' on page 60 undefined on input line 143.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [58]
+ [60]
 
 Package caption Warning: \label without proper \caption on input line 168.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:t1' on page 59 undefined on input line 165.
+LaTeX Warning: Reference `fig:t1' on page 61 undefined on input line 165.
 
 
 Underfull \vbox (badness 2229) has occurred while \output is active []
 
- [59])
-[60]
+ [61])
+[62]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in alignment at lines 161--161
+Underfull \hbox (badness 10000) in alignment at lines 163--163
 []
  []
 
-[61
+[63
 
 
 
-] (./content/constraint_processes.tex [62] [63]
+] (./content/constraint_processes.tex [64] [65]
 Underfull \vbox (badness 3386) has occurred while \output is active []
 
- [64]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [65]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [66])
+ [66]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [67]
-[68]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [68])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [69]
+[70]
 Chapter 6.
 
-Underfull \hbox (badness 10000) in alignment at lines 165--165
+Underfull \hbox (badness 10000) in alignment at lines 167--167
 []
  []
 
-[69
+[71
 
 
 
-] (./content/results.tex) [70
+] (./content/results.tex) [72
 
 
-] (./thesis.bbl) [71
+] (./thesis.bbl) [73
 
 ] (./thesis.aux)
 
@@ -1052,12 +1077,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12901 strings out of 493305
- 238867 string characters out of 6139898
- 303452 words of memory out of 5000000
- 16021 multiletter control sequences out of 15000+600000
+ 13430 strings out of 493305
+ 246438 string characters out of 6139898
+ 311556 words of memory out of 5000000
+ 16540 multiletter control sequences out of 15000+600000
  24093 words of font info for 101 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,17n,69p,1156b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (89 pages, 186236 bytes).
+Output written on thesis.dvi (91 pages, 193888 bytes).
