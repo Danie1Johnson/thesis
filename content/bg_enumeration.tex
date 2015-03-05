@@ -174,7 +174,7 @@ Similar to polyhedra with tiled faces are the icosahedron viral capsids indexed 
 
 To compute the combinatorial configuration space and enumerate the intermediates for a particular polyhedron, we use a brute force method. Computation begins with first enumerating the intermediates with a single face. This enumeration is then used to compute the intermediates with two faces. This process proceeds iteratively until all intermediates are accounted for. Figure~\ref{alg:CCS} outlines the detailed algorithm for this computation. 
 
-At each stage of our algorith, we know the set of intermedites that have $k$ faces, which we call $A_k$, and use this information to compute the set of faces with $k+1$ faces, $A_{k+1}$. Since all intermediates in $A_{k+1}$ must be formed by adding a single face to an intermediate from $A_k$, we take each intermediate $[x] \in A_k$ and try adding each face to $x$ that is allowable under the Building game rules. This means we look at every face $f \in F$ and check if $f \not\in x$ and also that $x$ is edge connected to a face $\hat{f}$ that is in $x$. For every such faces $f$, we look at the new $(k+1)$-faced state $y \doteq x\cup \{f\}$. Since we know that $[y]$ is a building intermediate, it must be represented in $A_{k+1}$, however before adding $y$ to $A_{k+1}$, we must verify that there is no $\hat{y}$ already in $A_{k+1}$ such that $y \in [\hat{y}]$.
+At each stage of our algorith, we know the set of intermedites that have $k$ faces, which we call $A_k$, and use this information to compute the set of faces with $k+1$ faces, $A_{k+1}$. Since all intermediates in $A_{k+1}$ must be formed by adding a single face to an intermediate from $A_k$, we take each intermediate $[x] \in A_k$ and try adding each face to $x$ that is allowable under the building game rules. This means we look at every face $f \in F$ and check if $f \not\in x$ and also that $x$ is edge connected to a face $\hat{f}$ that is in $x$. For every such faces $f$, we look at the new $(k+1)$-faced state $y \doteq x\cup \{f\}$. Since we know that $[y]$ is a building game intermediate, it must be represented in $A_{k+1}$, however before adding $y$ to $A_{k+1}$, we must verify that there is no $\hat{y}$ already in $A_{k+1}$ such that $y \in [\hat{y}]$.
 
 \begin{figure}[ht]
 \centering
@@ -188,12 +188,12 @@ At each stage of our algorith, we know the set of intermedites that have $k$ fac
   \For{$\hat{y} \in A_{k+1}$}
   \If{$y \in [\hat{y}]$}
   \State NewIntermediate $\gets False$
-  \State Add connection $x \leftrightarrow \hat{y}$ to combinatorial configuration space.
+  \State Add connection $[x] \leftrightarrow [\hat{y}]$ to combinatorial configuration space.
   \EndIf
   \EndFor
   \If{NewIntermediate $= True$}
   \State $A_{k+1} \gets A_{k+1} \cup \{y\}$
-  \State Add connection $x \leftrightarrow y$ to combinatorial configuration space.
+  \State Add connection $[x] \leftrightarrow [y]$ to combinatorial configuration space.
   \EndIf
   \EndFor
   \EndFor
@@ -203,16 +203,22 @@ At each stage of our algorith, we know the set of intermedites that have $k$ fac
 \label{alg:CCS}
 \end{figure}
 
-The act of comparing two states $y$ and $\hat{y}$ to check if they are members of the same intrmediate is the task where the majority of computational time is spent on. The brute force method of checking if $y \sim \hat{y}$ involves checking if $g.y = \hat{y}$ for each $g \ in G$. If a $g$ is found that makes this equality hold, then $y \sim \hat{y}$ and the computation terminates and we know that $[y]$ is not a new intermediate. In this case, nothing is added to $A_{k+1}$ but a connection $x \leftrightarrow \hat{y}$ is added in the combinatorial configuration space.
+The act of comparing two states $y$ and $\hat{y}$ to check if they are members of the same intrmediate is the task where the majority of computational time is spent. The brute force method of checking if $y \sim \hat{y}$ involves checking if $g.y = \hat{y}$ for each $g \in G$. If a $g$ is found that makes this equality hold, then $[y] = [ \hat{y}]$ and the computation terminates and we know that $[y]$ is not a new intermediate. In this case, nothing is added to $A_{k+1}$ but a connection $x \leftrightarrow \hat{y}$ is added in the combinatorial configuration space. Furthermore, by tracking how many time a particular connection $x \leftrightarrow \hat{y}$ is found, the forward degeneracy numbers can be computed. 
 
-\subsection{Implementation}
+\subsection{Hash Functions}
 In practice, we implement a hash function $\textswab{h}$ that maps each state to an integer with the property that if $[y] = [\hat{y}]$, then $\textswab{h}(y) = \textswab{h}(\hat{y})$. If we can design such a function and it is computable in significantly less time relative to the brute force method of trying every rotation, the overall computation can be majorly diminished. 
 
 When checking if two states $y$ and $\hat{y}$ are members of the same intermediate, we first check if $\textswab{h}(y) = \textswab{h}(\hat{y})$. If they do not have the same hash, then they cannot be members of the same intermediate and the check is complete. Alternatively, if they do have identical hashes, it is not a guarentee that they are members of the same intermediate, so the brute force rotation method must be used. If the hash is carefully designed then this false positive rate ($\textswab{h}(y) = \textswab{h}(\hat{y})$ when $[y] \neq [\hat{y}]$) is small and almost all of the brute force calculations will result in a positive match. 
 
 In an ideal world, a hash function that also gives the property $[x] = [\hat{x}]$ whenever $\textswab{h}(x) = \textswab{h}(\hat{x})$ would be best. However we have not been able to find such an $\textswab{h}$ that is computable in a relatively reduced amount of time in comparison to the brute force method. We leave the existance of such a hash as a possibility. 
 
---hash used. 
+Since any hash we choose must a function that maps states that are rotations of each other to the same integer, we look at local connectivity properties. For each face $f_k \in F$ define its local connectivity within $y$ as  $\textswab{h}_k(y) = |\{\hat{f} \in F : \hat{f} \in y, f_k \cap \hat{f} \in E\}|$, the number of faces adjacent to $f_k$ that are in $y$. Since this connectivity is preserved by rotations, even though we wont necesarily have $\textswab{h}_k(y) = \textswab{h}_k(\hat{y})$ when $[y] = [\hat{y}]$, if we take a histogram of all values of $\textswab{h}_k$ for $k = 1,\dots,|F|$, the histogram will be the same for both $y$ and $\hat{y}$. Once a histogram is computed, the final hash $\textswab{h}$ is just a simple function that maps histograms to integers.
 
+There are many variants of statistics that this histogram strategy can be used with. We found that taking separate histograms for faces in $y$ and faces not in $y$ provided a hash with less false positives, while only increasing the hash computation time marginally. Depending on the polyhedron, the implementation of this hash lead to an over all speed up of at least an order of magnitude over the purely brute force method.  
 
-Data Structures
+\subsection{Data Structures}
+
+Before the computation of the combinatorial configuration space, we hardcode an enumeration $f_1, \dots, f_{|F|}$ of the faces of our polyhedron. Then, any state $x$ is represented by a binary vector of length $|F|$ with a one in the $k$th entry if $f_k \in x$ and zero otherwise. With this convention, each rotation $g \in G$ corresponds to a permutation of the indices of $x$. Each such permutation in the group is precomputed and then applies as necessary when performing a brute force comparison of two states. To track the connectivity structure of the polyhedron, an adjaceny list on faces is stored as a two dimensional array. For each face number, the adjacency list specifies the index of adjacent faces.
+
+Each group of $k$-faced intermediates $A_k$ is stored as a hash table using the previously described hash function. This allows for order one lookup of intermediates already in the $A_k$ that share the hash of a new proposal intermediate. 
+
