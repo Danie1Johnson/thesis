@@ -78,7 +78,20 @@ Rhombic Triacontahedron         & 30  	& ?             & ?             & 5,266,8
 
 
 \subsection{Shellability}
---Def shellability
+Ziegler provides the following definitions of a shelling and a shellable polytopal complex. 
+\begin{mydef}
+Let $\mathcal{C}$ be a pure $k$-dimensional polytopal complex $\mathcal{C}$. A shelling of $\mathcal{C}$ is a linear ordering $F_1,F_2,\dots,F_s$ of the facets of $\mathcal{C}$ such that either $\mathcal{C}$ is $0$-dimensional (and thus the facets are points), or it satisfies the following conditions:
+\begin{enumerate}[(i)]
+\item The boundary complex of the first facet $F_1$ has a shelling.
+\item For $1 < j \leq s$ the intersection of the facet $F_j$ with the previous facets is non empty and is a beginning segment of a shelling of the $(k-1$-dimensional boundary complex of $F_j$, that is,
+$$F_j \cap \left(\bigcup_{i=1}^{j-1}F_i\right) = G_1 \cup G_2 \cup \cdots \cup G_r$$
+for some shelling $G_1, G_2, \dots, G_r, \dots, G_t$ of $\mathcal{C}(\partial F_j)$, and $1 \leq r \leq t$. (In particular, this requires that $F_j \cap (\bigcup_{i=1}^{j-1} F_i)$ has a shelling, so it has to be a pure $(k-1)$-dimensional, and connected for $k > 1$.)
+\end{enumerate} 
+\textbf{shelling}
+\end{mydef}
+
+
+
 
 \begin{figure}[ht]
 %\scalebox{0.6}{
