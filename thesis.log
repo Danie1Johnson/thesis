@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  10 MAR 2015 23:07
+=======
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  9 MAR 2015 15:33
+>>>>>>> 6e21965a1a9aecd3ebd35bf55e3a08528844d0ac
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -619,13 +623,10 @@ Package tocloft Info: The document has chapter divisions on input line 44.
 LaTeX Warning: Label `lem:I' multiply defined.
 
 
-LaTeX Warning: Label `tab:bgeCat' multiply defined.
+LaTeX Warning: Label `fig:IntCount' multiply defined.
 
 
-LaTeX Warning: Label `tab:bgeCat' multiply defined.
-
-
-LaTeX Warning: Label `tab:bgeCat' multiply defined.
+LaTeX Warning: Label `fig:IntCount' multiply defined.
 
 )
 \openout1 = `thesis.aux'.
@@ -901,149 +902,153 @@ Underfull \hbox (badness 10000) in alignment at lines 154--154
 
 
 
-] (./content/bg_enumeration.tex
-
-LaTeX Warning: Reference `fig:bgtable' on page 42 undefined on input line 7.
-
-
-Overfull \hbox (68.43736pt too wide) in paragraph at lines 38--52
+] (./content/bg_enumeration.tex [42]
+Overfull \hbox (68.43736pt too wide) in paragraph at lines 53--67
  [][] 
  []
 
 
-Overfull \hbox (71.27068pt too wide) in paragraph at lines 62--74
+Overfull \hbox (71.27068pt too wide) in paragraph at lines 77--89
  [][] 
  []
 
-[42] [43] [44]
-Overfull \hbox (68.43736pt too wide) in paragraph at lines 170--184
- [][] 
+[43] [44] [45]
+Overfull \hbox (75.2115pt too wide) in paragraph at lines 186--186
+[] 
  []
 
 
-Overfull \hbox (71.27068pt too wide) in paragraph at lines 192--204
- [][] 
- []
-
-[45]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [46]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (68.43736pt too wide) in paragraph at lines 213--227
+ [][] 
+ []
 
- [47]
+
+Overfull \hbox (71.27068pt too wide) in paragraph at lines 235--247
+ [][] 
+ []
+
+[47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [48]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [49]
-[50]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [51])
+ [50]
+Underfull \vbox (badness 3240) has occurred while \output is active []
+
+ [51]
 [52]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [53])
+[54]
 Chapter 4.
 
 Underfull \hbox (badness 10000) in alignment at lines 158--158
 []
  []
 
-[53
+[55
 
 
 
-] (./content/constraint.tex [54]
+] (./content/constraint.tex [56]
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [55]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [56]
-
-LaTeX Warning: Reference `fig:sachse' on page 57 undefined on input line 60.
-
-
-Underfull \vbox (badness 8113) has occurred while \output is active []
 
  [57]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [58]
-Underfull \vbox (badness 1910) has occurred while \output is active []
+
+LaTeX Warning: Reference `fig:sachse' on page 59 undefined on input line 60.
+
+
+Underfull \vbox (badness 8113) has occurred while \output is active []
 
  [59]
-[60]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61]
+ [60]
+Underfull \vbox (badness 1910) has occurred while \output is active []
 
-LaTeX Warning: Citation `Arunetal1987' on page 62 undefined on input line 135.
+ [61]
+[62]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [63]
+
+LaTeX Warning: Citation `Arunetal1987' on page 64 undefined on input line 135.
 
 
 Package caption Warning: \label without proper \caption on input line 140.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:tri' on page 62 undefined on input line 143.
+LaTeX Warning: Reference `fig:tri' on page 64 undefined on input line 143.
 
 
-LaTeX Warning: Citation `Arunetal1987' on page 62 undefined on input line 143.
+LaTeX Warning: Citation `Arunetal1987' on page 64 undefined on input line 143.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62]
+ [64]
 
 Package caption Warning: \label without proper \caption on input line 168.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:t1' on page 63 undefined on input line 165.
+LaTeX Warning: Reference `fig:t1' on page 65 undefined on input line 165.
 
 
 Underfull \vbox (badness 2229) has occurred while \output is active []
 
- [63])
-[64]
+ [65])
+[66]
 Chapter 5.
 
 Underfull \hbox (badness 10000) in alignment at lines 162--162
 []
  []
 
-[65
+[67
 
 
 
-] (./content/constraint_processes.tex [66] [67]
+] (./content/constraint_processes.tex [68] [69]
 Underfull \vbox (badness 3386) has occurred while \output is active []
 
- [68]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [69]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [70])
+ [70]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [71]
-[72]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [72])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [73]
+[74]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in alignment at lines 166--166
 []
  []
 
-[73
+[75
 
 
 
-] (./content/results.tex) [74
+] (./content/results.tex) [76
 
 
-] (./thesis.bbl) [75
+] (./thesis.bbl) [77
 
 ] (./thesis.aux)
 
@@ -1058,12 +1063,23 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  13431 strings out of 493305
  246452 string characters out of 6139898
  302556 words of memory out of 5000000
  16541 multiletter control sequences out of 15000+600000
+=======
+ 13435 strings out of 493305
+ 246518 string characters out of 6139898
+ 305556 words of memory out of 5000000
+ 16545 multiletter control sequences out of 15000+600000
+>>>>>>> 6e21965a1a9aecd3ebd35bf55e3a08528844d0ac
  24093 words of font info for 101 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,17n,69p,1156b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,69p,1156b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+<<<<<<< HEAD
 Output written on thesis.dvi (93 pages, 202964 bytes).
+=======
+Output written on thesis.dvi (95 pages, 211456 bytes).
+>>>>>>> 6e21965a1a9aecd3ebd35bf55e3a08528844d0ac

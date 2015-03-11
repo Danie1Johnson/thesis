@@ -1,13 +1,28 @@
 \section{Known Enumerative Results}
---like polyominos
---Endres/Zlotnick
---Integer database
+
+When treating the Building Game for a polyhedron as a stochastic process, we must first know what the the combinatorial configuration space is exactly. This is a computational enumeration problem, but the results of this enumeration are also of methematical interest. 
+
+Attachment models like the Building Game have been the topic of much reserch in combinatorial mathematics. A well known example of this is the study of polyominoes. An $n$-omino is a configuration of $n$ attached squares in a $2$-dimensional latice. As seen in figure~\ref{fig:Tetris}, the classic video game tetris uses each of the seven rotationally unique tetrominoes ($n = 4$) as game pieces. The enumeration of $n$-ominoes has been extensively studied and there are many enumeration results, both explicit and asymptotic. As in our case, the general goal is to enumerate the polyominoes that are unique when acted on by some group (rotation, reflection, etc) or under certain constraints which are often topological.
+\begin{figure}[ht]
+  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+\caption{The seven tetrominoes used in Tetris.}
+\label{fig:Tetris}
+\end{figure}
+
+The Building Game has a wealth of combinatorial enumeration problems to consider. Some have been addressed in the work of Zlotnick et all CITE. The original Building Game paper only considers a single pathway and thus is not conserned with enumeration of the entire combinatorial configuration space. However in Endres et al, the number of intermediates for each of the Platonic solids is computed. The entire combinatorial configuration space for the dodecahedron and icosahedron is also illustrated CITE. 
+
+Before the work of Endres et al, David Wilson enumerated the number of intermediates composed of each number of faces for the icosahedron CITE. This computation seems to have ooccured independent of the scientific context of self-assembly as Wilson's enumerations are refered to as the ``Number of one-sided triangular n-ominoes (or triominoes) on the icosahedron.'' He also includes variants such as the ``Number of triangular n-ominoes on the icosahedron'' which enlarges the equivalence classes to identify intermediate that are reflections of each other. 
+
 \section{New Enumerative Results}
 
-As we consider polyhedra with more and more faces, there is a combinatorial explosion in the number intermediates in state space. While the 6-faced cube state space has only 8 nodes and 9 nodes, the 20-faced icosahedron state space has 2,649 nodes and 17,241 nodes and the 26-faced truncated cuboctahedron state space has 1,525,605 nodes and 17,672,377. Figure \ref{fig:bgtable} details state space sizes of all polyhedra in the Platonic, Archimedean, and Catalan solid classes of up to 26 faces. 
+Previous enumeration results for the Building Game have focused on the number of intermediates of the Platonic solids. We extend these results to also count the number of Building Game connections and pathways in the combinatorial configuration space. Additionally, we consider the Platonic, Archimedean, and Catalan solids classes with these results presemted in figures~\ref{tab:bgePlat}, ~\ref{tab:bgeArch} and ~\ref{tab:bgeCat} respectively. 
+
+As we consider polyhedra with more and more faces, there is a combinatorial explosion in the number intermediates in combinatorial configuration space. This was noted in Endres et al. CITE, where the dodecahedron has $73$ intermediates and the icosahedron has $2,649$. We have enumerated the intermediates for polyhedra of up to $30$ faces in our three classes of polyhedra. The $30$-faced rhombic triacontahdron has the most intermediates of all polyhedra in our computation with $2,423,212$.
 
 
-Also something about pathway statistics. 
+
+%While the 6-faced cube state space has only 8 nodes and 9 nodes, the 20-faced icosahedron state space has 2,649 nodes and 17,241 nodes and the 26-faced truncated cuboctahedron state space has 1,525,605 nodes and 17,672,377. Figure \ref{fig:bgtable} details state space sizes of all polyhedra in the Platonic, Archimedean, and Catalan solid classes of up to 26 faces. 
+
 
 
 \begin{figure}[ht]
@@ -77,6 +92,27 @@ Rhombic Triacontahedron         & 30  	& 2,423,212     & 26,823,095    & ???5,26
 
 
 
+
+\begin{figure}[ht]
+  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+\caption{The relation between number of faces and intermediates in the Builging Game combinatorial configuration space.}
+\label{fig:IntCount}
+\end{figure}
+
+\begin{figure}[ht]
+  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+\caption{The relation between number of faces and connections in the Builging Game combinatorial configuration space.}
+\label{fig:IntCount}
+\end{figure}
+
+\begin{figure}[ht]
+  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+\caption{The relation between number of faces and paths in the Builging Game combinatorial configuration space.}
+\label{fig:IntCount}
+\end{figure}
+
+
+
 \subsection{Shellability}
 The theory of polytopes provides a mathematical method for constructing a polytope called a \textit{shelling}. The process, similar to the building game, involves sequentially adding facets of the polytope until all of the facets are added. However, the rules as to which facets may be added at each step of the process is are a bit more restrictive. Ziegler provides the following definitions of a shelling and a shellable polytopal complex CITE. 
 \begin{mydef}
@@ -134,13 +170,20 @@ A shelling order cannot be fixed by a polyhedral rotation.
 \end{proof}
 
 \begin{mythm}
-The total number of shellings for a polyhedral complex generated by a polyhedron is the number of shellable building game pathways times the order of the rotation group of the polyhedron.
+The total number of shellings for a polyhedral complex generated by a polyhedron is the number of shellable building game pathways times the order of the rotation group of the polyhedron. 
 \begin{align}
-\#\{shellings\} &= |G|\sum_{p \in \{pathways\}}\prod_j^{|F|-1}S_{p_jp_{(j+1)}}
+\#\{shl\} &= \sum_{p \in \{shell paths\}}|[x^{p_1}]|\prod_j^{|F|-1}S_{p_jp_{(j+1)}} 
 \end{align}
 \end{mythm}
 \begin{proof}
 Show each degeneracy of each pathway produces a unique shelling. And then that any rotation of each of these shellings is also unique.
+\begin{align}
+\#\{shl\} &= \sum_{f_1 \in F} \mathbbm{1}_{sh(\emptyset,f_1)} \cdots\sum_{f_k \in F\setminus \{f_1,\dots,f_{k-1}\}} \mathbbm{1}_{sh(\{f_1,\dots,f_{k-1}\}, f_k)}\cdots \sum_{f_{|F|} \in F\setminus \{f_1, f_2, \dots, f_{|F|-1}\}}\mathbbm{1}_{sh(\{f_1, f_2, \dots, f_{|F|-1}\},f_{|F|})}  \\
+&= \sum_{f_1 \in F} \mathbbm{1}_{sh(\emptyset,f_1)} \cdots\sum_{f_k \in F\setminus \{f_1,\dots,f_{k-1}\}} \mathbbm{1}_{sh(\{f_1,\dots,f_{k-1}\}, f_k)}\cdots \sum_{x^{p_{|F|}}: [x^{p_{|F|-1}}] \xrightarrow{shell} [x^{p_{|F|}}]} S_{p_{|F|-1}p_{|F|}}  \\
+&= \sum_{f_1 \in F} \sum_{x^{p_2}: [x^{p_1}] \xrightarrow{shell} [x^{p_2}]} S_{p_{1}p_{2}}  \cdots \sum_{x^{p_{|F|}}: [x^{p_{|F|-1}}] \xrightarrow{shell} [x^{p_{|F|}}]} S_{p_{|F|-1}p_{|F|}}  \\
+&= \sum_{[x^{p_1}} |[x^{p_1}]| \sum_{x^{p_2}: [x^{p_1}] \xrightarrow{shell} [x^{p_2}]} S_{p_{1}p_{2}}  \cdots \sum_{x^{p_{|F|}}: [x^{p_{|F|-1}}] \xrightarrow{shell} [x^{p_{|F|}}]} S_{p_{|F|-1}p_{|F|}}  \\
+&= \sum_{p \in \{shell paths\}}|[x^{p_1}]|\prod_j^{|F|-1}S_{p_jp_{(j+1)}} 
+\end{align}
 \end{proof}
 
 Derive dynamic programming relation for computation.
@@ -160,7 +203,7 @@ Icosahedron                     & 20    & 469   & 1,985 	& 105,999,738\\
 \end{tabular}
 %}
 \caption{Building game enumerative shellability results for the Platonic solids.}
-\label{tab:bgeCat}
+\label{tab:bgePlatShell}
 \end{figure}
 
 \begin{figure}[ht]
@@ -182,7 +225,7 @@ Truncated Cuboctahedron         & 26	& 515,335	& 4,070,813	& ???13,890,723,216,1
 \end{tabular}
 %}
 \caption{Building game enumerative shellability results for the Archimedean solids.}
-\label{tab:bgeCat}
+\label{tab:bgeArchShell}
 \end{figure}
 
 \begin{figure}[ht]
@@ -202,7 +245,7 @@ Rhombic Triacontahedron         & 30	& 97,741	& 702,219 	& ???7,057,239,571,753,
 \end{tabular}
 %}
 \caption{Building game enumerative shellability results for the Catalan solids.}
-\label{tab:bgeCat}
+\label{tab:bgeCatShell}
 \end{figure}
 
 \subsection{Bounds and Asymptotics}
@@ -287,3 +330,4 @@ Before the computation of the combinatorial configuration space, we hardcode an 
 
 Each group of $k$-faced intermediates $A_k$ is stored as a hash table using the previously described hash function. This allows for order one lookup of intermediates already in the $A_k$ that share the hash of a new proposal intermediate. 
 
+\subsection{Run Time}
