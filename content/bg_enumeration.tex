@@ -280,7 +280,37 @@ a_{i,k} &\doteq \sum_{\substack{\text{shellable subpaths}:\\ p_1, \dots, p_k \\ 
 \end{align}
 Thus, using the base cases $a_{j,1} = |G.x^j|$ for each single faced intermediate $[x^j]$, we can use this relation to recursively solve for the number of shellings $a_{N,|F|}$.
 
-
+\begin{figure}[ht]
+%\scalebox{0.6}{
+%{\footnotesize
+\centering
+%\textbf{Building Game Enumerative Results for the Platonic Solids}
+\begin{tabular}{ l | c | r}
+Polyhedra Name & $|F|$ & Shellings \\
+  \hline    
+Tetrahedron                     & 4  	& 24 \\
+Cube                            & 6  	& 480 \\
+Octahedron                      & 8  	& 4,224\\
+Dodecahedron                    & 12 	& 19,041,600 \\
+Icosahedron                     & 20 	& 1,417,229,099,520 \\ \hline
+Truncated Tetrahedron           & 8     & \\
+Cuboctahedron                   & 14	& \\
+Truncated Cube                  & 14	& \\
+Truncated Octahedron            & 14	& \\
+Rhombicuboctahedron             & 26	& \\
+Truncated Cuboctahedron         & 26	& \\ \hline
+Triakis Tetrahedron             & 12    & 587,040\\
+Rhombic Dodecahedron            & 12 	& 5,836,800\\
+Triakis Octahedron              & 24	& \\
+Tetrakis Hexahedron             & 24	& \\
+Deltoidal Icositetrahedron      & 24	& \\
+Pentagonal Icositetrahedron     & 24	& \\
+Rhombic Triacontahedron         & 30	& \\
+\end{tabular}
+%}
+\caption{Number of Shellings for the Platonic, Archimedean, and Catalan solids of up to 30 faces.}
+\label{tab:Shellings}
+\end{figure}
 
 \subsection{Bounds and Asymptotics}
 There is a clear relation between the number of faces in a polyhedron and then number of intermediates it has. However, that relationship also greatly depends on the polyhedral symmetry group. For instance, if you have a polyhedron with a small number of faces and a trivial rotation group consisting only of the identity, every edge-connected subset of the polyhedron's faces will be a distinct intermediate. In agregate, this may mean that the polyhedron has more intermediates than another polyhedron with more faces, yet a larger symmetry group. 
