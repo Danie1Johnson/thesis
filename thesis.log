@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  12 MAR 2015 12:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  12 MAR 2015 13:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -960,17 +960,14 @@ Underfull \hbox (badness 10000) in alignment at lines 159--159
 
 [59
 
-] (./content/constraint.tex [60] [61] [62]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [63]
+] (./content/constraint.tex [60] [61] [62] [63]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [64])
-[65] [66
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-]
+ [65]
+[66]
 Chapter 5.
 
 Underfull \hbox (badness 10000) in alignment at lines 163--163
@@ -978,6 +975,8 @@ Underfull \hbox (badness 10000) in alignment at lines 163--163
  []
 
 [67
+
+
 
 ] (./content/constraint_processes.tex [68] [69]
 Underfull \vbox (badness 3386) has occurred while \output is active []
@@ -1029,4 +1028,4 @@ Here is how much of TeX's memory you used:
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1156b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (95 pages, 201592 bytes).
+Output written on thesis.dvi (95 pages, 202212 bytes).

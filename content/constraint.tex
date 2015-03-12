@@ -20,11 +20,19 @@ If $c$ is composed of polynomial functions, then the constraint space is an alge
 \end{figure}
 
 
+--Constraint equations
+
+
 \begin{mydef}
 The \textbf{geometric configuration space} of a building game intermediate is the constraints space 
 \end{mydef}
 --def geometric configuration space
 --manifold conjecture
+
+
+\begin{mydef}
+\textbf{cannonical configuraion}
+\end{mydef}
 
 \begin{mycon}
 The geometric configuration space for each intermediate composed of equilateral triangular faces is a manifold.
@@ -46,19 +54,24 @@ Since our geometric configuration space is an algebraic variety and not a manifo
 The number of \textbf{degrees of freedom} a building game intermediate at configuration $z$ is the dimension of the geometric configuration space algebraic variety at $z$. If $z$ is a singularity of the algebraic variety, then the degrees of freedom is undefined.
 \end{mydef}
 
-In most cases we consider, rigid rotation and rigid translation will preserve the value of the constraint function. In other words, if $c(z) = 0$ then we also have $c(Rz + T) = 0$ where $R \in \mathbbm{R}^{n}\times n$ rotates each vertex in the configuration by some $\hat{R} \in SO(3)$ and translates each vertex by $\hat{T} \in \mathbbm{R}^3$. With this definition, $R$ is the block diagonal matrix with each of the $n/3$ block being $\hat{R} \in SO(3)$ and $T \in \mathbbm{R}^n$ is composed of $n/3$ copies of $\hat{T} \in \mathbbm{R}^3$ stacked upon each other. These rigid body rotations account for $6$ of the configuration's degrees of freedom: $3$ rotational degrees of freedom and $3$ translational.
+In most cases we consider, rigid rotation and rigid translation will preserve the value of the constraint function since they do not move the verticies relative to one another. In other words, if $c(z) = 0$ then we also have $c(Rz + T) = 0$ where $R \in \mathbbm{R}^{n}\times n$ rotates each vertex in the configuration by some $\hat{R} \in SO(3)$ and translates each vertex by $\hat{T} \in \mathbbm{R}^3$. With this definition, $R$ is the block diagonal matrix with each of the $n/3$ block being $\hat{R} \in SO(3)$ and $T \in \mathbbm{R}^n$ is composed of $n/3$ copies of $\hat{T} \in \mathbbm{R}^3$ stacked upon each other. These rigid body rotations account for $6$ of the configuration's degrees of freedom: $3$ rotational degrees of freedom and $3$ translational.
 \begin{mydef}
 The \textbf{trivial degrees of freedom} a building game intermediate at configuration $z$ are the $6$ degrees of freedom corresponding to rigid body rotations and translations.
 \end{mydef}
+Thus, the degrees of freedom we are most interested in are those that do represent movement of the verticies and faces relative to each other. 
+\begin{mydef}
+The \textbf{internal degrees of freedom} a building game intermediate at configuration $z$ are the degrees of freedom that are not trival.
+\end{mydef}
 
+\subsection{Computing Degrees of Freedom}
 
-From this definition, it is worth noting that if the geometric configuration space is indeed a manifold, then the degrees of freedom is the dimension of that manifold which is a global property.
-
+--Jacobian equations
+--rank of C
 --extension to non triangular polyhedra
 
 \subsection{Non-Manifold Example}
+From this definition, it is worth noting that if the geometric configuration space is indeed a manifold, then the degrees of freedom is the dimension of that manifold which is a global property. Here we present an interesting example in which this is not the case and, depending on the specific configuration, a different number of degrees of freedom exist.
 
---non manifold cases. 
 \begin{figure}[ht]
   %\includegraphics[scale=0.1, angle=0]{tetris.eps}
 \caption{A linkage of 6 squares with configurations of different degrees of freedom.}
@@ -68,7 +81,7 @@ From this definition, it is worth noting that if the geometric configuration spa
 
 %We consider the linkage of rigid 2-dimensional polygons in $\mathbb{R}^3$ by means of ideal hinges located at the edges of the polygons. In this way, by treating intermediates of our various models as such a linkage, we can compute the non-trivial degrees of freedom (DoF) each intermediate has. 
 
-Every linkage of this type has 6 trivial degrees of freedom: 3 corresponding to translational movement and 3 corresponding to rotational freedom. While these freedoms do change the orientation of the intermediate, they do not cause the faces to move relative to each other. For this reason, we label them as trivial degrees of freedom and focus on the calculation the remaining, non-trivial degrees of freedom. 
+%Every linkage of this type has 6 trivial degrees of freedom: 3 corresponding to translational movement and 3 corresponding to rotational freedom. While these freedoms do change the orientation of the intermediate, they do not cause the faces to move relative to each other. For this reason, we label them as trivial degrees of freedom and focus on the calculation the remaining, non-trivial degrees of freedom. 
 
 For our purposes, we define the \textbf{degrees of freedom} of a configuration to be the difference between the number of parameters needed to specify a configuration in an ambient parameter space $\Omega$ and the number of independent constraints imposed upon the configuration as a function of these parameters. Consequently, the non-trivial degrees of freedom is the number of degrees of freedom minus the six trivial degrees of freedom. If the ambiant parameter space is $\mathbb{R}^N$ and there are $M$ constraint equations given by $\varphi : \mathbb{R}^N \to \mathbb{R}^M$, we find the degrees of freedom to be $N - \operatorname{rank}(\varphi)$ and the non-trivial degrees of freedom to be $N - \operatorname{rank}(\varphi) - 6$. Here we need $\varphi$ to be a smooth map so that the rank is well defined. Furthermore, we define the \textbf{configuration space} to be the subset of parameter space $\{\omega \in \Omega : \varphi(\omega) = 0\}$ upon which the contraints are satisfied.
 
