@@ -15,12 +15,20 @@ If $c$ is composed of polynomial functions, then the constraint space is an alge
  --pictures of flexing. 
 \begin{figure}[ht]
   %\includegraphics[scale=0.1, angle=0]{tetris.eps}
-\caption{Different configurations of an octahedron intermediate.}
+\caption{Different geometric configurations of an octahedron intermediate.}
 \label{fig:OctaGCS}
 \end{figure}
 
+To mathematically represent each of the possible geometric configurations, we parameterize the embedding using its vertex locations. If a building game state is composed of the faces $\{f_1,\dots, f_i\}$, then any embedding of the intermediate can be described by a point in $\mathbbm{R}^n$, where $n$ is the three times sum $3\sum_{j=1}^i \#\text{vertices}(f_j)$, of the number of vertices in each face. Simply put, the point 
+\begin{align}
+z = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_{n/3} \end{bmatrix} \in \mathbbm{R}^n
+\end{align}
+ which is the concatenation of all of the vertex locations $v_1, v_2, \dots, v_{n/3} \in \mathbbm{R}^3$ for each verted on each face of an intermediate is used to represent a particular embedding. 
 
---Constraint equations
+Using the notion of a constraint space, we can define the space of different geometric configurations that a given intermediate can take. Since we are treating each intermediate as collection of rigid polygons attached to each other along hinged edges, there are two basic constraints we must enforce. 
+
+First, we must ensure that the each individual face is rigit and has the correct geometric shape. 
+
 
 
 \begin{mydef}
