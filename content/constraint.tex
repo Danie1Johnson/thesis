@@ -2,15 +2,9 @@
 --izmestiev def of framework
 --freedom in machines def of linkage
 --used to describe configurations and freedoms 
-\section{Geometric Configuration Space}
-\begin{mydef}
-The \textbf{constraint space} corresponding to a constraint function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$ is the set
-\begin{align}
-\Omega \doteq \{z \in \mathbbm{R}^n : c(z) = 0\}
-\end{align}
-\end{mydef}
-If $c$ is composed of polynomial functions, then the constraint space is an algebraic variety. 
 
+
+\section{Geometric Configuration Space}
 
  --pictures of flexing. 
 \begin{figure}[ht]
@@ -18,22 +12,58 @@ If $c$ is composed of polynomial functions, then the constraint space is an alge
 \caption{Different geometric configurations of an octahedron intermediate.}
 \label{fig:OctaGCS}
 \end{figure}
-
-To mathematically represent each of the possible geometric configurations, we parameterize the embedding using its vertex locations. If a building game state is composed of the faces $\{f_1,\dots, f_i\}$, then any embedding of the intermediate can be described by a point in $\mathbbm{R}^n$, where $n$ is the three times sum $3\sum_{j=1}^i \#\text{vertices}(f_j)$, of the number of vertices in each face. Simply put, the point 
-\begin{align}
-z = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_{n/3} \end{bmatrix} \in \mathbbm{R}^n
-\end{align}
- which is the concatenation of all of the vertex locations $v_1, v_2, \dots, v_{n/3} \in \mathbbm{R}^3$ for each verted on each face of an intermediate is used to represent a particular embedding. 
-
-Using the notion of a constraint space, we can define the space of different geometric configurations that a given intermediate can take. Since we are treating each intermediate as collection of rigid polygons attached to each other along hinged edges, there are two basic constraints we must enforce. 
-
-First, we must ensure that the each individual face is rigit and has the correct geometric shape. 
-
-
+--embedding
 
 \begin{mydef}
-The \textbf{geometric configuration space} of a building game intermediate is the constraints space 
+The \textbf{constraint space} corresponding to a constraint function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$ is its zero-set,
+\begin{align}
+\Omega \doteq \{z \in \mathbbm{R}^n : c(z) = 0\}.
+\end{align}
 \end{mydef}
+If $c$ is composed of polynomial functions, then the constraint space is an algebraic variety. If this variety has no singularities, then it is also a manifold. 
+
+Using the notion of a constraint space, we can define the space of different geometric configurations that a given intermediate can take. Since we are treating each intermediate as collection of rigid polygons attached to each other along hinged edges, there are two basic types of constraint we must enforce. First, we must ensure that the each individual face is rigid and has the correct geometric shape. Additionally, each edge to edge connection must remain fixed with only hinge-like motion allowed. 
+   
+\begin{mydef}
+The \textbf{geometric configuration space} of a building game intermediate is a constraint space that enforces the rigidity of individual faces and hinged motion alond connected edges.
+\end{mydef}
+
+To mathematically describe a particular configuration, we must specify the locations of the vertices of each face. Thus, for an intermediate $[x]$, its building game configuration space can be represented as a subset of the ambient space $\mathbb{R}^{3\times N_x}$ where $N_x \doteq \sum_{f\in x} s_f$ where $s_f$ is the number of sides (and verticies) of face $f$. Using this representation, we must then identify the corresponding constaint equations that give rise to the combinatorial configuration space as a function of points in ambient space. 
+
+It is worth noting that while we represent each face with $3\times s_f$ coordinates, only 6 are required to speciafy a face's position and orientation if they are chosen carefully. With this in mind, we will typically use a function of $6$ of a face's vertex coordinates to constrain each of the face's remaining vertex coordinates. 
+
+
+Notationally, we refer to the $k$th vertex of the $j$th face of $x$ as $v^{jk} = \left(v^{jk}_x,v^{jk}_y,v^{jk}_z\right)$.
+Since the context of a constraint space requires a function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$, we flatten the matrix of vertex coordinates into a vector of lenghth $n = 3N_x$. 
+\begin{align}
+z = \begin{bmatrix} v^{1,1} \\ \vdots \\ v^{1,s_{f_1}} \\ \vdots \\ v^{|x|,1} \\ \vdots \\ v^{|x|,s_{f_{|x|}}} \end{bmatrix} \in \mathbbm{R}^n
+\end{align}
+
+There are four fundamental types of constraint equations: edge length constraints, angle constraints, and 2D face constraint to enforce the rigid structure of each face as well as vertex identification constraints to enforce the hinged connections.
+
+Edge length constraints enforce that the lengths of the edges of each face in an intermediate cannot change. If the $k$th edge is definted to be that between the $(k-1)$st and $k$th vertices, we use the following function to constrain its lengths to a known value $\ell^{jk}$.
+\begin{align}
+c_{edge}^{j,k}\left(z\right)& = \left|v^{j,k} - v^{j,k-1}\right|^2 - (\ell_{j,k})^2 \\
+& = \left(v_1^{j,k} - v_1^{j,k-1}\right)^2 +\left(v_2^{j,k} - v_2^{j,k-1}\right)^2 +\left(v_3^{j,k} - v_3^{j,k-1}\right)^2 - (\ell^{j,k})^2 
+\end{align}  
+This uses the notational convention that $v^{j,0} \doteq v^{j,s_j}$. For reasons that will be explained, we only explicitly enforce the lengths of two edges ($k=1,2$) per face, so there are a total of $2|x|$ edge length constraints. 
+
+Angle constraints ensure that each face's polygonal angles are conserved. Using the dot product formula for angles, we can write this constraint as a polynomial.
+\begin{align}
+c_{ang}^{j,k}\left(z\right) &= (v^{j,k-1} - v^{j,k})\cdot(v^{j,k+1} - v^{j,k})  - \ell^{j,k}\ell^{j,k+1}\cos(\theta^{j,k})
+\end{align}  
+Here, $\theta^{j,k}$ is the angle at $v^{j,k}$ between $k$th and $(k+1)st$ edges which is a constant that is known a priori. In practice, we only enforce that the $k=1$st angle constraint for each face.
+
+Now, between the two edge constraints and one angle constraints, we have described $3$ constraints as a function of $9$ vertex coordinates per face. Thus for any choice of the $6$ coordinates, $v^{j,1}_1, v^{j,1}_2, v^{j,1}_3, v^{j,2}_1, v^{j,2}_2, v^{j,0}_1$, the remaining $3$ coordinates, $v^{j,2}_3, v^{j,0}_2, v^{j,0}_3$, are specified by the $3$ constraint equations. Similarly, since each face's location and rotational orientation can be defined by this choice of $6$ coordinates, we have enough information to specify the coordinates of the remaining verticies. 
+
+
+
+%To mathematically represent each of the possible geometric configurations, we parameterize the embedding using its vertex locations. If a building game state is composed of the faces $\{f_1,\dots, f_i\}$, then any embedding of the intermediate can be described by a point in $\mathbbm{R}^n$, where $n$ is the three times sum $3\sum_{j=1}^i \#\text{vertices}(f_j)$, of the number of vertices in each face. Simply put, the point 
+% which is the concatenation of all of the vertex locations $v_1, v_2, \dots, v_{n/3} \in \mathbbm{R}^3$ for each verted on each face of an intermediate is used to represent a particular embedding. 
+
+
+
+
 --def geometric configuration space
 --manifold conjecture
 
@@ -42,6 +72,9 @@ The \textbf{geometric configuration space} of a building game intermediate is th
 \textbf{cannonical configuraion}
 \end{mydef}
 
+\subsection{Special Case of Triangular Faces}
+
+
 \begin{mycon}
 The geometric configuration space for each intermediate composed of equilateral triangular faces is a manifold.
 \end{mycon}
@@ -49,6 +82,7 @@ The geometric configuration space for each intermediate composed of equilateral 
 %\begin{mycon}
 %
 %\end{mycon}
+
 
 \section{Degrees of Freedom}
 Roughly speeking, the degrees of freedom of a system are the different independent motions the system is able to exercise. Since the concept of degrees of freedom exists in many diverse scientific fields, such as mechanical engineering and statistical physics, many different formal definitions of degrees of freedom are used in the literature. McCarthy defines degrees of freedom of a mechanical system as follows. CITE 
@@ -72,10 +106,12 @@ The \textbf{internal degrees of freedom} a building game intermediate at configu
 \end{mydef}
 
 \subsection{Computing Degrees of Freedom}
-
+--First for a general configuration space
 --Jacobian equations
 --rank of C
 --extension to non triangular polyhedra
+--implementing on computer
+
 
 \subsection{Non-Manifold Example}
 From this definition, it is worth noting that if the geometric configuration space is indeed a manifold, then the degrees of freedom is the dimension of that manifold which is a global property. Here we present an interesting example in which this is not the case and, depending on the specific configuration, a different number of degrees of freedom exist.
@@ -97,7 +133,6 @@ In our case, the location and orientation of each polygon in the linkage can be 
 
  PARAGRAPH ON DIFFERENT DOF VALS AT DIFFERENT CONFIGS OF SAME INTERMEDIATE We refer to the embedded configuration of $x$ such that $x$ is a subset of the original polyhedron as the \textbf{canonical configuration}.
 
-To mathematically describe a particular configuration, we specify the locations of the vertices of each face. Thus, the configuration space can be described as a manifold embegged in $\mathbb{R}^{3\times N_x}$ where $N_x \doteq \sum_{f\in \left(\mathcal{P}\right)}s_f\mathbbm{1}_{f\subset x}$ and $s_f$ is the number of sides (and verticies) of face $f$. By parameterizing the configuration space as enmedding of the ambient space $\mathbb{R}^{3\times N_x}$, we must then identify the corresponding constaint equations as a function of points in ambient space. It is worth noting that while we represent each face with $3\times s_b$ coordinates, only 6 are required to speciafy a face's position and orientation if they are chosen carefully. However, this redundancy will be removed via the constraint equations. Notationally, we refer to the $k$th vertex of the $j$th face of $x$ as $v^{jk} = \left(v^{jk}_x,v^{jk}_y,v^{jk}_z\right)$. There are five fundamental types of constraint equations: base constraints, edge length constraints, vertex identification constraints, angle constraints, and 2D face constraint. 
 
 The base constaints are put in place to fix one of the intermediate's faces in space to remove the 6 trivial degrees of freedom from the calculation. If $f_b$ is the face we wish to designate as the base we have the following $3\times s_b$ constraint equations
 \begin{align}
