@@ -39,7 +39,7 @@ Since the context of a constraint space requires a function $c: \mathbbm{R}^n \t
 z = \begin{bmatrix} v^{1,1} \\ \vdots \\ v^{1,s_{f_1}} \\ \vdots \\ v^{|x|,1} \\ \vdots \\ v^{|x|,s_{f_{|x|}}} \end{bmatrix} \in \mathbbm{R}^n
 \end{align}
 
-There are four fundamental types of constraint equations: edge length constraints, angle constraints, and 2D face constraint to enforce the rigid structure of each face as well as vertex identification constraints to enforce the hinged connections.
+There are four fundamental types of constraint equations: edge length constraints, angle constraints, and $2D$ face constraint to enforce the rigid structure of each face as well as vertex identification constraints to enforce the hinged connections.
 
 Edge length constraints enforce that the lengths of the edges of each face in an intermediate cannot change. If the $k$th edge is definted to be that between the $(k-1)$st and $k$th vertices, we use the following function to constrain its lengths to a known value $\ell^{jk}$.
 \begin{align}
@@ -56,6 +56,15 @@ Here, $\theta^{j,k}$ is the angle at $v^{j,k}$ between $k$th and $(k+1)st$ edges
 
 Now, between the two edge constraints and one angle constraints, we have described $3$ constraints as a function of $9$ vertex coordinates per face. Thus for any choice of the $6$ coordinates, $v^{j,1}_1, v^{j,1}_2, v^{j,1}_3, v^{j,2}_1, v^{j,2}_2, v^{j,0}_1$, the remaining $3$ coordinates, $v^{j,2}_3, v^{j,0}_2, v^{j,0}_3$, are specified by the $3$ constraint equations. Similarly, since each face's location and rotational orientation can be defined by this choice of $6$ coordinates, we have enough information to specify the coordinates of the remaining verticies. 
 
+Since the positions of the first three verticies dictate the locations of the remaining verticies, the $2D$ face constraints use a map from the known vertex coordinates to the yet unknown locations.
+
+
+The final constraint type, vertex identification, is used to enforce that the connection between edges of two faces has the mobility of a hinge. To do this, we simply need to ensure that that corresponding vertices on each edge share identical locations. This results in the relatively simple constraints:
+\begin{align}
+hi \\
+\end{align}
+
+
 
 
 %To mathematically represent each of the possible geometric configurations, we parameterize the embedding using its vertex locations. If a building game state is composed of the faces $\{f_1,\dots, f_i\}$, then any embedding of the intermediate can be described by a point in $\mathbbm{R}^n$, where $n$ is the three times sum $3\sum_{j=1}^i \#\text{vertices}(f_j)$, of the number of vertices in each face. Simply put, the point 
@@ -68,9 +77,6 @@ Now, between the two edge constraints and one angle constraints, we have describ
 --manifold conjecture
 
 
-\begin{mydef}
-\textbf{cannonical configuraion}
-\end{mydef}
 
 \subsection{Special Case of Triangular Faces}
 
@@ -105,12 +111,26 @@ Thus, the degrees of freedom we are most interested in are those that do represe
 The \textbf{internal degrees of freedom} a building game intermediate at configuration $z$ are the degrees of freedom that are not trival.
 \end{mydef}
 
+
+\begin{mydef}
+\textbf{cannonical configuraion}
+\end{mydef}
+
 \subsection{Computing Degrees of Freedom}
 --First for a general configuration space
 --Jacobian equations
 --rank of C
 --extension to non triangular polyhedra
 --implementing on computer
+
+\[
+	\frac{\partial\psi_{edge}^{j,k}}{\partial v} =
+  	\begin{cases}
+        	2\left(v^{j,k}_\bullet-v^{j,k-1}_\bullet\right) 	& \text{if } v = v^{j,k}_\bullet \\
+   		-2\left(v^{j,k}_\bullet-v^{j,k-1}_\bullet\right) 	& \text{if } v = v^{j,k-1}_\bullet \\
+   		0       & \text{else} 
+  	\end{cases}
+\]
 
 
 \subsection{Non-Manifold Example}
@@ -123,46 +143,54 @@ From this definition, it is worth noting that if the geometric configuration spa
 \end{figure}
 
 
+\subsection{Results}
+
+--Pictures!!
+
+\subsection{Explicit Removal of Trivial Degrees of Freedom}
+
+--fixe center of mass.
+
 %We consider the linkage of rigid 2-dimensional polygons in $\mathbb{R}^3$ by means of ideal hinges located at the edges of the polygons. In this way, by treating intermediates of our various models as such a linkage, we can compute the non-trivial degrees of freedom (DoF) each intermediate has. 
 
 %Every linkage of this type has 6 trivial degrees of freedom: 3 corresponding to translational movement and 3 corresponding to rotational freedom. While these freedoms do change the orientation of the intermediate, they do not cause the faces to move relative to each other. For this reason, we label them as trivial degrees of freedom and focus on the calculation the remaining, non-trivial degrees of freedom. 
 
-For our purposes, we define the \textbf{degrees of freedom} of a configuration to be the difference between the number of parameters needed to specify a configuration in an ambient parameter space $\Omega$ and the number of independent constraints imposed upon the configuration as a function of these parameters. Consequently, the non-trivial degrees of freedom is the number of degrees of freedom minus the six trivial degrees of freedom. If the ambiant parameter space is $\mathbb{R}^N$ and there are $M$ constraint equations given by $\varphi : \mathbb{R}^N \to \mathbb{R}^M$, we find the degrees of freedom to be $N - \operatorname{rank}(\varphi)$ and the non-trivial degrees of freedom to be $N - \operatorname{rank}(\varphi) - 6$. Here we need $\varphi$ to be a smooth map so that the rank is well defined. Furthermore, we define the \textbf{configuration space} to be the subset of parameter space $\{\omega \in \Omega : \varphi(\omega) = 0\}$ upon which the contraints are satisfied.
+%For our purposes, we define the \textbf{degrees of freedom} of a configuration to be the difference between the number of parameters needed to specify a configuration in an ambient parameter space $\Omega$ and the number of independent constraints imposed upon the configuration as a function of these parameters. Consequently, the non-trivial degrees of freedom is the number of degrees of freedom minus the six trivial degrees of freedom. If the ambiant parameter space is $\mathbb{R}^N$ and there are $M$ constraint equations given by $\varphi : \mathbb{R}^N \to \mathbb{R}^M$, we find the degrees of freedom to be $N - \operatorname{rank}(\varphi)$ and the non-trivial degrees of freedom to be $N - \operatorname{rank}(\varphi) - 6$. Here we need $\varphi$ to be a smooth map so that the rank is well defined. Furthermore, we define the \textbf{configuration space} to be the subset of parameter space $\{\omega \in \Omega : \varphi(\omega) = 0\}$ upon which the contraints are satisfied.
 
-In our case, the location and orientation of each polygon in the linkage can be represented by a total of 6 parameters: 3 for location and 3 for roational orientation. Thus, the entire configuration of an intermediate $x$ can be represented in the parameter space $\mathbb{R}^{F_x\times6}$. With constraints corresponding to hinged connections we construct a function $\varphi$ which is zero if and only if the constraints are satisfied. Thus the configuration space is $\{z \in \mathbb{R}^{F_x\times6} : \varphi(z) =0\}$. As we will show below, the constraint equation $\varphi$ can be constructed as a polynomial which means that the configuration space (as the zero set of this polynomial) is an algebraic variety. 
+%In our case, the location and orientation of each polygon in the linkage can be represented by a total of 6 parameters: 3 for location and 3 for roational orientation. Thus, the entire configuration of an intermediate $x$ can be represented in the parameter space $\mathbb{R}^{F_x\times6}$. With constraints corresponding to hinged connections we construct a function $\varphi$ which is zero if and only if the constraints are satisfied. Thus the configuration space is $\{z \in \mathbb{R}^{F_x\times6} : \varphi(z) =0\}$. As we will show below, the constraint equation $\varphi$ can be constructed as a polynomial which means that the configuration space (as the zero set of this polynomial) is an algebraic variety. 
 
- PARAGRAPH ON DIFFERENT DOF VALS AT DIFFERENT CONFIGS OF SAME INTERMEDIATE We refer to the embedded configuration of $x$ such that $x$ is a subset of the original polyhedron as the \textbf{canonical configuration}.
+% PARAGRAPH ON DIFFERENT DOF VALS AT DIFFERENT CONFIGS OF SAME INTERMEDIATE We refer to the embedded configuration of $x$ such that $x$ is a subset of the original polyhedron as the \textbf{canonical configuration}.
 
 
-The base constaints are put in place to fix one of the intermediate's faces in space to remove the 6 trivial degrees of freedom from the calculation. If $f_b$ is the face we wish to designate as the base we have the following $3\times s_b$ constraint equations
-\begin{align}
-\psi_{base}^{k,x}\left(\mathbf{v}\right)& = v^{b,k}_x - c^{b,k}_x \\
-\psi_{base}^{k,y}\left(\mathbf{v}\right)& = v^{b,k}_y - c^{b,k}_y \\
-\psi_{base}^{k,z}\left(\mathbf{v}\right)& = v^{b,k}_z - c^{b,k}_z
-\end{align}  
-for $k = 1,\dots,s_b$ and with $c^{b,k}_\bullet$ a known constant. The corresponding Jacobian calculation for each constraint equations is:
-\[
-\frac{\partial\psi_{base}^{k,\bullet}}{\partial v} =
-  \begin{cases}
-   1 & \text{if } v = v^{b,k}_\bullet \\
-   0       & \text{else} 
-  \end{cases}
-\]
+%The base constaints are put in place to fix one of the intermediate's faces in space to remove the 6 trivial degrees of freedom from the calculation. If $f_b$ is the face we wish to designate as the base we have the following $3\times s_b$ constraint equations
+%\begin{align}
+%\psi_{base}^{k,x}\left(\mathbf{v}\right)& = v^{b,k}_x - c^{b,k}_x \\
+%\psi_{base}^{k,y}\left(\mathbf{v}\right)& = v^{b,k}_y - c^{b,k}_y \\
+%\psi_{base}^{k,z}\left(\mathbf{v}\right)& = v^{b,k}_z - c^{b,k}_z
+%\end{align}  
+%for $k = 1,\dots,s_b$ and with $c^{b,k}_\bullet$ a known constant. The corresponding Jacobian calculation for each constraint equations is:
+%\[
+%\frac{\partial\psi_{base}^{k,\bullet}}{\partial v} =
+%  \begin{cases}
+%   1 & \text{if } v = v^{b,k}_\bullet \\
+%   0       & \text{else} 
+%  \end{cases}
+%\]
 
-Edge length constraints enforce that the lengths of the edges of each face in an intermediate cannot change. Since there are $s_j$ edges for each face $f_j$ of intermediate $x$, there are $N_x$ corresponsing edge constraints. 
-\begin{align}
-\psi_{edge}^{j,k}\left(\mathbf{v}\right)& = \left|v^{j,k} - v^{j,k-1}\right|^2 - \ell_{j,k}^2 \\
-& = \left(v_x^{j,k} - v_x^{j,k-1}\right)^2 +\left(v_y^{j,k} - v_y^{j,k-1}\right)^2 +\left(v_z^{j,k} - v_z^{j,k-1}\right)^2 - \ell_{j,k}^2 
-\end{align}  
-for all $j: f_j \subset x$ and with the convention that $v^{j,0} \doteq v^{j,s_j}$ and $\ell_{j,k}$ is a known constant. The resulting partial derivatives are
-\[
-	\frac{\partial\psi_{edge}^{j,k}}{\partial v} =
-  	\begin{cases}
-        	2\left(v^{j,k}_\bullet-v^{j,k-1}_\bullet\right) 	& \text{if } v = v^{j,k}_\bullet \\
-   		-2\left(v^{j,k}_\bullet-v^{j,k-1}_\bullet\right) 	& \text{if } v = v^{j,k-1}_\bullet \\
-   		0       & \text{else} 
-  	\end{cases}
-\]
+%Edge length constraints enforce that the lengths of the edges of each face in an intermediate cannot change. Since there are $s_j$ edges for each face $f_j$ of intermediate $x$, there are $N_x$ corresponsing edge constraints. 
+%\begin{align}
+%\psi_{edge}^{j,k}\left(\mathbf{v}\right)& = \left|v^{j,k} - v^{j,k-1}\right|^2 - \ell_{j,k}^2 \\
+%& = \left(v_x^{j,k} - v_x^{j,k-1}\right)^2 +\left(v_y^{j,k} - v_y^{j,k-1}\right)^2 +\left(v_z^{j,k} - v_z^{j,k-1}\right)^2 - \ell_{j,k}^2 
+%\end{align}  
+%for all $j: f_j \subset x$ and with the convention that $v^{j,0} \doteq v^{j,s_j}$ and $\ell_{j,k}$ is a known constant. The resulting partial derivatives are
+%\[
+%	\frac{\partial\psi_{edge}^{j,k}}{\partial v} =
+%  	\begin{cases}
+%        	2\left(v^{j,k}_\bullet-v^{j,k-1}_\bullet\right) 	& \text{if } v = v^{j,k}_\bullet \\
+%   		-2\left(v^{j,k}_\bullet-v^{j,k-1}_\bullet\right) 	& \text{if } v = v^{j,k-1}_\bullet \\
+%   		0       & \text{else} 
+%  	\end{cases}
+%\]
 %--definiteion of 'base configuration'
 %--representation of config space definition as system of constraint equations
 %--solution of the constraint equations is a manifold except perhaps at some 'sp0ecial' configurations

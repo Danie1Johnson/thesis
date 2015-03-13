@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  13 MAR 2015 12:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  13 MAR 2015 14:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -614,11 +614,7 @@ Package tocloft Info: The document has chapter divisions on input line 44.
 \cftbeforetabskip=\skip97
 \cfttabindent=\skip98
 \cfttabnumwidth=\skip99
-) (./thesis.aux
-
-LaTeX Warning: Label `lem:I' multiply defined.
-
-)
+) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
@@ -637,7 +633,8 @@ LaTeX Font Info:    Checking defaults for LY/yfrak/m/n on input line 69.
 LaTeX Font Info:    ... okay on input line 69.
 LaTeX Font Info:    Checking defaults for LYG/ygoth/m/n on input line 69.
 LaTeX Font Info:    ... okay on input line 69.
- ABD: EveryShipout initializing macros
+
+ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  [1
@@ -779,36 +776,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
 [5]
-Overfull \hbox (4.40987pt too wide) in paragraph at lines 42--42
-[]\OT1/cmr/bx/n/17.28 Mathematical Work In-spired by Self-Assembly
+Overfull \hbox (21.4079pt too wide) in paragraph at lines 42--42
+[]\OT1/cmr/bx/n/17.28 Mathematical Con-structs for Self-Assembly Pro-
  []
 
-[6] [7]
-
-Package caption Warning: \label without proper \caption on input line 108.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:fold_octa' on page 8 undefined on input line 85.
-
-
-LaTeX Warning: Reference `fig:fold_ss' on page 8 undefined on input line 111.
-
-[8] [9] [10] [11]
+[6]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12]
-[13] [14]
-Overfull \hbox (35.55127pt too wide) in paragraph at lines 195--196
+ [7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
+[9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+Overfull \hbox (35.55127pt too wide) in paragraph at lines 198--199
 []\OT1/cmr/m/n/12 The \OT1/cmr/m/it/12 con-fig-u-ra-tion space \OT1/cmr/m/n/12 
 is de-fined to be the sub-set of am-bi-ent space $[]$
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15]
-[16]) [17] [18
+[11] [12]) [13] [14
 
 
 ]
@@ -818,9 +806,9 @@ Underfull \hbox (badness 10000) in alignment at lines 151--151
 []
  []
 
-[19
+[15
 
-] (./content/bg_modeling.tex [20]
+] (./content/bg_modeling.tex [16]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
@@ -829,17 +817,14 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 File: ./images/tetrahedron_states.eps Graphic file (type eps)
 <./images/tetrahedron_states.eps>
 File: ./images/octa_state_or_not.eps Graphic file (type eps)
- <./images/octa_state_or_not.eps> [21]
-[22] [23]
-
-LaTeX Warning: Reference `OctaStabs' on page 24 undefined on input line 121.
-
+ <./images/octa_state_or_not.eps> [17]
+[18] [19]
 File: ./images/octa_stabilizers.eps Graphic file (type eps)
-<./images/octa_stabilizers.eps>
+ <./images/octa_stabilizers.eps>
 Underfull \vbox (badness 4353) has occurred while \output is active []
 
- [24]
-[25]
+ [20]
+[21]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
 
@@ -851,52 +836,52 @@ x/it/12 path-way \OT1/cmr/m/it/12 is a se-quence of in-ter-me-di-ates $\OT1/cmr
  [\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ]$
  []
 
-[26]
+[22]
 File: ./images/octa_path.eps Graphic file (type eps)
  <./images/octa_path.eps>
 File: ./images/cube_ccs.eps Graphic file (type eps)
- <./images/cube_ccs.eps> [27]
+ <./images/cube_ccs.eps> [23]
 File: ./images/cube_degen.eps Graphic file (type eps)
 
-<./images/cube_degen.eps> [28] [29] [30] [31] [32]
+<./images/cube_degen.eps> [24] [25] [26] [27] [28]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33]
+ [29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 453.
+ [30]
+LaTeX Font Info:    Try loading font information for U+bbm on input line 452.
 
 (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [31]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [33]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [35]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [36]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [37]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [38])
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [39]
-[40]
+[36]
 Chapter 3.
 
 Underfull \hbox (badness 10000) in alignment at lines 155--155
 []
  []
 
-[41
+[37
 
 
 
-] (./content/bg_enumeration.tex [42]
+] (./content/bg_enumeration.tex [38]
 Overfull \hbox (72.68037pt too wide) in paragraph at lines 53--67
  [][] 
  []
@@ -906,7 +891,7 @@ Overfull \hbox (87.26357pt too wide) in paragraph at lines 77--89
  [][] 
  []
 
-[43] [44] [45]
+[39] [40] [41]
 Overfull \hbox (51.7917pt too wide) in paragraph at lines 194--208
  [][] 
  []
@@ -919,7 +904,7 @@ Overfull \hbox (54.62502pt too wide) in paragraph at lines 216--228
 
 Underfull \vbox (badness 2384) has occurred while \output is active []
 
- [46]
+ [42]
 Overfull \hbox (75.2115pt too wide) in paragraph at lines 268--268
 [] 
  []
@@ -927,28 +912,28 @@ Overfull \hbox (75.2115pt too wide) in paragraph at lines 268--268
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47]
-[48]
+ [43]
+[44]
 Underfull \vbox (badness 1924) has occurred while \output is active []
 
- [49]
+ [45]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [50]
+ [46]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [48]
+Underfull \vbox (badness 3240) has occurred while \output is active []
+
+ [49]
+[50]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [51]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [52]
-Underfull \vbox (badness 3240) has occurred while \output is active []
-
- [53]
-[54]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [55]
-[56]) [57] [58
+[52]) [53] [54
 
 
 ]
@@ -958,78 +943,67 @@ Underfull \hbox (badness 10000) in alignment at lines 159--159
 []
  []
 
-[59
+[55
 
-] (./content/constraint.tex [60] [61]
+] (./content/constraint.tex [56] [57]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62]
-[63] [64] [65]
+ [58]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [66])
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [59]
+[60]
+Underfull \vbox (badness 1769) has occurred while \output is active []
 
- [67]
-[68]
+ [61]
+Underfull \vbox (badness 5050) has occurred while \output is active []
+
+ [62])
+[63] [64
+
+
+]
 Chapter 5.
 
 Underfull \hbox (badness 10000) in alignment at lines 163--163
 []
  []
 
-[69
+[65
 
-
-
-] (./content/constraint_processes.tex [70] [71]
-Underfull \vbox (badness 3386) has occurred while \output is active []
-
- [72]
+] (./content/constraint_processes.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [73]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [66]
+[67] [68
 
- [74])
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [75]
-[76]
+]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in alignment at lines 167--167
 []
  []
 
-[77
+[69
+
+] (./content/results.tex) [70] (./thesis.bbl) [71
 
 
-
-] (./content/results.tex) [78
-
-
-] (./thesis.bbl) [79
 
 ] (./thesis.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 4.0pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 13428 strings out of 493305
- 246476 string characters out of 6139898
+ 13416 strings out of 493305
+ 246353 string characters out of 6139898
  303556 words of memory out of 5000000
- 16541 multiletter control sequences out of 15000+600000
- 22738 words of font info for 94 fonts, out of 8000000 for 9000
+ 16531 multiletter control sequences out of 15000+600000
+ 21810 words of font info for 91 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1146b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (97 pages, 210440 bytes).
+Output written on thesis.dvi (89 pages, 180956 bytes).

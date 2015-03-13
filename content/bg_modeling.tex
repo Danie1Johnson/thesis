@@ -118,7 +118,7 @@ Since we have defined the intermediates to be the orbits of states under the pol
 \begin{mydef}
 The \textbf{symmetry number} $r_x$ of a state $x$ is the order of its stabilizer subgroup $\left|\G_x\right|$.
 \end{mydef}
-In figure~\ref{OctaStabs} we see 
+In figure~\ref{fig:OctaStabs} we see 
 \begin{figure}[ht]
   \includegraphics[scale=0.2, angle=0]{octa_stabilizers.eps}
 \caption{The stabilizer subgroups for various octahedron states.}
@@ -269,7 +269,7 @@ Conversely, suppose $\hat{f} \in g.x \cup g.y$ and without loss pick $\hat{f}$ t
 
 
 \begin{mylem}
-\label{lem:I}
+\label{lem:TwoIntFix}
 Let the Building Game intermediates $[x^j]$ and $[x^k]$ be connected in the combinatorial configuration space. Given $x^j \in [x^j]$, $x^k \in [x^k]$ and $f \in F$ such that $x^k = x^j \cup \left\{f\right\}$, the stabilizer subgroups $G_{x^j,\{f\}} = G_{x^k,\{f\}} = G_{x^j,x^k}$ are all equal.
 \end{mylem}
 \begin{proof}
@@ -286,7 +286,6 @@ G_{x^k,\{f\}} &= \left\{g \in G : g.x^k = x^k, g.\{f\} = \{f\} \right\} \\
 &= \left\{g \in G : g.x^j  = x^j, g.x^k = x^k \right\} \\ 
 &= G_{x^j,x^k}
 \end{align}
-%--Add prrof that G-xy = G-xf = G-yf???
 \end{proof}
 
 
@@ -305,7 +304,7 @@ However, if $\{f\} \neq h.\{\hat{f}\}$ for every $h \in G_x$, the result STILL N
 
 
 \begin{mylem}
-\label{lem:I}
+\label{lem:FmodG}
 Let the Building Game intermediates $[x^j]$ and $[x^k]$ be connected in the combinatorial configuration space, the number of orbits $|F_{jk}/G_{x^j}| = |F_{kj}/G_{x^k}|$.
 \end{mylem}
 \begin{proof}
