@@ -25,7 +25,7 @@ If $c$ is composed of polynomial functions, then the constraint space is an alge
 Using the notion of a constraint space, we can define the space of different geometric configurations that a given intermediate can take. Since we are treating each intermediate as collection of rigid polygons attached to each other along hinged edges, there are two basic types of constraint we must enforce. First, we must ensure that the each individual face is rigid and has the correct geometric shape. Additionally, each edge to edge connection must remain fixed with only hinge-like motion allowed. 
    
 \begin{mydef}
-The \textbf{geometric configuration space} of a building game intermediate is a constraint space that enforces the rigidity of individual faces and hinged motion alond connected edges.
+The \textbf{geometric configuration space} of a building game intermediate is a constraint space that enforces the rigidity of individual faces and hinged motion along connected edges.
 \end{mydef}
 
 To mathematically describe a particular configuration, we must specify the locations of the vertices of each face. Thus, for an intermediate $[x]$, its building game configuration space can be represented as a subset of the ambient space $\mathbb{R}^{3\times N_x}$ where $N_x \doteq \sum_{f\in x} s_f$ where $s_f$ is the number of sides (and verticies) of face $f$. Using this representation, we must then identify the corresponding constaint equations that give rise to the combinatorial configuration space as a function of points in ambient space. 
@@ -56,30 +56,50 @@ Here, $\theta^{j,k}$ is the angle at $v^{j,k}$ between $k$th and $(k+1)st$ edges
 
 Now, between the two edge constraints and one angle constraints, we have described $3$ constraints as a function of $9$ vertex coordinates per face. Thus for any choice of the $6$ coordinates, $v^{j,1}_1, v^{j,1}_2, v^{j,1}_3, v^{j,2}_1, v^{j,2}_2, v^{j,0}_1$, the remaining $3$ coordinates, $v^{j,2}_3, v^{j,0}_2, v^{j,0}_3$, are specified by the $3$ constraint equations. Similarly, since each face's location and rotational orientation can be defined by this choice of $6$ coordinates, we have enough information to specify the coordinates of the remaining verticies. 
 
-Since the positions of the first three verticies dictate the locations of the remaining verticies, the $2D$ face constraints use a map from the known vertex coordinates to the yet unknown locations.
+Since the positions of the first three verticies dictate the locations of the remaining verticies, the $2D$ face constraints use a map from the known vertex coordinates to the yet unknown locations. Using a template for what the ideal polygonal stucture for each face should be, we use a rotation matrix to specify these remaining verticies. If this template has vertices $\hat{v}^{j,0}, \hat{v}^{j,1}, \hat{v}^{j,2}, \dots, \hat{v}^{j,k}, \dots$ and the locations for $v^{j,0}, v^{j,1}, \text{and } v^{j,2}$ are known, we can identify the location of $v^{j,k}$ for $k>2$. Using this template, we can define the following length and angle constants.
+\begin{align}
+\ell^{j,k_1, k_2} &\doteq |\hat{v}^{j,k_1} - \hat{v}^{j,k_2}| \\ 
+\phi^{j,k_1,k_2,k_3} &\doteq \cos^{-1}\left(\frac{\left(\hat{v}^{j,k_1} - \hat{v}^{j,k_2}\right)\cdot\left(\hat{v}^{j,k_3} - \hat{v}^{j,k_2}\right)}{(\ell^{j,k_1, k_2})(\ell^{j,k_3, k_2})}\right)   
+\end{align}
 
+\begin{figure}[ht]
+  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+\caption{Face template and 2d face constraints.}
+\label{fig:2DFC}
+\end{figure}
+
+Our basic stratigy is to first place a point $\bar{v}^{j,k}$ in the span of $v^{j,0} - v^{j,1}$ at a distance of $|\bar{v}^{j,k} - v^{j,1}| = \ell^{j,k,1}$. The choice $\bar{v}^{j,k} = v^{j,1} + \frac{\ell^{j,k,1}}{\ell^{j,0,1}}(v^{j,0} - v^{j,1})$ will work, since 
+\begin{align}
+  |\bar{v}^{j,k} - v^{j,1}| &= |\frac{\ell^{j,k,1}}{\ell^{j,0,1}}(v^{j,0} - v^{j,1})| \\
+  &= \frac{\ell^{j,k,1}}{\ell^{j,0,1}}|v^{j,0} - v^{j,1}| \\
+  &= \ell^{j,k,1}.
+\end{align}
+Then, a rotation matrix is used to rotate $\bar{v}^{j,k}$ by the correct angle into its position $v^{j,k}$.
+The rotation matrix is centered at $v^{j,1}$ and its axis of rotation is defined by $u = \frac{1}{\ell^{j,0,1}\ell^{j,2,1}}(v^{j,0} - v^{j,1})\times(v^{j,2} - v^{j,1})$.  Similarly, the angle of rotation $\phi^{j,0,1,k}$ is the angle created by the two line segments in the template $(\hat{v}^{j,0},\hat{v}^{j,1})$ and  $(\hat{v}^{j,2},\hat{v}^{j,1})$. Thus, using $R = R(\phi^{j,0,1,k}, u)$ and our equation for $v^{j,k}$ is 
+\begin{align}
+v^{j,k} &= v^{1,k} + R(\bar{v}^{j,k} - v^{j,1})\\
+&= v^{1,k} + \ell^{j,k,1}R(v^{j,0} - v^{j,1})\\
+\end{align}
+Since $R$ is polynomial in $v^{j,0}, v^{j,1}, v^{j,2}$, we get the following polynomial $2$D face constraint for each $k > 2$.
+\begin{align}
+c_{2D}^{j,k}(z) \doteq v^{1,k} + \ell^{j,k,1}R(v^{j,0} - v^{j,1}) - v^{j,k}
+\end{align} 
 
 The final constraint type, vertex identification, is used to enforce that the connection between edges of two faces has the mobility of a hinge. To do this, we simply need to ensure that that corresponding vertices on each edge share identical locations. This results in the relatively simple constraints:
 \begin{align}
-hi \\
+c_{ident}^{j_1,k_1,j_1,k_1,d}(z) \doteq v^{j_1,k_1}_d - v^{j_2,k_2}_d \\
 \end{align}
+where $v^{j_1,k_1}$ and $v^{j_2,k_2}$ are corresponding vertices from the faces $j_1$ and $j_2$ meeting at a hinged edge. If there are $|E_x|$ of these hinged connections in a building game state $x$, there must be $6|E_x|$ correcponding vertex identification constraints.
 
-
+With all four constraint types explicitly defined, the aggregate constraint function for $x$ will have $n-m = 2|F_x|+ |F_x| + (N_x - 3|F_x|) + 6|E_x| = N_x + 6|E_x|$ total constraints. 
 
 
 %To mathematically represent each of the possible geometric configurations, we parameterize the embedding using its vertex locations. If a building game state is composed of the faces $\{f_1,\dots, f_i\}$, then any embedding of the intermediate can be described by a point in $\mathbbm{R}^n$, where $n$ is the three times sum $3\sum_{j=1}^i \#\text{vertices}(f_j)$, of the number of vertices in each face. Simply put, the point 
 % which is the concatenation of all of the vertex locations $v_1, v_2, \dots, v_{n/3} \in \mathbbm{R}^3$ for each verted on each face of an intermediate is used to represent a particular embedding. 
 
-
-
-
---def geometric configuration space
---manifold conjecture
-
-
-
 \subsection{Special Case of Triangular Faces}
 
+In the case where all of the faces of the polyhedron we consider are triangles (tetrahedron, octahedron, icosahedron, etc.) we notice that 
 
 \begin{mycon}
 The geometric configuration space for each intermediate composed of equilateral triangular faces is a manifold.
