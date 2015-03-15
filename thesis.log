@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  15 MAR 2015 14:36
+=======
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  13 MAR 2015 23:04
+>>>>>>> 4d81bf551bfdc1737fadcbc7524f4a265f447abb
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1003,4 +1007,8 @@ Here is how much of TeX's memory you used:
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1146b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+<<<<<<< HEAD
 Output written on thesis.dvi (89 pages, 186512 bytes).
+=======
+Output written on thesis.dvi (89 pages, 181164 bytes).
+>>>>>>> 4d81bf551bfdc1737fadcbc7524f4a265f447abb
