@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  15 MAR 2015 14:36
-=======
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  13 MAR 2015 23:04
->>>>>>> 4d81bf551bfdc1737fadcbc7524f4a265f447abb
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  15 MAR 2015 16:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -957,26 +953,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [60]
-[61] [62]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1237) has occurred while \output is active []
 
- [63])
-[64]
+ [61]
+[62] [63] [64] [65]) [66]
 Chapter 5.
 
 Underfull \hbox (badness 10000) in alignment at lines 163--163
 []
  []
 
-[65
+[67
 
 
 
 ] (./content/constraint_processes.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [66]
-[67] [68
+ [68]
+[69] [70
 
 
 ]
@@ -986,9 +981,9 @@ Underfull \hbox (badness 10000) in alignment at lines 167--167
 []
  []
 
-[69
+[71
 
-] (./content/results.tex) [70] (./thesis.bbl) [71
+] (./content/results.tex) [72] (./thesis.bbl) [73
 
 
 
@@ -999,16 +994,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 13417 strings out of 493305
- 246363 string characters out of 6139898
+ 13419 strings out of 493305
+ 246387 string characters out of 6139898
  303556 words of memory out of 5000000
- 16532 multiletter control sequences out of 15000+600000
+ 16534 multiletter control sequences out of 15000+600000
  21810 words of font info for 91 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1146b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-<<<<<<< HEAD
-Output written on thesis.dvi (89 pages, 186512 bytes).
-=======
-Output written on thesis.dvi (89 pages, 181164 bytes).
->>>>>>> 4d81bf551bfdc1737fadcbc7524f4a265f447abb
+Output written on thesis.dvi (91 pages, 194024 bytes).

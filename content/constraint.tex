@@ -99,16 +99,13 @@ With all four constraint types explicitly defined, the aggregate constraint func
 
 \subsection{Special Case of Triangular Faces}
 
-In the case where all of the faces of the polyhedron we consider are triangles (tetrahedron, octahedron, icosahedron, etc.) we notice that 
+In the case where all of the faces of the polyhedron we consider are triangles (tetrahedron, octahedron, icosahedron, etc.) we notice that by simple enforcing that each edge of each triangle has a specified length, the triangle will be rigid. This means that we do not have to use the angle and 2D face constraints. Further, rather that explicitly using vertex identification constraints, we can either treat them as length constraints with zero length between identified vertices or we can simply reindex the vertices so that identified vertices are actually treated as a single vertex. With either choice, in the trianglular case, we may only deal with length constraints if we wish. This will be a useful property in the next chapter. 
 
+Additionally, we make a conjecture that under certain trianglular conditions, our algebraic variety has no singularities and is thus a manifold.
 \begin{mycon}
+\label{con:TriMan}
 The geometric configuration space for each intermediate composed of equilateral triangular faces is a manifold.
 \end{mycon}
-
-%\begin{mycon}
-%
-%\end{mycon}
-
 
 \section{Degrees of Freedom}
 Roughly speeking, the degrees of freedom of a system are the different independent motions the system is able to exercise. Since the concept of degrees of freedom exists in many diverse scientific fields, such as mechanical engineering and statistical physics, many different formal definitions of degrees of freedom are used in the literature. McCarthy defines degrees of freedom of a mechanical system as follows. CITE 
@@ -131,29 +128,61 @@ Thus, the degrees of freedom we are most interested in are those that do represe
 The \textbf{internal degrees of freedom} a building game intermediate at configuration $z$ are the degrees of freedom that are not trival.
 \end{mydef}
 
+\subsection{Computing Degrees of Freedom}
+
+For a general constraint space, we can find the dimension of the space at a point $z$ by looking at the Jacobian matrix $C(z) \in \mathbbm{R}^{(n-m)\times n}$ of the constraint function $c$. Since the number of degrees of freedom is defined to be the dimension of that space, we look at the rank of the Jacobian. Since this rank quantifies the number of independent constraints given by $c$ at $z$, the number of degrees of freedom is given by the following.
+\begin{align}
+DoF &\doteq n - \text{rank}\left((C(z)\right)
+\end{align}
+Since the rank can take values between $0$ and $\min\{n,n-m\} = n-m$, there can be anywhere from $0$ degrees of freedom, when there are functionally no constraints on $z$, and $m$ degrees of freedom in the case where all $n-m$ constraint equations are independent and $C(z)$ is of full rank. 
+
+In the typical case in which the constraint equations are invarient under three-dimensional rotation and translation, there will be six trivial degrees of freedom. The number of internal degrees of freedom would then be $n - \text{rank}\left((C(z)\right) - 6$.  
 
 \begin{mydef}
-\textbf{cannonical configuraion}
+If there are zero iternal degrees of freedom at a onfiguration $z$, we say that the configuration is \textbf{rigid}.
 \end{mydef}
 
-\subsection{Computing Degrees of Freedom}
---First for a general configuration space
---Jacobian equations
---rank of C
---extension to non triangular polyhedra
---implementing on computer
-
-\[
-	\frac{\partial\psi_{edge}^{j,k}}{\partial v} =
+To actually compute the number of degrees of freedom for configurations of building game intermediates, we must first find an explicit form for the Jacobian matrix $C$. Below are the partial derivatives of the constraint functions we specified above.  
+\begin{align}
+	\frac{\partial c_{edge}^{j,k}}{\partial z_i} &=
   	\begin{cases}
-        	2\left(v^{j,k}_\bullet-v^{j,k-1}_\bullet\right) 	& \text{if } v = v^{j,k}_\bullet \\
-   		-2\left(v^{j,k}_\bullet-v^{j,k-1}_\bullet\right) 	& \text{if } v = v^{j,k-1}_\bullet \\
+        	2\left(v^{j,k}_d-v^{j,k-1}_d\right) 	& \text{if } z_i = v^{j,k}_d \\
+   		-2\left(v^{j,k}_d-v^{j,k-1}_d\right) 	& \text{if } z_i = v^{j,k-1}_d \\
+   		0       				& \text{else} 
+  	\end{cases} \\
+	\frac{\partial c_{ang}^{j,k}}{\partial z_i} &=
+  	\begin{cases}
+        	v^{j,k+1}_d-v^{j,k}_d 			& \text{if } z_i = v^{j,k-1}_d \\
+        	2v^{j,k}_d-v^{j,k-1}_d -v^{j,k+1}_d 	& \text{if } z_i = v^{j,k}_d \\
+   		v^{j,k-1}_d-v^{j,k}_d 			& \text{if } z_i = v^{j,k+1}_d \\
+   		0       				& \text{else} 
+  	\end{cases} \\
+	\frac{\partial c_{2D}^{j,k}}{\partial z_i} &=
+  	\begin{cases}
+        		& \text{if } z_i = v^{j,0}_d \\
+        		& \text{if } z_i = v^{j,1}_d \\
+        		& \text{if } z_i = v^{j,2}_d \\
+          	-1 	& \text{if } z_i = v^{j,k}_d \\
+   	  	0 	& \text{else} 
+  	\end{cases} \\
+	\frac{\partial c_{ident}^{j_1,k_1,j_2,k_2,d}}{\partial z_i} &=
+  	\begin{cases}
+        	1 	& \text{if } z_i = v^{j_1,k_1}_d \\
+        	-1 	& \text{if } z_i = v^{j_2,k_2}_d \\
    		0       & \text{else} 
-  	\end{cases}
-\]
+  	\end{cases} 
+\end{align}
 
+Since the number of degrees of freedom is defined as a local property of a specific configuration $z$, different configurations of the same building game intermediate could theoretically have differing numbers of degrees of freedom. However, we have yet to observe a building game intermediate that has this property and is evidence that supports conjecture~\ref{con:TriMan}. A contrived case in which a linkage of squares leads to a configuration space with differing degrees of freedon is described in section~\ref{ssc:NonMan}. When we report the number of degrees of freedom that a building game intermediate has, we use its connonical configuration in computation.
+\begin{mydef}
+The \textbf{cannonical configuraion} of a building game intermediate $[x]$ is the configuration that is simply the $3$-dimensional embedding of the polyhedron restricted to the faces in $x$
+\end{mydef}
+For example, in the case of the cube, the cannonical configuration would have all of the faces of the intermediate  meeting at right angles just as they do in the cube itself. 
+
+In practice, we use NumPy's numpy.linalg.svd module to take the singlular value decomposition of the compute Jacobian matrix in Python. The rank of the Jacobian is then the number of effectively non-zero singlular values where a small cutoff is used to determine whether a small singular value is indeed zero or non-zero.
 
 \subsection{Non-Manifold Example}
+\label{ssc:NonMan}
 From this definition, it is worth noting that if the geometric configuration space is indeed a manifold, then the degrees of freedom is the dimension of that manifold which is a global property. Here we present an interesting example in which this is not the case and, depending on the specific configuration, a different number of degrees of freedom exist.
 
 \begin{figure}[ht]
