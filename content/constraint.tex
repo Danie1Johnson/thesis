@@ -183,7 +183,9 @@ In practice, we use NumPy's numpy.linalg.svd module to take the singlular value 
 
 \subsection{Non-Manifold Example}
 \label{ssc:NonMan}
-From this definition, it is worth noting that if the geometric configuration space is indeed a manifold, then the degrees of freedom is the dimension of that manifold which is a global property. Here we present an interesting example in which this is not the case and, depending on the specific configuration, a different number of degrees of freedom exist.
+%From this definition, it is worth noting that if the geometric configuration space is indeed a manifold, then the degrees of freedom is the dimension of that manifold which is a global property. Here we present an interesting example in which this is not the case and, depending on the specific configuration, a different number of degrees of freedom exist.
+
+Consider the linkage of six squares aranged in a $2\times 3$ lattice depicted in figure~\ref{fig:SixSq}. This linkage has three lines of hinges: 2 accross and 1 down. As shown, the two horizontal hinges can be manipulated independently with each of the vertical hinges maintaining at an angle of $\pi$ degrees. This seems to indicate two internal degrees of freedom. Alternatively, when folded along the verticle crease, the horizontal hinges remain fixed with dihedral angle $\pi$. This configuration corresponds to just a single internal degree of freedom. Thus, the transition between these two modes, when the linkage is completely planar, there is a singularity and the number of degrees of freedom is not definied. 
 
 \begin{figure}[ht]
   %\includegraphics[scale=0.1, angle=0]{tetris.eps}
@@ -191,20 +193,44 @@ From this definition, it is worth noting that if the geometric configuration spa
 \label{fig:SixSq}
 \end{figure}
 
+As stated previously, we have not observed this type of behavior from any building game intermediates. This leads us to speculate that the degenerate nature of this example is down to an uncommon alignment of the hinged edges. Clearly, this linkage could never be an intermediate of a convex polyhedron. Perhaps the building game geometric configuration space has no singularities and is hence a manifold for all convex polyhedra.  
 
 \subsection{Results}
 
 --Pictures!!
+--hists of degrees of freedom.
 
 \subsection{Explicit Removal of Trivial Degrees of Freedom}
 
---fixe center of mass.
+Since we are often solely interested the internal degrees of freedom, there are a few was to augment the constraint equations to mod out the translation or rotations causing the trivial degrees of freedom. One possible choice is to pick a face and constrain its vertex locations to match a fixed template. The corresponding constraint equations for fixing the $j$th face would be
+\begin{align}
+c_{fix}^{j,k,d}\left(z\right) &= v^{j,k}_d - \hat{v}^{j,k}_d \\
+	\frac{\partial c_{fix}^{j,k,d}}{\partial z_i} &=
+  	\begin{cases}
+        	1 	& \text{if } z_i = v^{j,k}_d \\
+   		0       & \text{else} 
+  	\end{cases} 
+\end{align}
+for each dimension $d$ of each vertex $k$ of face $j$. For reasons we will explain in the next chapter, this may not always be an ideal choice if there is information other than the degrees of freedom we wich to derive from the constraint equations.
+
+
+An alternative that prevents translation, but does allow rotation is to fix the configuration's center of mass. 
+\begin{align}
+c_{com}^{d}\left(z\right) &= \sum_{j = 1}^{|F_x|}\sum_{k=1}^{s_{f_j}}v^{j,k}_d \\
+	\frac{\partial c_{com}^{d}}{\partial z_i} &=
+  	\begin{cases}
+        	1 	& \text{if } z_i = v^{j,k}_d \\
+   		0       & \text{else} 
+  	\end{cases} 
+\end{align}
+This amounts to the sum over the $d$th entry of each vertex in the configuration.
 
 %We consider the linkage of rigid 2-dimensional polygons in $\mathbb{R}^3$ by means of ideal hinges located at the edges of the polygons. In this way, by treating intermediates of our various models as such a linkage, we can compute the non-trivial degrees of freedom (DoF) each intermediate has. 
 
 %Every linkage of this type has 6 trivial degrees of freedom: 3 corresponding to translational movement and 3 corresponding to rotational freedom. While these freedoms do change the orientation of the intermediate, they do not cause the faces to move relative to each other. For this reason, we label them as trivial degrees of freedom and focus on the calculation the remaining, non-trivial degrees of freedom. 
 
 %For our purposes, we define the \textbf{degrees of freedom} of a configuration to be the difference between the number of parameters needed to specify a configuration in an ambient parameter space $\Omega$ and the number of independent constraints imposed upon the configuration as a function of these parameters. Consequently, the non-trivial degrees of freedom is the number of degrees of freedom minus the six trivial degrees of freedom. If the ambiant parameter space is $\mathbb{R}^N$ and there are $M$ constraint equations given by $\varphi : \mathbb{R}^N \to \mathbb{R}^M$, we find the degrees of freedom to be $N - \operatorname{rank}(\varphi)$ and the non-trivial degrees of freedom to be $N - \operatorname{rank}(\varphi) - 6$. Here we need $\varphi$ to be a smooth map so that the rank is well defined. Furthermore, we define the \textbf{configuration space} to be the subset of parameter space $\{\omega \in \Omega : \varphi(\omega) = 0\}$ upon which the contraints are satisfied.
+
 
 %In our case, the location and orientation of each polygon in the linkage can be represented by a total of 6 parameters: 3 for location and 3 for roational orientation. Thus, the entire configuration of an intermediate $x$ can be represented in the parameter space $\mathbb{R}^{F_x\times6}$. With constraints corresponding to hinged connections we construct a function $\varphi$ which is zero if and only if the constraints are satisfied. Thus the configuration space is $\{z \in \mathbb{R}^{F_x\times6} : \varphi(z) =0\}$. As we will show below, the constraint equation $\varphi$ can be constructed as a polynomial which means that the configuration space (as the zero set of this polynomial) is an algebraic variety. 
 
