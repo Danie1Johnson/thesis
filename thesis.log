@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  15 MAR 2015 19:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  15 MAR 2015 23:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -956,26 +956,81 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 1237) has occurred while \output is active []
 
  [61]
-[62] [63] [64] [65] [66])
+[62] [63] [64] [65]
+File: ./images/cube_dof_hist.eps Graphic file (type eps)
+ <./images/cube_dof_hist.eps>
+Overfull \hbox (4.33603pt too wide) in paragraph at lines 203--204
+ [][] 
+ []
+
+File: ./images/octahedron_dof_hist.eps Graphic file (type eps)
+<./images/octahedron_dof_hist.eps>
+Overfull \hbox (4.33603pt too wide) in paragraph at lines 210--211
+ [][] 
+ []
+
+File: ./images/dodecahedron_dof_hist.eps Graphic file (type eps)
+<./images/dodecahedron_dof_hist.eps>
+Overfull \hbox (4.33603pt too wide) in paragraph at lines 217--218
+ [][] 
+ []
+
+File: ./images/icosahedron_dof_hist.eps Graphic file (type eps)
+<./images/icosahedron_dof_hist.eps>
+Overfull \hbox (4.33603pt too wide) in paragraph at lines 224--225
+ [][] 
+ []
+
+File: ./images/cube_dof_hist_facecount.eps Graphic file (type eps)
+<./images/cube_dof_hist_facecount.eps>
+Overfull \hbox (76.60382pt too wide) in paragraph at lines 232--233
+ [][] 
+ []
+
+File: ./images/octahedron_dof_hist_facecount.eps Graphic file (type eps)
+<./images/octahedron_dof_hist_facecount.eps>
+Overfull \hbox (76.60382pt too wide) in paragraph at lines 239--240
+ [][] 
+ []
+
+File: ./images/dodecahedron_dof_hist_facecount.eps Graphic file (type eps)
+<./images/dodecahedron_dof_hist_facecount.eps>
+Overfull \hbox (40.46661pt too wide) in paragraph at lines 246--247
+ [][] 
+ []
+
+File: ./images/icosahedron_dof_hist_facecount.eps Graphic file (type eps)
+<./images/icosahedron_dof_hist_facecount.eps>
+Overfull \hbox (76.60382pt too wide) in paragraph at lines 253--254
+ [][] 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [67]
-[68]
+ [66]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [67])
+Underfull \vbox (badness 3579) has occurred while \output is active []
+
+ [68]
+[69] [70] [71] [72]
 Chapter 5.
 
 Underfull \hbox (badness 10000) in alignment at lines 163--163
 []
  []
 
-[69
+[73
 
 
 
 ] (./content/constraint_processes.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [70]
-[71] [72
+ [74]
+[75] [76
 
 
 ]
@@ -985,9 +1040,9 @@ Underfull \hbox (badness 10000) in alignment at lines 167--167
 []
  []
 
-[73
+[77
 
-] (./content/results.tex) [74] (./thesis.bbl) [75
+] (./content/results.tex) [78] (./thesis.bbl) [79
 
 
 
@@ -998,12 +1053,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 13419 strings out of 493305
- 246387 string characters out of 6139898
+ 13443 strings out of 493305
+ 247043 string characters out of 6139898
  303556 words of memory out of 5000000
- 16534 multiletter control sequences out of 15000+600000
+ 16550 multiletter control sequences out of 15000+600000
  21810 words of font info for 91 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1146b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (93 pages, 197528 bytes).
+Output written on thesis.dvi (97 pages, 204188 bytes).
