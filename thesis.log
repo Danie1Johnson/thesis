@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  17 MAR 2015 13:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  17 MAR 2015 16:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -736,6 +736,12 @@ LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <11.5> not available
 (Font)              size <12> substituted on input line 2.
 
 
+Overfull \hbox (34.82796pt too wide) in paragraph at lines 17--17
+ [][] []\OT1/cmr/m/n/12 Building game enu-mer-a-tive shella-bil-ity re-sults fo
+r the Pla-tonic, Archimedean, 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [15
@@ -862,23 +868,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [37]
 [38] [39]
-Overfull \hbox (18.77132pt too wide) in paragraph at lines 129--130
-[]\OT1/cmr/m/n/12 Figures 3.6[],  3.7[] and  3.8[] de-tail the shella-bil-ity s
-tatis-tic for the Pla-tonic, Archimedean,
- []
-
-
-Overfull \hbox (51.7917pt too wide) in paragraph at lines 159--173
- [][] 
- []
-
-
-Overfull \hbox (54.62502pt too wide) in paragraph at lines 181--193
+Overfull \hbox (60.49995pt too wide) in paragraph at lines 141--164
  [][] 
  []
 
 [40]
-Overfull \hbox (75.2115pt too wide) in paragraph at lines 233--233
+Overfull \hbox (104.1737pt too wide) in paragraph at lines 203--203
 [] 
  []
 
@@ -886,10 +881,10 @@ Overfull \hbox (75.2115pt too wide) in paragraph at lines 233--233
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [41]
-[42]
-Underfull \vbox (badness 1924) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [43]
+ [42]
+[43]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [44]
@@ -1045,12 +1040,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 13479 strings out of 493305
- 247481 string characters out of 6139898
+ 13477 strings out of 493305
+ 247445 string characters out of 6139898
  304556 words of memory out of 5000000
- 16580 multiletter control sequences out of 15000+600000
+ 16578 multiletter control sequences out of 15000+600000
  26366 words of font info for 116 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1112b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (101 pages, 215020 bytes).
+Output written on thesis.dvi (101 pages, 214840 bytes).
