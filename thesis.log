@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  16 MAR 2015 23:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  17 MAR 2015 11:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1026,23 +1026,28 @@ Underfull \hbox (badness 10000) in alignment at lines 163--163
 
 [75
 
-] (./content/constraint_processes.tex)
+] (./content/constraint_processes.tex [76] [77]
+Underfull \vbox (badness 7685) has occurred while \output is active []
+
+ [78])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [76]
-[77] [78
+ [79]
+Overfull \vbox (163.49837pt too high) has occurred while \output is active []
 
 
-]
+[80]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in alignment at lines 167--167
 []
  []
 
-[79
+[81
 
-] (./content/results.tex) [80] (./thesis.bbl) [81
+
+
+] (./content/results.tex) [82] (./thesis.bbl) [83
 
 
 
@@ -1053,12 +1058,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 13443 strings out of 493305
- 247044 string characters out of 6139898
+ 13480 strings out of 493305
+ 247496 string characters out of 6139898
  303556 words of memory out of 5000000
- 16550 multiletter control sequences out of 15000+600000
- 21810 words of font info for 91 fonts, out of 8000000 for 9000
+ 16581 multiletter control sequences out of 15000+600000
+ 26366 words of font info for 116 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,19n,69p,1112b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,69p,1112b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (99 pages, 203380 bytes).
+Output written on thesis.dvi (101 pages, 215316 bytes).

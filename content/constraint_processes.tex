@@ -143,11 +143,11 @@
 %
 %Under the conjecture that it is indeed possible to transition between two boat configurations, some numerical and visual experimentation was used to find coordinates to a second boat configuration, $\textbf{boat2}$. Even though it was easily verified that boat2 satisfies all of the constraints and was equivalent to the first boat by translation and rotation up to a permutation of the carbon atoms, it was not clear how to find a path between the two boats. Common in molecular dynamics simulations, a constrained dynamics SHAKE-type scheme was used to explore the admissible paths away from the boat configuration.
 %
-%The method is a two stage scheme in which we first step to a new configuration in the direction of boat2 and second enforce the constraints with Lagrange multipliers to get the updated configuration. For mathematical simplicity, we represent the coordinates $v_1,\dots,v_6$ as a single point $x \in \mathbb{R}^{18}$ where $\left(v_j\right)_k = x_{3j+k}$. 
+%The method is a two stage scheme in which we first step to a new configuration in the direction of boat2 and second enforce the constraints with Lagrange multipliers to get the updated configuration. For mathematical simplicity, we represent the coordinates $v_1,\dots,v_6$ as a single point $x \in \mathbbm{R}^{18}$ where $\left(v_j\right)_k = x_{3j+k}$. 
 %
 %It is very important to make the estimate $\hat{x}^{n+1}$ of the next configuration satisfy the constraints reasonably well, as it will make the correction step easier. Rather than just defining the naive update of
 %$$\hat{x}^{n+1} = x^n + \frac{1}{2}\left(\Delta t\right)^2\left(x^{boat2}-x^n\right),$$
-%we seek a smarter method for making the estimate $\hat{x}^{n+1}$. Since we know the that the boat has one degree of freedom, its null space has one dimension. If we step in the direction of null-space $\nu^n \in \mathbb{R}^{18}$, the constraints should still be close to being satisfied. Thus, we use the following estimate. 
+%we seek a smarter method for making the estimate $\hat{x}^{n+1}$. Since we know the that the boat has one degree of freedom, its null space has one dimension. If we step in the direction of null-space $\nu^n \in \mathbbm{R}^{18}$, the constraints should still be close to being satisfied. Thus, we use the following estimate. 
 %$$\hat{x}^{n+1} = x^n + \frac{1}{2}\left(\Delta t\right)^2\left[\nu^n\cdot\left(x^{boat2}-x^n\right)\frac{\nu^n}{\|\nu^n\|}\right]$$
 %To enforce our constraints on this prediction, we use Lagrange multipliers. We define the update to be
 %$$x^{n+1} = \hat{x}^{n+1} + \left(\Delta t\right)^2\sum^{21}_{k=1}\lambda_k^{n+1}\nabla\varphi_k\left(x^n\right)$$ 
@@ -174,6 +174,98 @@
 %\end{figure}
 \section{Manifold Brownian Motion}
 \subsection{Computational Scheme}
+
+Suppose we have a $m$ dimensional manifold $\mathcal{M} \subset \mathbbm{R}^n$ defined implicitly by $\mathcal{M} \doteq \left\{x \in \mathbbm{R}^n : c\left(x\right) = 0\right\}$ for some function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$ with $c_1,\dots,c_{n-m}$ independent constraint functions. We seek to approximate a Brownian motion on $\mathcal{M}$ by constructing a random walk. This mis done in two stages; starting at a point $x \in \mathcal{M}$ we take a step of size $\sqrt{\Delta t}$ in a tangent direction $v$ and then we project the point $x +\sqrt{\Delta t} v$ back onto $\mathcal{M}$. 
+
+\subsection{Sampling in Tangent Space}  
+
+At each point $x \in \mathcal{M}$ the tangent space is $\mathcal{T}_x\mathcal{M} \doteq \left\{v \in \mathbbm{R}^n : C\left(x\right)v = 0\right\}$ where $C: \mathbbm{R}^n \to \mathbbm{R}^{(n-m)\times n}$ is the Jacobian of $c$. Thus, sampling from the tangent space reduces to sampling from the null space of $C(x)$. 
+
+First we must construct a basis for $\mathcal{T}_z\mathcal{M}$. Let $A = [C^T B]$ be the concatenation of $C^T$ and a randomly drawn matrix $B \in \mathbbm{R}^{n\times m}$. We assume each entry of $B$ is independent with $B_{jk} \sim  \text{unif}(0,1)$. 
+\begin{mylem}
+The matrix $A$ is of full rank with probability 1. 
+\end{mylem}
+\begin{proof}
+Since the constraints of $c$ are independent, $C$ is of full rank. Additionally, since $B$ is drawn randomly, each column of $B$ will be independent of the columns of $C^T$  and also the other columns of $B$ almost surely. Thus, the columns of $A$ are independent and $A$ is of full rank. 
+\end{proof}
+
+Now, we compute the QR decomposition 
+\begin{align}
+        A = \left[C^T B\right] = QR = \left[Q^{(1)} Q^{(2)}\right]
+\end{align}
+where $Q^{(1)} \in \mathbbm{R}^{(n-m)\times n}$ and $ Q^{(2)} \in \mathbbm{R}^{m\times n}$.
+\begin{mythm}
+The columns of $Q^{(2)}$ are an orthonormal basis for $\mathcal{T}_z\mathcal{M} = N(C)$ and the columns of $Q^{(1)}$ are an orthonormal basis for $(\mathcal{T}_z\mathcal{M})^\perp = (N(C))^\perp$.
+\end{mythm}
+\begin{proof}
+The second claim is true by simple linear algebra arguments and the properties of the QR decomposition.
+\begin{align}
+        \text{col} (Q^{(1)}) &= \text{col}(C^T)\\
+        &= ((\text{col}(C^T))^\perp)^\perp\\
+        &= (N((C^T)^T)^\perp \\ 
+        &= (N(C))^\perp
+\end{align}
+Here we use the vector space identities $X = (X^\perp)^\perp$ and $(\text{col} X)^\perp = N(X^T)$. This shows that columns of $Q^{(1)}$ are an orthonormal basis for $(\mathcal{T}_z\mathcal{M})^\perp$. Now, since 
+\begin{align}
+        \text{col} (Q^{(1)}) \oplus \text{col} (Q^{(2)}) &= \text{col}(A) \\
+        &= \mathbbm{R}^n \\
+        & = (N(C)) \oplus (N(C))^\perp \\
+        & = (N(C)) \oplus \text{col} (Q^{(1)})
+\end{align}
+ we must have that $\text{col}(Q^{(2)}) = N(C)$ and that the columns of $Q^{(2)}$ provide an orthonormal basis for $\mathcal{T}_z\mathcal{M}$.
+\end{proof}
+Now, with our orthonormal basis for $\mathcal{T}_z\mathcal{M}$, we can define any $v \in \mathcal{T}_z\mathcal{M}$ by a vector $\alpha \in\mathbbm{R}^m$ as follows.
+$$v = \sum_{i=1}^m \alpha_iQ^{(2)}_i = Q^{(2)}\alpha$$
+So, for any two $v,\tilde{v} \in \mathcal{T}_z\mathcal{M}$ we can define the metric $g$ as
+\begin{align}
+        g(v,\tilde{v}) &= g\left(\sum_{i=1}^m \alpha_iQ^{(2)}_i, \sum_{j=1}^m \tilde{\alpha}_jQ^{(2)}_j\right) \\
+        &= \sum_{i=1}^m\sum_{j=1}^m  \alpha_i \tilde{\alpha}_j g\left(Q^{(2)}_i, Q^{(2)}_j\right) \\
+        &= \sum_{i=1}^m\sum_{j=1}^m  \alpha_i \tilde{\alpha}_j G_{ij} \\
+        &= \alpha^T  G\tilde{\alpha}
+\end{align}
+Then, our goal is to sample uniformly from $\Omega_G = \left\{v = Q^{(2)}\alpha | \alpha^T G\alpha = 1\right\}$. Since this set corresponds to a level set of the Multivariate normal distribution with mean zero and covariance matrix $G^{-1}$, our sampling problem reduces to sampling $u \sim \mathcal{N}(0,G^{-1})$. Given $u$, $v \doteq \frac{u}{|u|}$ is sampled from $\Omega_G$ as desired.
+
+\subsection{Projection onto $\mathcal{M}$}
+After making a step away from $x$ of size $\sqrt{\Delta t}$ in the direction $v \in N(C)$, our new point $x + \sqrt{\Delta t}v$ is not likely to be in $\mathcal{M}$. To return our point to $\mathcal{M}$, we make a projection step $w \in (N(C))^\perp$. Since $Q^{(1)}$ provides a basis for $(N(C))^\perp$, we can write any such step as 
+$$w = \sum_{i=1}^{n-m} \gamma_iQ^{(1)}_i = Q^{(1)}\gamma.$$
+with $\gamma \in \mathbbm{R}^{n-m}$. Thus, we want to identify a $\gamma$ such that $c(x + \sqrt{\Delta t} v + Q^{(1)}\gamma) = 0$. Since $c$ is nonlinear, we use Newton-Raphson iteration to solve for $\gamma$. By defining an objective function $F$ and its Jacobian $\mathcal{J}$ as
+\begin{align}
+        F(\gamma) &= c(x + \sqrt{\Delta t} v + Q^{(1)}\gamma) \\
+        \mathcal{J}_{jk}(\gamma) &= \frac{\partial F_j}{\partial \gamma_k}(\gamma) \\
+        &= \sum_{i=1}^{n-m} \frac{\partial c_j}{\partial x_i}(x + \sqrt{\Delta t} v + Q^{(1)}\gamma)Q^{(1)}_{ik} \\
+        \mathcal{J}(\gamma) &= C(x + \sqrt{\Delta t} v + Q^{(1)}\gamma)Q^{(1)}
+\end{align}
+we arrive at the iteration routine below. 
+\begin{align}
+        C(x + \sqrt{\Delta t} v + Q^{(1)}\gamma)Q^{(1)}\left(\gamma_{k+1} - \gamma_{k}\right) &= \mathcal{J}(\gamma_k)\left(\gamma_{k+1} - \gamma_{k}\right)\\
+         &= -F(\gamma_k) \\
+         &= -c(x + \sqrt{\Delta t} v + Q^{(1)}\gamma)
+\end{align}
+The iteration starts with $\gamma_0 = 0$.
+
+\subsection{Sampling Algorithm}
+
+\begin{figure}[ht]
+\centering
+\caption{Random Walk on $\mathcal{M}$}
+\begin{algorithmic}
+\For{$k=1,\dots,N$}
+        \State $B \gets \text{unif}(0,1)^{n\times m}$       
+        \State $A \gets \left[C^T B\right]$
+        \State $[Q^{(1)}, Q^{(2)}], R \gets$QRdecomposition$(A)$
+        \State $\alpha \gets \mathcal{N}(0,G^{-1})$
+        \State $v \gets \frac{Q^{(2)}\alpha}{|Q^{(2)}\alpha|}$
+        \State $\gamma \gets 0^{n-m}$
+        \While{$|c(x + \sqrt{\Delta t}v + Q^{(1)}\gamma)| > \epsilon$}
+                     \State $\Delta\gamma \gets (C(x + \sqrt{\Delta t} v + Q^{(1)}\gamma)Q^{(1)})^{-1}(-c(x + \sqrt{\Delta t} v + Q^{(1)}\gamma))$
+                     \State $\gamma \gets \gamma + \Delta\gamma$
+        \EndWhile   
+        \State $x \gets x + \sqrt{\Delta t}v + Q^{(1)}\gamma$
+\EndFor
+\end{algorithmic}
+\end{figure}
+
+
 %\begin{figure}[ht]
 %\centering
 %\begin{algorithmic}
