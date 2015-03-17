@@ -1,6 +1,6 @@
 \section{Known Enumerative Results}
 
-When treating the Building Game for a polyhedron as a stochastic process, we must first know what the the combinatorial configuration space is exactly. This is a computational enumeration problem, but the results of this enumeration are also of methematical interest. 
+When treating the Building Game for a polyhedron as a stochastic process, we must first know what the the combinatorial configuration space is exactly. This is a computational enumeration problem, but the results of this enumeration are also of mathematical interest outside its stochastic use.
 
 Attachment models like the Building Game have been the topic of much reserch in combinatorial mathematics. A well known example of this is the study of polyominoes. An $n$-omino is a configuration of $n$ attached squares in a $2$-dimensional latice. As seen in figure~\ref{fig:Tetris}, the classic video game tetris uses each of the seven rotationally unique tetrominoes ($n = 4$) as game pieces. The enumeration of $n$-ominoes has been extensively studied and there are many enumeration results, both explicit and asymptotic. As in our case, the general goal is to enumerate the polyominoes that are unique when acted on by some group (rotation, reflection, etc) or under certain constraints which are often topological.
 \begin{figure}[ht]
@@ -15,7 +15,7 @@ Before the work of Endres et al, David Wilson enumerated the number of intermedi
 
 \section{New Enumerative Results}
 
-Previous enumeration results for the Building Game have focused on the number of intermediates of the Platonic solids. We extend these results to also count the number of Building Game connections and pathways in the combinatorial configuration space. Additionally, we consider the Platonic, Archimedean, and Catalan solids classes with these results presemted in figures~\ref{tab:bgePlat}, ~\ref{tab:bgeArch} and ~\ref{tab:bgeCat} respectively. 
+Previous enumeration results for the Building Game have focused on the number of intermediates of the Platonic solids. We extend these results to also count the number of Building Game connections and pathways in the combinatorial configuration space. Additionally, we consider the Platonic, Archimedean, and Catalan solids classes with these results presemted in figure~\ref{tab:bgEnum}. 
 
 As we consider polyhedra with more and more faces, there is a combinatorial explosion in the number intermediates in combinatorial configuration space. This was noted in Endres et al. CITE, where the dodecahedron has $73$ intermediates and the icosahedron has $2,649$. We have enumerated the intermediates for polyhedra of up to $30$ faces in our three classes of polyhedra. The $30$-faced rhombic triacontahdron has the most intermediates of all polyhedra in our computation with $2,423,212$.
 
@@ -26,7 +26,7 @@ As we consider polyhedra with more and more faces, there is a combinatorial expl
 
 
 \begin{figure}[ht]
-%\scalebox{0.6}{
+\scalebox{0.8}{
 %{\footnotesize
 \centering
 %\textbf{Building Game Enumerative Results for the Platonic Solids}
@@ -37,46 +37,13 @@ Tetrahedron                     & 4        & 4     	& 3             & 1\\
 Cube                            & 6        & 8     	& 9    		& 3\\
 Octahedron                      & 8        & 14    	& 21    	& 14\\
 Dodecahedron                    & 12       & 73    	& 263   	& 17,696 \\
-Icosahedron                     & 20       & 2,649 	& 17,241        & 57,396,146,640\\
-\end{tabular}
-%}
-\caption{Building game enumerative results for the Platonic solids.}
-\label{tab:bgePlat}
-\end{figure}
-
-
-\begin{figure}[ht]
-%\scalebox{0.6}{
-%{\footnotesize
-\centering
-%\textbf{Building Game Enumerative Results for the Platonic Solids}
-\begin{tabular}{ l | c | r | r | r}
-Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
-  \hline    
+Icosahedron                     & 20       & 2,649 	& 17,241        & 57,396,146,640\\ \hline
 Truncated Tetrahedron           & 8     & 28    	& 63            & 402\\
 Cuboctahedron                   & 14  	& 340   	& 1,634         & 10,170,968\\
 Truncated Cube                  & 14  	& 499   	& 2,729         & 101,443,338 \\
 Truncated Octahedron            & 14  	& 555           & 3,069         & 68,106,377\\
 Rhombicuboctahedron             & 26  	& 638,850       & 6,459,801     & 164,068,345,221,515,292,308\\
-Truncated Cuboctahedron         & 26  	& 1,525,658     & 17,672,374    & 13,837,219,462,483,379,105,902\\
-%Icosidodecahedron               & 32  	& ?             & ?             & ?\\
-%Truncated Dodecahedron          & 32  	& ?             & ? 	        & ? \\
-%Truncated Icosahedron           & 32  	& ?             & ? 	        & ?\\
-\end{tabular}
-%}
-\caption{Building game enumerative results for the Archimedean solids.}
-\label{tab:bgeArch}
-\end{figure}
-
-
-\begin{figure}[ht]
-%\scalebox{0.6}{
-%{\footnotesize
-\centering
-%\textbf{Building Game Enumerative Results for the Platonic Solids}
-\begin{tabular}{ l | c | r | r | r}
-Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
-  \hline    
+Truncated Cuboctahedron         & 26  	& 1,525,658     & 17,672,374    & 13,837,219,462,483,379,105,902\\ \hline  
 Triakis Tetrahedron             & 12  	& 98            & 318           & 38,938\\
 Rhombic Dodecahedron            & 12  	& 127           & 493           & 76,936\\
 Triakis Octahedron              & 24  	& 12,748        & 81,296        & 169,402,670,046,670\\
@@ -85,14 +52,12 @@ Deltoidal Icositetrahedron      & 24  	& 209,675       & 1,989,548     & 418,663
 Pentagonal Icositetrahedron     & 24  	& 345,938       & 3,544,987     & 2,828,128,000,716,774,492\\
 Rhombic Triacontahedron         & 30  	& 2,423,212     & 26,823,095    & 161,598,744,916,797,017,978,128\\
 \end{tabular}
-%}
-\caption{Building game enumerative results for the Catalan solids.}
-\label{tab:bgeCat}
+}
+\caption{Building game combinatorial configuration space enumerative results for the Platonic, Archimedean, and Catalan solids.}
+\label{tab:bgEnum}
 \end{figure}
 
-
-
-
+--Scatter plot commentary.
 \begin{figure}[ht]
   %\includegraphics[scale=0.1, angle=0]{tetris.eps}
 \caption{The relation between number of faces and intermediates in the Building Game combinatorial configuration space.}
@@ -114,7 +79,7 @@ Rhombic Triacontahedron         & 30  	& 2,423,212     & 26,823,095    & 161,598
 
 
 \subsection{Shellability}
-The theory of polytopes provides a mathematical method for constructing a polytope called a \textit{shelling}. The process, similar to the building game, involves sequentially adding facets of the polytope until all of the facets are added. However, the rules as to which facets may be added at each step of the process is are a bit more restrictive. Ziegler provides the following definitions of a shelling and a shellable polytopal complex CITE. 
+The theory of polytopes provides a mathematical method for constructing a polytope called a \textit{shelling}. The process, similar to the building game, involves sequentially adding facets of the polytope until all of the facets are added. However, the rules as to which facets may be added at each step of the process are a bit more restrictive. Ziegler provides the following definitions of a shelling and a shellable polytopal complex CITE. 
 \begin{mydef}
 \label{def:shelling}
 Let $\mathcal{C}$ be a pure $k$-dimensional polytopal complex $\mathcal{C}$. A \textbf{shelling} of $\mathcal{C}$ is a linear ordering $F_1,F_2,\dots,F_s$ of the facets of $\mathcal{C}$ such that either $\mathcal{C}$ is $0$-dimensional (and thus the facets are points), or it satisfies the following conditions:

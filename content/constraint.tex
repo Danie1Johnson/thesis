@@ -15,15 +15,6 @@ It is important to note that there are many possible parameterizations of a conf
 %
 %One example of using the 
 %
-\subsection{Constrained Dynamics}
-
-Sometimes we are interested in more that simply the number of degrees of freedom a particular configuration has. To explore the configuration space, find connections between different admissible configurations, analyze the configuration space's topology, or compute other relevant statistics, it can be useful to compute dynamics on the constraint space. There are clear computational challenges to computing such dynamics due to the fact that configuration space is often of much smaller dimension than the ambient space it sits in. 
-
-Constraint algorithms have been widely studied for use in molecular dynamic simulations: we use the SHAKE algorithm and application specific variants. The SHAKE algorithm is a two stage method in which the laws of motion are first used to evolve the system to an unconstrained configuration $\hat{y}_{n+1}$ based on the previous configuration $y_n$. In the second stage, Lagrange multipliers are used to correct $\hat{y}_{n+1}$ to a new configuration $y_{n+1}$ which satisfies the constraints. 
-
-Assuming connectedness of the configuration space, constraint algorithms can be used to compute various statistics of the configuration space. For example, the $d$-dimensional volume of a $d$-dimensional configuration space can be used to measure how much mobility the intermediate has in its configuration space. Additionally, if we have soft constraints, such as preferred angles between faces, we can institute cost functions on the configuration space with configurations having more favorable angles having a lower cost. Whether physically or artificially motivated, such cost functions can be treated as potential energy functions which can imply specific dynamics. Under this set of dynamics, quantities such as the average or minimum energies may be of interest. 
-
-We may also be interested in the behavior of a small part of the configuration as it undergoes constrained dynamics. For instance, suppose we are interested in the tendency for two edges on distinct faces to come together and form a new connection. By looking at the distance between these edges, we can measure how frequently this event happens and the probability that it will occur before another even of interest. This is similar to the exit time problem for diffusion and may provide a physically motivated evaluation tool for the appropriateness of our transition rules we adopt in our models. 
 
 \section{Linkages and Frameworks}
 --izmestiev def of framework

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  17 MAR 2015 11:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  17 MAR 2015 13:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -788,7 +788,10 @@ Underfull \hbox (badness 10000) in alignment at lines 151--151
 
 [13
 
-] (./content/bg_modeling.tex [14]
+] (./content/bg_modeling.tex
+Underfull \vbox (badness 1946) has occurred while \output is active []
+
+ [14]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
@@ -800,15 +803,11 @@ File: ./images/octa_state_or_not.eps Graphic file (type eps)
  <./images/octa_state_or_not.eps> [15]
 [16] [17]
 File: ./images/octa_stabilizers.eps Graphic file (type eps)
- <./images/octa_stabilizers.eps>
-Underfull \vbox (badness 4353) has occurred while \output is active []
-
- [18]
-[19]
+ <./images/octa_stabilizers.eps> [18] [19]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
 
-Overfull \hbox (40.39418pt too wide) in paragraph at lines 177--178
+Overfull \hbox (40.39418pt too wide) in paragraph at lines 175--176
 []\OT1/cmr/bx/n/12 Definition 8. []\OT1/cmr/m/it/12 A Build-ing Game \OT1/cmr/b
 x/it/12 path-way \OT1/cmr/m/it/12 is a se-quence of in-ter-me-di-ates $\OT1/cmr
 /m/n/12 [\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 ; \OT1/cmr/m/n/1
@@ -816,9 +815,8 @@ x/it/12 path-way \OT1/cmr/m/it/12 is a se-quence of in-ter-me-di-ates $\OT1/cmr
  [\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ]$
  []
 
-[20]
 File: ./images/octa_path.eps Graphic file (type eps)
- <./images/octa_path.eps>
+<./images/octa_path.eps> [20]
 File: ./images/cube_ccs.eps Graphic file (type eps)
  <./images/cube_ccs.eps> [21]
 File: ./images/cube_degen.eps Graphic file (type eps)
@@ -830,7 +828,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 452.
+LaTeX Font Info:    Try loading font information for U+bbm on input line 451.
 
 (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
@@ -847,10 +845,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [32])
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[33] [34
 
- [33]
-[34]
+
+]
 Chapter 3.
 
 Underfull \hbox (badness 10000) in alignment at lines 155--155
@@ -859,33 +857,28 @@ Underfull \hbox (badness 10000) in alignment at lines 155--155
 
 [35
 
-
-
 ] (./content/bg_enumeration.tex [36]
-Overfull \hbox (72.68037pt too wide) in paragraph at lines 53--67
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [37]
+[38] [39]
+Overfull \hbox (18.77132pt too wide) in paragraph at lines 129--130
+[]\OT1/cmr/m/n/12 Figures 3.6[],  3.7[] and  3.8[] de-tail the shella-bil-ity s
+tatis-tic for the Pla-tonic, Archimedean,
+ []
+
+
+Overfull \hbox (51.7917pt too wide) in paragraph at lines 159--173
  [][] 
  []
 
 
-Overfull \hbox (87.26357pt too wide) in paragraph at lines 77--89
+Overfull \hbox (54.62502pt too wide) in paragraph at lines 181--193
  [][] 
  []
 
-[37] [38] [39]
-Overfull \hbox (51.7917pt too wide) in paragraph at lines 194--208
- [][] 
- []
-
-
-Overfull \hbox (54.62502pt too wide) in paragraph at lines 216--228
- [][] 
- []
-
-
-Underfull \vbox (badness 2384) has occurred while \output is active []
-
- [40]
-Overfull \hbox (75.2115pt too wide) in paragraph at lines 268--268
+[40]
+Overfull \hbox (75.2115pt too wide) in paragraph at lines 233--233
 [] 
  []
 
@@ -935,108 +928,102 @@ is de-fined to be the sub-set of am-bi-ent space $[]$
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [55]
+[56] [57]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [56]
-[57] [58]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [59]
+ [58]
+[59]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [60]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1237) has occurred while \output is active []
 
  [61]
-[62] [63] [64]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [65]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [66]
-[67]
+[62] [63] [64] [65]
 File: ./images/cube_dof_hist.eps Graphic file (type eps)
  <./images/cube_dof_hist.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 230--231
+Overfull \hbox (4.33603pt too wide) in paragraph at lines 221--222
  [][] 
  []
 
 File: ./images/octahedron_dof_hist.eps Graphic file (type eps)
 <./images/octahedron_dof_hist.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 237--238
+Overfull \hbox (4.33603pt too wide) in paragraph at lines 228--229
  [][] 
  []
 
 File: ./images/dodecahedron_dof_hist.eps Graphic file (type eps)
 <./images/dodecahedron_dof_hist.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 244--245
+Overfull \hbox (4.33603pt too wide) in paragraph at lines 235--236
  [][] 
  []
 
 File: ./images/icosahedron_dof_hist.eps Graphic file (type eps)
 <./images/icosahedron_dof_hist.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 251--252
+Overfull \hbox (4.33603pt too wide) in paragraph at lines 242--243
  [][] 
  []
 
 File: ./images/cube_dof_hist_facecount.eps Graphic file (type eps)
 <./images/cube_dof_hist_facecount.eps>
-Overfull \hbox (76.60382pt too wide) in paragraph at lines 259--260
+Overfull \hbox (76.60382pt too wide) in paragraph at lines 250--251
  [][] 
  []
 
 File: ./images/octahedron_dof_hist_facecount.eps Graphic file (type eps)
 <./images/octahedron_dof_hist_facecount.eps>
-Overfull \hbox (76.60382pt too wide) in paragraph at lines 266--267
+Overfull \hbox (76.60382pt too wide) in paragraph at lines 257--258
  [][] 
  []
 
 File: ./images/dodecahedron_dof_hist_facecount.eps Graphic file (type eps)
 <./images/dodecahedron_dof_hist_facecount.eps>
-Overfull \hbox (40.46661pt too wide) in paragraph at lines 273--274
+Overfull \hbox (40.46661pt too wide) in paragraph at lines 264--265
  [][] 
  []
 
 File: ./images/icosahedron_dof_hist_facecount.eps Graphic file (type eps)
 <./images/icosahedron_dof_hist_facecount.eps>
-Overfull \hbox (76.60382pt too wide) in paragraph at lines 280--281
+Overfull \hbox (76.60382pt too wide) in paragraph at lines 271--272
  [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [66]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [67])
+Underfull \vbox (badness 3579) has occurred while \output is active []
+
  [68]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [69]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [70])
-[71] [72] [73] [74
-
-
-]
+[69] [70] [71] [72]
 Chapter 5.
 
 Underfull \hbox (badness 10000) in alignment at lines 163--163
 []
  []
 
-[75
+[73
 
-] (./content/constraint_processes.tex [76] [77]
-Underfull \vbox (badness 7685) has occurred while \output is active []
 
- [78])
+
+] (./content/constraint_processes.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [79]
-Overfull \vbox (163.49837pt too high) has occurred while \output is active []
+ [74]
+Underfull \vbox (badness 6412) has occurred while \output is active []
 
+ [75]
+[76]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[80]
+ [77]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [78])
+[79] [80]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in alignment at lines 167--167
@@ -1058,12 +1045,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 13480 strings out of 493305
- 247496 string characters out of 6139898
- 303556 words of memory out of 5000000
- 16581 multiletter control sequences out of 15000+600000
+ 13479 strings out of 493305
+ 247481 string characters out of 6139898
+ 304556 words of memory out of 5000000
+ 16580 multiletter control sequences out of 15000+600000
  26366 words of font info for 116 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,19n,69p,1112b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,69p,1112b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (101 pages, 215316 bytes).
+Output written on thesis.dvi (101 pages, 215020 bytes).

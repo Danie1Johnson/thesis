@@ -2,15 +2,15 @@
 %\lipsum[101-120]
 \section{The Building Game as a Mathematical Framework for Self-assembly}
 
-The Building Game (BG) was first considered by Zlotnick~\cite{Zlotnick1994} as a model for the assembly of polyhedral viral capsids. In the model, a capsid is idealized as a polyhedron \poly\spc with each face treated as a subunit. Assembly proceeds from a singe face with a second face attached to the first along an edge. At each subsequent step of the process, an additional face is added along an edge of one of the already added faces. The process ends when all of \poly's face have been added resulting in a completed polyhedron.
+The Building Game (BG) was first considered by Zlotnick~\cite{Zlotnick1994} as a model for the assembly of polyhedral viral capsids. In the model, a capsid is idealized as a polyhedron with each face treated as a subunit. Assembly proceeds from a singe face with a second face attached to the first along an edge. At each subsequent step of the process, an additional face is added along an edge of one of the already added faces. The process ends when all of the faces have been added resulting in a completed polyhedron.
 
 A useful way to think about the Building game is as a sequential coloring process. Given a polyhedron with each face painted white, choose a face and paint it black. At each subsequent step, choose a white face that is adjacent to a black face and paint it black. Repeat until all faces are black. Here the black faces represent a face being present at a given step of the assembly process.
 
---Comparison with approaches in artificial life paper
+%--Comparison with approaches in artificial life paper
 
 
 \section{Formal Definition}
-We formalize the Building Game in terms of the group action of the polyhedron's rotation group $G$ acting on subsets of $F$, the polyhedron's face set. Using the polyhedron's dual graph representation $\PolyGraph = \left(F, E\right)$ whose nodes are the faces $F$ of the polyhedron and connections $E$ correspond to the pairs of faces sharing an edge we can define the mathematical structures that comprise different building game configurations.
+We formalize the Building Game in terms of the group action of the polyhedron's rotation group $G$ acting on subsets of $F$, the polyhedron's face set. Using the polyhedron's dual graph representation $\PolyGraph\left(F, E\right)$ whose nodes are the faces $F$ of the polyhedron and connections $E$ correspond to the pairs of faces sharing an edge we can define the mathematical structures that comprise different building game configurations.
 
 
 %If we are interested in the Building Game of a polyhedron, we represent the its combinatorial structure by a graph $\PolyGraph = \left(F, E\right)$ whose nodes are the faces $F$ of the polyhedron and connections $E$ correspond to the pairs of faces sharing an edge. In this way, $\PolyGraph$ can be viewed as the polyhedral graph of \poly's dual polyhedron. 
@@ -19,7 +19,7 @@ We formalize the Building Game in terms of the group action of the polyhedron's 
   A Building Game \textbf{state} $x \subset F$ is a non-empty subset of the faces $F$ of a polyhedron such that the subgraph $\PolyGraph|_x$ restricted to the faces in $x$ is a single connected component. 
 \end{mydef} 
 
-It is often useful to depict building game states with Schlegal diagrams CITE which are two dimensional projections of the three dimensional polyhedron. Figure~\ref{fig:TetraStates} XXX uses Schelegal diagrams to depicts all of the states of the tetrahedron. Since every face of the tetrahedron is adjacent to every other face, any non-empty subset of faces is a building game state. Thus, there are ${4 \choose k}$ tetrahedron states that have $k$ faces. 
+It is often useful to depict building game states with Schlegel diagrams CITE which are two dimensional projections of the three dimensional polyhedron. Figure~\ref{fig:TetraStates} uses Schoolgirl diagrams to depicts all of the states of the tetrahedron. Since every face of the tetrahedron is adjacent to every other face, any non-empty subset of faces is a building game state. Thus, there are ${4 \choose k}$ tetrahedron states that have $k$ faces and $2^4 - 1 = 15$ states in total. 
 \begin{figure}[ht]
   \includegraphics[scale=0.1, angle=0]{tetrahedron_states.eps}
 \caption{The building game states of the tetrahedron.}
@@ -56,13 +56,13 @@ As pictured in figure~\ref{fig:OctaStates}, some subsets of faces are not states
 
 \subsection{Group Actions}
 
-It is easy to see that many states are combinatorially equivalent and are just rotations of each other. As in Zlotnick, we group the states into sets that are rotations of each other. However, to do so, we must first build the mathematical infrastructure using group actions. 
+It is easy to see that many states are combinatorially equivalent and are just rotations of each other. As in Zlotnick, we group the states into sets that are rotations of each other CITE. However, to do so, we must first build the mathematical infrastructure using group actions. 
 
 \begin{mydef}%[~\cite{Rotman1995} CITE]
 A \textbf{group action} of a group $G$ on a set $X$ is a function mapping $G \times X$ to $X$ with $(g, x) \mapsto g.x$ that satisfies: (i) $(gh).x = g.(h.x)$ for $g,h \in G$ and (ii) $e.x = x$ for $e$ the identity element of $G$.
 \end{mydef}
 
-We typically use a polyhedron's rotation group or one of its subgroups as $G$ and $2^F$, the set of subsets of $F$, as the set $X$ that $G$ acts on. In this case, the action $g.x$ permutes the faces of the polyhedron according to the element $g$ of the rotation group and results in a new subset of faces. Here, we introduce the group action concepts of orbits and stabilizer subgroups as they play an important role in out later analyses. 
+We typically use a polyhedron's rotation group or one of its subgroups as $G$ and $2^F$, the set of subsets of $F$, as the set $X$ that $G$ acts on. In this case, the action $g.x$ permutes the faces of the polyhedron according to the element $g$ of the rotation group and results in a new subset of faces. Here, we introduce the group action concepts of orbits and stabilizer subgroups as they play an important role in our later analyses. 
 \begin{mydef}%[~\cite{Rotman1995}]
 Let $G$ be a group acting on a set $X$, the \textbf{orbit} of an element $x \in X$ is the subset $G.x \doteq \left\{g.x : g \in G \right\}$ of $X$~\cite{Rotman1995}.
 \end{mydef}
@@ -72,13 +72,13 @@ For a  group $G$ acting on a set $X$, the \textbf{stabilizer subgroup} for an el
 \end{mydef}
 Now, we introduce three classical results of group actions that relate orbits and stabilizer subgroups and add a corollary that we will use frequently.
 \begin{mythm}[Orbit-Stabilizer~\cite{Rotman1995}]
-Let $G$ be a group acting on a set $X$, then for any $x \in X, |G.x| = [G:G_x]$   
+Let $G$ be a group acting on a set $X$, then for any $x \in X, |G.x| = [G:G_x]$, the number of left-cosets of $G_x$.
 \end{mythm}
 \begin{mythm}[Lagrange~\cite{Rotman1995}]
 If $G$ is a finite group and $S \leq G$, then $|S|$ divides $|G|$ and $[G:S] = |G|/|S|$
 \end{mythm}
 \begin{mylem}[Burnside~\cite{Rotman1995}]
-Let $G$ be a finite group acting on a set $X$, then $$|X/G| = \frac{1}{|G|}\sum_{g \in G}|X^g|$$ where $|X/G|$ is the number of orbits and $|X^g| = {x \in X : g.x = x}$ 
+Let $G$ be a finite group acting on a set $X$, then $$|X/G| = \frac{1}{|G|}\sum_{g \in G}|X^g|$$ where $|X/G|$ is the number of orbits and $|X^g| = \{x \in X : g.x = x\}$ 
 \end{mylem}
 
 \begin{mycor}
@@ -86,14 +86,14 @@ Let $G$ be a finite group acting on a set $X$, then $$|X/G| = \frac{1}{|G|}\sum_
 Let $G$ be a finite group acting on a set $X$, then for any $x \in X$ $$|G.x| = \frac{|G|}{|G_x|}.$$
 \end{mycor}
 \begin{proof}
-This result follows trivially from Lagrange's theorem and the Orbit-Stabilizer theorems. 
+This result follows trivially from the Orbit-Stabilizer and Lagrange's theorems. 
 \end{proof}
 
 \subsection{Building Game Intermediates}
 
 With this framework of group actions, we now formally define the principle unit of the building game. 
 \begin{mydef}
-A Building Game \textbf{intermediate} $[x] \doteq \left\{g.x : g \in G\right\}$ is the orbit of the state $x$. 
+A Building Game \textbf{intermediate} $[x] \doteq \left\{g.x : g \in G\right\}$ is the orbit of the state $x$ under the polyhedra's rotation group. 
 \end{mydef}
 Since the orbits of a group action form a partition on the set it acts on, each state belongs to a single intermediate and two states $x$ and $y$ are part of the same intermediate if there is a $g\in\G$ such that $y = g.x$. In the case of the tetrahedron, as pictured in figure~\ref{fig:TetraStates}, there are only four intermediates since any state with the same number of faces can be rotated to reach the others. 
 
@@ -116,9 +116,9 @@ Since the orbits of a group action form a partition on the set it acts on, each 
 
 Since we have defined the intermediates to be the orbits of states under the polyhedral group, we are naturally also interested in stabilizer subgroups of building games states.
 \begin{mydef}
-The \textbf{symmetry number} $r_x$ of a state $x$ is the order of its stabilizer subgroup $\left|\G_x\right|$.
+The \textbf{symmetry number} $r_{x^j}$ (or simply $r_j$) of a state $x^j$ is the order of its stabilizer subgroup $\left|\G_{x^j}\right|$.
 \end{mydef}
-In figure~\ref{fig:OctaStabs} we see 
+In figure~\ref{fig:OctaStabs} we see three states and their orbit stabilizer subgroups. The first state, with only a single face, has a symmetry nummber of $3$ since any rotation by a multiple of $\frac{2\pi}{3}$ fixes the face. The second has a symmetry number of $2$ since only the identity and a $\pi$ rotation will fix the faces. The final state, with three faces, cannot be fixed by any rotation other than the identity and thus hs symmetry number $1$.  
 \begin{figure}[ht]
   \includegraphics[scale=0.2, angle=0]{octa_stabilizers.eps}
 \caption{The stabilizer subgroups for various octahedron states.}
@@ -155,8 +155,6 @@ Two distinct intermediates $\left[x\right]$ and $\left[y\right]$ are \textbf{con
   \item $\exists f \in x: x = y \cup \left\{f\right\}$
 \end{itemize}
 \end{mydef}
-The act of attaching an additional face is referred to as a forward step in the building game and the removal of a face is a backward step. 
--- Language about forward and backward connection directions?
 
 \begin{mylem}
 If intermediates $\left[x\right]$ and $\left[y\right]$ are connected, then for every state $x \in \left[x\right]$ there is a state $y \in \left[y\right]$ such that $\exists f \in y: y = x \cup \left\{f\right\}$ or $\exists f \in x: x = y \cup \left\{f\right\}$.
@@ -177,7 +175,7 @@ and our result is shown.
 A Building Game \textbf{pathway} is a sequence of intermediates $[x^{p_1}], [x^{p_2}], \dots, [x^{p_N}]$ such that  $[x^{p_i}]$ is connected to $[x^{p_{i+1}}]$, $|x^{p_i}| = i$, and $x^{p_N} = F$.
 \end{mydef}
 
- Figure~\ref{fig:OctaPath} shows a Building Game pathway for the dodecahedron using Schlegel diagrams. The pathway has 12 intermediates since there must be exactly one intermediate $x^{p_i}$ satisfying $h\left(x^{p_i}\right) = i$ for each $i = 1,2,\dots,12$.
+ Figure~\ref{fig:OctaPath} shows a Building Game pathway for the octahedron using Schlegel diagrams. The pathway has $8$ intermediates since there must be exactly one intermediate $x^{p_i}$ satisfying $h\left(x^{p_i}\right) = i$ for each $i = 1,2,\dots,8$.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.2, angle=0]{octa_path.eps}
@@ -188,10 +186,10 @@ A Building Game \textbf{pathway} is a sequence of intermediates $[x^{p_1}], [x^{
 With many pairs of connected intermediates, we organize these relations in a graph.
 
 \begin{mydef}
-The Building Game \textbf{combinatorial configuration space} for a polyhedron \poly\spc is a graph in which the nodes are \poly's intermediates and a graph edge exists between two intermediates if and only if they are connected. 
+The Building Game \textbf{combinatorial configuration space} for a polyhedron is a graph in which the nodes are the polyhedron's intermediates and a graph edge exists between two intermediates if and only if they are connected. 
 \end{mydef}
 
-When the intermediates are partitioned by the number of faces they possess, it is natural to arrange the state space as a tiered graph according to this partition. Figure~\ref{fig:CubeCCS} shows the Building Game state space for the cube. As seen, each tier has intermediates with the same number of faces and connections thus exist with intermediates that are either in the tier directly above or below them. We can also see that there are three distinct pathways contained in the state space. 
+When the intermediates are partitioned by the number of faces they possess, it is natural to arrange the combinatorial configuration space into columns or tiers according to this partition. Figure~\ref{fig:CubeCCS} shows the Building Game state space for the cube. As seen, each column has intermediates with the same number of faces and connections thus exist with intermediates that are either in the tier directly above or below them. We can also see that there are three distinct pathways contained in the state space. 
 
 \begin{figure}[ht]
 \includegraphics[scale=0.2, angle=0]{cube_ccs.eps}
@@ -204,7 +202,7 @@ Interestingly, it is not the case that the addition or removal of each face of a
 For two connected intermediates $[x^j]$ and $[x^k]$, the set of different faces $$F_{jk} \doteq \left\{f \notin x^j : x^j\cup\{f\} \in [x^k]\right\}\cup\left\{f \in x^j : x^j\setminus\{f\} \in [x^k]\right\}$$ that can be added or removed from $x^j$ to get an element of $[x^k]$ is called the \textbf{degeneracy set} and the number of such faces $S_{jk} \doteq \left|F_{jk}\right|$ is called the \textbf{degeneracy number}.
 \end{mydef}
 
-It is important to note that in general the degeneracy number is not symmetric, i.e. \Sjk$\neq$\Skj\spc for some connections $[x^j] \leftrightarrow [x^k]$ in the state space. Figure~\ref{fig:CubeDegen} depicts the forward and backward degeneracy numbers for a particular connection. As illustrated, there are two faces that can be added to the first intermediate to form the second. However, removing any of the three faces of the second intermediate will result in the first. Thus the forward degeneracy number is two and the backward degeneracy number is three.  
+The act of attaching an additional face is referred to as a forward step in the building game and the removal of a face is a backward step. As such, degeneracies are sometimes referred to as forward or backward degeneracies. It is important to note that in general the degeneracy number is not symmetric, i.e. \Sjk$\neq$\Skj\spc for some connections $[x^j] \leftrightarrow [x^k]$ in the state space. Figure~\ref{fig:CubeDegen} depicts the forward and backward degeneracy numbers for a particular connection. As illustrated, there are two faces that can be added to the first intermediate to form the second. However, removing any of the three faces of the second intermediate will result in the first. Thus the forward degeneracy number is two and the backward degeneracy number is three.  
 
 
 \begin{figure}[ht]
@@ -214,7 +212,7 @@ It is important to note that in general the degeneracy number is not symmetric, 
 \end{figure}
 
 
-Finally, we extend the notion of a pathway to to be a sequence of intermediates of arbitrary lengths, such that the sequence begins at an intermediate with a single face and ends with the completed polyhedron and each pair of successive intrmediates are connected.
+Finally, we extend the notion of a pathway to to be a sequence of intermediates of arbitrary lengths, such that the sequence begins at an intermediate with a single face and ends with the completed polyhedron and each pair of successive intermediates are connected.
 \begin{mydef}
 A Building Game \textbf{reversible pathway} is a sequence of intermediates $[x^{p_1}], [x^{p_2}], \dots, [x^{p_N}]$ such that  $[x^{p_i}]$ is connected to $[x^{p_{i+1}}]$, $|x^{p_0}| = 1$, and $|x^{p_N}| = |F|$.
 \end{mydef}
@@ -291,6 +289,7 @@ G_{x^k,\{f\}} &= \left\{g \in G : g.x^k = x^k, g.\{f\} = \{f\} \right\} \\
 
 
 \begin{mylem}
+\label{lem:GG}
 For connected intermediates $[x]$ and $[y]$, with $x \cup \{f\} = y$ and $x \cup \{\hat{f}\} \doteq \hat{y}\in [y]$, the stabilizer subgroups $|G_{x,y}|$ and  $|G_{x,\hat{y}}|$ satisfy $|G_{x,y}| = |G_{x,\hat{y}}|$. 
 \end{mylem}
 \begin{proof}
@@ -318,7 +317,7 @@ Since we have shown that for every orbit in $F_{jk}/G_{x^j}$ there is a correspo
 
 
 \begin{mythm}
-\label{thm:J}
+\label{thm:rSrS}
 For two Building Game intermediates $[x^j]$ and $[x^k]$ are connected in the combinatorial configuration space, $r_kS_{jk} = r_jS_{kj}$.
 \end{mythm}
 \begin{proof}
@@ -329,7 +328,7 @@ Without loss of generality, assume that $[x^j]$ has one fewer face than $[x^k]$ 
 &= \frac{|G_{x^j,\{f\}}|}{r_j}\sum_{\hat{f} \in F_{jk}}1 \\
 &= \frac{|G_{x^j,\{f\}}|S_{jk}}{r_j}
 \end{align}
-Then, by lemmas XXX and YYY we have,
+Then, by lemmas~\ref{lem:GG} and~\ref{lem:FmodG} we have,
 \begin{align}
 \frac{r_j}{S_{jk}} &= \frac{|G_{x^j,\{f\}}|}{\left|F_{jk} / G_{x^j}\right|} \\
 &= \frac{|G_{x^k,\{f\}}|}{\left|F_{kj} / G_{x^k}\right|} \\
@@ -352,7 +351,7 @@ and the result $r_kS_{jk} = r_jS_{kj}$ follows.
 
 \section{Stochastic Modeling Results}
 
-Since the Building Game is a sequential process with several choices at each step, it is natural to consider it as a stochastic process. If we define a Building Game process that allows faces to be reversibly sequentially added or removed, the process consists of transitions from intermediate to intermediate along connections in the combinatorial configuration space. By specifying a distribution on these transitions, it will induce a stationary distribution on the state space and provide a framework for compute relevant statistics such as expected formation times.
+Since the Building Game is a sequential process with several choices at each step, it is natural to consider it as a stochastic process. If we define a Building Game process that allows faces to be sequentially added or removed in a reversible way, the process consists of transitions from intermediate to intermediate along connections in the combinatorial configuration space. By specifying a distribution on these transitions, it will induce a stationary distribution on the state space and provide a framework for compute relevant statistics such as expected formation times.
 
 
 %By putting a distribution on all possible faces that can be added at each step of the Building game, a distribution on the space of pathways is implicitly defined. Thus, for a choice of this transition rule, we can ask questions about the likelihood of the different pathways. Analogously, if we allow the process to be reverseable, with a transition rule at each step assigning probabilities to both 
@@ -398,7 +397,7 @@ First, we show $Q$ and $\pi$ satisfy detailed balance.
                     &= \pi_kQ_{kj}
 \end{align}
 
-Since the combinatorial state space is connected and $Q_{jk}, Q_{kj} > 0$ for all connected intermediates $[x^j]$ and $[x^k]$, the process it trivially aperiodic and positive recurrent.
+Since the combinatorial state space is connected and $Q_{jk}, Q_{kj} > 0$ for all connected intermediates $[x^j]$ and $[x^k]$, the process it trivially aperiodic and positive recurrent. CITE
 \end{proof}
 
 
@@ -407,7 +406,7 @@ Since the combinatorial state space is connected and $Q_{jk}, Q_{kj} > 0$ for al
 The Markov process $X_t$ defined by the transition rate matrix  $Q$ in equation~\ref{eq:Qdef} admits the unique stationary distribution $\frac{1}{zr_j}e^{-\beta E_j}$ where $z \doteq \sum_\ell \frac{1}{r_\ell}e^{-\beta E_\ell}$ is the partition function. 
 \end{mythm}
 \begin{proof}
-We take $C_{jk} \doteq \frac{S_{jk}}{zr_j}e^{-\beta E_{jk}}$ and notice that it is symmetric by theorem~\ref{thm:J}. With $D_{jj} \doteq zr_je^{\beta E_j}$ we have our partition.  
+We take $C_{jk} \doteq \frac{S_{jk}}{zr_j}e^{-\beta E_{jk}}$ and notice that it is symmetric by theorem~\ref{thm:rSrS}. With $D_{jj} \doteq zr_je^{\beta E_j}$ we have our partition.  
 \begin{align}
 Q_{jk} &= S_{jk}e^{-\beta\left(E_{jk} - E_j\right)} \\
        &= \left(zr_je^{\beta E_j}\right) \left(\frac{S_{jk}}{zr_j}e^{-\beta E_{jk}}\right) \\
@@ -422,7 +421,7 @@ Thus, by theorem~\ref{thm:StatDist},  $\pi_j = \frac{1}{D_{jj}} = \frac{1}{zr_j}
 
 \subsection{Hitting Times}
 
-While the stationary distribution is an important piece in understanding the nature of our Markov process, other statistics which describe the dynamics are also useful. For instance, we may be interested in the expected time it will take the process to travel from an intermediate $[x^]$ to a specific subset $A$ of the combinatorial configuration space. Equation~\ref{eq:taudef} provides a mathematical definition for such a stopping time.
+While the stationary distribution is an important piece in understanding the nature of our Markov process, other statistics which describe the dynamics are also useful. For instance, we may be interested in the expected time it will take the process to travel from an intermediate $[x^j]$ to a specific subset $A$ of the combinatorial configuration space. Equation~\ref{eq:taudef} provides a mathematical definition for such a stopping time.
 \begin{align}
   \label{eq:taudef}
 	\tau^{A}_{j} &\doteq \inf\left\{t \geq 0 : X_t \in A, X_0 = x^j\right\}
@@ -448,7 +447,7 @@ Using first step analysis, we derive the expected hitting time $\tau_j^A$. Consi
         &=  \frac{1}{z_j} + E\left[\sum_{k}\tau^{A}_{Y_1}\mathbbm{1}_{Y_1 = k}\right] \\
         &=  \frac{1}{z_j} + \sum_{k: k\neq j}E\left[\tau^{A}_{k}\right] P\left(Y_1 = k\right) \\
         &=  \frac{1}{z_j}\left(1 + \sum_{k: k\neq j}Q_{jk}E\left[\tau^{A}_{k}\right]\right)     \\
-  -\sum_{k}Q_{jk}E\left[\tau^{A}_{k}\right] &= 1 \\
+  1 &=  -\sum_{k}Q_{jk}E\left[\tau^{A}_{k}\right]  \\
 \end{align}
 Now, clearly for $j \in A$ we trivially have a stopping time of zero:
 \begin{align}
@@ -468,9 +467,8 @@ Further, we can also compute the exact distribution of the stopping times $\tau^
 \begin{align}
 \psi_j^A\left(t\right) &\doteq P\left(\tau^A_j \leq t\right) \\
 \psi_j^A\left(0\right) &= \mathbbm{1}_{j\in A} \\
-\psi_j^A\left(t\right) &= 0 \forall j \in A \\                       
+\psi_j^A\left(t\right) &= 0\text{  }\forall j \in A                        
 \end{align}
-
 Thus, for the case of $j \not\in A$ we find
 \begin{align}
 \psi_j^A\left(t\right) &\doteq P\left(\tau^A_j \leq t\right) \\
@@ -483,17 +481,13 @@ e^{z_jt}\psi^A_j\left(t\right) &= \sum_{k: k \neq j} Q_{jk} \int^t_0 e^{z_jr}\ps
 e^{z_jt}\frac{d\psi^A_j}{dt} + z_j e^{z_j t} \psi^A_j\left(t\right) &= \sum_{k: k \neq j} q_{jk} e^{z_jt}\psi^A_k\left(t\right)  \\
 \frac{d\psi^A_j}{dt} &= \sum_{k} q_{jk} \psi^A_k\left(t\right).
 \end{align}
-
 Combining both cases, we get the linear system and solution.
-
 \begin{align}
         \frac{d\psi^A}{dt} &= \diag\left(\mathbbm{1}_{A^c}\right)Q\psi^A \\
         \psi^A\left(0\right) &= \mathbbm{1}_{A} \\
         \psi^A\left(t\right) &= e^{\diag\left(\mathbbm{1}_{A^c}\right)Qt} \mathbbm{1}_{A} \\ 
 \end{align}
-
 This is the solution for the CDF of the stopping time $\tau^A$, but we can also compute the PDF explicitly for $t > 0$.
-
 \begin{align}
         p\left(\tau^A = t\right) &= \frac{d\psi^A}{dt} \\
         &= \diag\left(\mathbbm{1}_{A^c}\right)Q\psi^A
