@@ -1,8 +1,8 @@
 \section{Constrained Dynamics}
 
-Sometimes we are interested in more than simply the number of degrees of freedom a particular configuration has. To explore the configuration space, find similarities between different configurations, analyze the geometric configuration space's topology, or compute other relevant statistics, it can be useful to compute dynamic processes on the constraint space. There are clear computational challenges to computing such dynamics due to the fact that geometric configuration space is often of much smaller dimension than the ambient space it sits in.
+Sometimes we are interested in more than simply the number of degrees of freedom a particular configuration has. To explore the configuration space, find similarities between different configurations, analyze the geometric configuration space's topology, or compute other relevant statistics, it can be useful to compute dynamic processes on the constraint space. There are clear computational challenges to computing such dynamics due to computational handling of constraints, the lack of an explicit parameterizations, and the fact that geometric configuration space is often of much smaller dimension than the ambient space it sits in.
 
-Constraint algorithms have been widely studied for use in molecular dynamic simulations: we use the SHAKE algorithm and application specific variants. The SHAKE algorithm is a two stage method in which the laws of motion are first used to evolve the system to an unconstrained configuration $\hat{z}_{n+1}$ based on the previous configuration $z_n$. In the second stage, Lagrange multipliers are used to correct $\hat{z}_{n+1}$ to a new configuration $y_{n+1}$ which satisfies the constraints. 
+Constraint algorithms have been widely studied for use in molecular dynamic simulations. Like many of the existing methods, we use a two stage scheme in which the unconstrained dynamics are first used to evolve the system to an intermediary configuration $\hat{z}_{n+1}$ based on the previous configuration $z_n$. In the second stage, Lagrange multipliers are used to correct $\hat{z}_{n+1}$ to a new configuration $z_{n+1}$ which satisfies the constraints. Previously, we used the SHAKE algorithm--which employs this two stage philosophy--to examine a constraint space used to model the configurations of cyclohexane CITE. 
 
 Assuming connectedness of the configuration space, constraint algorithms can be used to compute various statistics of the configuration space. For example, the $d$-dimensional volume of a $d$-dimensional configuration space can be used to measure how much mobility the intermediate has in its configuration space. Additionally, if we have soft constraints, such as preferred angles between faces, we can institute cost functions on the configuration space with configurations having more favorable angles having a lower cost. Whether physically or artificially motivated, such cost functions can be treated as potential energy functions which can imply specific dynamics. Under this set of dynamics, quantities such as the average or minimum energies may be of interest. 
 
@@ -184,11 +184,11 @@ We may also be interested in the behavior of a small part of the configuration a
 \section{Manifold Brownian Motion}
 \subsection{Computational Scheme}
 
-Suppose we have a $m$ dimensional manifold $\mathcal{M} \subset \mathbbm{R}^n$ defined implicitly by $\mathcal{M} \doteq \left\{x \in \mathbbm{R}^n : c\left(x\right) = 0\right\}$ for some function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$ with $c_1,\dots,c_{n-m}$ independent constraint functions. We seek to approximate a Brownian motion on $\mathcal{M}$ by constructing a random walk. This mis done in two stages; starting at a point $x \in \mathcal{M}$ we take a step of size $\sqrt{\Delta t}$ in a tangent direction $v$ and then we project the point $x +\sqrt{\Delta t} v$ back onto $\mathcal{M}$. 
+Suppose we have a $m$ dimensional manifold $\mathcal{M} \subset \mathbbm{R}^n$ defined implicitly by $\mathcal{M} \doteq \left\{x \in \mathbbm{R}^n : c\left(x\right) = 0\right\}$ for some function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$ with $c_1,\dots,c_{n-m}$ independent constraint functions. We seek to approximate a Brownian motion on $\mathcal{M}$ by constructing a random walk. As mentioned before, this is done in two stages; starting at a point $x \in \mathcal{M}$ we take a step of size $\sqrt{\Delta t}$ in a tangent direction $w$ and then we project the point $x +\sqrt{\Delta t} w$ back onto $\mathcal{M}$. 
 
-\subsection{Sampling in Tangent Space}  
+\subsubsection{Sampling in Tangent Space}  
 
-At each point $x \in \mathcal{M}$ the tangent space is $\mathcal{T}_x\mathcal{M} \doteq \left\{v \in \mathbbm{R}^n : C\left(x\right)v = 0\right\}$ where $C: \mathbbm{R}^n \to \mathbbm{R}^{(n-m)\times n}$ is the Jacobian of $c$. Thus, sampling from the tangent space reduces to sampling from the null space of $C(x)$. 
+At each point $z \in \mathcal{M}$ the tangent space is $\mathcal{T}_z\mathcal{M} \doteq \left\{w \in \mathbbm{R}^n : C\left(x\right)w = 0\right\}$ where $C: \mathbbm{R}^n \to \mathbbm{R}^{(n-m)\times n}$ is the Jacobian of $c$. Thus, sampling from the tangent space reduces to sampling from the null space of $C(z)$. 
 
 First we must construct a basis for $\mathcal{T}_z\mathcal{M}$. Let $A = [C^T B]$ be the concatenation of $C^T$ and a randomly drawn matrix $B \in \mathbbm{R}^{n\times m}$. We assume each entry of $B$ is independent with $B_{jk} \sim  \text{unif}(0,1)$. 
 \begin{mylem}
@@ -200,7 +200,7 @@ Since the constraints of $c$ are independent, $C$ is of full rank. Additionally,
 
 Now, we compute the QR decomposition 
 \begin{align}
-        A = \left[C^T B\right] = QR = \left[Q^{(1)} Q^{(2)}\right]
+        A = \left[C^T B\right] = QR = \left[Q^{(1)} Q^{(2)}\right] R
 \end{align}
 where $Q^{(1)} \in \mathbbm{R}^{(n-m)\times n}$ and $ Q^{(2)} \in \mathbbm{R}^{m\times n}$.
 \begin{mythm}
@@ -223,36 +223,36 @@ Here we use the vector space identities $X = (X^\perp)^\perp$ and $(\text{col} X
 \end{align}
  we must have that $\text{col}(Q^{(2)}) = N(C)$ and that the columns of $Q^{(2)}$ provide an orthonormal basis for $\mathcal{T}_z\mathcal{M}$.
 \end{proof}
-Now, with our orthonormal basis for $\mathcal{T}_z\mathcal{M}$, we can define any $v \in \mathcal{T}_z\mathcal{M}$ by a vector $\alpha \in\mathbbm{R}^m$ as follows.
-$$v = \sum_{i=1}^m \alpha_iQ^{(2)}_i = Q^{(2)}\alpha$$
-So, for any two $v,\tilde{v} \in \mathcal{T}_z\mathcal{M}$ we can define the metric $g$ as
+Now, with our orthonormal basis for $\mathcal{T}_z\mathcal{M}$, we can define any $w \in \mathcal{T}_z\mathcal{M}$ by a vector $\alpha \in\mathbbm{R}^m$ as follows.
+$$w = \sum_{i=1}^m \alpha_iQ^{(2)}_i = Q^{(2)}\alpha$$
+So, for any two $w,\tilde{w} \in \mathcal{T}_z\mathcal{M}$ we can define the metric $g$ as
 \begin{align}
-        g(v,\tilde{v}) &= g\left(\sum_{i=1}^m \alpha_iQ^{(2)}_i, \sum_{j=1}^m \tilde{\alpha}_jQ^{(2)}_j\right) \\
+        g(w,\tilde{w}) &= g\left(\sum_{i=1}^m \alpha_iQ^{(2)}_i, \sum_{j=1}^m \tilde{\alpha}_jQ^{(2)}_j\right) \\
         &= \sum_{i=1}^m\sum_{j=1}^m  \alpha_i \tilde{\alpha}_j g\left(Q^{(2)}_i, Q^{(2)}_j\right) \\
         &= \sum_{i=1}^m\sum_{j=1}^m  \alpha_i \tilde{\alpha}_j G_{ij} \\
         &= \alpha^T  G\tilde{\alpha}
 \end{align}
-Then, our goal is to sample uniformly from $\Omega_G = \left\{v = Q^{(2)}\alpha | \alpha^T G\alpha = 1\right\}$. Since this set corresponds to a level set of the Multivariate normal distribution with mean zero and covariance matrix $G^{-1}$, our sampling problem reduces to sampling $u \sim \mathcal{N}(0,G^{-1})$. Given $u$, $v \doteq \frac{u}{|u|}$ is sampled from $\Omega_G$ as desired.
+Then, our goal is to sample uniformly from $\Omega_G = \left\{w = Q^{(2)}\alpha | \alpha^T G\alpha = 1\right\}$. Since this set corresponds to a level set of the Multivariate normal distribution with mean zero and covariance matrix $G^{-1}$, our sampling problem reduces to sampling $u \sim \mathcal{N}(0,G^{-1})$. Given $u$, $w \doteq \frac{u}{|u|}$ is sampled from $\Omega_G$ as desired.We generally choose $G = I$, but this is not required. 
 
-\subsection{Projection onto $\mathcal{M}$}
-After making a step away from $x$ of size $\sqrt{\Delta t}$ in the direction $v \in N(C)$, our new point $x + \sqrt{\Delta t}v$ is not likely to be in $\mathcal{M}$. To return our point to $\mathcal{M}$, we make a projection step $w \in (N(C))^\perp$. Since $Q^{(1)}$ provides a basis for $(N(C))^\perp$, we can write any such step as 
-$$w = \sum_{i=1}^{n-m} \gamma_iQ^{(1)}_i = Q^{(1)}\gamma.$$
-with $\gamma \in \mathbbm{R}^{n-m}$. Thus, we want to identify a $\gamma$ such that $c(x + \sqrt{\Delta t} v + Q^{(1)}\gamma) = 0$. Since $c$ is nonlinear, we use Newton-Raphson iteration to solve for $\gamma$. By defining an objective function $F$ and its Jacobian $\mathcal{J}$ as
+\subsubsection{Projection onto $\mathcal{M}$}
+After making a step away from $x$ of size $\sqrt{\Delta t}$ in the direction $w \in N(C)$, our new point $x + \sqrt{\Delta t}w$ is not likely to be in $\mathcal{M}$. To return our point to $\mathcal{M}$, we make a projection step $w^\perp \in (N(C))^\perp$. Since $Q^{(1)}$ provides a basis for $(N(C))^\perp$, we can write any such step as 
+$$w^\perp = \sum_{i=1}^{n-m} \gamma_iQ^{(1)}_i = Q^{(1)}\gamma.$$
+with $\gamma \in \mathbbm{R}^{n-m}$. Thus, we want to identify a $\gamma$ such that $c(x + \sqrt{\Delta t} w + Q^{(1)}\gamma) = 0$. Since $c$ is nonlinear, we use Newton-Raphson iteration to solve for $\gamma$. By defining an objective function $F$ and its Jacobian $\mathcal{J}$ as
 \begin{align}
-        F(\gamma) &= c(x + \sqrt{\Delta t} v + Q^{(1)}\gamma) \\
+        F(\gamma) &= c(x + \sqrt{\Delta t} w + Q^{(1)}\gamma) \\
         \mathcal{J}_{jk}(\gamma) &= \frac{\partial F_j}{\partial \gamma_k}(\gamma) \\
-        &= \sum_{i=1}^{n-m} \frac{\partial c_j}{\partial x_i}(x + \sqrt{\Delta t} v + Q^{(1)}\gamma)Q^{(1)}_{ik} \\
-        \mathcal{J}(\gamma) &= C(x + \sqrt{\Delta t} v + Q^{(1)}\gamma)Q^{(1)}
+        &= \sum_{i=1}^{n-m} \frac{\partial c_j}{\partial x_i}(x + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)}_{ik} \\
+        \mathcal{J}(\gamma) &= C(x + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)}
 \end{align}
 we arrive at the iteration routine below. 
 \begin{align}
-        C(x + \sqrt{\Delta t} v + Q^{(1)}\gamma)Q^{(1)}\left(\gamma_{k+1} - \gamma_{k}\right) &= \mathcal{J}(\gamma_k)\left(\gamma_{k+1} - \gamma_{k}\right)\\
+        C(x + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)}\left(\gamma_{k+1} - \gamma_{k}\right) &= \mathcal{J}(\gamma_k)\left(\gamma_{k+1} - \gamma_{k}\right)\\
          &= -F(\gamma_k) \\
-         &= -c(x + \sqrt{\Delta t} v + Q^{(1)}\gamma)
+         &= -c(x + \sqrt{\Delta t} w + Q^{(1)}\gamma)
 \end{align}
 The iteration starts with $\gamma_0 = 0$.
 
-\subsection{Sampling Algorithm}
+\subsubsection{Sampling Algorithm}
 
 \begin{figure}[ht]
 \centering
@@ -262,13 +262,13 @@ The iteration starts with $\gamma_0 = 0$.
         \State $A \gets \left[C^T B\right]$
         \State $[Q^{(1)}, Q^{(2)}], R \gets$QRdecomposition$(A)$
         \State $\alpha \gets \mathcal{N}(0,G^{-1})$
-        \State $v \gets \frac{Q^{(2)}\alpha}{|Q^{(2)}\alpha|}$
+        \State $w \gets \frac{Q^{(2)}\alpha}{|Q^{(2)}\alpha|}$
         \State $\gamma \gets 0^{n-m}$
-        \While{$|c(x + \sqrt{\Delta t}v + Q^{(1)}\gamma)| > \epsilon$}
-                     \State $\Delta\gamma \gets (C(x + \sqrt{\Delta t} v + Q^{(1)}\gamma)Q^{(1)})^{-1}(-c(x + \sqrt{\Delta t} v + Q^{(1)}\gamma))$
+        \While{$|c(x + \sqrt{\Delta t}w + Q^{(1)}\gamma)| > \epsilon$}
+                     \State $\Delta\gamma \gets (C(x + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)})^{-1}(-c(x + \sqrt{\Delta t} w + Q^{(1)}\gamma))$
                      \State $\gamma \gets \gamma + \Delta\gamma$
         \EndWhile   
-        \State $x \gets x + \sqrt{\Delta t}v + Q^{(1)}\gamma$
+        \State $x \gets x + \sqrt{\Delta t}w + Q^{(1)}\gamma$
 \EndFor
 \end{algorithmic}
 \caption{Random Walk on $\mathcal{M}$}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  17 MAR 2015 16:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  18 MAR 2015 11:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1008,10 +1008,7 @@ Underfull \hbox (badness 10000) in alignment at lines 163--163
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [74]
-Underfull \vbox (badness 6412) has occurred while \output is active []
-
- [75]
-[76]
+[75] [76]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [77]
@@ -1040,12 +1037,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 13477 strings out of 493305
- 247445 string characters out of 6139898
+ 13469 strings out of 493305
+ 247322 string characters out of 6139898
  304556 words of memory out of 5000000
- 16578 multiletter control sequences out of 15000+600000
- 26366 words of font info for 116 fonts, out of 8000000 for 9000
+ 16570 multiletter control sequences out of 15000+600000
+ 24717 words of font info for 108 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,19n,69p,1112b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,69p,1112b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (101 pages, 214840 bytes).
+Output written on thesis.dvi (101 pages, 214368 bytes).
