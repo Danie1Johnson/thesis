@@ -300,7 +300,7 @@ The first apparent way of fixing the trivial degrees of freedom is to fix an ind
 \begin{figure}[ht]
 \label{fig:2TriFix}
 \centering
-\caption{Self Intersection Boundary}
+\caption{Two triangle linkage with one face fixed.}
 \end{figure}
 However, when we consider the three triangle linkagae, there are two choices we have; we can either fix on of the outside triangles or we can fix the interior face. As seen in figure~\ref{fig:3TriFixInt}, if we fix the interior triangle, the distribution we observe will be uniform. However, if we choose to fixe an exterior triangle, the dihedral angle between the fixed triangle and the interior triangle  will be uniformly sampled, but the other dihedral will not have a uniform distribution. Seen in figure~\ref{fig:3TriFixExt}, the distribution of this second dihedral angle appears to be the sum of trigonometric functions.
 \begin{figure}[ht]
@@ -312,34 +312,27 @@ However, when we consider the three triangle linkagae, there are two choices we 
 \end{figure}
 This poses a bit of a problem. If the choice of face to fix affects the resulting distribution, then we must have justification for selecting one face over another. Since a clear reasoning for this choice is not apparent--especially in the case of an arbitrary linkage--we look to other methods for fixing the trivial degrees of freedom that the system has. 
 
-As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translational degrees of freedom is to fix the center of mass of the configuration.
-
--- govinds method for fixing rotation
+As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translational degrees of freedom is to fix the center of mass of the configuration. This method does not have the issue of the fixed face approach, but it also does not address the rotational degrees of freedom. From figure~\ref{fig:2TriCoM}, however, we see that fixing the center of mass does not result in a uniform sampling of the dihedral angle in a two triangle linkage. Thus, we account for the rotational degrees of freedom separately.  
+\begin{figure}[ht]
+\label{fig:2TriCoM}
+\centering
+\caption{Sampling of two triangle linkage with fixed center of mass.}
+\end{figure}
+-- Govind's method for fixing rotation
 
 -- curvature of manifold makes for non-uniform sampling of dihedrals.
 
 \section{Manifold Reflected Brownian Motion}
---Not physical!
+In our sampling of building game geometric configurations, we see that many of the sampled configurations or Brownian motion paths do not make physical sense. For example, we do not prevent the triangles of the configuration from intersecting each other. Additionally, two faces atttached by a hinge may pass through each other as the dihedral angle passes through zero. We introduce implicit boundaries to turn the manifold Brownian motion into a manifold refleted Brownian motion. With these added boundaries, the process will be prevented from entering unphysical configurations, and represents a better sampling on configurations that coincide with the actual self-assembly processes we are attempting to model.
 
--- check for self intersection and dihedral switching before accepting proposal. 
 \subsection{Computational Scheme}
+
+To sample from a reflected Brownian motion on the manifold, we use a rejection scheme that first generates a proposal configuration according to the previous random walk scheme. Using our implicit boundary function that simply returns true if a proposed configuration is valid (not self-intersecting), and false otherwise, we accept or reject the proposed configuration. This process repeats until a proposal is accepted. 
 
 \begin{figure}[ht]
 \centering
 \begin{algorithmic}
-\For{$k=1,\dots,N$}
-        \State $B \gets \text{unif}(0,1)^{n\times m}$       
-        \State $A \gets \left[C^T B\right]$
-        \State $[Q^{(1)}, Q^{(2)}], R \gets$QRdecomposition$(A)$
-        \State $\alpha \gets \mathcal{N}(0,G^{-1})$
-        \State $w \gets \frac{Q^{(2)}\alpha}{|Q^{(2)}\alpha|}$
-        \State $\gamma \gets 0^{n-m}$
-        \While{$|c(z + \sqrt{\Delta t}w + Q^{(1)}\gamma)| > \epsilon$}
-                     \State $\Delta\gamma \gets (C(z + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)})^{-1}(-c(z + \sqrt{\Delta t} w + Q^{(1)}\gamma))$
-                     \State $\gamma \gets \gamma + \Delta\gamma$
-        \EndWhile   
-        \State $z \gets z + \sqrt{\Delta t}w + Q^{(1)}\gamma$
-\EndFor
+\State HII
 \end{algorithmic}
 \caption{Reflected Random Walk on $\mathcal{M}$}
 \end{figure}
