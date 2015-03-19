@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  19 MAR 2015 13:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  19 MAR 2015 15:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -827,21 +827,28 @@ File: ./images/cube_ccs.eps Graphic file (type eps)
  <./images/cube_ccs.eps> [21]
 File: ./images/cube_degen.eps Graphic file (type eps)
 
-<./images/cube_degen.eps> [22] [23] [24] [25] [26]
+<./images/cube_degen.eps> [22] [23]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]
+[26]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 451.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29]
+LaTeX Font Info:    Try loading font information for U+bbm on input line 507.
 
 (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30]
@@ -850,11 +857,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [31]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32])
-[33] [34
+ [32]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-]
+ [33])
+[34]
 Chapter 3.
 
 Underfull \hbox (badness 10000) in alignment at lines 155--155
@@ -862,6 +869,8 @@ Underfull \hbox (badness 10000) in alignment at lines 155--155
  []
 
 [35
+
+
 
 ] (./content/bg_enumeration.tex [36]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1071,12 +1080,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 13474 strings out of 493305
- 247396 string characters out of 6139898
+ 13471 strings out of 493305
+ 247362 string characters out of 6139898
  304556 words of memory out of 5000000
- 16575 multiletter control sequences out of 15000+600000
+ 16572 multiletter control sequences out of 15000+600000
  24717 words of font info for 108 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1112b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (105 pages, 222852 bytes).
+Output written on thesis.dvi (105 pages, 219808 bytes).
