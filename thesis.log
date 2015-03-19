@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  18 MAR 2015 11:50
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  19 MAR 2015 12:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1014,19 +1014,42 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [77]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [78])
-[79] [80]
+ [78]
+Underfull \vbox (badness 6493) has occurred while \output is active []
+
+ [79]
+
+Package caption Warning: \label without proper \caption on input line 301.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:2TriFix' on page 80 undefined on input line 299.
+
+
+Package caption Warning: \label without proper \caption on input line 307.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:3TriFixInt' on page 80 undefined on input line 30
+5.
+
+[80]
+Underfull \vbox (badness 1097) has occurred while \output is active []
+
+ [81])
+[82] [83] [84
+
+
+]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in alignment at lines 167--167
 []
  []
 
-[81
+[85
 
-
-
-] (./content/results.tex) [82] (./thesis.bbl) [83
+] (./content/results.tex) [86] (./thesis.bbl) [87
 
 
 
@@ -1035,14 +1058,17 @@ Underfull \hbox (badness 10000) in alignment at lines 167--167
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 4.0pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 13469 strings out of 493305
- 247322 string characters out of 6139898
+ 13473 strings out of 493305
+ 247383 string characters out of 6139898
  304556 words of memory out of 5000000
- 16570 multiletter control sequences out of 15000+600000
+ 16574 multiletter control sequences out of 15000+600000
  24717 words of font info for 108 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1112b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (101 pages, 214368 bytes).
+Output written on thesis.dvi (105 pages, 222184 bytes).

@@ -2,8 +2,10 @@
 
 Sometimes we are interested in more than simply the number of degrees of freedom a particular configuration has. To explore the configuration space, find similarities between different configurations, analyze the geometric configuration space's topology, or compute other relevant statistics, it can be useful to compute dynamic processes on the constraint space. There are clear computational challenges to computing such dynamics due to computational handling of constraints, the lack of an explicit parameterizations, and the fact that geometric configuration space is often of much smaller dimension than the ambient space it sits in.
 
-Constraint algorithms have been widely studied for use in molecular dynamic simulations. Like many of the existing methods, we use a two stage scheme in which the unconstrained dynamics are first used to evolve the system to an intermediary configuration $\hat{z}_{n+1}$ based on the previous configuration $z_n$. In the second stage, Lagrange multipliers are used to correct $\hat{z}_{n+1}$ to a new configuration $z_{n+1}$ which satisfies the constraints. Previously, we used the SHAKE algorithm--which employs this two stage philosophy--to examine a constraint space used to model the configurations of cyclohexane CITE. 
+Constraint algorithms have been widely studied for use in molecular dynamic simulations. Many  methods use a two stage scheme in which the unconstrained dynamics are first used to evolve the system to an intermediary configuration $\hat{z}_{n+1}$ based on the previous configuration $z_n$. In the second stage, Lagrange multipliers are used to correct $\hat{z}_{n+1}$ to a new configuration $z_{n+1}$ which satisfies the constraints. Previously, we used the SHAKE algorithm--which employs this two stage philosophy--to examine a constraint space used to model the configurations of cyclohexane CITE. 
 
+
+--Here get specific to our interests, BM using manifold metric
 Assuming connectedness of the configuration space, constraint algorithms can be used to compute various statistics of the configuration space. For example, the $d$-dimensional volume of a $d$-dimensional configuration space can be used to measure how much mobility the intermediate has in its configuration space. Additionally, if we have soft constraints, such as preferred angles between faces, we can institute cost functions on the configuration space with configurations having more favorable angles having a lower cost. Whether physically or artificially motivated, such cost functions can be treated as potential energy functions which can imply specific dynamics. Under this set of dynamics, quantities such as the average or minimum energies may be of interest. 
 
 We may also be interested in the behavior of a small part of the configuration as it undergoes constrained dynamics. For instance, suppose we are interested in the tendency for two edges on distinct faces to come together and form a new connection. By looking at the distance between these edges, we can measure how frequently this event happens and the probability that it will occur before another event of interest. This is similar to the exit time problem for diffusion and may provide a physically motivated evaluation tool for the appropriateness of our transition rules we adopt in our models. 
@@ -184,13 +186,13 @@ We may also be interested in the behavior of a small part of the configuration a
 \section{Manifold Brownian Motion}
 \subsection{Computational Scheme}
 
-Suppose we have a $m$ dimensional manifold $\mathcal{M} \subset \mathbbm{R}^n$ defined implicitly by $\mathcal{M} \doteq \left\{x \in \mathbbm{R}^n : c\left(x\right) = 0\right\}$ for some function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$ with $c_1,\dots,c_{n-m}$ independent constraint functions. We seek to approximate a Brownian motion on $\mathcal{M}$ by constructing a random walk. As mentioned before, this is done in two stages; starting at a point $x \in \mathcal{M}$ we take a step of size $\sqrt{\Delta t}$ in a tangent direction $w$ and then we project the point $x +\sqrt{\Delta t} w$ back onto $\mathcal{M}$. 
+Suppose we have a $m$ dimensional manifold $\mathcal{M} \subset \mathbbm{R}^n$ defined implicitly by $\mathcal{M} \doteq \left\{z \in \mathbbm{R}^n : c\left(z\right) = 0\right\}$ for some function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$ with $c_1,\dots,c_{n-m}$ independent constraint functions. We seek to approximate a Brownian motion on $\mathcal{M}$ by constructing a random walk. As mentioned before, this is done in two stages; starting at a point $z \in \mathcal{M}$ we take a step of size $\sqrt{\Delta t}$ in a tangent direction $w$ and then we project the point $z +\sqrt{\Delta t} w$ back onto $\mathcal{M}$. 
 
 \subsubsection{Sampling in Tangent Space}  
 
-At each point $z \in \mathcal{M}$ the tangent space is $\mathcal{T}_z\mathcal{M} \doteq \left\{w \in \mathbbm{R}^n : C\left(x\right)w = 0\right\}$ where $C: \mathbbm{R}^n \to \mathbbm{R}^{(n-m)\times n}$ is the Jacobian of $c$. Thus, sampling from the tangent space reduces to sampling from the null space of $C(z)$. 
+At each point $z \in \mathcal{M}$ the tangent space is $\mathcal{T}_z\mathcal{M} \doteq \left\{w \in \mathbbm{R}^n : C\left(z\right)w = 0\right\}$ where $C: \mathbbm{R}^n \to \mathbbm{R}^{(n-m)\times n}$ is the Jacobian of $c$. Thus, sampling from the tangent space reduces to sampling from the null space of $C(z)$. 
 
-First we must construct a basis for $\mathcal{T}_z\mathcal{M}$. Let $A = [C^T B]$ be the concatenation of $C^T$ and a randomly drawn matrix $B \in \mathbbm{R}^{n\times m}$. We assume each entry of $B$ is independent with $B_{jk} \sim  \text{unif}(0,1)$. 
+First we must construct a basis for $\mathcal{T}_z\mathcal{M}$. Let $A = [C^T(z) B]$ be the concatenation of $C^T(z)$ and a randomly drawn matrix $B \in \mathbbm{R}^{n\times m}$. We assume each entry of $B$ is independent with $B_{jk} \sim  \text{unif}(0,1)$. 
 \begin{mylem}
 The matrix $A$ is of full rank with probability 1. 
 \end{mylem}
@@ -225,32 +227,31 @@ Here we use the vector space identities $X = (X^\perp)^\perp$ and $(\text{col} X
 \end{proof}
 Now, with our orthonormal basis for $\mathcal{T}_z\mathcal{M}$, we can define any $w \in \mathcal{T}_z\mathcal{M}$ by a vector $\alpha \in\mathbbm{R}^m$ as follows.
 $$w = \sum_{i=1}^m \alpha_iQ^{(2)}_i = Q^{(2)}\alpha$$
-So, for any two $w,\tilde{w} \in \mathcal{T}_z\mathcal{M}$ we can define the metric $g$ as
+So, for any two $w,\tilde{w} \in \mathcal{T}_z\mathcal{M}$ we can define the manifold metric $g$ as
 \begin{align}
         g(w,\tilde{w}) &= g\left(\sum_{i=1}^m \alpha_iQ^{(2)}_i, \sum_{j=1}^m \tilde{\alpha}_jQ^{(2)}_j\right) \\
         &= \sum_{i=1}^m\sum_{j=1}^m  \alpha_i \tilde{\alpha}_j g\left(Q^{(2)}_i, Q^{(2)}_j\right) \\
         &= \sum_{i=1}^m\sum_{j=1}^m  \alpha_i \tilde{\alpha}_j G_{ij} \\
         &= \alpha^T  G\tilde{\alpha}
 \end{align}
-Then, our goal is to sample uniformly from $\Omega_G = \left\{w = Q^{(2)}\alpha | \alpha^T G\alpha = 1\right\}$. Since this set corresponds to a level set of the Multivariate normal distribution with mean zero and covariance matrix $G^{-1}$, our sampling problem reduces to sampling $u \sim \mathcal{N}(0,G^{-1})$. Given $u$, $w \doteq \frac{u}{|u|}$ is sampled from $\Omega_G$ as desired.We generally choose $G = I$, but this is not required. 
+Then, our goal is to sample uniformly from $\Omega_G = \left\{w = Q^{(2)}\alpha : \alpha^T G\alpha = 1\right\}$. Since this set corresponds to a level set of the Multivariate normal distribution with mean zero and covariance matrix $G^{-1}$, our sampling problem reduces to sampling $u \sim \mathcal{N}(0,G^{-1})$. Given $u$, $w \doteq \frac{u}{|u|}$ is sampled from $\Omega_G$ as desired. We generally choose $G = I$, but this is not required. 
 
 \subsubsection{Projection onto $\mathcal{M}$}
-After making a step away from $x$ of size $\sqrt{\Delta t}$ in the direction $w \in N(C)$, our new point $x + \sqrt{\Delta t}w$ is not likely to be in $\mathcal{M}$. To return our point to $\mathcal{M}$, we make a projection step $w^\perp \in (N(C))^\perp$. Since $Q^{(1)}$ provides a basis for $(N(C))^\perp$, we can write any such step as 
+After making a step away from $z$ of size $\sqrt{\Delta t}$ in the direction $w \in N(C)$, our new point $z + \sqrt{\Delta t}w$ is not likely to be in $\mathcal{M}$. To return our point to $\mathcal{M}$, we make a projection step $w^\perp \in (N(C))^\perp$. Since $Q^{(1)}$ provides a basis for $(N(C))^\perp$, we can write any such step as 
 $$w^\perp = \sum_{i=1}^{n-m} \gamma_iQ^{(1)}_i = Q^{(1)}\gamma.$$
-with $\gamma \in \mathbbm{R}^{n-m}$. Thus, we want to identify a $\gamma$ such that $c(x + \sqrt{\Delta t} w + Q^{(1)}\gamma) = 0$. Since $c$ is nonlinear, we use Newton-Raphson iteration to solve for $\gamma$. By defining an objective function $F$ and its Jacobian $\mathcal{J}$ as
+with $\gamma \in \mathbbm{R}^{n-m}$. Thus, we want to identify a $\gamma$ such that $c(z + \sqrt{\Delta t} w + Q^{(1)}\gamma) = 0$. Since $c$ is nonlinear, we use Newton-Raphson iteration to solve for $\gamma$. By defining an objective function $F$ and its Jacobian $\mathcal{J}$ as
 \begin{align}
-        F(\gamma) &= c(x + \sqrt{\Delta t} w + Q^{(1)}\gamma) \\
+        F(\gamma) &= c(z + \sqrt{\Delta t} w + Q^{(1)}\gamma) \\
         \mathcal{J}_{jk}(\gamma) &= \frac{\partial F_j}{\partial \gamma_k}(\gamma) \\
-        &= \sum_{i=1}^{n-m} \frac{\partial c_j}{\partial x_i}(x + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)}_{ik} \\
-        \mathcal{J}(\gamma) &= C(x + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)}
+        &= \sum_{i=1}^{n-m} \frac{\partial c_j}{\partial z_i}(z + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)}_{ik} \\
+        \mathcal{J}(\gamma) &= C(z + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)}
 \end{align}
-we arrive at the iteration routine below. 
+we arrive at the iteration routine below, which typically commences with the initial guess $\gamma_0 = 0$.
 \begin{align}
-        C(x + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)}\left(\gamma_{k+1} - \gamma_{k}\right) &= \mathcal{J}(\gamma_k)\left(\gamma_{k+1} - \gamma_{k}\right)\\
+        C(z + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)}\left(\gamma_{k+1} - \gamma_{k}\right) &= \mathcal{J}(\gamma_k)\left(\gamma_{k+1} - \gamma_{k}\right)\\
          &= -F(\gamma_k) \\
-         &= -c(x + \sqrt{\Delta t} w + Q^{(1)}\gamma)
+         &= -c(z + \sqrt{\Delta t} w + Q^{(1)}\gamma)
 \end{align}
-The iteration starts with $\gamma_0 = 0$.
 
 \subsubsection{Sampling Algorithm}
 
@@ -264,11 +265,11 @@ The iteration starts with $\gamma_0 = 0$.
         \State $\alpha \gets \mathcal{N}(0,G^{-1})$
         \State $w \gets \frac{Q^{(2)}\alpha}{|Q^{(2)}\alpha|}$
         \State $\gamma \gets 0^{n-m}$
-        \While{$|c(x + \sqrt{\Delta t}w + Q^{(1)}\gamma)| > \epsilon$}
-                     \State $\Delta\gamma \gets (C(x + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)})^{-1}(-c(x + \sqrt{\Delta t} w + Q^{(1)}\gamma))$
+        \While{$|c(z + \sqrt{\Delta t}w + Q^{(1)}\gamma)| > \epsilon$}
+                     \State $\Delta\gamma \gets (C(z + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)})^{-1}(-c(z + \sqrt{\Delta t} w + Q^{(1)}\gamma))$
                      \State $\gamma \gets \gamma + \Delta\gamma$
         \EndWhile   
-        \State $x \gets x + \sqrt{\Delta t}w + Q^{(1)}\gamma$
+        \State $z \gets z + \sqrt{\Delta t}w + Q^{(1)}\gamma$
 \EndFor
 \end{algorithmic}
 \caption{Random Walk on $\mathcal{M}$}
@@ -284,14 +285,83 @@ The iteration starts with $\gamma_0 = 0$.
 %\end{figure}
 
 \subsection{Validation and Test Cases}
+--SO(n) and ellipsoid examples.
+ 
+--Finite time statistics?
 \subsection{MBM on Geometric Configuration Spaces}
-\subsubsection{Fixing the Center of Mass}
-\subsubsection{Fixing Rotations}
+--two linkage case
+
+--three linkage case 
+
+\subsubsection{Fixing Trivial Degrees of Freedom}
+From the two and three triangle linkage examples, we see that the sampling scheme does not sample the dihedral angles of the configuration uniformly. This was unexpected, but possible explained by the choice to not explicitly mod out the trivial rotational and translational degrees of freedom. 
+
+The first apparent way of fixing the trivial degrees of freedom is to fix an individual face at a specific location. Without letting this face translate or rotate, we are also preventing these trivial degrees of freedom from entering the entire configuration. As seen in figure~\ref{fig:2TriFix}, fixing of one of the faces in a two triangle linkage will give the dihedral angle a uniform distribution as hoped. 
+\begin{figure}[ht]
+\label{fig:2TriFix}
+\centering
+\caption{Self Intersection Boundary}
+\end{figure}
+However, when we consider the three triangle linkagae, there are two choices we have; we can either fix on of the outside triangles or we can fix the interior face. As seen in figure~\ref{fig:3TriFixInt}, if we fix the interior triangle, the distribution we observe will be uniform. However, if we choose to fixe an exterior triangle, the dihedral angle between the fixed triangle and the interior triangle  will be uniformly sampled, but the other dihedral will not have a uniform distribution. Seen in figure~\ref{fig:3TriFixExt}, the distribution of this second dihedral angle appears to be the sum of trigonometric functions.
+\begin{figure}[ht]
+\label{fig:3TriFixInt}
+\centering
+\caption{Three triangle linkage with interior triangle fixed.}
+\label{fig:3TriFixExt}
+\caption{Three triangle linkage with exterior triangle fixed.}
+\end{figure}
+This poses a bit of a problem. If the choice of face to fix affects the resulting distribution, then we must have justification for selecting one face over another. Since a clear reasoning for this choice is not apparent--especially in the case of an arbitrary linkage--we look to other methods for fixing the trivial degrees of freedom that the system has. 
+
+As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translational degrees of freedom is to fix the center of mass of the configuration.
+
+-- govinds method for fixing rotation
+
+-- curvature of manifold makes for non-uniform sampling of dihedrals.
 
 \section{Manifold Reflected Brownian Motion}
+--Not physical!
+
+-- check for self intersection and dihedral switching before accepting proposal. 
 \subsection{Computational Scheme}
-\subsubsection{Triangle Intersection}
+
+\begin{figure}[ht]
+\centering
+\begin{algorithmic}
+\For{$k=1,\dots,N$}
+        \State $B \gets \text{unif}(0,1)^{n\times m}$       
+        \State $A \gets \left[C^T B\right]$
+        \State $[Q^{(1)}, Q^{(2)}], R \gets$QRdecomposition$(A)$
+        \State $\alpha \gets \mathcal{N}(0,G^{-1})$
+        \State $w \gets \frac{Q^{(2)}\alpha}{|Q^{(2)}\alpha|}$
+        \State $\gamma \gets 0^{n-m}$
+        \While{$|c(z + \sqrt{\Delta t}w + Q^{(1)}\gamma)| > \epsilon$}
+                     \State $\Delta\gamma \gets (C(z + \sqrt{\Delta t} w + Q^{(1)}\gamma)Q^{(1)})^{-1}(-c(z + \sqrt{\Delta t} w + Q^{(1)}\gamma))$
+                     \State $\gamma \gets \gamma + \Delta\gamma$
+        \EndWhile   
+        \State $z \gets z + \sqrt{\Delta t}w + Q^{(1)}\gamma$
+\EndFor
+\end{algorithmic}
+\caption{Reflected Random Walk on $\mathcal{M}$}
+\end{figure}
+
+\subsubsection{Self-Intersection Testing}
+-- Triangle intersection checking CITE
+
+\begin{figure}[ht]
+\centering
+\begin{algorithmic}
+\State HI
+\end{algorithmic}
+\caption{Self Intersection Boundary}
+\end{figure}
+
 \subsection{Validation and Test Cases}
+-- positive sphere/ellipsoid. others?
 \subsection{MRBM on Geometric Configuration Spaces}
+-- two triangle
+
+-- three triangle
 
 \section{Computational Implementation}
+
+As with our enumeration work, simulations were carried out on a desktop computer running 64-bit Ubuntu 14.04 LTS with 15.6 GiB memory and a quad-core 3.20GHz Intel processor. The module for simulating the manifold Brownian motion was implemented in Python and was able to sample at a rate of roughly $X,000,000$ samples per hour. This rate varies with use of a boundary and the dimension of the manifold and ambient spaces as well. 

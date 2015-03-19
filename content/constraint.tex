@@ -275,7 +275,7 @@ As stated previously, we have not observed this type of behavior from any buildi
 
 
 \subsection{Explicit Removal of Trivial Degrees of Freedom}
-
+\label{ssc:RemTrivDoF}
 Since we are often solely interested the internal degrees of freedom, there are a few was to augment the constraint equations to mod out the translation or rotations causing the trivial degrees of freedom. One possible choice is to pick a face and constrain its vertex locations to match a fixed template. The corresponding constraint equations for fixing the $j$th face would be
 \begin{align}
 c_{fix}^{j,k,d}\left(z\right) &= v^{j,k}_d - \hat{v}^{j,k}_d \\
