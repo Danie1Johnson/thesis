@@ -4,7 +4,7 @@ When treating the Building Game for a polyhedron as a stochastic process, we mus
 
 Attachment models like the Building Game have been the topic of much research in combinatorial mathematics. A well known example of this is the study of polyominoes. An $n$-omino is a configuration of $n$ attached squares in a $2$-dimensional lattice. As seen in figure~\ref{fig:Tetris}, the classic video game Tetris uses each of the seven rotationally unique tetrominoes ($n = 4$) as game pieces. The enumeration of $n$-ominoes has been extensively studied and there are many enumeration results, both explicit and asymptotic. As in our case, the general goal is to enumerate the polyominoes that are unique when acted on by some group (rotation, reflection, etc) or under certain constraints which are often topological.
 \begin{figure}[ht]
-  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+  \includegraphics[scale=0.25, angle=0]{images/tetris.eps}
 \caption{The seven tetrominoes used in Tetris.}
 \label{fig:Tetris}
 \end{figure}
@@ -57,23 +57,45 @@ Rhombic Triacontahedron         & 30  	& 2,423,212     & 26,823,095    & 161,598
 \label{tab:bgEnum}
 \end{figure}
 
---Scatter plot commentary.
+%--Scatter plot commentary.
 \begin{figure}[ht]
-  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+\centering
+  \includegraphics[scale=0.6, angle=0]{images/polys_face_int.eps}
 \caption{The relation between number of faces and intermediates in the Building Game combinatorial configuration space.}
 \label{fig:FacInt}
 \end{figure}
 
 \begin{figure}[ht]
-  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+\includegraphics[scale=0.6, angle=0]{images/polys_face_con.eps}
 \caption{The relation between number of faces and connections in the Building Game combinatorial configuration space.}
 \label{fig:FacCon}
 \end{figure}
 
 \begin{figure}[ht]
-  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+\includegraphics[scale=0.6, angle=0]{images/polys_face_path.eps}
 \caption{The relation between number of faces and paths in the Building Game combinatorial configuration space.}
 \label{fig:FacPath}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.6, angle=0]{images/polys_int_con.eps}
+\caption{The relation between number of intermediates and the number of connections in polyhedra.}
+\label{fig:IntCons}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.6, angle=0]{images/polys_int_path.eps}
+\caption{The relation between number of intermediates and the number of pathways in polyhedra.}
+\label{fig:IntPath}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.6, angle=0]{images/polys_con_path.eps}
+\caption{The relation between number of connections and the number of pathways in polyhedra.}
+\label{fig:ConPath}
 \end{figure}
 
 
@@ -166,19 +188,19 @@ Rhombic Triacontahedron         & 30	& 97,741	& 702,219 	& 7,057,239,571,753,327
 \end{figure}
 
 \begin{figure}[ht]
-  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+\includegraphics[scale=0.6, angle=0]{images/polys_face_shell_int.eps}
 \caption{The relation between number of faces and shellable intermediates in the Building Game combinatorial configuration space.}
 \label{fig:FacIntShell}
 \end{figure}
 
 \begin{figure}[ht]
-  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+\includegraphics[scale=0.6, angle=0]{images/polys_face_shell_con.eps}
 \caption{The relation between number of faces and shellable connections in the Building Game combinatorial configuration space.}
 \label{fig:FacConShell}
 \end{figure}
 
 \begin{figure}[ht]
-  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+\includegraphics[scale=0.6, angle=0]{images/polys_face_shell_path.eps}
 \caption{The relation between number of faces and shellable paths in the Building Game combinatorial configuration space.}
 \label{fig:FacPathShell}
 \end{figure}
@@ -245,6 +267,13 @@ Rhombic Triacontahedron         & 30	& 15,574,782,555,813,226,074,240 \\
 %}
 \caption{Number of Shellings for the Platonic, Archimedean, and Catalan solids of up to 30 faces.}
 \label{tab:Shellings}
+\end{figure}
+
+
+\begin{figure}[ht]
+\includegraphics[scale=0.6, angle=0]{images/polys_face_shellings.eps}
+\caption{The relation between number of faces and the number of shellings a polyhedron has.}
+\label{fig:FacPathShell}
 \end{figure}
 
 \subsection{Bounds and Asymptotics}
