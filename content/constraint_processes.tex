@@ -286,6 +286,18 @@ we arrive at the iteration routine below, which typically commences with the ini
 
 \subsection{Validation and Test Cases}
 
+An interesting test of our sampling scheme is unitary matrices. Since unitary matries are, complex matricies that satisfy $U^*U = UU^* = I$, we can use constraints to frame the space of unitary $N \times N$ matrices as an algebraic variety sitting in a $n = 2N^2$ dimensional ambient space. If we use the coordinates $U = A + iB$ for real, $N \times N$ matrices $A$ and $B$. We use the constraints given by the following. 
+\begin{align}
+I &= U^*U \\
+&= (A^T - iB^T)(A + iB) \\
+&= (A^TA + B^TB) + i(A^TB + B^TA) \\
+\mathbbm{1}_{j=k} &= A_j\cdot A_k + B_j\cdot B_k \\
+0 &= A_j\cdot B_k + A_k \cdot B_j 
+\end{align}
+Considering each $1 \leq j \leq N$ gives us $2*(N + \frac{1}{2}N(N-1)) = N + N^2$ independent polynomial constraint equations. 
+
+
+Using our random walk scheme to simulate a Brownian motion of the constraint space. Considering first the case of $N = 3$, the ambient space is $\mathbbm{R}^{18}$. The resulting constraint manifold has dimension $6$ with the codimension $12$ corresponding to the $12 = 3 + 3^2$ independent constraints imposed.  
 
 \begin{figure}[ht]
 \centering
@@ -293,14 +305,13 @@ we arrive at the iteration routine below, which typically commences with the ini
 \caption{Empirical distribution of $3\times 3$ Unitary matrices is uniform.}
 \label{fig:Uny3}
 \end{figure}
-
+Mezzadri outlines properties of random unitary matrices CITE. In particular, a uniform distribution according to the Haar measure corresponds to a uniform sampling of of the arguments $\theta$ of the matrices eigenvalues. Using our scheme, $3,000,000$ samples were drawn for both $N = 3$ and $N = 10$. Figures~\ref{fig:Uny3} and~\ref{fig:Uny10} show theeigenvalue distribution of our sampled matrices to be uniform.  
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6, angle=0]{images/unitary_10_hist.eps}
 \caption{Empirical distribution of $10\times 10$ Unitary matrices is uniform.}
 \label{fig:Uny10}
 \end{figure}
-
 
 %--ellipsoid examples.?
  

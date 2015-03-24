@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  22 MAR 2015 13:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  23 MAR 2015 16:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1115,58 +1115,61 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [82]
-File: images/unitary_3_hist.eps Graphic file (type eps)
-
-<images/unitary_3_hist.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 292--293
- [][] 
- []
-
-
 Underfull \vbox (badness 6493) has occurred while \output is active []
 
  [83]
-File: images/unitary_10_hist.eps Graphic file (type eps)
+File: images/unitary_3_hist.eps Graphic file (type eps)
 
+<images/unitary_3_hist.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 304--305
+ [][] 
+ []
+
+File: images/unitary_10_hist.eps Graphic file (type eps)
 <images/unitary_10_hist.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 299--300
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 311--312
  [][] 
  []
 
 
-Package caption Warning: \label without proper \caption on input line 317.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [84]
+
+Package caption Warning: \label without proper \caption on input line 328.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:2TriFix' on page 84 undefined on input line 315.
+LaTeX Warning: Reference `fig:2TriFix' on page 85 undefined on input line 326.
 
 
-Package caption Warning: \label without proper \caption on input line 323.
+Package caption Warning: \label without proper \caption on input line 334.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:3TriFixInt' on page 84 undefined on input line 32
-1.
-
-[84] [85]
-
-Package caption Warning: \label without proper \caption on input line 333.
-See the caption package documentation for explanation.
+LaTeX Warning: Reference `fig:3TriFixInt' on page 85 undefined on input line 33
+2.
 
 
-LaTeX Warning: Reference `fig:2TriCoM' on page 86 undefined on input line 331.
+Underfull \vbox (badness 1270) has occurred while \output is active []
 
+ [85]
 [86]
+
+Package caption Warning: \label without proper \caption on input line 344.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:2TriCoM' on page 87 undefined on input line 342.
+
+[87]
 File: images/rejection_finite.eps Graphic file (type eps)
  <images/rejection_finite.eps>
-Overfull \hbox (4.3294pt too wide) in paragraph at lines 372--373
+Overfull \hbox (4.3294pt too wide) in paragraph at lines 383--384
  [][] 
  []
 
-[87]) [88] [89] [90
-
-
-]
+[88]) [89] [90]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in alignment at lines 167--167
@@ -1174,6 +1177,8 @@ Underfull \hbox (badness 10000) in alignment at lines 167--167
  []
 
 [91
+
+
 
 ] (./content/results.tex) [92] (./thesis.bbl) [93
 
@@ -1200,4 +1205,4 @@ Here is how much of TeX's memory you used:
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1112b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (111 pages, 227668 bytes).
+Output written on thesis.dvi (111 pages, 229984 bytes).
