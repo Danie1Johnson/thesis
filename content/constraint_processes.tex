@@ -316,36 +316,76 @@ Mezzadri outlines properties of random unitary matrices CITE. In particular, a u
 %--ellipsoid examples.?
  
 \subsection{MBM on Geometric Configuration Spaces}
---two linkage case
 
---three linkage case 
+\begin{figure}[ht]
+\label{fig:2TriFix}
+\centering
+  \includegraphics[scale=0.6]{images/T2_1.eps}
+\caption{Two triangle linkage.}
+\end{figure}
+
+\begin{figure}[ht]
+\label{fig:2TriFix}
+\centering
+  \includegraphics[scale=0.6]{images/T3_1_2D.eps}
+\caption{Three triangle linkage.}
+\end{figure}
+
 
 \subsubsection{Fixing Trivial Degrees of Freedom}
 From the two and three triangle linkage examples, we see that the sampling scheme does not sample the dihedral angles of the configuration uniformly. This was unexpected, but possible explained by the choice to not explicitly mod out the trivial rotational and translational degrees of freedom. 
 
 The first apparent way of fixing the trivial degrees of freedom is to fix an individual face at a specific location. Without letting this face translate or rotate, we are also preventing these trivial degrees of freedom from entering the entire configuration. As seen in figure~\ref{fig:2TriFix}, fixing of one of the faces in a two triangle linkage will give the dihedral angle a uniform distribution as hoped. 
 \begin{figure}[ht]
-\label{fig:2TriFix}
+\label{fig:T2_3}
 \centering
+  \includegraphics[scale=0.6]{images/T2_3.eps}
 \caption{Two triangle linkage with one face fixed.}
 \end{figure}
 However, when we consider the three triangle linkagae, there are two choices we have; we can either fix on of the outside triangles or we can fix the interior face. As seen in figure~\ref{fig:3TriFixInt}, if we fix the interior triangle, the distribution we observe will be uniform. However, if we choose to fixe an exterior triangle, the dihedral angle between the fixed triangle and the interior triangle  will be uniformly sampled, but the other dihedral will not have a uniform distribution. Seen in figure~\ref{fig:3TriFixExt}, the distribution of this second dihedral angle appears to be the sum of trigonometric functions.
 \begin{figure}[ht]
 \label{fig:3TriFixInt}
 \centering
+  \includegraphics[scale=0.6]{images/T3_3_2D.eps}
 \caption{Three triangle linkage with interior triangle fixed.}
 \label{fig:3TriFixExt}
+  \includegraphics[scale=0.6]{images/T3_4_2D.eps}
 \caption{Three triangle linkage with exterior triangle fixed.}
 \end{figure}
 This poses a bit of a problem. If the choice of face to fix affects the resulting distribution, then we must have justification for selecting one face over another. Since a clear reasoning for this choice is not apparent--especially in the case of an arbitrary linkage--we look to other methods for fixing the trivial degrees of freedom that the system has. 
 
 As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translational degrees of freedom is to fix the center of mass of the configuration. This method does not have the issue of the fixed face approach, but it also does not address the rotational degrees of freedom. From figure~\ref{fig:2TriCoM}, however, we see that fixing the center of mass does not result in a uniform sampling of the dihedral angle in a two triangle linkage. Thus, we account for the rotational degrees of freedom separately.  
 \begin{figure}[ht]
-\label{fig:2TriCoM}
+\label{fig:T2_4}
 \centering
+  \includegraphics[scale=0.6]{images/T2_4.eps}
 \caption{Sampling of two triangle linkage with fixed center of mass.}
 \end{figure}
+
+\begin{figure}[ht]
+\label{fig:T3_5}
+\centering
+  \includegraphics[scale=0.6]{images/T3_5_2D.eps}
+\caption{Sampling of three triangle linkage with fixed center of mass.}
+\end{figure}
+
+\begin{figure}[ht]
+\label{fig:T2_5}
+\centering
+  \includegraphics[scale=0.6]{images/T2_5.eps}
+\caption{Sampling of two triangle linkage with fixed center of mass and rotations.}
+\end{figure}
+
+\begin{figure}[ht]
+\label{fig:T3_6}
+\centering
+  \includegraphics[scale=0.6]{images/T3_6_2D.eps}
+\caption{Sampling of three triangle linkage with fixed center of mass and rotations.}
+\end{figure}
+
 -- Govind's method for fixing rotation
+
+
 
 -- curvature of manifold makes for non-uniform sampling of dihedrals.
 
@@ -376,7 +416,7 @@ To sample from a reflected Brownian motion on the manifold, we use a rejection s
 \end{figure}
 
 \subsection{Validation and Test Cases}
--- positive sphere/ellipsoid. others?
+%-- positive sphere/ellipsoid. others?
 
 \begin{figure}[ht]
 \centering
@@ -385,11 +425,36 @@ To sample from a reflected Brownian motion on the manifold, we use a rejection s
 \label{fig:Uny3}
 \end{figure}
 
---Finite time statistics?
+%--Finite time statistics?
 \subsection{MRBM on Geometric Configuration Spaces}
--- two triangle
 
--- three triangle
+\begin{figure}[ht]
+\label{fig:T2_2}
+\centering
+  \includegraphics[scale=0.6]{images/T2_2.eps}
+\caption{Sampling of two triangle linkage with boundaries.}
+\end{figure}
+
+\begin{figure}[ht]
+\label{fig:T3_2}
+\centering
+  \includegraphics[scale=0.6]{images/T3_2_2D.eps}
+\caption{Sampling of three triangle linkage with boundaries.}
+\end{figure}
+
+\begin{figure}[ht]
+\label{fig:T2_6}
+\centering
+  \includegraphics[scale=0.6]{images/T2_6.eps}
+\caption{Sampling of two triangle linkage with boundaries and fixed center of mass and rotations.}
+\end{figure}
+
+\begin{figure}[ht]
+\label{fig:T3_7}
+\centering
+  \includegraphics[scale=0.6]{images/T3_7_2D.eps}
+\caption{Sampling of three triangle linkage with boundaries and fixed center of mass and rotations.}
+\end{figure}
 
 \section{Computational Implementation}
 

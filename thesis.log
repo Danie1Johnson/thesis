@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  23 MAR 2015 16:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  29 MAR 2015 18:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -619,6 +619,9 @@ Package tocloft Info: The document has chapter divisions on input line 44.
 LaTeX Warning: Label `fig:FacPathShell' multiply defined.
 
 
+LaTeX Warning: Label `fig:2TriFix' multiply defined.
+
+
 LaTeX Warning: Label `fig:Uny3' multiply defined.
 
 )
@@ -753,7 +756,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [15
 
 ]
-Overfull \hbox (7.0935pt too wide) in paragraph at lines 49--49
+Overfull \hbox (7.0935pt too wide) in paragraph at lines 54--54
  \OT1/cmr/m/n/12 in hy-per-cubes of in-creas-ing di-men-sion ac-cross dif-fer-e
 nt choices of timestep. []  
  []
@@ -1131,56 +1134,136 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 311--312
  [][] 
  []
 
+File: images/T2_1.eps Graphic file (type eps)
+<images/T2_1.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 323--324
+ [][] 
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [84]
+File: images/T3_1_2D.eps Graphic file (type eps)
+
+<images/T3_1_2D.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 330--331
+ [][] 
+ []
+
 
 Package caption Warning: \label without proper \caption on input line 328.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:2TriFix' on page 85 undefined on input line 326.
+LaTeX Warning: Reference `fig:2TriFix' on page 85 undefined on input line 338.
 
-
-Package caption Warning: \label without proper \caption on input line 334.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:3TriFixInt' on page 85 undefined on input line 33
-2.
-
-
-Underfull \vbox (badness 1270) has occurred while \output is active []
-
- [85]
-[86]
-
-Package caption Warning: \label without proper \caption on input line 344.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:2TriCoM' on page 87 undefined on input line 342.
-
-[87]
-File: images/rejection_finite.eps Graphic file (type eps)
- <images/rejection_finite.eps>
-Overfull \hbox (4.3294pt too wide) in paragraph at lines 383--384
+File: images/T2_3.eps Graphic file (type eps)
+<images/T2_3.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 342--343
  [][] 
  []
 
-[88]) [89] [90]
+
+Package caption Warning: \label without proper \caption on input line 347.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:3TriFixInt' on page 85 undefined on input line 34
+5.
+
+File: images/T3_3_2D.eps Graphic file (type eps)
+<images/T3_3_2D.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 349--350
+ [][] 
+ []
+
+File: images/T3_4_2D.eps Graphic file (type eps)
+<images/T3_4_2D.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 352--353
+ [][] 
+ []
+
+[85]
+
+LaTeX Warning: Reference `fig:2TriCoM' on page 86 undefined on input line 357.
+
+File: images/T2_4.eps Graphic file (type eps)
+<images/T2_4.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 361--362
+ [][] 
+ []
+
+
+Underfull \vbox (badness 2980) has occurred while \output is active []
+
+ [86]
+File: images/T3_5_2D.eps Graphic file (type eps)
+
+<images/T3_5_2D.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 368--369
+ [][] 
+ []
+
+File: images/T2_5.eps Graphic file (type eps)
+<images/T2_5.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 375--376
+ [][] 
+ []
+
+File: images/T3_6_2D.eps Graphic file (type eps)
+<images/T3_6_2D.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 382--383
+ [][] 
+ []
+
+[87]
+Underfull \vbox (badness 4779) has occurred while \output is active []
+
+ [88]
+File: images/rejection_finite.eps Graphic file (type eps)
+
+<images/rejection_finite.eps>
+Overfull \hbox (4.3294pt too wide) in paragraph at lines 423--424
+ [][] 
+ []
+
+File: images/T2_2.eps Graphic file (type eps)
+<images/T2_2.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 434--435
+ [][] 
+ []
+
+File: images/T3_2_2D.eps Graphic file (type eps)
+<images/T3_2_2D.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 441--442
+ [][] 
+ []
+
+File: images/T2_6.eps Graphic file (type eps)
+<images/T2_6.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 448--449
+ [][] 
+ []
+
+File: images/T3_7_2D.eps Graphic file (type eps)
+<images/T3_7_2D.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 455--456
+ [][] 
+ []
+
+) [89] [90] [91] [92] [93] [94] [95] [96]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in alignment at lines 167--167
 []
  []
 
-[91
+[97
 
 
 
-] (./content/results.tex) [92] (./thesis.bbl) [93
+] (./content/results.tex) [98] (./thesis.bbl) [99
 
 
 
@@ -1197,12 +1280,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13505 strings out of 493305
- 248071 string characters out of 6139898
+ 13540 strings out of 493305
+ 248502 string characters out of 6139898
  309556 words of memory out of 5000000
- 16591 multiletter control sequences out of 15000+600000
+ 16613 multiletter control sequences out of 15000+600000
  24717 words of font info for 108 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1112b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (111 pages, 229984 bytes).
+Output written on thesis.dvi (117 pages, 236552 bytes).
