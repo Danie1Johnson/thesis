@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  29 MAR 2015 18:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  30 MAR 2015 13:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1263,9 +1263,47 @@ Underfull \hbox (badness 10000) in alignment at lines 167--167
 
 
 
-] (./content/results.tex) [98] (./thesis.bbl) [99
+] (./content/results.tex
+File: images/octahedron_ccs.eps Graphic file (type eps)
+ <images/octahedron_ccs.eps>
+Overfull \hbox (91.0653pt too wide) in paragraph at lines 16--17
+ [][] 
+ []
+
+File: images/octahedron_pi.eps Graphic file (type eps)
+<images/octahedron_pi.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 23--24
+ [][] 
+ []
+
+File: images/octahedron_log_pi.eps Graphic file (type eps)
+<images/octahedron_log_pi.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 30--31
+ [][] 
+ []
+
+File: images/octahedron_finite_dist.eps Graphic file (type eps)
+<images/octahedron_finite_dist.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 37--38
+ [][] 
+ []
+
+File: images/octahedron_pi_Q_grid.eps Graphic file (type eps)
+<images/octahedron_pi_Q_grid.eps>
+Overfull \hbox (47.70067pt too wide) in paragraph at lines 44--45
+ [][] 
+ []
+
+File: images/octahedron_tau.eps Graphic file (type eps)
+<images/octahedron_tau.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 51--52
+ [][] 
+ []
+
+) [98] [99] [100] [101] [102
 
 
+] (./thesis.bbl) [103
 
 ] (./thesis.aux)
 
@@ -1280,12 +1318,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13540 strings out of 493305
- 248502 string characters out of 6139898
- 309556 words of memory out of 5000000
- 16613 multiletter control sequences out of 15000+600000
+ 13558 strings out of 493305
+ 248878 string characters out of 6139898
+ 308780 words of memory out of 5000000
+ 16625 multiletter control sequences out of 15000+600000
  24717 words of font info for 108 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1112b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (117 pages, 236552 bytes).
+Output written on thesis.dvi (121 pages, 240616 bytes).
