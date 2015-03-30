@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  30 MAR 2015 13:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  30 MAR 2015 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1111,7 +1111,10 @@ Underfull \hbox (badness 10000) in alignment at lines 163--163
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [78]
-[79] [80]
+Underfull \vbox (badness 4266) has occurred while \output is active []
+
+ [79]
+[80]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [81]
@@ -1124,19 +1127,19 @@ Underfull \vbox (badness 6493) has occurred while \output is active []
 File: images/unitary_3_hist.eps Graphic file (type eps)
 
 <images/unitary_3_hist.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 304--305
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 307--308
  [][] 
  []
 
 File: images/unitary_10_hist.eps Graphic file (type eps)
 <images/unitary_10_hist.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 311--312
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 314--315
  [][] 
  []
 
 File: images/T2_1.eps Graphic file (type eps)
 <images/T2_1.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 323--324
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 326--327
  [][] 
  []
 
@@ -1147,50 +1150,50 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images/T3_1_2D.eps Graphic file (type eps)
 
 <images/T3_1_2D.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 330--331
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 333--334
  [][] 
  []
 
 
-Package caption Warning: \label without proper \caption on input line 328.
+Package caption Warning: \label without proper \caption on input line 331.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:2TriFix' on page 85 undefined on input line 338.
+LaTeX Warning: Reference `fig:2TriFix' on page 85 undefined on input line 341.
 
 File: images/T2_3.eps Graphic file (type eps)
 <images/T2_3.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 342--343
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 345--346
  [][] 
  []
 
 
-Package caption Warning: \label without proper \caption on input line 347.
+Package caption Warning: \label without proper \caption on input line 350.
 See the caption package documentation for explanation.
 
 
 LaTeX Warning: Reference `fig:3TriFixInt' on page 85 undefined on input line 34
-5.
+8.
 
 File: images/T3_3_2D.eps Graphic file (type eps)
 <images/T3_3_2D.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 349--350
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 352--353
  [][] 
  []
 
 File: images/T3_4_2D.eps Graphic file (type eps)
 <images/T3_4_2D.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 352--353
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 355--356
  [][] 
  []
 
 [85]
 
-LaTeX Warning: Reference `fig:2TriCoM' on page 86 undefined on input line 357.
+LaTeX Warning: Reference `fig:2TriCoM' on page 86 undefined on input line 360.
 
 File: images/T2_4.eps Graphic file (type eps)
 <images/T2_4.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 361--362
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 364--365
  [][] 
  []
 
@@ -1201,19 +1204,19 @@ Underfull \vbox (badness 2980) has occurred while \output is active []
 File: images/T3_5_2D.eps Graphic file (type eps)
 
 <images/T3_5_2D.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 368--369
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 371--372
  [][] 
  []
 
 File: images/T2_5.eps Graphic file (type eps)
 <images/T2_5.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 375--376
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 378--379
  [][] 
  []
 
 File: images/T3_6_2D.eps Graphic file (type eps)
 <images/T3_6_2D.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 382--383
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 385--386
  [][] 
  []
 
@@ -1224,31 +1227,31 @@ Underfull \vbox (badness 4779) has occurred while \output is active []
 File: images/rejection_finite.eps Graphic file (type eps)
 
 <images/rejection_finite.eps>
-Overfull \hbox (4.3294pt too wide) in paragraph at lines 423--424
+Overfull \hbox (4.3294pt too wide) in paragraph at lines 426--427
  [][] 
  []
 
 File: images/T2_2.eps Graphic file (type eps)
 <images/T2_2.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 434--435
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 437--438
  [][] 
  []
 
 File: images/T3_2_2D.eps Graphic file (type eps)
 <images/T3_2_2D.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 441--442
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 444--445
  [][] 
  []
 
 File: images/T2_6.eps Graphic file (type eps)
 <images/T2_6.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 448--449
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 451--452
  [][] 
  []
 
 File: images/T3_7_2D.eps Graphic file (type eps)
 <images/T3_7_2D.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 455--456
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 458--459
  [][] 
  []
 
@@ -1320,10 +1323,10 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  13558 strings out of 493305
  248878 string characters out of 6139898
- 308780 words of memory out of 5000000
+ 309780 words of memory out of 5000000
  16625 multiletter control sequences out of 15000+600000
  24717 words of font info for 108 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1112b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (121 pages, 240616 bytes).
+Output written on thesis.dvi (121 pages, 240308 bytes).

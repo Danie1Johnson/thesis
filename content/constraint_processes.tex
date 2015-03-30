@@ -4,15 +4,14 @@ Sometimes we are interested in more than simply the number of degrees of freedom
 
 Constraint algorithms have been widely studied for use in molecular dynamic simulations. Many  methods use a two stage scheme in which the unconstrained dynamics are first used to evolve the system to an intermediary configuration $\hat{z}_{n+1}$ based on the previous configuration $z_n$. In the second stage, Lagrange multipliers are used to correct $\hat{z}_{n+1}$ to a new configuration $z_{n+1}$ which satisfies the constraints. Previously, we used the SHAKE algorithm--which employs this two stage philosophy--to examine a constraint space used to model the configurations of cyclohexane CITE. 
 
-
---Here get specific to our interests, BM using manifold metric
 Assuming connectedness of the configuration space, constraint algorithms can be used to compute various statistics of the configuration space. For example, the $d$-dimensional volume of a $d$-dimensional configuration space can be used to measure how much mobility the intermediate has in its configuration space. Additionally, if we have soft constraints, such as preferred angles between faces, we can institute cost functions on the configuration space with configurations having more favorable angles having a lower cost. Whether physically or artificially motivated, such cost functions can be treated as potential energy functions which can imply specific dynamics. Under this set of dynamics, quantities such as the average or minimum energies may be of interest. 
 
 We may also be interested in the behavior of a small part of the configuration as it undergoes constrained dynamics. For instance, suppose we are interested in the tendency for two edges on distinct faces to come together and form a new connection. By looking at the distance between these edges, we can measure how frequently this event happens and the probability that it will occur before another event of interest. This is similar to the exit time problem for diffusion and may provide a physically motivated evaluation tool for the appropriateness of our transition rules we adopt in our models. 
 
-\subsection{Cyclohexane Application}
 
-??include??
+%\subsection{Cyclohexane Application}
+
+%??include??
 
 %\label{introduction}
 %Cyclohexane is a molecule composed of six carbon atoms and twelve hydrogen atoms. The carbon atoms are connected in a ring with two hydrogen atoms attaching to each carbon. Since each carbon has four bonds, the energetically preferred bond spacing is at tetrahedral angles. While this preference dictates much of the cyclohexane structure, there are several structurally distinct conformations the molecule can take. 
@@ -184,6 +183,10 @@ We may also be interested in the behavior of a small part of the configuration a
 %	\label{fig:cyclofold}
 %\end{figure}
 \section{Manifold Brownian Motion}
+--BM on mannifold
+--use manifold metric
+--random walk scheme to explore space
+
 \subsection{Computational Scheme}
 
 Suppose we have a $m$ dimensional manifold $\mathcal{M} \subset \mathbbm{R}^n$ defined implicitly by $\mathcal{M} \doteq \left\{z \in \mathbbm{R}^n : c\left(z\right) = 0\right\}$ for some function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$ with $c_1,\dots,c_{n-m}$ independent constraint functions. We seek to approximate a Brownian motion on $\mathcal{M}$ by constructing a random walk. As mentioned before, this is done in two stages; starting at a point $z \in \mathcal{M}$ we take a step of size $\sqrt{\Delta t}$ in a tangent direction $w$ and then we project the point $z +\sqrt{\Delta t} w$ back onto $\mathcal{M}$. 
