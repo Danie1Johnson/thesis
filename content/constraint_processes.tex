@@ -275,6 +275,7 @@ we arrive at the iteration routine below, which typically commences with the ini
 \EndFor
 \end{algorithmic}
 \caption{Random Walk on $\mathcal{M}$}
+\label{alg:MBMRW}
 \end{figure}
 
 
@@ -318,7 +319,7 @@ Mezzadri outlines properties of random unitary matrices CITE. In particular, a u
 %--ellipsoid examples.?
  
 \subsection{MBM on Geometric Configuration Spaces}
-
+\label{ssc:MBMGCS}
 As an initial test case of our Manifold Brownian Motion scheme on building game geometric configuration spaces, we first consider two simple triangle linkages. The first has two triangles linked together along a hinged edge. As seen in figure~\ref{fig:T2_diagram}, the linkage can be specified by the $3$-dimensional locations of four vertices, giving an ambient space of $\mathbbm{R}^3$. In addition to the six trivial degrees of freedom, this configuration also carries an internal degree of freedom corresponding to the dihedral angle formed at the hinged edge. 
 \begin{figure}[ht]
 \centering
@@ -372,7 +373,7 @@ However, when we consider the three triangle linkagae, there are two choices we 
 \end{figure}
 This poses a bit of a problem. If the choice of face to fix affects the resulting distribution, then we must have justification for selecting one face over another. Since a clear reasoning for this choice is not apparent--especially in the case of an arbitrary linkage--we look to other methods for fixing the trivial degrees of freedom that the system has. 
 
-As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translational degrees of freedom is to fix the center of mass of the configuration. This method does not have the issue of the fixed face approach, but it also does not address the rotational degrees of freedom. From figure~\ref{fig:2TriCoM}, however, we see that fixing the center of mass does not result in a uniform sampling of the dihedral angle in a two triangle linkage. Thus, we account for the rotational degrees of freedom separately.  
+As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translational degrees of freedom is to fix the center of mass of the configuration. This method does not have the issue of the fixed face approach, but it also does not address the rotational degrees of freedom. From figure~\ref{fig:T2_4}, however, we see that fixing the center of mass does not result in a uniform sampling of the dihedral angle in a two triangle linkage. Thus, we account for the rotational degrees of freedom separately.  
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T2_4.eps}
@@ -386,6 +387,15 @@ As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translationa
 \caption{Sampling of three triangle linkage with fixed center of mass.}
 \label{fig:T3_5}
 \end{figure}
+
+
+
+
+
+
+
+
+
 
 \begin{figure}[ht]
 \centering
@@ -417,35 +427,39 @@ To sample from a reflected Brownian motion on the manifold, we use a rejection s
 \begin{figure}[ht]
 \centering
 \begin{algorithmic}
-\State HII
+\Do 
+\State $\hat{z} \gets$ proposal configuration using algorithm~\ref{alg:MBMRW}.
+\doWhile{$\hat{z}$ is self-intersecting}
+\State $z \gets \hat{z}$
 \end{algorithmic}
 \caption{Reflected Random Walk on $\mathcal{M}$}
 \end{figure}
 
 \subsubsection{Self-Intersection Testing}
--- Triangle intersection checking CITE
 
-\begin{figure}[ht]
-\centering
-\begin{algorithmic}
-\State HI
-\end{algorithmic}
-\caption{Self Intersection Boundary}
-\end{figure}
+In order to compute our implicit self-intersection function at each step, we must ensure that no two triangles intersect. Thus, for an intermediate $[x]$, each function call requires that $\frac{1}{2}|x|(|x| - 1)$ pairs of trinalge be tested for intersection. For the scheme to remain computationally feasible, it is imperitive that these comparisons are carried out as efficiently as possible. We use an algorithm presented by M\"oller, which has been shown to be effective ~\cite{Möller97afast}.
+
+%\begin{figure}[ht]
+%\centering
+%\begin{algorithmic}
+%\State HI
+%\end{algorithmic}
+%\caption{Self Intersection Boundary}
+%\end{figure} 
 
 \subsection{Validation and Test Cases}
-%-- positive sphere/ellipsoid. others?
 
+One way to test whether our rejection scheme has the properties that coincide with a reflected Brownian motion is to look at its distribution after a finite amound of time rather than only looking at long time statistics. In figure~\ref{fig:HCFin} we consider the case of a $d$-dimensional hypercube for $d = 2, 3, 4, 5$  and compare the distribution after a finite simulation time with the exact solution. 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.4, angle=0]{images/rejection_finite.eps}
 \caption{Finite time distribution of first dimension of rejection sampled points in hypercubes of increasing dimension accross different choices of timestep.}
-\label{fig:Uny3}
+\label{fig:HCFin}
 \end{figure}
+The results match almost perfectly with the biggest errors occuring at the boundaries. This is to be expected since the rejection method is biases the sampling slightly to points away from the boundary. 
 
-%--Finite time statistics?
 \subsection{MRBM on Geometric Configuration Spaces}
-
+Now, we again consider the two and three triangle linkage examples from section~\ref{ssc:MBMGCS}. Figure~\ref{fig:T2_2} depicts the same conditions (no fixed trivial degrees of freedom) as figure~\ref{fig:T2_1} previously, but with the addition of boundaries that prevent the two triangles from rotating through each other. The agreement in the two histogrms is strong with the greatest differences being at the boundary as expected. 
 \begin{figure}[ht]
 \label{fig:T2_2}
 \centering
@@ -453,6 +467,7 @@ To sample from a reflected Brownian motion on the manifold, we use a rejection s
 \caption{Sampling of two triangle linkage with boundaries.}
 \end{figure}
 
+Similarly, we consider the three triangle linkage with no fixed degrees of freedom and impose boundaries. This test is less trivial than the two triangle linkage since the exterior triangles of the linkage may interact more easily. Comparing the original in figure~\ref{fig:T3_1}, there is nice agreement except in the regions in the lower-right and upper-left corners of the plot which correspond to the afformentioned triangle intersection. Also, a noticible layer of lower probability is seen around the perifery of the plot which reflects the boundary preventing the triangles from rotating through each other.
 \begin{figure}[ht]
 \label{fig:T3_2}
 \centering
@@ -460,11 +475,12 @@ To sample from a reflected Brownian motion on the manifold, we use a rejection s
 \caption{Sampling of three triangle linkage with boundaries.}
 \end{figure}
 
+Now we compare the analogous cases in which we fixed all of the trivial degrees of freedom with and without a boundary. Figure~\ref{fig:T2_6} is the boundaried version of figure~\ref{fig:T2_5} and figure~\ref{fig:T3_7} is the boundaried version of figure~\ref{fig:T3_6}. Both cases exhibit a close comparison to their counterparts with the regions near the boundary possessing the largest deviations. 
 \begin{figure}[ht]
 \label{fig:T2_6}
 \centering
   \includegraphics[scale=0.6]{images/T2_6.eps}
-\caption{Sampling of two triangle linkage with boundaries and fixed center of mass and rotations.}
+\caption{Sampling of two triangle linkage with boundaries and fixed center of mass and rotations MORE SAMPLES??.}
 \end{figure}
 
 \begin{figure}[ht]
