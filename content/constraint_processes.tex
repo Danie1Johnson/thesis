@@ -183,9 +183,8 @@ We may also be interested in the behavior of a small part of the configuration a
 %	\label{fig:cyclofold}
 %\end{figure}
 \section{Manifold Brownian Motion}
---BM on mannifold
---use manifold metric
---random walk scheme to explore space
+
+To explore various properties of the building game geometric configuration spaces, we simulate a Brownian motion on the corresponding constraint space. Assuming that the constraint space has no singularities, it is a manifold. Using a two step scheme similar to those described above, we use a random walk to approximate the Brownian motion. To compute each new random walk step, we first take a step in the tangent space and then project this point back to the manifold. 
 
 \subsection{Computational Scheme}
 
@@ -320,70 +319,86 @@ Mezzadri outlines properties of random unitary matrices CITE. In particular, a u
  
 \subsection{MBM on Geometric Configuration Spaces}
 
+As an initial test case of our Manifold Brownian Motion scheme on building game geometric configuration spaces, we first consider two simple triangle linkages. The first has two triangles linked together along a hinged edge. As seen in figure~\ref{fig:T2_diagram}, the linkage can be specified by the $3$-dimensional locations of four vertices, giving an ambient space of $\mathbbm{R}^3$. In addition to the six trivial degrees of freedom, this configuration also carries an internal degree of freedom corresponding to the dihedral angle formed at the hinged edge. 
 \begin{figure}[ht]
-\label{fig:2TriFix}
+\centering
+  \includegraphics[scale=0.2]{images/T2_diagram.eps}
+\caption{Two triangle linkage.}
+\label{fig:T2_diagram}
+\end{figure}
+Figure~\ref{fig:T2_1} shows a histogram of this dihedral angle as sampled using out random walk scheme. Interestingly, the distribution is not uniform and appears to be of the form $\alpha_0 + \alpha_1\cos(\theta) + \alpha_2\cos(2\theta)$. 
+\begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T2_1.eps}
 \caption{Two triangle linkage.}
+\label{fig:T2_1}
 \end{figure}
 
+A second test case we consider is a linkage with three triangles. As depicted in figure~\ref{figT3_diagram}, the configuration is composed of an interior trianlge connected along two of its edges to an additional two triangles and is parameterized by five vertices. 
 \begin{figure}[ht]
-\label{fig:2TriFix}
+\centering
+  \includegraphics[scale=0.2]{images/T3_diagram.eps}
+\caption{Three triangle linkage.}
+\label{fig:T3_diagram}
+\end{figure}
+This configuration has two internal degrees of freedom, which are represented my the two dihedral angles. Figure~\ref{fig:T3_1} is a $2$-dimensional histogram of the dihedral angles sampled by our scheme. As expected, the two dihedral angles are independent in the sense that individually their distributions look like that of the two triangle linkage.
+\begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T3_1_2D.eps}
 \caption{Three triangle linkage.}
+\label{fig:T3_1}
 \end{figure}
 
 
 \subsubsection{Fixing Trivial Degrees of Freedom}
 From the two and three triangle linkage examples, we see that the sampling scheme does not sample the dihedral angles of the configuration uniformly. This was unexpected, but possible explained by the choice to not explicitly mod out the trivial rotational and translational degrees of freedom. 
 
-The first apparent way of fixing the trivial degrees of freedom is to fix an individual face at a specific location. Without letting this face translate or rotate, we are also preventing these trivial degrees of freedom from entering the entire configuration. As seen in figure~\ref{fig:2TriFix}, fixing of one of the faces in a two triangle linkage will give the dihedral angle a uniform distribution as hoped. 
+The first apparent way of fixing the trivial degrees of freedom is to fix an individual face at a specific location. Without letting this face translate or rotate, we are also preventing these trivial degrees of freedom from entering the entire configuration. As seen in figure~\ref{fig:T2_3}, fixing of one of the faces in a two triangle linkage will give the dihedral angle a uniform distribution as hoped. 
 \begin{figure}[ht]
-\label{fig:T2_3}
 \centering
   \includegraphics[scale=0.6]{images/T2_3.eps}
 \caption{Two triangle linkage with one face fixed.}
+\label{fig:T2_3}
 \end{figure}
-However, when we consider the three triangle linkagae, there are two choices we have; we can either fix on of the outside triangles or we can fix the interior face. As seen in figure~\ref{fig:3TriFixInt}, if we fix the interior triangle, the distribution we observe will be uniform. However, if we choose to fixe an exterior triangle, the dihedral angle between the fixed triangle and the interior triangle  will be uniformly sampled, but the other dihedral will not have a uniform distribution. Seen in figure~\ref{fig:3TriFixExt}, the distribution of this second dihedral angle appears to be the sum of trigonometric functions.
+However, when we consider the three triangle linkagae, there are two choices we have; we can either fix on of the outside triangles or we can fix the interior face. As seen in figure~\ref{fig:T3_3}, if we fix the interior triangle, the distribution we observe will be uniform. However, if we choose to fixe an exterior triangle, the dihedral angle between the fixed triangle and the interior triangle  will be uniformly sampled, but the other dihedral will not have a uniform distribution. Seen in figure~\ref{fig:T3_4}, the distribution of this second dihedral angle appears to be the sum of trigonometric functions.
 \begin{figure}[ht]
-\label{fig:3TriFixInt}
 \centering
   \includegraphics[scale=0.6]{images/T3_3_2D.eps}
 \caption{Three triangle linkage with interior triangle fixed.}
-\label{fig:3TriFixExt}
+\label{fig:T3_3}
   \includegraphics[scale=0.6]{images/T3_4_2D.eps}
 \caption{Three triangle linkage with exterior triangle fixed.}
+\label{fig:T3_4}
 \end{figure}
 This poses a bit of a problem. If the choice of face to fix affects the resulting distribution, then we must have justification for selecting one face over another. Since a clear reasoning for this choice is not apparent--especially in the case of an arbitrary linkage--we look to other methods for fixing the trivial degrees of freedom that the system has. 
 
 As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translational degrees of freedom is to fix the center of mass of the configuration. This method does not have the issue of the fixed face approach, but it also does not address the rotational degrees of freedom. From figure~\ref{fig:2TriCoM}, however, we see that fixing the center of mass does not result in a uniform sampling of the dihedral angle in a two triangle linkage. Thus, we account for the rotational degrees of freedom separately.  
 \begin{figure}[ht]
-\label{fig:T2_4}
 \centering
   \includegraphics[scale=0.6]{images/T2_4.eps}
 \caption{Sampling of two triangle linkage with fixed center of mass.}
+\label{fig:T2_4}
 \end{figure}
 
 \begin{figure}[ht]
-\label{fig:T3_5}
 \centering
   \includegraphics[scale=0.6]{images/T3_5_2D.eps}
 \caption{Sampling of three triangle linkage with fixed center of mass.}
+\label{fig:T3_5}
 \end{figure}
 
 \begin{figure}[ht]
-\label{fig:T2_5}
 \centering
   \includegraphics[scale=0.6]{images/T2_5.eps}
 \caption{Sampling of two triangle linkage with fixed center of mass and rotations.}
+\label{fig:T2_5}
 \end{figure}
 
 \begin{figure}[ht]
-\label{fig:T3_6}
 \centering
   \includegraphics[scale=0.6]{images/T3_6_2D.eps}
 \caption{Sampling of three triangle linkage with fixed center of mass and rotations.}
+\label{fig:T3_6}
 \end{figure}
 
 -- Govind's method for fixing rotation
