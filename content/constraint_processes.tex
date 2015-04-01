@@ -208,6 +208,7 @@ Now, we compute the QR decomposition
 \end{align}
 where $Q^{(1)} \in \mathbbm{R}^{(n-m)\times n}$ and $ Q^{(2)} \in \mathbbm{R}^{m\times n}$.
 \begin{mythm}
+\label{thm:Qbases}
 The columns of $Q^{(2)}$ are an orthonormal basis for $\mathcal{T}_z\mathcal{M} = N(C)$ and the columns of $Q^{(1)}$ are an orthonormal basis for $(\mathcal{T}_z\mathcal{M})^\perp = (N(C))^\perp$.
 \end{mythm}
 \begin{proof}
@@ -289,7 +290,7 @@ we arrive at the iteration routine below, which typically commences with the ini
 
 \subsection{Validation and Test Cases}
 
-An interesting test of our sampling scheme is unitary matrices. Since unitary matries are, complex matricies that satisfy $U^*U = UU^* = I$, we can use constraints to frame the space of unitary $N \times N$ matrices as an algebraic variety sitting in a $n = 2N^2$ dimensional ambient space. If we use the coordinates $U = A + iB$ for real, $N \times N$ matrices $A$ and $B$. We use the constraints given by the following. 
+An interesting test of our sampling scheme is unitary matrices. Since unitary matrices are, complex matrices that satisfy $U^*U = UU^* = I$, we can use constraints to frame the space of unitary $N \times N$ matrices as an algebraic variety sitting in a $n = 2N^2$ dimensional ambient space. If we use the coordinates $U = A + iB$ for real, $N \times N$ matrices $A$ and $B$. We use the constraints given by the following. 
 \begin{align}
 I &= U^*U \\
 &= (A^T - iB^T)(A + iB) \\
@@ -300,7 +301,7 @@ I &= U^*U \\
 Considering each $1 \leq j \leq N$ gives us $2*(N + \frac{1}{2}N(N-1)) = N + N^2$ independent polynomial constraint equations. 
 
 
-Using our random walk scheme to simulate a Brownian motion of the constraint space. Considering first the case of $N = 3$, the ambient space is $\mathbbm{R}^{18}$. The resulting constraint manifold has dimension $6$ with the codimension $12$ corresponding to the $12 = 3 + 3^2$ independent constraints imposed.  
+Using our random walk scheme to simulate a Brownian motion of the constraint space. Considering first the case of $N = 3$, the ambient space is $\mathbbm{R}^{18}$. The resulting constraint manifold has dimension $6$ with the co-dimension $12$ corresponding to the $12 = 3 + 3^2$ independent constraints imposed.  
 
 \begin{figure}[ht]
 \centering
@@ -308,7 +309,7 @@ Using our random walk scheme to simulate a Brownian motion of the constraint spa
 \caption{Empirical distribution of $3\times 3$ Unitary matrices is uniform.}
 \label{fig:Uny3}
 \end{figure}
-Mezzadri outlines properties of random unitary matrices CITE. In particular, a uniform distribution according to the Haar measure corresponds to a uniform sampling of of the arguments $\theta$ of the matrices eigenvalues. Using our scheme, $3,000,000$ samples were drawn for both $N = 3$ and $N = 10$. Figures~\ref{fig:Uny3} and~\ref{fig:Uny10} show theeigenvalue distribution of our sampled matrices to be uniform.  
+Mezzadri outlines properties of random unitary matrices CITE. In particular, a uniform distribution according to the Haar measure corresponds to a uniform sampling of of the arguments $\theta$ of the matrices eigenvalues. Using our scheme, $3,000,000$ samples were drawn for both $N = 3$ and $N = 10$. Figures~\ref{fig:Uny3} and~\ref{fig:Uny10} show the eigenvalue distribution of our sampled matrices to be uniform.  
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6, angle=0]{images/unitary_10_hist.eps}
@@ -335,14 +336,15 @@ Figure~\ref{fig:T2_1} shows a histogram of this dihedral angle as sampled using 
 \label{fig:T2_1}
 \end{figure}
 
-A second test case we consider is a linkage with three triangles. As depicted in figure~\ref{figT3_diagram}, the configuration is composed of an interior trianlge connected along two of its edges to an additional two triangles and is parameterized by five vertices. 
+A second test case we consider is a linkage with three triangles. As depicted in figure~\ref{figT3_diagram}, the configuration is composed of an interior triangle connected along two of its edges to an additional two triangles and is parameterized by five vertices. 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.2]{images/T3_diagram.eps}
 \caption{Three triangle linkage.}
 \label{fig:T3_diagram}
 \end{figure}
-This configuration has two internal degrees of freedom, which are represented my the two dihedral angles. Figure~\ref{fig:T3_1} is a $2$-dimensional histogram of the dihedral angles sampled by our scheme. As expected, the two dihedral angles are independent in the sense that individually their distributions look like that of the two triangle linkage.
+This configuration has two internal degrees of freedom, which are represented my the two dihedral angles. Figure~\ref{fig:T3_1} is a $2$-dimensional histogram of the dihedral angles sampled by our scheme. 
+%As expected, the two dihedral angles are independent in the sense that individually their distributions look like that of the two triangle linkage.
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T3_1_2D.eps}
@@ -361,7 +363,7 @@ The first apparent way of fixing the trivial degrees of freedom is to fix an ind
 \caption{Two triangle linkage with one face fixed.}
 \label{fig:T2_3}
 \end{figure}
-However, when we consider the three triangle linkagae, there are two choices we have; we can either fix on of the outside triangles or we can fix the interior face. As seen in figure~\ref{fig:T3_3}, if we fix the interior triangle, the distribution we observe will be uniform. However, if we choose to fixe an exterior triangle, the dihedral angle between the fixed triangle and the interior triangle  will be uniformly sampled, but the other dihedral will not have a uniform distribution. Seen in figure~\ref{fig:T3_4}, the distribution of this second dihedral angle appears to be the sum of trigonometric functions.
+However, when we consider the three triangle linkage, there are two choices we have; we can either fix on of the outside triangles or we can fix the interior face. As seen in figure~\ref{fig:T3_3}, if we fix the interior triangle, the distribution we observe will be uniform. However, if we choose to fix an exterior triangle, the dihedral angle between the fixed triangle and the interior triangle  will be uniformly sampled, but the other dihedral will not have a uniform distribution. Seen in figure~\ref{fig:T3_4}, the distribution of this second dihedral angle appears to be the sum of trigonometric functions.
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T3_3_2D.eps}
@@ -388,25 +390,40 @@ As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translationa
 \label{fig:T3_5}
 \end{figure}
 
-Now, to address rotations, we seek to find the three dimensional subspace of the tangent space and restrict our random walk to the space orthoganal to these rotational directions. Since such a step in the tangent space is then projected to the manifold, some rotation may occur in the projection step. To account for this, we must add a correction step that rotates the configuration back to its original frame of reference. 
+Now, to address rotations, we seek to find the three dimensional subspace of the tangent space and restrict our random walk to the space orthogonal to these rotational directions. Since such a step in the tangent space is then projected to the manifold, some rotation may occur in the projection step. To account for this, we must add a correction step that rotates the configuration back to its original frame of reference. 
 
-We treat our constraint space as the product of the special orthoganal group (rotations) and an algebraic variety corresponding to the remaining degrees of freedom $\mathcal{M} = SO(3) \times \tilde{\mathcal{M}}$. For every nonsingular $z \in \mathcal{M}$ we notice that there is a local diffeomorphism from $\mathcal{M}$ to $SO(3) \times \tilde{\mathcal{M}}$. Using this knowledge, we aim to find local coordinates $Q \in SO(3)$ and $\tilde{z} \in \tilde{\mathcal{M}}$ such that the tangent space $\mathcal{T}_z\mathcal{M} = \mathcal{T}_QSO(3) \times \mathcal{T}_{\tilde{z}}\tilde{\mathcal{M}}$. Since we already have a method for deriving $\mathcal{T}_z\mathcal{M}$, the goal now is to decompose this tangent space into the two orthoganal subspaces corresponding to the rotational and internal degrees of freedom.
+We treat our constraint space as the product of the special orthogonal group (rotations) and an algebraic variety corresponding to the remaining degrees of freedom $\mathcal{M} = SO(3) \times \tilde{\mathcal{M}}$. For every non-singular $z \in \mathcal{M}$ we notice that there is a local diffeomorphism from $\mathcal{M}$ to $SO(3) \times \tilde{\mathcal{M}}$. Using this knowledge, we aim to find local coordinates $Q \in SO(3)$ and $\tilde{z} \in \tilde{\mathcal{M}}$ such that the tangent space $\mathcal{T}_z\mathcal{M} = \mathcal{T}_QSO(3) \times \mathcal{T}_{\tilde{z}}\tilde{\mathcal{M}}$. Since we already have a method for deriving $\mathcal{T}_z\mathcal{M}$, the goal now is to decompose this tangent space into the two orthogonal subspaces corresponding to the rotational and internal degrees of freedom.
 
-Since $z = (v^1, v^2, \dots, v^N)$ for $v^i \in \mathbbm{R}^3$, the rotation by a $Q \in SO(3)$ is really the vertex-wise rotation $\bar{Q}z = (Qv^1, Qv^2, \dots, Qv^N)$. 
+Since $z = (v^1, v^2, \dots, v^N)$ for $v^i \in \mathbbm{R}^3$, the rotation by a $Q \in SO(3)$ is really the vertex-wise rotation $\bar{Q}z = (Qv^1, Qv^2, \dots, Qv^N)$. In the case of $Q = I$ the tangent directions are generated by the skew-symmetric matrices. A basis for the skew-symmetric matrices is given by 
+\begin{align}
+\textswab{e}_1 &= \begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0  \end{pmatrix} \\
+\textswab{e}_2 &= \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ -1 & 0 & 0  \end{pmatrix} \\
+\textswab{e}_3 &= \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0  \end{pmatrix}.
+\end{align}
+Thus, in the case of $Q=I$ we can represent the rotational directions of the tangent space as $\mathcal{T}_ISO(3) = \text{span}(w_1, w_2, w_3)$ where the bases $w_1, w_2, w_3$ are defined by 
+\begin{align}
+w_1 &= (\textswab{e}_1v^1, \textswab{e}_1v^2, \dots, \textswab{e}_1v^N) \\
+w_2 &= (\textswab{e}_2v^1, \textswab{e}_2v^2, \dots, \textswab{e}_2v^N) \\
+w_3 &= (\textswab{e}_3v^1, \textswab{e}_3v^2, \dots, \textswab{e}_3v^N).
+\end{align}
 
+With this formulation, we can alter our method for finding the bases of the tangent space from theorem~\ref{thm:Qbases} to get the decomposition we desire. Specifically, setting 
+$$\tilde{A} = \left[C^T(z) (w_1, w_2, w_3) \tilde{B} \right]$$
+where $B \in \mathbbm{R}^{n\times (m-3)}$ is again random and taking the QR decomposition will give us 
+$$\tilde{A} = \left[Q^{(1)} Q^{(2)}_{rot} Q^{(2)}_{int}\right]R.$$
+As before, $Q^{(2)} = \left[Q^{(2)}_{rot} Q^{(2)}_{int} \right]$ is a basis for $\mathcal{T}_z\mathcal{M}$, but we will also have $Q^{(2)}_{rot}$ as a basis for the rotational directions $\mathcal{T}_ISO(3)$ and $Q^{(2)}_{int}$ as a basis for the remaining internal tangent directions $\mathcal{T}_{\tilde{z}}\tilde{\mathcal{M}}$. Thus by modifying our 
+random walk routine to sample from the directions of $Q_{int}^{(2)}$, we will fix the rotation of the proposed step in the tangent space.
 
+Two issues must still be addressed. First, we have assumed that that the local rotation coordinate $Q$ is the identity. Additionally, even though our step in tangent space does not contain any of the rotational directions, when it is projected back to the constraint space, some rotation may occur. We address these two issues simultaneously in the form of a correction step after the projection has been made. To do this, the configuration is simply rotated back to its original frame of reference using the Kabsch algorithm which finds the optimal rotation by which to match two sets of points in three dimensions~\cite{Kabsch}. The implicit assumption here is that if we have bad a sufficiently small random walk step, the resulting configuration will be close to the one at the previous step. Moreover, if $Q=I$ at the previous step, this rotation will bring the configuration back to the same frame of reference. 
 
-
-
-
-
+Figure~\ref{fig:T2_5} shows the results for a sampling of configurations for the two triangle linkage. The distribution of dihedral angle is still not uniform, but takes the form of a simpler cosine function. 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T2_5.eps}
 \caption{Sampling of two triangle linkage with fixed center of mass and rotations.}
 \label{fig:T2_5}
 \end{figure}
-
+Similarly, the three triangle linkage also does not produce a uniform sampling of dihedral angles. As seen in figure~\ref{fig:T3_6}, the distribution is not the simple product of one-dimensional distributions. There are local maxima at $(0,0), (\frac{\pi}{3}, \frac{5\pi}{3})$, and $(\frac{5\pi}{3}, \frac{\pi}{3})$ With a local minima at $(\pi,\pi)$. 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T3_6_2D.eps}
@@ -414,14 +431,8 @@ Since $z = (v^1, v^2, \dots, v^N)$ for $v^i \in \mathbbm{R}^3$, the rotation by 
 \label{fig:T3_6}
 \end{figure}
 
--- Govind's method for fixing rotation
-
-
-
--- curvature of manifold makes for non-uniform sampling of dihedrals.
-
 \section{Manifold Reflected Brownian Motion}
-In our sampling of building game geometric configurations, we see that many of the sampled configurations or Brownian motion paths do not make physical sense. For example, we do not prevent the triangles of the configuration from intersecting each other. Additionally, two faces atttached by a hinge may pass through each other as the dihedral angle passes through zero. We introduce implicit boundaries to turn the manifold Brownian motion into a manifold refleted Brownian motion. With these added boundaries, the process will be prevented from entering unphysical configurations, and represents a better sampling on configurations that coincide with the actual self-assembly processes we are attempting to model.
+In our sampling of building game geometric configurations, we see that many of the sampled configurations or Brownian motion paths do not make physical sense. For example, we do not prevent the triangles of the configuration from intersecting each other. Additionally, two faces attached by a hinge may pass through each other as the dihedral angle passes through zero. We introduce implicit boundaries to turn the manifold Brownian motion into a manifold reflected Brownian motion. With these added boundaries, the process will be prevented from entering nonphysical configurations, and represents a better sampling on configurations that coincide with the actual self-assembly processes we are attempting to model.
 
 \subsection{Computational Scheme}
 
@@ -440,7 +451,7 @@ To sample from a reflected Brownian motion on the manifold, we use a rejection s
 
 \subsubsection{Self-Intersection Testing}
 
-In order to compute our implicit self-intersection function at each step, we must ensure that no two triangles intersect. Thus, for an intermediate $[x]$, each function call requires that $\frac{1}{2}|x|(|x| - 1)$ pairs of trinalge be tested for intersection. For the scheme to remain computationally feasible, it is imperitive that these comparisons are carried out as efficiently as possible. We use an algorithm presented by M\"oller, which has been shown to be effective ~\cite{Möller97afast}.
+In order to compute our implicit self-intersection function at each step, we must ensure that no two triangles intersect. Thus, for an intermediate $[x]$, each function call requires that $\frac{1}{2}|x|(|x| - 1)$ pairs of triangle be tested for intersection. For the scheme to remain computationally feasible, it is imperative that these comparisons are carried out as efficiently as possible. We use an algorithm presented by M\"oller, which has been shown to be effective ~\cite{Möller97afast}.
 
 %\begin{figure}[ht]
 %\centering
@@ -452,17 +463,17 @@ In order to compute our implicit self-intersection function at each step, we mus
 
 \subsection{Validation and Test Cases}
 
-One way to test whether our rejection scheme has the properties that coincide with a reflected Brownian motion is to look at its distribution after a finite amound of time rather than only looking at long time statistics. In figure~\ref{fig:HCFin} we consider the case of a $d$-dimensional hypercube for $d = 2, 3, 4, 5$  and compare the distribution after a finite simulation time with the exact solution. 
+One way to test whether our rejection scheme has the properties that coincide with a reflected Brownian motion is to look at its distribution after a finite amount of time rather than only looking at long time statistics. In figure~\ref{fig:HCFin} we consider the case of a $d$-dimensional hyper-cube for $d = 2, 3, 4, 5$  and compare the distribution after a finite simulation time with the exact solution. 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.4, angle=0]{images/rejection_finite.eps}
-\caption{Finite time distribution of first dimension of rejection sampled points in hypercubes of increasing dimension accross different choices of timestep.}
+\caption{Finite time distribution of first dimension of rejection sampled points in hyper-cubes of increasing dimension across different choices of timestep.}
 \label{fig:HCFin}
 \end{figure}
-The results match almost perfectly with the biggest errors occuring at the boundaries. This is to be expected since the rejection method is biases the sampling slightly to points away from the boundary. 
+The results match almost perfectly with the biggest errors occurring at the boundaries. This is to be expected since the rejection method is biases the sampling slightly to points away from the boundary. 
 
 \subsection{MRBM on Geometric Configuration Spaces}
-Now, we again consider the two and three triangle linkage examples from section~\ref{ssc:MBMGCS}. Figure~\ref{fig:T2_2} depicts the same conditions (no fixed trivial degrees of freedom) as figure~\ref{fig:T2_1} previously, but with the addition of boundaries that prevent the two triangles from rotating through each other. The agreement in the two histogrms is strong with the greatest differences being at the boundary as expected. 
+Now, we again consider the two and three triangle linkage examples from section~\ref{ssc:MBMGCS}. Figure~\ref{fig:T2_2} depicts the same conditions (no fixed trivial degrees of freedom) as figure~\ref{fig:T2_1} previously, but with the addition of boundaries that prevent the two triangles from rotating through each other. The agreement in the two histograms is strong with the greatest differences being at the boundary as expected. 
 \begin{figure}[ht]
 \label{fig:T2_2}
 \centering
@@ -470,7 +481,7 @@ Now, we again consider the two and three triangle linkage examples from section~
 \caption{Sampling of two triangle linkage with boundaries.}
 \end{figure}
 
-Similarly, we consider the three triangle linkage with no fixed degrees of freedom and impose boundaries. This test is less trivial than the two triangle linkage since the exterior triangles of the linkage may interact more easily. Comparing the original in figure~\ref{fig:T3_1}, there is nice agreement except in the regions in the lower-right and upper-left corners of the plot which correspond to the afformentioned triangle intersection. Also, a noticible layer of lower probability is seen around the perifery of the plot which reflects the boundary preventing the triangles from rotating through each other.
+Similarly, we consider the three triangle linkage with no fixed degrees of freedom and impose boundaries. This test is less trivial than the two triangle linkage since the exterior triangles of the linkage may interact more easily. Comparing the original in figure~\ref{fig:T3_1}, there is nice agreement except in the regions in the lower-right and upper-left corners of the plot which correspond to the aforementioned triangle intersection. Also, a noticeable layer of lower probability is seen around the periphery of the plot which reflects the boundary preventing the triangles from rotating through each other.
 \begin{figure}[ht]
 \label{fig:T3_2}
 \centering
@@ -495,4 +506,4 @@ Now we compare the analogous cases in which we fixed all of the trivial degrees 
 
 \section{Computational Implementation}
 
-As with our enumeration work, simulations were carried out on a desktop computer running 64-bit Ubuntu 14.04 LTS with 15.6 GiB memory and a quad-core 3.20GHz Intel processor. The module for simulating the manifold Brownian motion was implemented in Python and was able to sample at a rate of roughly $X,000,000$ samples per hour. This rate varies with use of a boundary and the dimension of the manifold and ambient spaces as well. 
+As with our enumeration work, simulations were carried out on a desktop computer running 64-bit Ubuntu 14.04 LTS with 15.6 GiB memory and a quad-core 3.20GHz Intel processor. The module for simulating the manifold Brownian motion was implemented in Python and was able to sample at a rate on the order of $3,000,000$ samples per hour. This rate varies with use of a boundary and the dimension of the manifold and ambient spaces as well. 
