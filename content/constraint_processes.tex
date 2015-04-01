@@ -388,8 +388,11 @@ As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translationa
 \label{fig:T3_5}
 \end{figure}
 
+Now, to address rotations, we seek to find the three dimensional subspace of the tangent space and restrict our random walk to the space orthoganal to these rotational directions. Since such a step in the tangent space is then projected to the manifold, some rotation may occur in the projection step. To account for this, we must add a correction step that rotates the configuration back to its original frame of reference. 
 
+We treat our constraint space as the product of the special orthoganal group (rotations) and an algebraic variety corresponding to the remaining degrees of freedom $\mathcal{M} = SO(3) \times \tilde{\mathcal{M}}$. For every nonsingular $z \in \mathcal{M}$ we notice that there is a local diffeomorphism from $\mathcal{M}$ to $SO(3) \times \tilde{\mathcal{M}}$. Using this knowledge, we aim to find local coordinates $Q \in SO(3)$ and $\tilde{z} \in \tilde{\mathcal{M}}$ such that the tangent space $\mathcal{T}_z\mathcal{M} = \mathcal{T}_QSO(3) \times \mathcal{T}_{\tilde{z}}\tilde{\mathcal{M}}$. Since we already have a method for deriving $\mathcal{T}_z\mathcal{M}$, the goal now is to decompose this tangent space into the two orthoganal subspaces corresponding to the rotational and internal degrees of freedom.
 
+Since $z = (v^1, v^2, \dots, v^N)$ for $v^i \in \mathbbm{R}^3$, the rotation by a $Q \in SO(3)$ is really the vertex-wise rotation $\bar{Q}z = (Qv^1, Qv^2, \dots, Qv^N)$. 
 
 
 
