@@ -19,7 +19,7 @@ We formalize the Building Game in terms of the group action of the polyhedron's 
   A Building Game \textbf{state} $x \subset F$ is a non-empty subset of the faces $F$ of a polyhedron such that the subgraph $\PolyGraph|_x$ restricted to the faces in $x$ is a single connected component. 
 \end{mydef} 
 
-It is often useful to depict building game states with Schlegel diagrams CITE which are two dimensional projections of the three dimensional polyhedron. Figure~\ref{fig:TetraStates} uses Schoolgirl diagrams to depicts all of the states of the tetrahedron. Since every face of the tetrahedron is adjacent to every other face, any non-empty subset of faces is a building game state. Thus, there are ${4 \choose k}$ tetrahedron states that have $k$ faces and $2^4 - 1 = 15$ states in total. 
+It is often useful to depict building game states with Schlegel diagrams which are two dimensional projections of the three dimensional polyhedron~\cite{Sommerville1929}. Figure~\ref{fig:TetraStates} uses Schoolgirl diagrams to depicts all of the states of the tetrahedron. Since every face of the tetrahedron is adjacent to every other face, any non-empty subset of faces is a building game state. Thus, there are ${4 \choose k}$ tetrahedron states that have $k$ faces and $2^4 - 1 = 15$ states in total. 
 \begin{figure}[ht]
   \includegraphics[scale=0.1, angle=0]{tetrahedron_states.eps}
 \caption{The building game states of the tetrahedron.}
@@ -56,10 +56,10 @@ As pictured in figure~\ref{fig:OctaStates}, some subsets of faces are not states
 
 \subsection{Group Actions}
 
-It is easy to see that many states are combinatorially equivalent and are just rotations of each other. As in Zlotnick, we group the states into sets that are rotations of each other CITE. However, to do so, we must first build the mathematical infrastructure using group actions. 
+It is easy to see that many states are combinatorially equivalent and are just rotations of each other. As in Endres et al., we group the states into sets that are rotations of each other~\cite{Endres2005}. However, to do so, we must first build the mathematical infrastructure using group actions. 
 
-\begin{mydef}%[~\cite{Rotman1995} CITE]
-A \textbf{group action} of a group $G$ on a set $X$ is a function mapping $G \times X$ to $X$ with $(g, x) \mapsto g.x$ that satisfies: (i) $(gh).x = g.(h.x)$ for $g,h \in G$ and (ii) $e.x = x$ for $e$ the identity element of $G$.
+\begin{mydef}%[~\cite{Rotman1995}]
+A \textbf{group action} of a group $G$ on a set $X$ is a function mapping $G \times X$ to $X$ with $(g, x) \mapsto g.x$ that satisfies: (i) $(gh).x = g.(h.x)$ for $g,h \in G$ and (ii) $e.x = x$ for $e$ the identity element of $G$~\cite{Rotman1995}.
 \end{mydef}
 
 We typically use a polyhedron's rotation group or one of its subgroups as $G$ and $2^F$, the set of subsets of $F$, as the set $X$ that $G$ acts on. In this case, the action $g.x$ permutes the faces of the polyhedron according to the element $g$ of the rotation group and results in a new subset of faces. Here, we introduce the group action concepts of orbits and stabilizer subgroups as they play an important role in our later analyses. 
@@ -442,7 +442,7 @@ First, we show $Q$ and $\pi$ satisfy detailed balance.
                     &= \pi_kQ_{kj}
 \end{align}
 
-Since the combinatorial state space is connected and $Q_{jk}, Q_{kj} > 0$ for all connected intermediates $[x^j]$ and $[x^k]$, the process it trivially aperiodic and positive recurrent. CITE
+Since the combinatorial state space is connected and $Q_{jk}, Q_{kj} > 0$ for all connected intermediates $[x^j]$ and $[x^k]$, the process it trivially aperiodic and positive recurrent. Thus, $\pi$ is the unique staionary distribution of the Markov process~\cite{Norris1998}. 
 \end{proof}
 
 
@@ -483,7 +483,7 @@ To assist in our calculations of hitting times, it is helpful to use $X_t$'s dis
    0  & \text{if } j = k 
   \end{cases}
 \end{align}
-With this definition, the continuous time process $X_t$ has the alternative interpretation where the intermediate that $X_t$ occupies changes according to the jump process $Y_n$ and stays at each intermediate $[x^j]$ for an exponentially distributed amound of time with parameter $-Q_{jj}$ CITE NORIS. 
+With this definition, the continuous time process $X_t$ has the alternative interpretation where the intermediate that $X_t$ occupies changes according to the jump process $Y_n$ and stays at each intermediate $[x^j]$ for an exponentially distributed amound of time with parameter $-Q_{jj}$~\cite{Norris1998}. 
 %
 %Since we are looking at events in which the process first reaches a particular set of intermediates, it is helpful to use $X_t$'s discrete time jump process $Y_n$ which simply records the sequence of intermediates that $X_t$ passes through. Here we formally define $Y_n$ in a recursive manner, such that it is the first intermediate visited after the process $X_t$ leaves $Y_{n-1}$.
 %\begin{align}
