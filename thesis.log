@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  3 APR 2015 12:52
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  3 APR 2015 14:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -614,11 +614,7 @@ Package tocloft Info: The document has chapter divisions on input line 44.
 \cftbeforetabskip=\skip97
 \cfttabindent=\skip98
 \cfttabnumwidth=\skip99
-) (./thesis.aux
-
-LaTeX Warning: Label `fig:FacPathShell' multiply defined.
-
-)
+) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
@@ -637,7 +633,8 @@ LaTeX Font Info:    Checking defaults for LY/yfrak/m/n on input line 70.
 LaTeX Font Info:    ... okay on input line 70.
 LaTeX Font Info:    Checking defaults for LYG/ygoth/m/n on input line 70.
 LaTeX Font Info:    ... okay on input line 70.
- ABD: EveryShipout initializing macros
+
+ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  [1
@@ -1243,22 +1240,8 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 488--489
  []
 
 [94]
-
-Package caption Warning: \label without proper \caption on input line 494.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:T2_6' on page 95 undefined on input line 492.
-
-
-Package caption Warning: \label without proper \caption on input line 501.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `fig:T3_7' on page 95 undefined on input line 492.
-
 File: images/T2_6.eps Graphic file (type eps)
-<images/T2_6.eps>
+ <images/T2_6.eps>
 Overfull \hbox (4.34044pt too wide) in paragraph at lines 496--497
  [][] 
  []
@@ -1268,6 +1251,20 @@ File: images/T3_7_2D.eps Graphic file (type eps)
 Overfull \hbox (4.34044pt too wide) in paragraph at lines 503--504
  [][] 
  []
+
+
+Package caption Warning: \label without proper \caption on input line 494.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:T2_6' on page 95 undefined on input line 508.
+
+
+Package caption Warning: \label without proper \caption on input line 501.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:T3_7' on page 95 undefined on input line 508.
 
 ) [95] [96] [97] [98] [99] [100] [101] [102
 
@@ -1285,50 +1282,73 @@ Underfull \hbox (badness 10000) in alignment at lines 168--168
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [105]
-File: images/octahedron_ccs.eps Graphic file (type eps)
-
-<images/octahedron_ccs.eps>
-Overfull \hbox (91.0653pt too wide) in paragraph at lines 43--44
- [][] 
- []
-
 File: images/octahedron_pi.eps Graphic file (type eps)
+
 <images/octahedron_pi.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 50--51
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 44--45
  [][] 
  []
+
+
+Package caption Warning: \label without proper \caption on input line 42.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:OctaPi' on page 106 undefined on input line 47.
 
 File: images/octahedron_log_pi.eps Graphic file (type eps)
 <images/octahedron_log_pi.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 57--58
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 51--52
  [][] 
  []
+
+
+Package caption Warning: \label without proper \caption on input line 49.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:OctaLogPi' on page 106 undefined on input line 54
+.
 
 File: images/octahedron_finite_dist.eps Graphic file (type eps)
 <images/octahedron_finite_dist.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 64--65
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 60--61
  [][] 
  []
 
+File: images/octahedron_ccs.eps Graphic file (type eps)
+<images/octahedron_ccs.eps>
+Overfull \hbox (91.0653pt too wide) in paragraph at lines 68--69
+ [][] 
+ []
+
+
+Package caption Warning: \label without proper \caption on input line 66.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:OctaCCS' on page 106 undefined on input line 72.
+
+
+Underfull \vbox (badness 3029) has occurred while \output is active []
+
+ [106]
 File: images/octahedron_pi_Q_grid.eps Graphic file (type eps)
+
 <images/octahedron_pi_Q_grid.eps>
-Overfull \hbox (47.70067pt too wide) in paragraph at lines 71--72
+Overfull \hbox (47.70067pt too wide) in paragraph at lines 78--79
  [][] 
  []
 
 File: images/octahedron_tau.eps Graphic file (type eps)
 <images/octahedron_tau.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 78--79
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 86--87
  [][] 
  []
 
-) [106] [107] [108] [109] [110
+) [107] [108] [109] [110] (./thesis.bbl [111
 
 
-] (./thesis.bbl
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ¶ in font cmr12!
- [111
 
 ]) [112] (./thesis.aux)
 
@@ -1338,17 +1358,14 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 13604 strings out of 493305
- 249458 string characters out of 6139898
- 308802 words of memory out of 5000000
- 16668 multiletter control sequences out of 15000+600000
+ 13606 strings out of 493305
+ 249494 string characters out of 6139898
+ 309786 words of memory out of 5000000
+ 16670 multiletter control sequences out of 15000+600000
  24886 words of font info for 109 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1282b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (130 pages, 264248 bytes).
+Output written on thesis.dvi (130 pages, 266088 bytes).

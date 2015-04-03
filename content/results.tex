@@ -33,9 +33,34 @@ Q_{jk} 	&= S_{jk}e^{\beta(E_{jk} - E_j)} \\
 \end{align}
 the choice of $\beta_0$ effectively specifies the units of $\beta$. Typically, we choose $\beta_0 = 1$.
 
+To derive the empirical rates, each intermediate was simulated for $10,000,000$ steps with a stepsize of $h = 0.05$. By storing each of the relevant angles either step by step, or in a histogram, the rates can be computed for each choice of $\epsilon$ at a later time as needed.
+
 \section{Self-Assembly Statistics}
 
+After we have computed the rate matrix $Q$ for the octahedron as a function of $\epsilon$ and $\beta$, we are now able to compute the different statistics derived in section~\ref{sec:StochMod}. 
+\begin{figure}[ht]
+\label{fig:OctaPi}
+\centering
+  \includegraphics[scale=0.6]{images/octahedron_pi.eps}
+\caption{Octahedron stationary distributions as a function of $\beta$.}
+\end{figure}
+For instance, the stationary distribution of each octahedron intermediate is plotted as a function of $\beta$ in figure~\ref{fig:OctaPi}.
+\begin{figure}[ht]
+\label{fig:OctaLogPi}
+\centering
+  \includegraphics[scale=0.6]{images/octahedron_log_pi.eps}
+\caption{Natural log of the octahedron stationary distributions as a function of $\beta$.}
+\end{figure}
+To better view how these probabilities decay as the temperature decreases, figure~\ref{fig:OctaLogPi} presents the natural logerithm of these stationary probabilities.
 
+With the rate matrix, we can also look at how the occupation probabilities change over time. 
+\begin{figure}[ht]
+\label{fig:OctaFinDist}
+\centering
+  \includegraphics[scale=0.6]{images/octahedron_finite_dist.eps}
+\caption{Occupation probabilities for Octahedron intermediates as a function of time.}
+\end{figure}
+If the process begins with a single face, the probabilites diffuse through the grach according to $e^{Qt}e_1$ and eventially converge of the stationary distribution $\pi$ as $t \to \infty$. Figure~\ref{fig:OctaFinDist}
 
 \begin{figure}[ht]
 \label{fig:OctaCCS}
@@ -44,26 +69,8 @@ the choice of $\beta_0$ effectively specifies the units of $\beta$. Typically, w
 \caption{Combinatorial Configuration space for the Octahedron.}
 \end{figure}
 
-\begin{figure}[ht]
-\label{fig:OctaPi}
-\centering
-  \includegraphics[scale=0.6]{images/octahedron_pi.eps}
-\caption{Octahedron stationary distributions as a function of $\beta$.}
-\end{figure}
+Figure~\ref{fig:OctaCCS} shows the octahedron combinatorial configuration space with the edges labeled with the joint rate $\pi_j Q_{jk} = \pi_k Q_{kj}$ for each transition with the choices $\beta = 0.8$ and $\epsilon = 0.5$.
 
-\begin{figure}[ht]
-\label{fig:OctaLogPi}
-\centering
-  \includegraphics[scale=0.6]{images/octahedron_log_pi.eps}
-\caption{Natural log of the octahedron stationary distributions as a function of $\beta$.}
-\end{figure}
-
-\begin{figure}[ht]
-\label{fig:OctaFinDist}
-\centering
-  \includegraphics[scale=0.6]{images/octahedron_finite_dist.eps}
-\caption{Occupation probabilities for Octahedron intermediates as a function of time.}
-\end{figure}
 
 \begin{figure}[ht]
 \label{fig:OctaPiGrid}
@@ -72,6 +79,7 @@ the choice of $\beta_0$ effectively specifies the units of $\beta$. Typically, w
 \caption{The Affect of $\beta$ and $\epsilon$ on the transitions rates and stationary distribution of the Octahedron combinatorial configuration space.}
 \end{figure}
 
+Besides the stationary distribution, the second most important Markov process statistic is the expected formation times $E[\tau]$.
 \begin{figure}[ht]
 \label{fig:OctaTau}
 \centering
