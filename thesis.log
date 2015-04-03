@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  3 APR 2015 14:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  3 APR 2015 15:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1316,14 +1316,22 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 60--61
  [][] 
  []
 
+
+Package caption Warning: \label without proper \caption on input line 58.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:OctaFinDist' on page 106 undefined on input line 
+63.
+
 File: images/octahedron_ccs.eps Graphic file (type eps)
 <images/octahedron_ccs.eps>
-Overfull \hbox (91.0653pt too wide) in paragraph at lines 68--69
+Overfull \hbox (91.0653pt too wide) in paragraph at lines 69--70
  [][] 
  []
 
 
-Package caption Warning: \label without proper \caption on input line 66.
+Package caption Warning: \label without proper \caption on input line 67.
 See the caption package documentation for explanation.
 
 
@@ -1340,13 +1348,32 @@ Overfull \hbox (47.70067pt too wide) in paragraph at lines 78--79
  [][] 
  []
 
+
+Package caption Warning: \label without proper \caption on input line 76.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:OctaPiGrid' on page 107 undefined on input line 8
+1.
+
 File: images/octahedron_tau.eps Graphic file (type eps)
 <images/octahedron_tau.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 86--87
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 87--88
  [][] 
  []
 
-) [107] [108] [109] [110] (./thesis.bbl [111
+
+Package caption Warning: \label without proper \caption on input line 85.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:OctaTau' on page 107 undefined on input line 90.
+
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [107]
+[108] [109] [110] (./thesis.bbl [111
 
 
 
@@ -1368,4 +1395,4 @@ Here is how much of TeX's memory you used:
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1282b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (130 pages, 266088 bytes).
+Output written on thesis.dvi (130 pages, 267632 bytes).

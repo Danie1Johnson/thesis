@@ -60,30 +60,31 @@ With the rate matrix, we can also look at how the occupation probabilities chang
   \includegraphics[scale=0.6]{images/octahedron_finite_dist.eps}
 \caption{Occupation probabilities for Octahedron intermediates as a function of time.}
 \end{figure}
-If the process begins with a single face, the probabilites diffuse through the grach according to $e^{Qt}e_1$ and eventially converge of the stationary distribution $\pi$ as $t \to \infty$. Figure~\ref{fig:OctaFinDist}
+If the process begins with a single face, the probabilites diffuse through the grach according to $e^{Qt}e_1$ and eventially converge of the stationary distribution $\pi$ as $t \to \infty$. Figure~\ref{fig:OctaFinDist} shows how these occupation probabilities change over time.
 
+Another way to visualize the dynamic behaviors of our Markov process is to look at individual transitions and the rates with which they occur.
 \begin{figure}[ht]
 \label{fig:OctaCCS}
 \centering
   \includegraphics[scale=0.6]{images/octahedron_ccs.eps}
 \caption{Combinatorial Configuration space for the Octahedron.}
 \end{figure}
+Figure~\ref{fig:OctaCCS} shows the octahedron combinatorial configuration space with the edges labeled with the joint transition rate $\pi_j Q_{jk} = \pi_k Q_{kj}$ for the choices $\beta = 0.8$ and $\epsilon = 0.5$.
 
-Figure~\ref{fig:OctaCCS} shows the octahedron combinatorial configuration space with the edges labeled with the joint rate $\pi_j Q_{jk} = \pi_k Q_{kj}$ for each transition with the choices $\beta = 0.8$ and $\epsilon = 0.5$.
-
-
+Since our model uses the two parameters $\epsilon$ and $\beta$, it is of particular interest to examine how the choice of these parameters affects the behaviors of the Markov process. 
 \begin{figure}[ht]
 \label{fig:OctaPiGrid}
 \centering
   \includegraphics[scale=0.22]{images/octahedron_pi_Q_grid.eps}
 \caption{The Affect of $\beta$ and $\epsilon$ on the transitions rates and stationary distribution of the Octahedron combinatorial configuration space.}
 \end{figure}
+Figure~\ref{fig:OctaPiGrid} shows how the stationary distributions (node size) and the transition rates (edge thickness) change for three choices of $\epsilon$ and three choices of $\beta$. These plots provide and effective way of visualizing which edges and pathways are more probable for different parameter choices. 
 
-Besides the stationary distribution, the second most important Markov process statistic is the expected formation times $E[\tau]$.
+One of the most interesting Markov process statistics is the expected formation time $E[\tau]$.
 \begin{figure}[ht]
 \label{fig:OctaTau}
 \centering
   \includegraphics[scale=0.6]{images/octahedron_tau.eps}
 \caption{Expected formation times for the octahedron as a function of $\epsilon$ and $\beta$.}
 \end{figure}
-
+Figure~\ref{fig:OctaTau} shows the relation between $\beta$ and the expected formation time for several choices of $\epsilon$. At $\beta = 0$, the Markov process is essentially a random walk on the graph, weighted only by the degeneracy of each transition and unaffected by the choice of $\epsilon$. On the other end, as $\beta$ gets higher and higher, each transition occurs with an increasingly small rate. This leads to a sharp increase in formations times. Interestingly, there is an intermediary range of $beta$s where a minimum of the formation time function occurs. 
