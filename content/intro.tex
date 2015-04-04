@@ -12,16 +12,13 @@ The goal of this work is to provide a framework in which the interplay between t
 
 \section{Polyhedra}
 
-We focus on the self-assebly of polyhedral structures for a number of reasons. First, there is a rich history of using polyhedra as representitive models for molecular structure CITE Cyclohexane. Whether it is treating carbon atoms like tetrahedra or the $C_{60}$ Buckminsterfullerene as a truncated icosahedron, it is natural to model spherical meshes of molecules as polyhedra CITE. One could view each molecular subunit (carbon atom in the case of $C_60$) as a vertex and each subunit to subunit bond as an edge to define the structure as a polyhedron. Sometimes the dual perspective--with each subunit being a polyhedral face and edges existing between bonded subunits--is more useful. 
+We focus on the self-assebly of polyhedral structures for a number of reasons. First, there is a rich history of using polyhedra as representitive models for molecular structure CITE Cyclohexane. Whether it is treating carbon atoms like tetrahedra or the $C_{60}$ Buckminsterfullerene as a truncated icosahedron, it is natural to model spherical meshes of molecules as polyhedra CITE. One could view each molecular subunit (carbon atom in the case of $C_{60}$) as a vertex and each subunit to subunit bond as an edge to define the structure as a polyhedron. Sometimes the dual perspective--with each subunit being a polyhedral face and edges existing between bonded subunits--is more useful. 
 
 Aside from the clear connection to molecular structure, polyhedra are also mathematical objects with a rich literature and known properties. First by the ancient Greeks, polyhedra are ubiquitous in everyday culture: whether it be in architecture, computer graphics, or board games. As three dimensional structures composed of two-dimensional faces, the construction and assembly of polyhedra is easier and more reliable than other three dimensional alternatives. 
 
+There are a few cononical classes of polyhedra we consider throughout this work. The Platonic solids, composed of the tetrahedron, cube, octahedron, dodecahedron, and icosahedron are the five polyhedra that are composed of only one type of regular polygon. The tetrahedron is self-dual with the cube-octahedron and dodecahedron-icosahedron pairs dual to each other. By relaxing the condition to allow the polyhedra to be composed of two or more regular polygons, the Archimedean solids are defined. With a total of thirteen member polyhedra, the Archimedean solids also have the property that each vertex has identical connectivity properties. Dual to the Archimedean solids are the Catalan solids. Also composed of 13 polyhedra, each Catalan solid has only one type of face, but that polygon is not regular. CITE
 
---classes of polyhedra
-
---basic definitions
-
---polytopal complex
+The theory of polytopes provides a $d$-dimensional generalization of polyhedra. While we restrict our focus to $3$-dimensional polytopes, the mathematical structure of polytope theory is at times useful. In particular, a $0$-dimensional polytope is a point, a $1$-dimensional polytope is an edge, a $2$-dimensional polytope is a polygon and a $3$-dimensional polytope is a polyhedron. A polyhedron along with all of its $0$, $1$, and $2$-dimensionl substructures is called a polytopal complex~\cite{Ziegler1995}.
 
 \section{Scientific Motivation}
 \subsection{Self-Folding Polyhedra}
