@@ -219,60 +219,62 @@ As stated previously, we have not observed this type of behavior from any buildi
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=1.0, angle=0]{cube_dof_hist.eps}
-\caption{}
+\caption{Distribution of internal degrees of freedom amongst Cube intermediates.}
 \label{fig:CubeDoFHist}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=1.0, angle=0]{octahedron_dof_hist.eps}
-\caption{}
+\caption{Distribution of internal degrees of freedom amongst Octahedron intermediates.}
 \label{fig:OctaDoFHist}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=1.0, angle=0]{dodecahedron_dof_hist.eps}
-\caption{}
+\caption{Distribution of internal degrees of freedom amongst Dodecahedron intermediates.}
 \label{fig:DodecDoFHist}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=1.0, angle=0]{icosahedron_dof_hist.eps}
-\caption{}
+\caption{Distribution of internal degrees of freedom amongst Icosahedron intermediates.}
 \label{fig:IcosaDoFHist}
 \end{figure}
 
+Using the Jacobian method for computing internal degrees of freedom, we have computed the number of degrees of freedom for all intermediates of the Platonic solids. Figures~\ref{fig:CubeDoFHist},~\ref{fig:OctaDoFHist},~\ref{fig:DodecDoFHist}, and~\ref{fig:IcosaDoFHist} are histograms of the number of internal degrees of freedom for the intermediates of each of the Platonic solids. We do not include the Tetrahedron, since it only has four intermediates and only the one composed of two triangles is not rigid. Interestingly, the cube and dodecahedron have a large number of rigid intermediates due  to the fact that their verticies are the rigid meeting of only three faces. The octahedron, with four faces meeting at each vertex has a more varied distribution of internal degrees of freedom. The icosahedron, however, has a very small number of rigid intermediates with some intermediates having as many as $13$ internal degrees of freedom. 
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.7, angle=0]{cube_dof_hist_facecount.eps}
-\caption{}
+\caption{Each virtical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of the cube have.}
 \label{fig:CubeDoFHistFC}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.7, angle=0]{octahedron_dof_hist_facecount.eps}
-\caption{}
+\caption{Each virtical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of Octahedron have.}
 \label{fig:OctaDoFHistFC}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.65, angle=0]{dodecahedron_dof_hist_facecount.eps}
-\caption{}
+\caption{Each virtical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of the Dodecahedron have.}
 \label{fig:DodecDoFHistFC}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=0.7, angle=0]{icosahedron_dof_hist_facecount.eps}
-\caption{}
+\caption{Each virtical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of the icosahedron have.}
 \label{fig:IcosaDoFHistFC}
 \end{figure}
 
+To provide a more detailed look at the distribution of internal degrees of freedom, figures~\ref{fig:CubeDoFHistFC},~\ref{fig:OctaDoFHistFC},~\ref{fig:DodecDoFHistFC}, and~\ref{fig:IcosaDoFHistFC} break down the previous histograms by the number of faces in the intermediate. Each column of the plots is a histogram for the number of internal degrees of freedom for the intermediates with that specific number of faces. The general theme seems to be that intermidiates with almost all or almost none of their faces are most rigid and the intermediates with around half of the total possible faces have the most internal degrees of freedom. The most interesting case remains the icosaheron with a wide variation in internal degrees of freedom for most face counts.
 
 \subsection{Explicit Removal of Trivial Degrees of Freedom}
 \label{ssc:RemTrivDoF}
@@ -350,8 +352,8 @@ This amounts to the sum over the $d$th entry of each vertex in the configuration
 
 
 
-\section{Cyclohexane Application}
-??Include??
+%\section{Cyclohexane Application}
+%??Include??
 %\subsection{Sachse Model}
 %
 %Around the turn of the century, it was thought that cyclohexane's carbon atoms must lie in a plane. A young German assistant, Hermann Sachse, had the idea that allowing the carbons to lie outside the plan could alleviate the angle strain. Inspired by polyhedral geometry, he templates and outlined methods for creating 3D models of the chair and boat configurations his new theory conceptualized. Figure~\ref{fig:sachse} shows a construction of these two models. Despite his best efforts, Sachse's ideas were not accepted by that chemistry community until after his death. 
@@ -409,8 +411,8 @@ This amounts to the sum over the $d$th entry of each vertex in the configuration
 %When the Jacobian is of full rank 18, none of the constraints are dependent on each other and thus there is no freedom in the linkage. When testing the chair, we found there to be $0$ degrees of freedom, meaning that it is impossible to make a transition from the chair to another configuration without breaking one or more of the constraint equations. For the boat, however, one degree of freedom was found. This result shows that it is possible to deform the boat continuously while satisfying the constraints, but it is not informative as to which configurations it can deform to. In particular, we are interested in finding a path to he twist boat or another boat configuration. 
 %
 
-\section{Folding Configuration Space}
-???include??
+%\section{Folding Configuration Space}
+%???include??
 %
 %The number of degrees of freedom measures the rigidity of an intermediate, but some intermediates with the same number of degrees of freedom may have varying degrees of mobility. We seek to quantify an intermediate's mobility by the relative amount of movement the intermediate has for a small movement in its configuration space. Intermediates with the most mobility will move less than the less mobile intermediates for the same amount of movement in configuration space.  
 %

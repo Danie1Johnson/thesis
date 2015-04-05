@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  4 APR 2015 16:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  5 APR 2015 12:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -752,11 +752,18 @@ Overfull \hbox (5.78796pt too wide) in paragraph at lines 54--54
 choices of timestep. []  
  []
 
-)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16])
 \tf@lof=\write7
 \openout7 = `thesis.lof'.
 
- [16]
+
+[17] [18
+
+
+]
 \c@mythm=\count148
 \c@mylem=\count149
 \c@mycor=\count150
@@ -770,8 +777,6 @@ Underfull \hbox (badness 10000) in alignment at lines 148--148
  []
 
 [1
-
-
 
 ] (./content/intro.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -957,32 +962,29 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 203--204
 [][] 
  []
 
-[41]
-Overfull \hbox (104.1737pt too wide) in paragraph at lines 225--225
+[41] [42]
+Overfull \hbox (104.1737pt too wide) in paragraph at lines 226--226
 [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [42]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [43]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [44]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [45]
 File: images/polys_face_shellings.eps Graphic file (type eps)
 
 <images/polys_face_shellings.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 274--275
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 275--276
 [][] 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [45]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [46]
@@ -992,22 +994,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [48]
-[49]
-Underfull \vbox (badness 2980) has occurred while \output is active []
+Underfull \vbox (badness 4660) has occurred while \output is active []
+
+ [49]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [50]
-Underfull \vbox (badness 3240) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [51]
-[52]
-Underfull \vbox (badness 1082) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [53]
-[54]
-Underfull \vbox (badness 1400) has occurred while \output is active []
+ [52]
+[53]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [55])
-[56]
+ [54]
+[55]) [56]
 Chapter 4.
 
 Underfull \hbox (badness 10000) in alignment at lines 160--160
@@ -1066,38 +1069,36 @@ Overfull \hbox (4.33603pt too wide) in paragraph at lines 242--243
 
 File: ./images/cube_dof_hist_facecount.eps Graphic file (type eps)
 <./images/cube_dof_hist_facecount.eps>
-Overfull \hbox (76.60382pt too wide) in paragraph at lines 250--251
+Overfull \hbox (76.60382pt too wide) in paragraph at lines 251--252
  [][] 
  []
 
+[70]
 File: ./images/octahedron_dof_hist_facecount.eps Graphic file (type eps)
-<./images/octahedron_dof_hist_facecount.eps>
-Overfull \hbox (76.60382pt too wide) in paragraph at lines 257--258
+ <./images/octahedron_dof_hist_facecount.eps>
+Overfull \hbox (76.60382pt too wide) in paragraph at lines 258--259
  [][] 
  []
 
 File: ./images/dodecahedron_dof_hist_facecount.eps Graphic file (type eps)
 <./images/dodecahedron_dof_hist_facecount.eps>
-Overfull \hbox (40.46661pt too wide) in paragraph at lines 264--265
+Overfull \hbox (40.46661pt too wide) in paragraph at lines 265--266
  [][] 
  []
 
 File: ./images/icosahedron_dof_hist_facecount.eps Graphic file (type eps)
 <./images/icosahedron_dof_hist_facecount.eps>
-Overfull \hbox (76.60382pt too wide) in paragraph at lines 271--272
+Overfull \hbox (76.60382pt too wide) in paragraph at lines 272--273
  [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [70]
+ [71]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [71])
-Underfull \vbox (badness 3579) has occurred while \output is active []
-
- [72]
+ [72])
 [73] [74] [75] [76]
 Chapter 5.
 
@@ -1400,10 +1401,10 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  13605 strings out of 493305
  249486 string characters out of 6139898
- 308775 words of memory out of 5000000
+ 306775 words of memory out of 5000000
  16669 multiletter control sequences out of 15000+600000
  24886 words of font info for 109 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,19n,69p,1282b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,69p,1282b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (130 pages, 271584 bytes).
+Output written on thesis.dvi (132 pages, 274184 bytes).
