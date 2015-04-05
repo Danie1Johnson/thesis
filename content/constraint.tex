@@ -23,10 +23,14 @@ It is important to note that there are many possible parameterizations of a conf
 
 
 \section{Geometric Configuration Space}
-
- --pictures of flexing. 
+--TEXT
+  
 \begin{figure}[ht]
-  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+       \centering
+                \includegraphics[width=0.3\textwidth]{images/OctaGCS_0.eps}
+                \includegraphics[width=0.3\textwidth]{images/OctaGCS_1.eps}
+                \includegraphics[width=0.3\textwidth]{images/OctaGCS_2.eps}
+
 \caption{Different geometric configurations of an octahedron intermediate.}
 \label{fig:OctaGCS}
 \end{figure}
@@ -205,7 +209,32 @@ In practice, we use NumPy's numpy.linalg.svd module to take the singlular value 
 
 Consider the linkage of six squares aranged in a $2\times 3$ lattice depicted in figure~\ref{fig:SixSq}. This linkage has three lines of hinges: 2 accross and 1 down. As shown, the two horizontal hinges can be manipulated independently with each of the vertical hinges maintaining at an angle of $\pi$ degrees. This seems to indicate two internal degrees of freedom. Alternatively, when folded along the verticle crease, the horizontal hinges remain fixed with dihedral angle $\pi$. This configuration corresponds to just a single internal degree of freedom. Thus, the transition between these two modes, when the linkage is completely planar, there is a singularity and the number of degrees of freedom is not definied. 
 
-\begin{figure}[ht]
+%\begin{figure}[ht]
+
+
+\begin{figure}
+       \centering
+        %\begin{subfigure}[b]{0.24\textwidth}
+                \includegraphics[width=0.3\textwidth]{images/G2x3_0.eps}
+                %\caption{Chair}
+                %\label{fig:Chair}
+        %\end{subfigure}%
+        %~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        %\begin{subfigure}[b]{0.24\textwidth}
+                \includegraphics[width=0.3\textwidth]{images/G2x3_1.eps}
+                %\caption{Boat}
+                %\label{fig:Boat}
+        %\end{subfigure}%
+        %~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        %\begin{subfigure}[b]{0.24\textwidth}
+                \includegraphics[width=0.3\textwidth]{images/G2x3_2.eps}
+                %\caption{Twist Boat}
+                %\label{fig:TwistBoat}
+        %\end{subfigure}%
+
+
   %\includegraphics[scale=0.1, angle=0]{tetris.eps}
 \caption{A linkage of 6 squares with configurations of different degrees of freedom.}
 \label{fig:SixSq}
@@ -219,60 +248,62 @@ As stated previously, we have not observed this type of behavior from any buildi
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=1.0, angle=0]{cube_dof_hist.eps}
-\caption{}
+\caption{Distribution of internal degrees of freedom amongst Cube intermediates.}
 \label{fig:CubeDoFHist}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=1.0, angle=0]{octahedron_dof_hist.eps}
-\caption{}
+\caption{Distribution of internal degrees of freedom amongst Octahedron intermediates.}
 \label{fig:OctaDoFHist}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=1.0, angle=0]{dodecahedron_dof_hist.eps}
-\caption{}
+\caption{Distribution of internal degrees of freedom amongst Dodecahedron intermediates.}
 \label{fig:DodecDoFHist}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=1.0, angle=0]{icosahedron_dof_hist.eps}
-\caption{}
+\caption{Distribution of internal degrees of freedom amongst Icosahedron intermediates.}
 \label{fig:IcosaDoFHist}
 \end{figure}
 
+Using the Jacobian method for computing internal degrees of freedom, we have computed the number of degrees of freedom for all intermediates of the Platonic solids. Figures~\ref{fig:CubeDoFHist},~\ref{fig:OctaDoFHist},~\ref{fig:DodecDoFHist}, and~\ref{fig:IcosaDoFHist} are histograms of the number of internal degrees of freedom for the intermediates of each of the Platonic solids. We do not include the Tetrahedron, since it only has four intermediates and only the one composed of two triangles is not rigid. Interestingly, the cube and dodecahedron have a large number of rigid intermediates due  to the fact that their verticies are the rigid meeting of only three faces. The octahedron, with four faces meeting at each vertex has a more varied distribution of internal degrees of freedom. The icosahedron, however, has a very small number of rigid intermediates with some intermediates having as many as $13$ internal degrees of freedom. 
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.7, angle=0]{cube_dof_hist_facecount.eps}
-\caption{}
+\caption{Each virtical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of the cube have.}
 \label{fig:CubeDoFHistFC}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.7, angle=0]{octahedron_dof_hist_facecount.eps}
-\caption{}
+\caption{Each virtical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of Octahedron have.}
 \label{fig:OctaDoFHistFC}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.65, angle=0]{dodecahedron_dof_hist_facecount.eps}
-\caption{}
+\caption{Each virtical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of the Dodecahedron have.}
 \label{fig:DodecDoFHistFC}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=0.7, angle=0]{icosahedron_dof_hist_facecount.eps}
-\caption{}
+\caption{Each virtical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of the icosahedron have.}
 \label{fig:IcosaDoFHistFC}
 \end{figure}
 
+To provide a more detailed look at the distribution of internal degrees of freedom, figures~\ref{fig:CubeDoFHistFC},~\ref{fig:OctaDoFHistFC},~\ref{fig:DodecDoFHistFC}, and~\ref{fig:IcosaDoFHistFC} break down the previous histograms by the number of faces in the intermediate. Each column of the plots is a histogram for the number of internal degrees of freedom for the intermediates with that specific number of faces. The general theme seems to be that intermidiates with almost all or almost none of their faces are most rigid and the intermediates with around half of the total possible faces have the most internal degrees of freedom. The most interesting case remains the icosaheron with a wide variation in internal degrees of freedom for most face counts.
 
 \subsection{Explicit Removal of Trivial Degrees of Freedom}
 \label{ssc:RemTrivDoF}
