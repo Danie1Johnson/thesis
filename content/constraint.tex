@@ -23,10 +23,14 @@ It is important to note that there are many possible parameterizations of a conf
 
 
 \section{Geometric Configuration Space}
-
- --pictures of flexing. 
+--TEXT
+  
 \begin{figure}[ht]
-  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+       \centering
+                \includegraphics[width=0.3\textwidth]{images/OctaGCS_0.eps}
+                \includegraphics[width=0.3\textwidth]{images/OctaGCS_1.eps}
+                \includegraphics[width=0.3\textwidth]{images/OctaGCS_2.eps}
+
 \caption{Different geometric configurations of an octahedron intermediate.}
 \label{fig:OctaGCS}
 \end{figure}
@@ -205,7 +209,32 @@ In practice, we use NumPy's numpy.linalg.svd module to take the singlular value 
 
 Consider the linkage of six squares aranged in a $2\times 3$ lattice depicted in figure~\ref{fig:SixSq}. This linkage has three lines of hinges: 2 accross and 1 down. As shown, the two horizontal hinges can be manipulated independently with each of the vertical hinges maintaining at an angle of $\pi$ degrees. This seems to indicate two internal degrees of freedom. Alternatively, when folded along the verticle crease, the horizontal hinges remain fixed with dihedral angle $\pi$. This configuration corresponds to just a single internal degree of freedom. Thus, the transition between these two modes, when the linkage is completely planar, there is a singularity and the number of degrees of freedom is not definied. 
 
-\begin{figure}[ht]
+%\begin{figure}[ht]
+
+
+\begin{figure}
+       \centering
+        %\begin{subfigure}[b]{0.24\textwidth}
+                \includegraphics[width=0.3\textwidth]{images/G2x3_0.eps}
+                %\caption{Chair}
+                %\label{fig:Chair}
+        %\end{subfigure}%
+        %~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        %\begin{subfigure}[b]{0.24\textwidth}
+                \includegraphics[width=0.3\textwidth]{images/G2x3_1.eps}
+                %\caption{Boat}
+                %\label{fig:Boat}
+        %\end{subfigure}%
+        %~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        %\begin{subfigure}[b]{0.24\textwidth}
+                \includegraphics[width=0.3\textwidth]{images/G2x3_2.eps}
+                %\caption{Twist Boat}
+                %\label{fig:TwistBoat}
+        %\end{subfigure}%
+
+
   %\includegraphics[scale=0.1, angle=0]{tetris.eps}
 \caption{A linkage of 6 squares with configurations of different degrees of freedom.}
 \label{fig:SixSq}

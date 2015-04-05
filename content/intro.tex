@@ -100,35 +100,39 @@ First proposed by Wales, the Building Game is a discrete attachment model that s
 %
 %
 \subsection{Folding}
-Another model--we refer to as the Folding Model--was used to model the self-folding of meso-scale metallic polyhedra mentioned in section~\ref{ssc:SelfFold}. In this model, a polyhedron's net is sequentially folded up into the finished polyhedron. At each stage one vertex is closed to form a pyramidal structure by a folding move. In analogy with the building game, we can define folding intermediates to be partially folded states and a state spaces where intermediates are connected if one can form the other with a single fold. The state space and corresponding intermediates are shown in figure~\ref{fig:fold_octa}. 
+Another model--we refer to as the Folding Model--was used to model the self-folding of meso-scale metallic polyhedra mentioned in section~\ref{ssc:SelfFold}. In this model, a polyhedron's net is sequentially folded up into the finished polyhedron. At each stage one vertex is closed to form a pyramidal structure by a folding move. In analogy with the building game, we can define folding intermediates to be partially folded states and a state spaces where intermediates are connected if one can form the other with a single fold. One possible sequence of fold resulting in the octahedron is shown in figure~\ref{fig:fold_octa}. 
 
 Interestingly, each polyhedron may has multiple nets. In fact, the number of distinct nets grows rapidly with the size of the polyhedron. Certain nets have different folding pathways and measuring the favorability of one of these nets over another introduces an design problem. If nets that fold into the completed polyhedron most reliably can be identified, the efficiency of the self-assembly process can be optimized CITE.
 
 \begin{figure}[h]
-\caption{The folding model on the octahedron.}
+
+       \centering
+                \includegraphics[width=0.18\textwidth]{images/folds_0.eps}
+                \includegraphics[width=0.18\textwidth]{images/folds_1.eps}
+                \includegraphics[width=0.18\textwidth]{images/folds_2.eps}
+                \includegraphics[width=0.18\textwidth]{images/folds_3A.eps}
+                \includegraphics[width=0.18\textwidth]{images/folds_4A.eps}
+
+\caption{A sequence of Folding Model intermediates beginning with an octahedron net and successfully forming an octahedron.}
 \label{fig:fold_octa}
-\centering
-%\centering
-%\begin{subfigure}[b]{0.45\textwidth}
-%NEEDS FILE
-%%\includegraphics[width=\textwidth]{folding_state_space.png}
-%\caption{State Space}
-%\label{fig:fold_ss}
-%
-%\end{subfigure}
-%~
-%\begin{subfigure}[b]{0.4\textwidth}
-%NEEDS FILE
-%%\includegraphics[width=\textwidth]{folding_ints.png}
-%\caption{Intermediates}
-%\label{fig:folding_ints}
-%
-%\end{subfigure}
-%
-sequence of folds,+ both octa and boat.
 \end{figure}
 
-As a feature, this model has been shown to allow folds that do not result in the initially intended polyhedron and can terminate in other polyhedra and blocked states. For example, many of the intermediates that cannot fold into the octahedron end up folding into a non-convex boat intermediate.
+\begin{figure}[h]
+
+       \centering
+
+                \includegraphics[width=0.18\textwidth]{images/folds_0.eps}
+                \includegraphics[width=0.18\textwidth]{images/folds_1.eps}
+                \includegraphics[width=0.18\textwidth]{images/folds_2.eps}
+                \includegraphics[width=0.18\textwidth]{images/folds_3B.eps}
+                \includegraphics[width=0.18\textwidth]{images/folds_4B.eps}
+
+
+\caption{A sequence of Folding Model intermediates beginning with an octahedron net and resulting in the boat configuration.}
+\label{fig:fold_boat}
+\end{figure}
+
+As a feature, this model has been shown to allow folds that do not result in the initially intended polyhedron and can terminate in other polyhedra and blocked states. For example, many of the intermediates that cannot fold into the octahedron end up folding into a non-convex boat intermediate. This is depicted in figure~\ref{fig:fold_boat}.
 
 %Like in the building game, the state space of the folding model experiences a combinatorial explosion as the number of faces the polyhedron has increases. 
 
