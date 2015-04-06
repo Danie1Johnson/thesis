@@ -184,7 +184,7 @@ We may also be interested in the behavior of a small part of the configuration a
 %\end{figure}
 \section{Manifold Brownian Motion}
 
-To explore various properties of the building game geometric configuration spaces, we simulate a Brownian motion on the corresponding constraint space. Assuming that the constraint space has no singularities, it is a manifold. Using a two step scheme similar to those described above, we use a random walk to approximate the Brownian motion. To compute each new random walk step, we first take a step in the tangent space and then project this point back to the manifold. 
+To explore various properties of the Building Game geometric configuration spaces, we simulate a Brownian motion on the corresponding constraint space. Assuming that the constraint space has no singularities, it is a manifold. Using a two step scheme similar to those described above, we use a random walk to approximate the Brownian motion. To compute each new random walk step, we first take a step in the tangent space and then project this point back to the manifold. 
 
 \subsection{Computational Scheme}
 
@@ -321,7 +321,7 @@ Mezzadri outlines properties of random unitary matrices~\cite{Mezzadri2007}. In 
  
 \subsection{MBM on Geometric Configuration Spaces}
 \label{ssc:MBMGCS}
-As an initial test case of our Manifold Brownian Motion scheme on building game geometric configuration spaces, we first consider two simple triangle linkages. The first has two triangles linked together along a hinged edge. As seen in figure~\ref{fig:T2_diagram}, the linkage can be specified by the $3$-dimensional locations of four vertices, giving an ambient space of $\mathbbm{R}^3$. In addition to the six trivial degrees of freedom, this configuration also carries an internal degree of freedom corresponding to the dihedral angle formed at the hinged edge. 
+As an initial test case of our Manifold Brownian Motion scheme on Building Game geometric configuration spaces, we first consider two simple triangle linkages. The first has two triangles linked together along a hinged edge. As seen in figure~\ref{fig:T2_diagram}, the linkage can be specified by the $3$-dimensional locations of four vertices, giving an ambient space of $\mathbbm{R}^3$. In addition to the six trivial degrees of freedom, this configuration also carries an internal degree of freedom corresponding to the dihedral angle formed at the hinged edge. 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.1]{images/T2_diagram.eps}
@@ -336,7 +336,7 @@ Figure~\ref{fig:T2_1} shows a histogram of this dihedral angle as sampled using 
 \label{fig:T2_1}
 \end{figure}
 
-A second test case we consider is a linkage with three triangles. As depicted in figure~\ref{figT3_diagram}, the configuration is composed of an interior triangle connected along two of its edges to an additional two triangles and is parameterized by five vertices. 
+A second test case we consider is a linkage with three triangles. As depicted in figure~\ref{fig:T3_diagram}, the configuration is composed of an interior triangle connected along two of its edges to an additional two triangles and is parameterized by five vertices. 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.1]{images/T3_diagram.eps}
@@ -432,22 +432,22 @@ Similarly, the three triangle linkage also does not produce a uniform sampling o
 \end{figure}
 
 \section{Manifold Reflected Brownian Motion}
-In our sampling of building game geometric configurations, we see that many of the sampled configurations or Brownian motion paths do not make physical sense. For example, we do not prevent the triangles of the configuration from intersecting each other. Additionally, two faces attached by a hinge may pass through each other as the dihedral angle passes through zero. We introduce implicit boundaries to turn the manifold Brownian motion into a manifold reflected Brownian motion. With these added boundaries, the process will be prevented from entering nonphysical configurations, and represents a better sampling on configurations that coincide with the actual self-assembly processes we are attempting to model.
+In our sampling of Building Game geometric configurations, we see that many of the sampled configurations or Brownian motion paths do not make physical sense. For example, we do not prevent the triangles of the configuration from intersecting each other. Additionally, two faces attached by a hinge may pass through each other as the dihedral angle passes through zero. We introduce implicit boundaries to turn the manifold Brownian motion into a manifold reflected Brownian motion. With these added boundaries, the process will be prevented from entering nonphysical configurations, and represents a better sampling on configurations that coincide with the actual self-assembly processes we are attempting to model.
 
 \subsection{Computational Scheme}
 
 To sample from a reflected Brownian motion on the manifold, we use a rejection scheme that first generates a proposal configuration according to the previous random walk scheme. Using our implicit boundary function that simply returns true if a proposed configuration is valid (not self-intersecting), and false otherwise, we accept or reject the proposed configuration. This process repeats until a proposal is accepted. 
 
-\begin{figure}[ht]
-\centering
-\begin{algorithmic}
-\Do 
-\State $\hat{z} \gets$ proposal configuration using algorithm~\ref{alg:MBMRW}.
-\doWhile{$\hat{z}$ is self-intersecting}
-\State $z \gets \hat{z}$
-\end{algorithmic}
-\caption{Reflected Random Walk on $\mathcal{M}$}
-\end{figure}
+%\begin{figure}[ht]
+%\centering
+%\begin{algorithmic}
+%\Do 
+%\State $\hat{z} \gets$ proposal configuration using algorithm~\ref{alg:MBMRW}.
+%\doWhile{$\hat{z}$ is self-intersecting}
+%\State $z \gets \hat{z}$
+%\end{algorithmic}
+%\caption{Reflected Random Walk on $\mathcal{M}$}
+%\end{figure}
 
 \subsubsection{Self-Intersection Testing}
 
@@ -475,33 +475,33 @@ The results match almost perfectly with the biggest errors occurring at the boun
 \subsection{MRBM on Geometric Configuration Spaces}
 Now, we again consider the two and three triangle linkage examples from section~\ref{ssc:MBMGCS}. Figure~\ref{fig:T2_2} depicts the same conditions (no fixed trivial degrees of freedom) as figure~\ref{fig:T2_1} previously, but with the addition of boundaries that prevent the two triangles from rotating through each other. The agreement in the two histograms is strong with the greatest differences being at the boundary as expected. 
 \begin{figure}[ht]
-\label{fig:T2_2}
 \centering
   \includegraphics[scale=0.6]{images/T2_2.eps}
 \caption{Sampling of two triangle linkage with boundaries.}
+\label{fig:T2_2}
 \end{figure}
 
 Similarly, we consider the three triangle linkage with no fixed degrees of freedom and impose boundaries. This test is less trivial than the two triangle linkage since the exterior triangles of the linkage may interact more easily. Comparing the original in figure~\ref{fig:T3_1}, there is nice agreement except in the regions in the lower-right and upper-left corners of the plot which correspond to the aforementioned triangle intersection. Also, a noticeable layer of lower probability is seen around the periphery of the plot which reflects the boundary preventing the triangles from rotating through each other.
 \begin{figure}[ht]
-\label{fig:T3_2}
 \centering
   \includegraphics[scale=0.6]{images/T3_2_2D.eps}
 \caption{Sampling of three triangle linkage with boundaries.}
+\label{fig:T3_2}
 \end{figure}
 
 
 \begin{figure}[ht]
-\label{fig:T2_6}
 \centering
   \includegraphics[scale=0.6]{images/T2_6.eps}
-\caption{Sampling of two triangle linkage with boundaries and fixed center of mass and rotations MORE SAMPLES??.}
+\caption{Sampling of two triangle linkage with boundaries and fixed center of mass and rotations.}
+\label{fig:T2_6}
 \end{figure}
 
 \begin{figure}[ht]
-\label{fig:T3_7}
 \centering
   \includegraphics[scale=0.6]{images/T3_7_2D.eps}
 \caption{Sampling of three triangle linkage with boundaries and fixed center of mass and rotations.}
+\label{fig:T3_7}
 \end{figure}
 
 

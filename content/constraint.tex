@@ -1,30 +1,7 @@
 
-While models such as the Building Game treat assembly intermediates as idealized structures, the intermediates of the physical application we are trying to model may face a chaotic and volatile range of forces. To more realistically model the ways in which our intermediate might flex and move under these forces, we impose a constraint model in with the rigidity of individual components of an intermediate are assumed, but in which the edges at which they meet are treated like a hinge. This constraint system specifies the ways in which an intermediate has freedom to move if it is able to move at all. A physically motivated way of addressing questions that the discrete models themselves are not adequate to answer is provided by this framework.   
-
-\subsection{Configuration Space}
-
-To characterize the freedoms of three-dimensional intermediates composed of rigid two-dimensional faces and connected at hinged edges, we parameterize each face and impose constraints in parameter space. Theoretically, the location and orientation of each face of an intermediate can be parameterized by six parameters: three for translation, three for rotation. This means the configuration of the entire intermediate can be represented by at most $6|F|$ parameters. In practice, however, it is often advantageous for ease of analysis and computational implementation to use more parameters to represent a given configuration. Often times, we use $3$ parameters to represent the location each vertex of each face, even if some of these vertices share common locations. This means that we often have an ambient parameter space of $\mathbb{R}^N$ with $N > 6|F|$. 
-
-Upon this parameter space we place three types of constraints. The first removes the configuration's 6 trivial degrees of freedom due to translation and rotation. Since the intermediate is connected, this can be achieved by fixing the parameters of one of the intermediate's faces. Additionally, we enforce a rigidity constraint on each face ensuring that the structure of a constituent face will not change with movement of the larger structure. The final type of constraint ensures that the connections between two faces have hinge-like mobility. Since a shared edge has two vertices belonging to each face, this constraint is imposed by identifying the corresponding vertex locations. 
-
-The \textit{configuration space} is defined to be the subset of ambient space $\left\{z \in \mathbb{R}^N : \varphi\left(z\right) = 0\right\}$  for which all $M$ of the constraint equations $\varphi: \mathbb{R}^N \to  \mathbb{R}^M $ are satisfied.  Since it is assumed that the standard configuration of the intermediate given by the model satisfies the constraints, the configuration space is non-empty. The configuration space is an algebraic variety, because the constraint equations can typically be represented as (quadratic) polynomials.  The \textit{degrees of freedom} of a particular configuration is taken to be the dimension of the null space of the Jacobian of $\varphi$. This is due to the fact that any move in the ambient space that prevents the constraint equations from changing must also be in the configuration space. Interestingly, it is possible for some members of configuration space to have a different number of degrees of freedom than others. 
- 
-It is important to note that there are many possible parameterizations of a configuration and the choice of which will likely result in a different configuration space. The selection of which face to constrain in order to remove the trivial degrees of freedom may also affect the structure of the configuration space. While we must be cognizant of these choices, in many cases, the properties we wish to evaluate of the configuration space are independent of the choices.
-
-%\subsection{Cyclohexane}
-%
-%One example of using the 
-%
-
-\section{Linkages and Frameworks}
---izmestiev def of framework
---freedom in machines def of linkage
---used to describe configurations and freedoms 
+While models such as the Building Game treat assembly intermediates as idealized structures, the intermediates of the physical application we are trying to model may face a chaotic and volatile range of forces. To more realistically model the ways in which our intermediate might flex and move under these forces, we impose a constraint model in which individual faces of an intermediate are rigid, but with the edges at which two faces meet modeled as a hinge. As seen in figure~\ref{fig:OctaGCS}, this approach allows for a variety of geometric configurations all while the combinatorial connectivity properties of the intermediate remain unchanged.  This geometric framework provides a physically motivated way of addressing questions that strictly combinatorial models cannot adequately answer. 
 
 
-\section{Geometric Configuration Space}
---TEXT
-  
 \begin{figure}[ht]
        \centering
                 \includegraphics[width=0.3\textwidth]{images/OctaGCS_0.eps}
@@ -34,36 +11,62 @@ It is important to note that there are many possible parameterizations of a conf
 \caption{Different geometric configurations of an octahedron intermediate.}
 \label{fig:OctaGCS}
 \end{figure}
---embedding
+
+
+
+%\subsection{Configuration Space}
+
+%To characterize the freedoms of three-dimensional intermediates composed of rigid two-dimensional faces and connected at hinged edges, we parameterize each face and impose constraints in parameter space. Theoretically, the location and orientation of each face of an intermediate can be parameterized by six parameters: three for translation, three for rotation. This means the configuration of the entire intermediate can be represented by at most $6|F|$ parameters. In practice, however, it is often advantageous for ease of analysis and computational implementation to use more parameters to represent a given configuration. Often times, we use $3$ parameters to represent the location each vertex of each face, even if some of these vertices share common locations. This means that we often have an ambient parameter space of $\mathbb{R}^N$ with $N > 6|F|$. 
+
+%Upon this parameter space we place three types of constraints. The first removes the configuration's 6 trivial degrees of freedom due to translation and rotation. Since the intermediate is connected, this can be achieved by fixing the parameters of one of the intermediate's faces. Additionally, we enforce a rigidity constraint on each face ensuring that the structure of a constituent face will not change with movement of the larger structure. The final type of constraint ensures that the connections between two faces have hinge-like mobility. Since a shared edge has two vertices belonging to each face, this constraint is imposed by identifying the corresponding vertex locations. 
+
+%The \textit{configuration space} is defined to be the subset of ambient space $\left\{z \in \mathbb{R}^N : \varphi\left(z\right) = 0\right\}$  for which all $M$ of the constraint equations $\varphi: \mathbb{R}^N \to  \mathbb{R}^M $ are satisfied.  Since it is assumed that the standard configuration of the intermediate given by the model satisfies the constraints, the configuration space is non-empty. The configuration space is an algebraic variety, because the constraint equations can typically be represented as (quadratic) polynomials.  The \textit{degrees of freedom} of a particular configuration is taken to be the dimension of the null space of the Jacobian of $\varphi$. This is due to the fact that any move in the ambient space that prevents the constraint equations from changing must also be in the configuration space. Interestingly, it is possible for some members of configuration space to have a different number of degrees of freedom than others. 
+ 
+%It is important to note that there are many possible parameterizations of a configuration and the choice of which will likely result in a different configuration space. The selection of which face to constrain in order to remove the trivial degrees of freedom may also affect the structure of the configuration space. While we must be cognizant of these choices, in many cases, the properties we wish to evaluate of the configuration space are independent of the choices.
+
+%\subsection{Cyclohexane}
+%
+%One example of using the 
+%
+
+%\section{Linkages and Frameworks}
+%--izmestiev def of framework
+%--freedom in machines def of linkage
+%--used to describe configurations and freedoms 
+
+
+\section{Geometric Configuration Space}
+%
+%\begin{mydef}
+%The \textbf{constraint space} corresponding to a constraint function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$ is its zero-set,
+%\begin{align}
+%\Omega \doteq \{z \in \mathbbm{R}^n : c(z) = 0\}.
+%\end{align}
+%\end{mydef}
+
+
+
+Using the notion of a constraint space, we can mathematically define the space of different geometric configurations that a given intermediate can take. Since we are treating each intermediate as collection of rigid polygons attached to each other along hinged edges, there are two basic types of constraint we must enforce. First, we must ensure that the each individual face is rigid and has the correct geometric shape. Additionally, each edge to edge connection must remain fixed with only hinge-like motion allowed. By defining this set of constraints as a single constraint function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$, the zero-set $\Omega \doteq \{z \in \mathbbm{R}^n : c(z) = 0\}$ is the corresponding constraint space. This constraint system implicitly specifies all of the ways in which an intermediate has freedom to move if it is able to move at all. If $c$ is composed of polynomial functions, then the constraint space is an algebraic variety. If this variety has no singularities, then it is also a manifold. 
+
 
 \begin{mydef}
-The \textbf{constraint space} corresponding to a constraint function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$ is its zero-set,
-\begin{align}
-\Omega \doteq \{z \in \mathbbm{R}^n : c(z) = 0\}.
-\end{align}
-\end{mydef}
-If $c$ is composed of polynomial functions, then the constraint space is an algebraic variety. If this variety has no singularities, then it is also a manifold. 
-
-Using the notion of a constraint space, we can define the space of different geometric configurations that a given intermediate can take. Since we are treating each intermediate as collection of rigid polygons attached to each other along hinged edges, there are two basic types of constraint we must enforce. First, we must ensure that the each individual face is rigid and has the correct geometric shape. Additionally, each edge to edge connection must remain fixed with only hinge-like motion allowed. 
-   
-\begin{mydef}
-The \textbf{geometric configuration space} of a building game intermediate is a constraint space that enforces the rigidity of individual faces and hinged motion along connected edges.
+The \textbf{geometric configuration space} of a Building Game intermediate is a constraint space that enforces the rigidity of individual faces and hinged motion along connected edges.
 \end{mydef}
 
-To mathematically describe a particular configuration, we must specify the locations of the vertices of each face. Thus, for an intermediate $[x]$, its building game configuration space can be represented as a subset of the ambient space $\mathbb{R}^{3\times N_x}$ where $N_x \doteq \sum_{f\in x} s_f$ where $s_f$ is the number of sides (and verticies) of face $f$. Using this representation, we must then identify the corresponding constaint equations that give rise to the combinatorial configuration space as a function of points in ambient space. 
+To mathematically describe a particular configuration, we must specify the locations of the vertices of each face. Thus, for an intermediate $[x]$, its Building Game configuration space can be represented as a subset of the ambient space $\mathbb{R}^{3\times N_x}$ where $N_x \doteq \sum_{f\in x} s_f$ where $s_f$ is the number of sides (and vertices) of face $f$. Using this representation, we must then identify the corresponding constraint equations that give rise to the combinatorial configuration space as a function of points in ambient space. 
 
-It is worth noting that while we represent each face with $3\times s_f$ coordinates, only 6 are required to speciafy a face's position and orientation if they are chosen carefully. With this in mind, we will typically use a function of $6$ of a face's vertex coordinates to constrain each of the face's remaining vertex coordinates. 
+It is worth noting that while we represent each face with $3\times s_f$ coordinates, only 6 are required to specify a face's position and orientation if they are chosen carefully. With this in mind, we will typically use a function of $6$ of a face's vertex coordinates to constrain each of the face's remaining vertex coordinates. 
 
 
 Notationally, we refer to the $k$th vertex of the $j$th face of $x$ as $v^{jk} = \left(v^{jk}_x,v^{jk}_y,v^{jk}_z\right)$.
-Since the context of a constraint space requires a function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$, we flatten the matrix of vertex coordinates into a vector of lenghth $n = 3N_x$. 
+Since the context of a constraint space requires a function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$, we flatten the matrix of vertex coordinates into a vector of length $n = 3N_x$. 
 \begin{align}
 z = \begin{bmatrix} v^{1,1} \\ \vdots \\ v^{1,s_{f_1}} \\ \vdots \\ v^{|x|,1} \\ \vdots \\ v^{|x|,s_{f_{|x|}}} \end{bmatrix} \in \mathbbm{R}^n
 \end{align}
 
 There are four fundamental types of constraint equations: edge length constraints, angle constraints, and $2D$ face constraint to enforce the rigid structure of each face as well as vertex identification constraints to enforce the hinged connections.
 
-Edge length constraints enforce that the lengths of the edges of each face in an intermediate cannot change. If the $k$th edge is definted to be that between the $(k-1)$st and $k$th vertices, we use the following function to constrain its lengths to a known value $\ell^{jk}$.
+Edge length constraints enforce that the lengths of the edges of each face in an intermediate cannot change. If the $k$th edge is defined to be that between the $(k-1)$st and $k$th vertices, we use the following function to constrain its lengths to a known value $\ell^{jk}$.
 \begin{align}
 c_{edge}^{j,k}\left(z\right)& = \left|v^{j,k} - v^{j,k-1}\right|^2 - (\ell_{j,k})^2 \\
 & = \left(v_1^{j,k} - v_1^{j,k-1}\right)^2 +\left(v_2^{j,k} - v_2^{j,k-1}\right)^2 +\left(v_3^{j,k} - v_3^{j,k-1}\right)^2 - (\ell^{j,k})^2 
@@ -76,21 +79,21 @@ c_{ang}^{j,k}\left(z\right) &= (v^{j,k-1} - v^{j,k})\cdot(v^{j,k+1} - v^{j,k})  
 \end{align}  
 Here, $\theta^{j,k}$ is the angle at $v^{j,k}$ between $k$th and $(k+1)st$ edges which is a constant that is known a priori. In practice, we only enforce that the $k=1$st angle constraint for each face.
 
-Now, between the two edge constraints and one angle constraints, we have described $3$ constraints as a function of $9$ vertex coordinates per face. Thus for any choice of the $6$ coordinates, $v^{j,1}_1, v^{j,1}_2, v^{j,1}_3, v^{j,2}_1, v^{j,2}_2, v^{j,0}_1$, the remaining $3$ coordinates, $v^{j,2}_3, v^{j,0}_2, v^{j,0}_3$, are specified by the $3$ constraint equations. Similarly, since each face's location and rotational orientation can be defined by this choice of $6$ coordinates, we have enough information to specify the coordinates of the remaining verticies. 
+Now, between the two edge constraints and one angle constraints, we have described $3$ constraints as a function of $9$ vertex coordinates per face. Thus for any choice of the $6$ coordinates, $v^{j,1}_1, v^{j,1}_2, v^{j,1}_3, v^{j,2}_1, v^{j,2}_2, v^{j,0}_1$, the remaining $3$ coordinates, $v^{j,2}_3, v^{j,0}_2, v^{j,0}_3$, are specified by the $3$ constraint equations. Similarly, since each face's location and rotational orientation can be defined by this choice of $6$ coordinates, we have enough information to specify the coordinates of the remaining vertices. 
 
-Since the positions of the first three verticies dictate the locations of the remaining verticies, the $2D$ face constraints use a map from the known vertex coordinates to the yet unknown locations. Using a template for what the ideal polygonal stucture for each face should be, we use a rotation matrix to specify these remaining verticies. If this template has vertices $\hat{v}^{j,0}, \hat{v}^{j,1}, \hat{v}^{j,2}, \dots, \hat{v}^{j,k}, \dots$ and the locations for $v^{j,0}, v^{j,1}, \text{and } v^{j,2}$ are known, we can identify the location of $v^{j,k}$ for $k>2$. Using this template, we can define the following length and angle constants.
+Since the positions of the first three vertices dictate the locations of the remaining vertices, the $2D$ face constraints use a map from the known vertex coordinates to the yet unknown locations. Using a template for what the ideal polygonal structure for each face should be, we use a rotation matrix to specify these remaining vertices. If this template has vertices $\hat{v}^{j,0}, \hat{v}^{j,1}, \hat{v}^{j,2}, \dots, \hat{v}^{j,k}, \dots$ and the locations for $v^{j,0}, v^{j,1}, \text{and } v^{j,2}$ are known, we can identify the location of $v^{j,k}$ for $k>2$. Using this template, we can define the following length and angle constants.
 \begin{align}
 \ell^{j,k_1, k_2} &\doteq |\hat{v}^{j,k_1} - \hat{v}^{j,k_2}| \\ 
 \phi^{j,k_1,k_2,k_3} &\doteq \cos^{-1}\left(\frac{\left(\hat{v}^{j,k_1} - \hat{v}^{j,k_2}\right)\cdot\left(\hat{v}^{j,k_3} - \hat{v}^{j,k_2}\right)}{(\ell^{j,k_1, k_2})(\ell^{j,k_3, k_2})}\right)   
 \end{align}
 
-\begin{figure}[ht]
-  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
-\caption{Face template and 2d face constraints.}
-\label{fig:2DFC}
-\end{figure}
+%\begin{figure}[ht]
+%  %\includegraphics[scale=0.1, angle=0]{tetris.eps}
+%\caption{Face template and 2d face constraints.}
+%\label{fig:2DFC}
+%\end{figure}
 
-Our basic stratigy is to first place a point $\bar{v}^{j,k}$ in the span of $v^{j,0} - v^{j,1}$ at a distance of $|\bar{v}^{j,k} - v^{j,1}| = \ell^{j,k,1}$. The choice $\bar{v}^{j,k} = v^{j,1} + \frac{\ell^{j,k,1}}{\ell^{j,0,1}}(v^{j,0} - v^{j,1})$ will work, since 
+Our basic strategy is to first place a point $\bar{v}^{j,k}$ in the span of $v^{j,0} - v^{j,1}$ at a distance of $|\bar{v}^{j,k} - v^{j,1}| = \ell^{j,k,1}$. The choice $\bar{v}^{j,k} = v^{j,1} + \frac{\ell^{j,k,1}}{\ell^{j,0,1}}(v^{j,0} - v^{j,1})$ will work, since 
 \begin{align}
   |\bar{v}^{j,k} - v^{j,1}| &= |\frac{\ell^{j,k,1}}{\ell^{j,0,1}}(v^{j,0} - v^{j,1})| \\
   &= \frac{\ell^{j,k,1}}{\ell^{j,0,1}}|v^{j,0} - v^{j,1}| \\
@@ -111,26 +114,26 @@ The final constraint type, vertex identification, is used to enforce that the co
 \begin{align}
 c_{ident}^{j_1,k_1,j_1,k_1,d}(z) \doteq v^{j_1,k_1}_d - v^{j_2,k_2}_d \\
 \end{align}
-where $v^{j_1,k_1}$ and $v^{j_2,k_2}$ are corresponding vertices from the faces $j_1$ and $j_2$ meeting at a hinged edge. If there are $|E_x|$ of these hinged connections in a building game state $x$, there must be $6|E_x|$ correcponding vertex identification constraints.
+where $v^{j_1,k_1}$ and $v^{j_2,k_2}$ are corresponding vertices from the faces $j_1$ and $j_2$ meeting at a hinged edge. If there are $|E_x|$ of these hinged connections in a Building Game state $x$, there must be $6|E_x|$ corresponding vertex identification constraints.
 
 With all four constraint types explicitly defined, the aggregate constraint function for $x$ will have $n-m = 2|F_x|+ |F_x| + (N_x - 3|F_x|) + 6|E_x| = N_x + 6|E_x|$ total constraints. 
 
 
-%To mathematically represent each of the possible geometric configurations, we parameterize the embedding using its vertex locations. If a building game state is composed of the faces $\{f_1,\dots, f_i\}$, then any embedding of the intermediate can be described by a point in $\mathbbm{R}^n$, where $n$ is the three times sum $3\sum_{j=1}^i \#\text{vertices}(f_j)$, of the number of vertices in each face. Simply put, the point 
+%To mathematically represent each of the possible geometric configurations, we parameterize the embedding using its vertex locations. If a Building Game state is composed of the faces $\{f_1,\dots, f_i\}$, then any embedding of the intermediate can be described by a point in $\mathbbm{R}^n$, where $n$ is the three times sum $3\sum_{j=1}^i \#\text{vertices}(f_j)$, of the number of vertices in each face. Simply put, the point 
 % which is the concatenation of all of the vertex locations $v_1, v_2, \dots, v_{n/3} \in \mathbbm{R}^3$ for each verted on each face of an intermediate is used to represent a particular embedding. 
 
 \subsection{Special Case of Triangular Faces}
 
-In the case where all of the faces of the polyhedron we consider are triangles (tetrahedron, octahedron, icosahedron, etc.) we notice that by simple enforcing that each edge of each triangle has a specified length, the triangle will be rigid. This means that we do not have to use the angle and 2D face constraints. Further, rather that explicitly using vertex identification constraints, we can either treat them as length constraints with zero length between identified vertices or we can simply reindex the vertices so that identified vertices are actually treated as a single vertex. With either choice, in the trianglular case, we may only deal with length constraints if we wish. This will be a useful property in the next chapter. 
+In the case where all of the faces of the polyhedron we consider are triangles (tetrahedron, octahedron, icosahedron, etc.) we notice that by simple enforcing that each edge of each triangle has a specified length, the triangle will be rigid. This means that we do not have to use the angle and 2D face constraints. Further, rather that explicitly using vertex identification constraints, we can either treat them as length constraints with zero length between identified vertices or we can simply reindex the vertices so that identified vertices are actually treated as a single vertex. With either choice, in the triangular case, we may only deal with length constraints if we wish. This will be a useful property in the next chapter. 
 
-Additionally, we make a conjecture that under certain trianglular conditions, our algebraic variety has no singularities and is thus a manifold.
+Additionally, we make a conjecture that under certain triangular conditions, our algebraic variety has no singularities and is thus a manifold.
 \begin{mycon}
 \label{con:TriMan}
 The geometric configuration space for each intermediate composed of equilateral triangular faces is a manifold.
 \end{mycon}
 
 \section{Degrees of Freedom}
-Roughly speeking, the degrees of freedom of a system are the different independent motions the system is able to exercise. Since the concept of degrees of freedom exists in many diverse scientific fields, such as mechanical engineering and statistical physics, many different formal definitions of degrees of freedom are used in the literature~\cite{Pennestri2005}. McCarthy defines degrees of freedom of a mechanical system as follows~\cite{McCarthy1990}. 
+Roughly speaking, the degrees of freedom of a system are the different independent motions the system is able to exercise. Since the concept of degrees of freedom exists in many diverse scientific fields, such as mechanical engineering and statistical physics, many different formal definitions of degrees of freedom are used in the literature~\cite{Pennestri2005}. McCarthy defines degrees of freedom of a mechanical system as follows~\cite{McCarthy1990}. 
 \begin{quote}
 We derive formulas for the number of parameters needed to specify the configuration of a mechanism, in terms of the number of links and joints and the freedom of movement allowed at each joint. This number is the \textit{degrees of freedom} or \textit{mobility} of the mechanism. Changing the values of these parameters changes the configuration of the mechanism. Thus, if we view the set of all configuration available to a mechanism as a manifold, then the mobility of the mechanism is the dimension of this manifold. 
 \end{quote}
@@ -138,16 +141,16 @@ We derive formulas for the number of parameters needed to specify the configurat
 Since our geometric configuration space is an algebraic variety and not a manifold in general, this definition must be modified to make degrees of freedom a statistic of each individual configuration rather than a global statistic of the geometric configuration space. 
 
 \begin{mydef}
-The number of \textbf{degrees of freedom} a building game intermediate at configuration $z$ is the dimension of the geometric configuration space algebraic variety at $z$. If $z$ is a singularity of the algebraic variety, then the degrees of freedom is undefined.
+The number of \textbf{degrees of freedom} a Building Game intermediate at configuration $z$ is the dimension of the geometric configuration space algebraic variety at $z$. If $z$ is a singularity of the algebraic variety, then the degrees of freedom is undefined.
 \end{mydef}
 
-In most cases we consider, rigid rotation and rigid translation will preserve the value of the constraint function since they do not move the verticies relative to one another. In other words, if $c(z) = 0$ then we also have $c(Rz + T) = 0$ where $R \in \mathbbm{R}^{n}\times n$ rotates each vertex in the configuration by some $\hat{R} \in SO(3)$ and translates each vertex by $\hat{T} \in \mathbbm{R}^3$. With this definition, $R$ is the block diagonal matrix with each of the $n/3$ block being $\hat{R} \in SO(3)$ and $T \in \mathbbm{R}^n$ is composed of $n/3$ copies of $\hat{T} \in \mathbbm{R}^3$ stacked upon each other. These rigid body rotations account for $6$ of the configuration's degrees of freedom: $3$ rotational degrees of freedom and $3$ translational.
+In most cases we consider, rigid rotation and rigid translation will preserve the value of the constraint function since they do not move the vertices relative to one another. In other words, if $c(z) = 0$ then we also have $c(Rz + T) = 0$ where $R \in \mathbbm{R}^{n}\times n$ rotates each vertex in the configuration by some $\hat{R} \in SO(3)$ and translates each vertex by $\hat{T} \in \mathbbm{R}^3$. With this definition, $R$ is the block diagonal matrix with each of the $n/3$ block being $\hat{R} \in SO(3)$ and $T \in \mathbbm{R}^n$ is composed of $n/3$ copies of $\hat{T} \in \mathbbm{R}^3$ stacked upon each other. These rigid body rotations account for $6$ of the configuration's degrees of freedom: $3$ rotational degrees of freedom and $3$ translational.
 \begin{mydef}
-The \textbf{trivial degrees of freedom} a building game intermediate at configuration $z$ are the $6$ degrees of freedom corresponding to rigid body rotations and translations.
+The \textbf{trivial degrees of freedom} a Building Game intermediate at configuration $z$ are the $6$ degrees of freedom corresponding to rigid body rotations and translations.
 \end{mydef}
-Thus, the degrees of freedom we are most interested in are those that do represent movement of the verticies and faces relative to each other. 
+Thus, the degrees of freedom we are most interested in are those that do represent movement of the vertices and faces relative to each other. 
 \begin{mydef}
-The \textbf{internal degrees of freedom} a building game intermediate at configuration $z$ are the degrees of freedom that are not trival.
+The \textbf{internal degrees of freedom} a Building Game intermediate at configuration $z$ are the degrees of freedom that are not trivial.
 \end{mydef}
 
 \subsection{Computing Degrees of Freedom}
@@ -158,13 +161,13 @@ DoF &\doteq n - \text{rank}\left((C(z)\right)
 \end{align}
 Since the rank can take values between $0$ and $\min\{n,n-m\} = n-m$, there can be anywhere from $0$ degrees of freedom, when there are functionally no constraints on $z$, and $m$ degrees of freedom in the case where all $n-m$ constraint equations are independent and $C(z)$ is of full rank. 
 
-In the typical case in which the constraint equations are invarient under three-dimensional rotation and translation, there will be six trivial degrees of freedom. The number of internal degrees of freedom would then be $n - \text{rank}\left((C(z)\right) - 6$.  
+In the typical case in which the constraint equations are invariant under three-dimensional rotation and translation, there will be six trivial degrees of freedom. The number of internal degrees of freedom would then be $n - \text{rank}\left((C(z)\right) - 6$.  
 
 \begin{mydef}
-If there are zero iternal degrees of freedom at a onfiguration $z$, we say that the configuration is \textbf{rigid}.
+If there are zero internal degrees of freedom at a configuration $z$, we say that the configuration is \textbf{rigid}.
 \end{mydef}
 
-To actually compute the number of degrees of freedom for configurations of building game intermediates, we must first find an explicit form for the Jacobian matrix $C$. Below are the partial derivatives of the constraint functions we specified above.  
+To actually compute the number of degrees of freedom for configurations of Building Game intermediates, we must first find an explicit form for the Jacobian matrix $C$. Below are the partial derivatives of the constraint functions we specified above.  
 \begin{align}
 	\frac{\partial c_{edge}^{j,k}}{\partial z_i} &=
   	\begin{cases}
@@ -195,19 +198,19 @@ To actually compute the number of degrees of freedom for configurations of build
   	\end{cases} 
 \end{align}
 
-Since the number of degrees of freedom is defined as a local property of a specific configuration $z$, different configurations of the same building game intermediate could theoretically have differing numbers of degrees of freedom. However, we have yet to observe a building game intermediate that has this property and is evidence that supports conjecture~\ref{con:TriMan}. A contrived case in which a linkage of squares leads to a configuration space with differing degrees of freedon is described in section~\ref{ssc:NonMan}. When we report the number of degrees of freedom that a building game intermediate has, we use its connonical configuration in computation.
+Since the number of degrees of freedom is defined as a local property of a specific configuration $z$, different configurations of the same Building Game intermediate could theoretically have differing numbers of degrees of freedom. However, we have yet to observe a Building Game intermediate that has this property and is evidence that supports conjecture~\ref{con:TriMan}. A contrived case in which a linkage of squares leads to a configuration space with differing degrees of freedom is described in section~\ref{ssc:NonMan}. When we report the number of degrees of freedom that a Building Game intermediate has, we use its canonical configuration in computation.
 \begin{mydef}
-The \textbf{cannonical configuraion} of a building game intermediate $[x]$ is the configuration that is simply the $3$-dimensional embedding of the polyhedron restricted to the faces in $x$
+The \textbf{canonical configuration} of a Building Game intermediate $[x]$ is the configuration that is simply the $3$-dimensional embedding of the polyhedron restricted to the faces in $x$
 \end{mydef}
-For example, in the case of the cube, the cannonical configuration would have all of the faces of the intermediate  meeting at right angles just as they do in the cube itself. 
+For example, in the case of the cube, the canonical configuration would have all of the faces of the intermediate  meeting at right angles just as they do in the cube itself. 
 
-In practice, we use NumPy's numpy.linalg.svd module to take the singlular value decomposition of the compute Jacobian matrix in Python. The rank of the Jacobian is then the number of effectively non-zero singlular values where a small cutoff is used to determine whether a small singular value is indeed zero or non-zero.
+In practice, we use NumPy's numpy.linalg.svd module to take the singular value decomposition of the compute Jacobian matrix in Python. The rank of the Jacobian is then the number of effectively non-zero singular values where a small cutoff is used to determine whether a small singular value is indeed zero or non-zero.
 
 \subsection{Non-Manifold Example}
 \label{ssc:NonMan}
 %From this definition, it is worth noting that if the geometric configuration space is indeed a manifold, then the degrees of freedom is the dimension of that manifold which is a global property. Here we present an interesting example in which this is not the case and, depending on the specific configuration, a different number of degrees of freedom exist.
 
-Consider the linkage of six squares aranged in a $2\times 3$ lattice depicted in figure~\ref{fig:SixSq}. This linkage has three lines of hinges: 2 accross and 1 down. As shown, the two horizontal hinges can be manipulated independently with each of the vertical hinges maintaining at an angle of $\pi$ degrees. This seems to indicate two internal degrees of freedom. Alternatively, when folded along the verticle crease, the horizontal hinges remain fixed with dihedral angle $\pi$. This configuration corresponds to just a single internal degree of freedom. Thus, the transition between these two modes, when the linkage is completely planar, there is a singularity and the number of degrees of freedom is not definied. 
+Consider the linkage of six squares arranged in a $2\times 3$ lattice depicted in figure~\ref{fig:SixSq}. This linkage has three lines of hinges: 2 across and 1 down. As shown, the two horizontal hinges can be manipulated independently with each of the vertical hinges maintaining at an angle of $\pi$ degrees. This seems to indicate two internal degrees of freedom. Alternatively, when folded along the vertical crease, the horizontal hinges remain fixed with dihedral angle $\pi$. This configuration corresponds to just a single internal degree of freedom. Thus, the transition between these two modes, when the linkage is completely planar, there is a singularity and the number of degrees of freedom is not defined. 
 
 %\begin{figure}[ht]
 
@@ -240,7 +243,7 @@ Consider the linkage of six squares aranged in a $2\times 3$ lattice depicted in
 \label{fig:SixSq}
 \end{figure}
 
-As stated previously, we have not observed this type of behavior from any building game intermediates. This leads us to speculate that the degenerate nature of this example is down to an uncommon alignment of the hinged edges. Clearly, this linkage could never be an intermediate of a convex polyhedron. Perhaps the building game geometric configuration space has no singularities and is hence a manifold for all convex polyhedra.  
+As stated previously, we have not observed this type of behavior from any Building Game intermediates. This leads us to speculate that the degenerate nature of this example is down to an uncommon alignment of the hinged edges. Clearly, this linkage could never be an intermediate of a convex polyhedron. Perhaps the Building Game geometric configuration space has no singularities and is hence a manifold for all convex polyhedra.  
 
 \subsection{Results}
 
@@ -273,37 +276,37 @@ As stated previously, we have not observed this type of behavior from any buildi
 \label{fig:IcosaDoFHist}
 \end{figure}
 
-Using the Jacobian method for computing internal degrees of freedom, we have computed the number of degrees of freedom for all intermediates of the Platonic solids. Figures~\ref{fig:CubeDoFHist},~\ref{fig:OctaDoFHist},~\ref{fig:DodecDoFHist}, and~\ref{fig:IcosaDoFHist} are histograms of the number of internal degrees of freedom for the intermediates of each of the Platonic solids. We do not include the Tetrahedron, since it only has four intermediates and only the one composed of two triangles is not rigid. Interestingly, the cube and dodecahedron have a large number of rigid intermediates due  to the fact that their verticies are the rigid meeting of only three faces. The octahedron, with four faces meeting at each vertex has a more varied distribution of internal degrees of freedom. The icosahedron, however, has a very small number of rigid intermediates with some intermediates having as many as $13$ internal degrees of freedom. 
+Using the Jacobian method for computing internal degrees of freedom, we have computed the number of degrees of freedom for all intermediates of the Platonic solids. Figures~\ref{fig:CubeDoFHist},~\ref{fig:OctaDoFHist},~\ref{fig:DodecDoFHist}, and~\ref{fig:IcosaDoFHist} are histograms of the number of internal degrees of freedom for the intermediates of each of the Platonic solids. We do not include the Tetrahedron, since it only has four intermediates and only the one composed of two triangles is not rigid. Interestingly, the cube and dodecahedron have a large number of rigid intermediates due  to the fact that their vertices are the rigid meeting of only three faces. The octahedron, with four faces meeting at each vertex has a more varied distribution of internal degrees of freedom. The icosahedron, however, has a very small number of rigid intermediates with some intermediates having as many as $13$ internal degrees of freedom. 
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.7, angle=0]{cube_dof_hist_facecount.eps}
-\caption{Each virtical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of the cube have.}
+\caption{Each vertical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of the cube have.}
 \label{fig:CubeDoFHistFC}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.7, angle=0]{octahedron_dof_hist_facecount.eps}
-\caption{Each virtical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of Octahedron have.}
+\caption{Each vertical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of Octahedron have.}
 \label{fig:OctaDoFHistFC}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.65, angle=0]{dodecahedron_dof_hist_facecount.eps}
-\caption{Each virtical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of the Dodecahedron have.}
+\caption{Each vertical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of the Dodecahedron have.}
 \label{fig:DodecDoFHistFC}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=0.7, angle=0]{icosahedron_dof_hist_facecount.eps}
-\caption{Each virtical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of the icosahedron have.}
+\caption{Each vertical column gives a histogram of the number of internal degrees of freedom $k$-faced intermediates of the icosahedron have.}
 \label{fig:IcosaDoFHistFC}
 \end{figure}
 
-To provide a more detailed look at the distribution of internal degrees of freedom, figures~\ref{fig:CubeDoFHistFC},~\ref{fig:OctaDoFHistFC},~\ref{fig:DodecDoFHistFC}, and~\ref{fig:IcosaDoFHistFC} break down the previous histograms by the number of faces in the intermediate. Each column of the plots is a histogram for the number of internal degrees of freedom for the intermediates with that specific number of faces. The general theme seems to be that intermidiates with almost all or almost none of their faces are most rigid and the intermediates with around half of the total possible faces have the most internal degrees of freedom. The most interesting case remains the icosaheron with a wide variation in internal degrees of freedom for most face counts.
+To provide a more detailed look at the distribution of internal degrees of freedom, figures~\ref{fig:CubeDoFHistFC},~\ref{fig:OctaDoFHistFC},~\ref{fig:DodecDoFHistFC}, and~\ref{fig:IcosaDoFHistFC} break down the previous histograms by the number of faces in the intermediate. Each column of the plots is a histogram for the number of internal degrees of freedom for the intermediates with that specific number of faces. The general theme seems to be that intermediates with almost all or almost none of their faces are most rigid and the intermediates with around half of the total possible faces have the most internal degrees of freedom. The most interesting case remains the icosahedron with a wide variation in internal degrees of freedom for most face counts.
 
 \subsection{Explicit Removal of Trivial Degrees of Freedom}
 \label{ssc:RemTrivDoF}
@@ -316,7 +319,7 @@ c_{fix}^{j,k,d}\left(z\right) &= v^{j,k}_d - \hat{v}^{j,k}_d \\
    		0       & \text{else} 
   	\end{cases} 
 \end{align}
-for each dimension $d$ of each vertex $k$ of face $j$. For reasons we will explain in the next chapter, this may not always be an ideal choice if there is information other than the degrees of freedom we wich to derive from the constraint equations.
+for each dimension $d$ of each vertex $k$ of face $j$. For reasons we will explain in the next chapter, this may not always be an ideal choice if there is information other than the degrees of freedom we which to derive from the constraint equations.
 
 
 An alternative that prevents translation, but does allow rotation is to fix the configuration's center of mass. 

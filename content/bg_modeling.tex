@@ -4,32 +4,38 @@
 
 The Building Game was first theorized by Wales~\cite{Wales1987} as a model for the formation of close-boranes. Zlotnick subsequently altered the Building Game and used it as a model for the assembly of polyhedral viral capsids~\cite{Zlotnick1994}. In the model, a capsid is idealized as a polyhedron with each face treated as a subunit. Assembly proceeds from a singe face with a second face attached to the first along an edge. At each subsequent step of the process, an additional face is added along an edge of one of the already added faces. The process ends when all of the faces have been added resulting in a completed polyhedron.
 
-A useful way to think about the Building game is as a sequential coloring process. Given a polyhedron with each face painted white, choose a face and paint it black. At each subsequent step, choose a white face that is adjacent to a black face and paint it black. Repeat until all faces are black. Here the black faces represent a face being present at a given step of the assembly process.
+A useful way to think about the Building Game is as a sequential coloring process. Given a polyhedron with each face painted white, choose a face and paint it black. At each subsequent step, choose a white face that is adjacent to a black face and paint it black. Repeat until all faces are black. Here the black faces represent a face being present at a given step of the assembly process.
 
 %--Comparison with approaches in artificial life paper
 
 
 \section{Formal Definition}
-We formalize the Building Game in terms of the group action of the polyhedron's rotation group $G$ acting on subsets of $F$, the polyhedron's face set. Using the polyhedron's dual graph representation $\PolyGraph\left(F, E\right)$ whose nodes are the faces $F$ of the polyhedron and connections $E$ correspond to the pairs of faces sharing an edge we can define the mathematical structures that comprise different building game configurations.
+We formalize the Building Game in terms of the group action of the polyhedron's rotation group $G$ acting on subsets of $F$, the polyhedron's face set. Using the polyhedron's dual graph representation $\PolyGraph\left(F, E\right)$ whose nodes are the faces $F$ of the polyhedron and connections $E$ correspond to the pairs of faces sharing an edge we can define the mathematical structures that comprise different Building Game configurations.
 
 
 %If we are interested in the Building Game of a polyhedron, we represent the its combinatorial structure by a graph $\PolyGraph = \left(F, E\right)$ whose nodes are the faces $F$ of the polyhedron and connections $E$ correspond to the pairs of faces sharing an edge. In this way, $\PolyGraph$ can be viewed as the polyhedral graph of \poly's dual polyhedron. 
 
 \begin{mydef}
-  A Building Game \textbf{state} $x \subset F$ is a non-empty subset of the faces $F$ of a polyhedron such that the subgraph $\PolyGraph|_x$ restricted to the faces in $x$ is a single connected component. 
+  A Building Game \textbf{state} $x \subset F$ is a non-empty subset of the faces $F$ of a polyhedron such that the sub-graph $\PolyGraph|_x$ restricted to the faces in $x$ is a single connected component. 
 \end{mydef} 
 
-It is often useful to depict building game states with Schlegel diagrams which are two dimensional projections of the three dimensional polyhedron~\cite{Sommerville1929}. Figure~\ref{fig:TetraStates} uses Schoolgirl diagrams to depicts all of the states of the tetrahedron. Since every face of the tetrahedron is adjacent to every other face, any non-empty subset of faces is a building game state. Thus, there are ${4 \choose k}$ tetrahedron states that have $k$ faces and $2^4 - 1 = 15$ states in total. 
+It is often useful to depict Building Game states with Schlegel diagrams which are two dimensional projections of the three dimensional polyhedron~\cite{Sommerville1929}. Figure~\ref{fig:TetraStates} uses Schoolgirl diagrams to depicts all of the states of the tetrahedron. Since every face of the tetrahedron is adjacent to every other face, any non-empty subset of faces is a Building Game state. Thus, there are ${4 \choose k}$ tetrahedron states that have $k$ faces and $2^4 - 1 = 15$ states in total. 
 \begin{figure}[ht]
-  \includegraphics[scale=0.1, angle=0]{tetrahedron_states.eps}
-\caption{The building game states of the tetrahedron.}
+\centering
+  %\includegraphics[scale=0.1, angle=0]{tetrahedron_states.eps}
+  %\includegraphics[scale=0.5, angle=0]{tetrahedron_states_2.eps}
+  \includegraphics[scale=0.04, angle=0]{tetrahedron_states.eps}
+\caption{The Building Game states of the tetrahedron.}
 \label{fig:TetraStates}
 \end{figure}
 As pictured in figure~\ref{fig:OctaStates}, some subsets of faces are not states. For instance, the subset of octahedron faces with only two faces that are not adjacent is not a state. Similarly, the subset of two faces meeting only at a vertex is not a state as they are not connected through edge adjacency in the graph $\PolyGraph$. However, when more faces are added to connect these faces in $\PolyGraph$ the subset is indeed a state.
 
 \begin{figure}[ht]
-  \includegraphics[scale=0.2, angle=0]{octa_state_or_not.eps}
-\caption{Examples of octahedron states and non-states.}
+        \centering
+  \includegraphics[scale=0.1, angle=0]{octa_state_yes.eps}
+\caption{Examples of octahedron states.}
+  \includegraphics[scale=0.1, angle=0]{octa_state_no.eps}
+\caption{Examples of octahedron non-states.}
 \label{fig:OctaStates}
 \end{figure}
  
@@ -91,7 +97,7 @@ This result follows trivially from the Orbit-Stabilizer and Lagrange's theorems.
 
 \subsection{Building Game Intermediates}
 
-With this framework of group actions, we now formally define the principle unit of the building game. 
+With this framework of group actions, we now formally define the principle unit of the Building Game. 
 \begin{mydef}
 A Building Game \textbf{intermediate} $[x] \doteq \left\{g.x : g \in G\right\}$ is the orbit of the state $x$ under the polyhedra's rotation group. 
 \end{mydef}
@@ -114,13 +120,14 @@ Since the orbits of a group action form a partition on the set it acts on, each 
 %\end{align}
 %\end{proof}
 
-Since we have defined the intermediates to be the orbits of states under the polyhedral group, we are naturally also interested in stabilizer subgroups of building games states.
+Since we have defined the intermediates to be the orbits of states under the polyhedral group, we are naturally also interested in stabilizer subgroups of Building Games states.
 \begin{mydef}
 The \textbf{symmetry number} $r_{x^j}$ (or simply $r_j$) of a state $x^j$ is the order of its stabilizer subgroup $\left|\G_{x^j}\right|$.
 \end{mydef}
-In figure~\ref{fig:OctaStabs} we see three states and their orbit stabilizer subgroups. The first state, with only a single face, has a symmetry nummber of $3$ since any rotation by a multiple of $\frac{2\pi}{3}$ fixes the face. The second has a symmetry number of $2$ since only the identity and a $\pi$ rotation will fix the faces. The final state, with three faces, cannot be fixed by any rotation other than the identity and thus hs symmetry number $1$.  
+In figure~\ref{fig:OctaStabs} we see three states and their orbit stabilizer subgroups. The first state, with only a single face, has a symmetry number of $3$ since any rotation by a multiple of $\frac{2\pi}{3}$ fixes the face. The second has a symmetry number of $2$ since only the identity and a $\pi$ rotation will fix the faces. The final state, with three faces, cannot be fixed by any rotation other than the identity and thus has symmetry number $1$.  
 \begin{figure}[ht]
-  \includegraphics[scale=0.2, angle=0]{octa_stabilizers.eps}
+        \centering
+  \includegraphics[scale=0.08, angle=0]{octa_stabilizers.eps}
 \caption{The stabilizer subgroups for various octahedron states.}
 \label{fig:OctaStabs}
 \end{figure}
@@ -147,7 +154,7 @@ By Corollary~\ref{cor:OST} and since $G.x \doteq [x] = [\hat{x}] \doteq G.\hat{x
 
 %For ease of exposition, we use the notational shorthand $\left(x\right)_m$ for $x\left(f_m\right)$ and $x = g.x'$ when $x(f_m) = x'(g.f_m)$ for every $f_m \in F(\mathscr{P})$. Additionally, we denote the intermediate satisfying $\left(x\right)_m = \colorA$ for all $f_m \in \faceset$ as $x^\colorAsm$ and similarly $x^\colorBsm$ is the intermediate with $\left(x\right)_m = \colorB$ for all $f_m \in \faceset$. The function counting the number of \colorB\spc faces an intermediate has is denoted $h\left(x\right) \doteq |\left\{f_m \in \faceset : \left(x\right)_m = \colorB\right\}|$.
 
-Since the building game is at its core an attachment model, we are interested in which intermediates can be formed from others by attaching a face to a particular intermediate.
+Since the Building Game is at its core an attachment model, we are interested in which intermediates can be formed from others by attaching a face to a particular intermediate.
 \begin{mydef}
 Two distinct intermediates $\left[x\right]$ and $\left[y\right]$ are \textbf{connected} if there exist states $x \in \left[x\right]$ and $y \in \left[y\right]$ such that one of the following holds:
 \begin{itemize}
@@ -178,7 +185,8 @@ A Building Game \textbf{pathway} is a sequence of intermediates $[x^{p_1}], [x^{
  Figure~\ref{fig:OctaPath} shows a Building Game pathway for the octahedron using Schlegel diagrams. The pathway has $8$ intermediates since there must be exactly one intermediate $x^{p_i}$ satisfying $h\left(x^{p_i}\right) = i$ for each $i = 1,2,\dots,8$.
 
 \begin{figure}[ht]
-\includegraphics[scale=0.2, angle=0]{octa_path.eps}
+\centering
+\includegraphics[scale=0.065, angle=0]{octa_path.eps}
 \caption{One Building Game pathway for the Octahedron.}
 \label{fig:OctaPath}
 \end{figure}
@@ -192,6 +200,7 @@ The Building Game \textbf{combinatorial configuration space} for a polyhedron is
 When the intermediates are partitioned by the number of faces they possess, it is natural to arrange the combinatorial configuration space into columns or tiers according to this partition. Figure~\ref{fig:CubeCCS} shows the Building Game state space for the cube. As seen, each column has intermediates with the same number of faces and connections thus exist with intermediates that are either in the tier directly above or below them. We can also see that there are three distinct pathways contained in the state space. 
 
 \begin{figure}[ht]
+\centering
 \includegraphics[scale=0.2, angle=0]{cube_ccs.eps}
 \caption{The Building Game combinatorial configuration space of the cube.}
 \label{fig:CubeCCS}    
@@ -202,11 +211,12 @@ Interestingly, it is not the case that the addition or removal of each face of a
 For two connected intermediates $[x^j]$ and $[x^k]$, the set of different faces $$F_{jk} \doteq \left\{f \notin x^j : x^j\cup\{f\} \in [x^k]\right\}\cup\left\{f \in x^j : x^j\setminus\{f\} \in [x^k]\right\}$$ that can be added or removed from $x^j$ to get an element of $[x^k]$ is called the \textbf{degeneracy set} and the number of such faces $S_{jk} \doteq \left|F_{jk}\right|$ is called the \textbf{degeneracy number}.
 \end{mydef}
 
-The act of attaching an additional face is referred to as a forward step in the building game and the removal of a face is a backward step. As such, degeneracies are sometimes referred to as forward or backward degeneracies. It is important to note that in general the degeneracy number is not symmetric, i.e. \Sjk$\neq$\Skj\spc for some connections $[x^j] \leftrightarrow [x^k]$ in the state space. Figure~\ref{fig:CubeDegen} depicts the forward and backward degeneracy numbers for a particular connection. As illustrated, there are two faces that can be added to the first intermediate to form the second. However, removing any of the three faces of the second intermediate will result in the first. Thus the forward degeneracy number is two and the backward degeneracy number is three.  
+The act of attaching an additional face is referred to as a forward step in the Building Game and the removal of a face is a backward step. As such, degeneracies are sometimes referred to as forward or backward degeneracies. It is important to note that in general the degeneracy number is not symmetric, i.e. \Sjk$\neq$\Skj\spc for some connections $[x^j] \leftrightarrow [x^k]$ in the state space. Figure~\ref{fig:CubeDegen} depicts the forward and backward degeneracy numbers for a particular connection. As illustrated, there are four faces that can be added to the first intermediate to form the second. However, removing any of the two faces of the second intermediate will result in the first. Thus the forward degeneracy number is four and the backward degeneracy number is two.  
 
 
 \begin{figure}[ht]
-\includegraphics[scale=0.2, angle=0]{cube_degen.eps}
+\centering
+\includegraphics[scale=0.17, angle=0]{cube_degens.eps}
 \caption{Degeneracies between two connected cube intermediates.}
 \label{fig:CubeDegen}    
 \end{figure}
@@ -399,7 +409,7 @@ It just remains to equate the two halves.
 Since the Building Game is a sequential process with several choices at each step, it is natural to consider it as a stochastic process. If we define a Building Game process that allows faces to be sequentially added or removed in a reversible way, the process consists of transitions from intermediate to intermediate along connections in the combinatorial configuration space. By specifying a distribution on these transitions, it will induce a stationary distribution on the state space and provide a framework for compute relevant statistics such as expected formation times.
 
 
-%By putting a distribution on all possible faces that can be added at each step of the Building game, a distribution on the space of pathways is implicitly defined. Thus, for a choice of this transition rule, we can ask questions about the likelihood of the different pathways. Analogously, if we allow the process to be reverseable, with a transition rule at each step assigning probabilities to both 
+%By putting a distribution on all possible faces that can be added at each step of the Building Game, a distribution on the space of pathways is implicitly defined. Thus, for a choice of this transition rule, we can ask questions about the likelihood of the different pathways. Analogously, if we allow the process to be reverseable, with a transition rule at each step assigning probabilities to both 
 
 %--Math and graphical results about putting a distribution on pathways
 
@@ -442,7 +452,7 @@ First, we show $Q$ and $\pi$ satisfy detailed balance.
                     &= \pi_kQ_{kj}
 \end{align}
 
-Since the combinatorial state space is connected and $Q_{jk}, Q_{kj} > 0$ for all connected intermediates $[x^j]$ and $[x^k]$, the process it trivially aperiodic and positive recurrent. Thus, $\pi$ is the unique staionary distribution of the Markov process~\cite{Norris1998}. 
+Since the combinatorial state space is connected and $Q_{jk}, Q_{kj} > 0$ for all connected intermediates $[x^j]$ and $[x^k]$, the process it trivially aperiodic and positive recurrent. Thus, $\pi$ is the unique stationary distribution of the Markov process~\cite{Norris1998}. 
 \end{proof}
 
 
@@ -483,7 +493,7 @@ To assist in our calculations of hitting times, it is helpful to use $X_t$'s dis
    0  & \text{if } j = k 
   \end{cases}
 \end{align}
-With this definition, the continuous time process $X_t$ has the alternative interpretation where the intermediate that $X_t$ occupies changes according to the jump process $Y_n$ and stays at each intermediate $[x^j]$ for an exponentially distributed amound of time with parameter $-Q_{jj}$~\cite{Norris1998}. 
+With this definition, the continuous time process $X_t$ has the alternative interpretation where the intermediate that $X_t$ occupies changes according to the jump process $Y_n$ and stays at each intermediate $[x^j]$ for an exponentially distributed amount of time with parameter $-Q_{jj}$~\cite{Norris1998}. 
 %
 %Since we are looking at events in which the process first reaches a particular set of intermediates, it is helpful to use $X_t$'s discrete time jump process $Y_n$ which simply records the sequence of intermediates that $X_t$ passes through. Here we formally define $Y_n$ in a recursive manner, such that it is the first intermediate visited after the process $X_t$ leaves $Y_{n-1}$.
 %\begin{align}
