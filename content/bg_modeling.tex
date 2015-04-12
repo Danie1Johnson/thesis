@@ -2,7 +2,7 @@
 %\lipsum[101-120]
 \section{The Building Game as a Mathematical Framework for Self-assembly}
 
-The Building Game was first theorized by Wales~\cite{Wales1987} as a model for the formation of close-boranes. Zlotnick subsequently altered the Building Game and used it as a model for the assembly of polyhedral viral capsids~\cite{Zlotnick1994}. In the model, a capsid is idealized as a polyhedron with each face treated as a subunit. Assembly proceeds from a singe face with a second face attached to the first along an edge. At each subsequent step of the process, an additional face is added along an edge of one of the already added faces. The process ends when all of the faces have been added resulting in a completed polyhedron.
+The Building Game was first introduced by Wales~\cite{Wales1987} as a model for the formation of close-boranes. Zlotnick subsequently altered the Building Game and used it as a model for the assembly of polyhedral viral capsids~\cite{Zlotnick1994}. In the model, a capsid is idealized as a polyhedron with each face treated as a subunit. Assembly proceeds from a singe face with a second face attached to the first along an edge. At each subsequent step of the process, an additional face is added along an edge of one of the already added faces. The process ends when all of the faces have been added resulting in a completed polyhedron.
 
 A useful way to think about the Building Game is as a sequential coloring process. Given a polyhedron with each face painted white, choose a face and paint it black. At each subsequent step, choose a white face that is adjacent to a black face and paint it black. Repeat until all faces are black. Here the black faces represent a face being present at a given step of the assembly process.
 
@@ -10,16 +10,16 @@ A useful way to think about the Building Game is as a sequential coloring proces
 
 
 \section{Formal Definition}
-We formalize the Building Game in terms of the group action of the polyhedron's rotation group $G$ acting on subsets of $F$, the polyhedron's face set. Using the polyhedron's dual graph representation $\PolyGraph\left(F, E\right)$ whose nodes are the faces $F$ of the polyhedron and connections $E$ correspond to the pairs of faces sharing an edge we can define the mathematical structures that comprise different Building Game configurations.
+We formalize the Building Game in terms of the group action of the polyhedron's rotation group $G$ acting on subsets of $F$, the polyhedron's face set. Using the polyhedron's dual graph $\PolyGraph\left(F, E\right)$ whose nodes are the faces $F$ of the polyhedron and connections $E$ correspond to the pairs of faces sharing an edge we can define the mathematical structures that comprise different Building Game configurations.
 
 
 %If we are interested in the Building Game of a polyhedron, we represent the its combinatorial structure by a graph $\PolyGraph = \left(F, E\right)$ whose nodes are the faces $F$ of the polyhedron and connections $E$ correspond to the pairs of faces sharing an edge. In this way, $\PolyGraph$ can be viewed as the polyhedral graph of \poly's dual polyhedron. 
 
 \begin{mydef}
-  A Building Game \textbf{state} $x \subset F$ is a non-empty subset of the faces $F$ of a polyhedron such that the sub-graph $\PolyGraph|_x$ restricted to the faces in $x$ is a single connected component. 
+  A Building Game \textbf{state} $x \subset F$ is a non-empty subset of the faces $F$ of a polyhedron such that the sub-graph of $\PolyGraph$ restricted to $x$, $\PolyGraph|_x$, is a single connected component. As a result, every state can be formed through the Building Game attachment process.  
 \end{mydef} 
 
-It is often useful to depict Building Game states with Schlegel diagrams which are two dimensional projections of the three dimensional polyhedron~\cite{Sommerville1929}. Figure~\ref{fig:TetraStates} uses Schoolgirl diagrams to depicts all of the states of the tetrahedron. Since every face of the tetrahedron is adjacent to every other face, any non-empty subset of faces is a Building Game state. Thus, there are ${4 \choose k}$ tetrahedron states that have $k$ faces and $2^4 - 1 = 15$ states in total. 
+Schlegel diagrams are two dimensional projections of the three dimensional polyhedron~\cite{Sommerville1929}. By coloring different subsets of faces, it is often useful to depict Building Game states with Schlegel diagrams.  Figure~\ref{fig:TetraStates} uses Schlegel diagrams to depicts all of the states of the tetrahedron. Since every face of the tetrahedron is adjacent to every other face, any non-empty subset of faces is a Building Game state. Thus, there are ${4 \choose k}$ tetrahedron states that have $k$ faces and $2^4 - 1 = 15$ states in total. 
 \begin{figure}[ht]
 \centering
   %\includegraphics[scale=0.1, angle=0]{tetrahedron_states.eps}
@@ -68,7 +68,7 @@ It is easy to see that many states are combinatorially equivalent and are just r
 A \textbf{group action} of a group $G$ on a set $X$ is a function mapping $G \times X$ to $X$ with $(g, x) \mapsto g.x$ that satisfies: (i) $(gh).x = g.(h.x)$ for $g,h \in G$ and (ii) $e.x = x$ for $e$ the identity element of $G$~\cite{Rotman1995}.
 \end{mydef}
 
-We typically use a polyhedron's rotation group or one of its subgroups as $G$ and $2^F$, the set of subsets of $F$, as the set $X$ that $G$ acts on. In this case, the action $g.x$ permutes the faces of the polyhedron according to the element $g$ of the rotation group and results in a new subset of faces. Here, we introduce the group action concepts of orbits and stabilizer subgroups as they play an important role in our later analyses. 
+We typically use a polyhedron's rotation group or one of its subgroups as $G$ and $2^F$, the set of subsets of $F$, as the set $X$ that $G$ acts on. In this case, the action $g.x$ permutes the faces of the polyhedron according to the element $g$ of the rotation group and results in a new subset of faces. Here, we introduce the concepts of orbits and stabilizer subgroups as they play an important role in our later analyses. 
 \begin{mydef}%[~\cite{Rotman1995}]
 Let $G$ be a group acting on a set $X$, the \textbf{orbit} of an element $x \in X$ is the subset $G.x \doteq \left\{g.x : g \in G \right\}$ of $X$~\cite{Rotman1995}.
 \end{mydef}
@@ -97,7 +97,7 @@ This result follows trivially from the Orbit-Stabilizer and Lagrange's theorems.
 
 \subsection{Building Game Intermediates}
 
-With this framework of group actions, we now formally define the principle unit of the Building Game. 
+With this framework of group actions, we now formally define the principal unit of the Building Game. 
 \begin{mydef}
 A Building Game \textbf{intermediate} $[x] \doteq \left\{g.x : g \in G\right\}$ is the orbit of the state $x$ under the polyhedra's rotation group. 
 \end{mydef}
@@ -124,7 +124,7 @@ Since we have defined the intermediates to be the orbits of states under the pol
 \begin{mydef}
 The \textbf{symmetry number} $r_{x^j}$ (or simply $r_j$) of a state $x^j$ is the order of its stabilizer subgroup $\left|\G_{x^j}\right|$.
 \end{mydef}
-In figure~\ref{fig:OctaStabs} we see three states and their orbit stabilizer subgroups. The first state, with only a single face, has a symmetry number of $3$ since any rotation by a multiple of $\frac{2\pi}{3}$ fixes the face. The second has a symmetry number of $2$ since only the identity and a $\pi$ rotation will fix the faces. The final state, with three faces, cannot be fixed by any rotation other than the identity and thus has symmetry number $1$.  
+In figure~\ref{fig:OctaStabs} we see three states and their orbit stabilizer subgroups. The first state, with only a single face, has a symmetry number of $3$ since any rotation by a multiple of $\frac{2\pi}{3}$ fixes the face. The second has a symmetry number of $2$ since only the identity and a rotation by $\pi$ will fix the faces. The final state, with three faces, cannot be fixed by any rotation other than the identity and thus has symmetry number $1$.  
 \begin{figure}[ht]
         \centering
   \includegraphics[scale=0.08, angle=0]{octa_stabilizers.eps}
@@ -158,8 +158,8 @@ Since the Building Game is at its core an attachment model, we are interested in
 \begin{mydef}
 Two distinct intermediates $\left[x\right]$ and $\left[y\right]$ are \textbf{connected} if there exist states $x \in \left[x\right]$ and $y \in \left[y\right]$ such that one of the following holds:
 \begin{itemize}
-\item $\exists f \in y: y = x \cup \left\{f\right\}$
-  \item $\exists f \in x: x = y \cup \left\{f\right\}$
+ \item there is a face, $f$, in the state $y$ such that $y = x \cup \left\{f\right\}$
+ \item there is a face, $f$, in the state $x$ such that $x = y \cup \left\{f\right\}$
 \end{itemize}
 \end{mydef}
 
@@ -190,8 +190,6 @@ A Building Game \textbf{pathway} is a sequence of intermediates $[x^{p_1}], [x^{
 \caption{One Building Game pathway for the Octahedron.}
 \label{fig:OctaPath}
 \end{figure}
-
-With many pairs of connected intermediates, we organize these relations in a graph.
 
 \begin{mydef}
 The Building Game \textbf{combinatorial configuration space} for a polyhedron is a graph in which the nodes are the polyhedron's intermediates and a graph edge exists between two intermediates if and only if they are connected. 

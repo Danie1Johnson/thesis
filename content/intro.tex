@@ -49,7 +49,9 @@ Protein and RNA folding are active fields of research. If we can predict the thr
 
 \section{Mathematical Constructs for Self-Assembly}
 
-A common theme for mathematically modeling self-assembly involves specifying a framework of rules or steps by which the self-assembly of a particular structure can occur. Given such a model, all of the possible intermediate stages or states in which the process can occupy is enumerated. With this atlas of possible configurations represented as a graph, the entire self-assembly process can be described as a path through this graph. Using the mathematical structure of the graph, a quantitative analysis of the process is possible. The following are different mathematical approaches to self assembly. Some follow the graph enumeration approach, but others are more qualitative. 
+A common theme for mathematically modeling self-assembly involves specifying a framework of rules or steps by which the self-assembly of a particular structure can occur.
+
+ Given such a model, all of the possible intermediate stages or states in which the process can occupy is enumerated. With this atlas of possible configurations represented as a graph, the entire self-assembly process can be described as a path through this graph. Using the mathematical structure of the graph, a quantitative analysis of the process is possible. The following are different mathematical approaches to self assembly. Some follow the graph enumeration approach, but others are more qualitative. 
 
 %The concept of formation pathways that occur with overwhelming frequency relative to the myriad of other theoretically possible pathways is a primary interest of our work. To identify the nature of such dominant pathways is to identify the mechanism of self-assembly itself. This knowledge would hopefully enable the proliferation of the self-assembled products to become more efficient and faster, or in cases such as biological viruses, inhibit formation altogether. There are several means, both quantitative and qualitative, by which we seek to identify and study these dominant pathways. 
 
@@ -132,7 +134,7 @@ Interestingly, each polyhedron may has multiple nets. In fact, the number of dis
 \label{fig:fold_boat}
 \end{figure}
 
-As a feature, this model has been shown to allow folds that do not result in the initially intended polyhedron and can terminate in other polyhedra and blocked states. For example, many of the intermediates that cannot fold into the octahedron end up folding into a non-convex boat intermediate. This is depicted in figure~\ref{fig:fold_boat}.
+The Folding Model allows folding sequences that do not result in the initially intended polyhedron and can terminate in other polyhedra and blocked states. For example, many of the intermediates that cannot fold into the octahedron end up folding into a non-convex boat intermediate. This is depicted in figure~\ref{fig:fold_boat}. This explicit modeling of misfoldings is an important feature of the Folding Model since it allows for a mathematical treatment of the robustness of successful folding relative to other possible outcomes. 
 
 %Like in the Building Game, the state space of the folding model experiences a combinatorial explosion as the number of faces the polyhedron has increases. 
 
@@ -143,7 +145,7 @@ As a feature, this model has been shown to allow folds that do not result in the
 
 \subsection{Local Rules}
 
-A large number of previously studied models for self-assembly can be classifies as \textit{local rules} based approaches. Such models typically consist of a collection of components that can be combined according to a specified grammar. While this is a basic idea, the variety off possible component and grammars makes this a widely flexible class of models. Schwartz et al used such a model to describe the assembly of viral capsids~\cite{Berger1994, Schwartz1998}. Since these capsids are fundamentally composed of proteins that can each assume a number of conformations. By putting a grammar on the ways in which proteins of different conformation can combine, they were able to successfully form a variety of viral capsids in simulation. While this class of models is powerful, we have not actively pursued any such models. Introducing a local rules approach might allow the Building Game to be generalized in a way that allows formation errors as in the Folding Model.    
+Several previously studied models for self-assembly can be classified as \textit{local rules} based approaches. Such models typically consist of a collection of components that can be combined according to a specified grammar. While this is a basic idea, the variety of possible component and grammars makes this a widely flexible class of models. Schwartz et al used such a model to describe the assembly of viral capsids~\cite{Berger1994, Schwartz1998}. These capsids are composed of proteins that can each assume a number of conformations; by putting a grammar on the ways in which proteins of different conformation can combine, they were able to successfully form a variety of viral capsids in simulation. While this class of models is powerful, we have not actively pursued any such models. Introducing a local rules approach might allow the Building Game to be generalized in a way that allows formation errors as in the Folding Model.    
 
 
 \subsection{Energy Landscapes}
@@ -243,7 +245,8 @@ While not a quantitative way of assessing a model's pathways, disconnectivity gr
 
 As the Building Game was previously studied as a tool for modeling chemical processes, we have added mathematical formalisms that we not previously relevant. In particular, using the theory of group actions has allowed a more in-depth conversation about the role of symmetry in the Building Game and self-assembly processes in general.
 
-By enumerating the combinatorial configuration space for all Platonic, Archimedean, and Catalan solids up to 30 faces, a foundation is set for later analyses. As part of this enumeration work, previously unknown combinatorial statistics of these polyhedra were derived. Of particular importance is the calculation of the number of shellings each polyhedron has.  
+We have enumerated the combinatorial configuration space for all Platonic, Archimedean, and Catalan solids up to 30 faces. This constitutes the most comprehensive enumeration of the Building Game to date. 
+ a foundation is set for later analyses. As part of this enumeration work, previously unknown combinatorial statistics of these polyhedra were derived. Of particular importance is the calculation of the number of shellings each polyhedron has.  
 
 Our use of hinged polygonal linkages to model the internal mobility of a partially assembled polyhedron adds a geometric perspective to the Building Game on top of the existing combinatorial structure. Using constraint equations to mathematically describe the geometric configurations that such linkages can take allowed us to compute the number of degrees of freedom of Building Game intermediates. To examine additional properties of Building Game geometric configuration spaces, a reflected Brownian motion on implicitly defined constraint spaces was considered. By developing a corresponding manifold reflected random walk scheme, we sampled geometric configurations.
 
