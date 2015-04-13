@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  12 APR 2015 19:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  12 APR 2015 23:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -823,16 +823,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9]
 [10]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [11]
-Overfull \hbox (38.385pt too wide) in paragraph at lines 248--250
-[]\OT1/cmr/m/n/12 We have enu-mer-ated the com-bi-na-to-rial con-fig-u-ra-tion 
-space for all Pla-tonic, Archimedean,
+Overfull \hbox (20.30165pt too wide) in paragraph at lines 252--253
+\OT1/cmr/m/n/12 We have enu-mer-ated the com-bi-na-to-rial con-fig-u-ra-tion sp
+ace for all Pla-tonic, Archimedean,
  []
 
 
-Underfull \vbox (badness 1057) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12])
 [13] [14
@@ -1387,6 +1387,6 @@ Here is how much of TeX's memory you used:
  16693 multiletter control sequences out of 15000+600000
  24886 words of font info for 109 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,19n,69p,1283b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,69p,1644b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (135 pages, 276684 bytes).
+Output written on thesis.dvi (135 pages, 277688 bytes).
