@@ -438,7 +438,7 @@ Here, $z_j \doteq \sum_{\ell: \ell \neq j} S_{j\ell}e^{-\beta\left(E_{j\ell} - E
 
 \begin{mythm}
 \label{thm:StatDist}
-If the transition rate matrix $Q$ can be decomposed as $Q = DC$ where $D$ is diagonal with each entry of the diagonal positive and $C$ is a symmetric matrix with the non-diagonal entries $C_{jk} > 0$ if and only if $[x^j]$ and $[x^k]$ are connected and $C_{jk} = 0$ if they are not, then $X_t$ has the unique stationary distribution $\pi = \diag\left(D^{-1}\right)$.         
+If the transition rate matrix $Q$ can be decomposed as $Q = DC$ where $D$ is a diagonal matrix with positive entries and $C$ is a symmetric matrix with the non-diagonal entries $C_{jk} > 0$ if and only if $[x^j]$ and $[x^k]$ are connected and $C_{jk} = 0$ if they are not, then $X_t$ has the unique stationary distribution $\pi = \diag\left(D^{-1}\right)$.         
 \end{mythm}
 \begin{proof}
 First, we show $Q$ and $\pi$ satisfy detailed balance.
@@ -479,7 +479,7 @@ While the stationary distribution is an important piece in understanding the nat
   \label{eq:taudef}
 	\tau^{A}_{j} &\doteq \inf\left\{t \geq 0 : X_t \in A, X_0 = x^j\right\}
 \end{align}
-Oftentimes, we choose $A$ to be the intermediate of the fully completed polyhedron. This means the the stopping time will represent the expected formation time from a given intermediate.
+Often, we choose $A$ to be the intermediate of the fully completed polyhedron. This means the the stopping time will represent the expected formation time from a given intermediate.
  
 To assist in our calculations of hitting times, it is helpful to use $X_t$'s discrete time jump process $Y_n$. The jump process is simply a record of the sequence of intermediates that $X_t$ travels through. The discrete time Markov transition matrix associated with $Y_n$ is defined using $Q$.
 
