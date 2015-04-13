@@ -247,10 +247,18 @@ While not a quantitative way of assessing a model's pathways, disconnectivity gr
 
 %WEAK% As the Building Game was previously studied as a tool for modeling chemical processes, we have added mathematical formalisms that we not previously relevant. In particular, using the theory of group actions has allowed a more in-depth conversation about the role of symmetry in the Building Game and self-assembly processes in general.
 
-%%% 2 %%%
+%Set up the BG
+%--adopt energetic interpretation
 
-We have enumerated the combinatorial configuration space for all Platonic, Archimedean, and Catalan solids up to 30 faces. This constitutes the most comprehensive enumeration of the Building Game to date. Graph statistics for these computations are presented in table X. The relation between the Building Game and the mathematical concept of a shelling is established. The shellable subgraphs of combinatorial configuration spaces are computed with statistics recorded in table Y. Finally, the shellable subgraphs are used to calculate the number of shellings for each polyhedra as seen in table Z. We believe these to be previously unknown quantities. 
+%The Building Game was previously studied as a tool for modeling self-assembly processes. Using a more mathematical treatment than previously considered, we explore new aspects of the model: particularly the geometric ones. Using 
+
+
+%%% 2 %%%
+The Building Game specifies a set of finite intermediate states that may be observed in the successful self-assembly of a polyhedron. We provide a formal mathematical definition for the Building Game and organize the set of allowed intermediates into a graph called the combinatorial configuration space. We have enumerated the combinatorial configuration space for all Platonic, Archimedean, and Catalan solids up to 30 faces. This constitutes the most comprehensive enumeration of the Building Game to date. Graph statistics for these computations are presented in table X. The relation between the Building Game and the mathematical concept of a shelling is established. The shellable subgraphs of combinatorial configuration spaces are computed with statistics recorded in table Y. Finally, the shellable subgraphs are used to calculate the number of shellings for each polyhedra as seen in table Z. We believe these to be previously unknown quantities. 
  
+%add who will use this and how? 
+
+
 %--a foundation is set for later analyses. 
 %--reference three combinatorial tables
 %--who can use these computed graphs and how?
@@ -259,7 +267,7 @@ We have enumerated the combinatorial configuration space for all Platonic, Archi
 
 %%% 3 %%%
 
-Each Building Game intermediate is defined by its combinatorial structure, but by treating it as a linkage in three dimensions its definition is extended in a geometric sense. Concatenating the 3-dimensional vertex locations, each geometric configuration is specified as a point in an $n$-dimensional space. Since each geometric configuration must satify certain combinatorial and geometric properties, we enforce these conditions by using a set of algebraic constraint equations. The solution set of these constraint equations specifies an algebraic variety in the $n$-dimensional ambient space and the dimension of this variety gives information about the mobility of the intermediate. To examine the geometric configuration space more thoroughly, we consider a reflected Brownian motion on the variety. Boundaries here are added to preclude the geometric configuration from intersecting itself when embedded in three dimensions. A random walk rejection sampling scheme is used to sample paths from the reflected Brownian motion. These samples allow us to address scientific questions pretaining to self-assembly. Firstly, the role of rigidity in the self-assembly intermediates is explored both in terms of degrees of freedom and with more nuanced mobility statistics. Additionaly, our framework allows for a natural method for extracting transition rates between intermediate, a task that is difficult to perform experimentally. The combinatorial configuration space for the POLYNAME is illustrated in figure X and different geometric configurations for one of the POLYNAME intermediates is shown in figure Y.
+Each Building Game intermediate is defined by its combinatorial structure, but by treating it as a linkage in three dimensions its definition is extended in a geometric sense. Concatenating the 3-dimensional vertex locations, each geometric configuration is specified as a point in an $n$-dimensional space. Since each geometric configuration must satisfy certain combinatorial and geometric properties, we enforce these conditions by using a set of algebraic constraint equations. The solution set of these constraint equations specifies an algebraic variety in the $n$-dimensional ambient space and the dimension of this variety gives information about the mobility of the intermediate. To examine the geometric configuration space more thoroughly, we consider a reflected Brownian motion on the variety. Boundaries here are added to preclude the geometric configuration from intersecting itself when embedded in three dimensions. A random walk rejection sampling scheme is used to sample paths from the reflected Brownian motion. These samples allow us to address scientific questions pertaining to self-assembly. Firstly, the role of rigidity in the self-assembly intermediates is explored both in terms of degrees of freedom and with more nuanced mobility statistics. Additionally, our framework allows for a natural method for extracting transition rates between intermediate, a task that is difficult to perform experimentally. The combinatorial configuration space for the POLYNAME is illustrated in figure X and different geometric configurations for one of the POLYNAME intermediates is shown in figure Y.
 
 
 %Our use of hinged polygonal linkages to model the internal mobility of a partially assembled polyhedron adds a geometric perspective to the Building Game on top of the existing combinatorial structure. 
@@ -281,7 +289,20 @@ Each Building Game intermediate is defined by its combinatorial structure, but b
 
 %%% 4 %%%
 
-Our most important contributions lie in the combination of combinatorial and geometric aspects of the Building Game model for self-assembly. By taking an energetic perspective, a reversible Markov chain was defined on the Building Game configuration space with transition rates informed by the reflected Brownian motion simulated in the geometric configuration space for each intermediate. 
+%We have taken the Building Game and provided more extensitve combinatorial computations that previously available.
+
+%Expanding the notion of an intermediate to include geometric structure has allowed us to  
+%Using the geomet
+
+
+In this work we have shown ways in which combinatorial and geometric structure of self-assembly intermediates are related. The information that is expressed in the Building Game combinatorial configuration space sets template for treating the self-assembly process as a Markov process. It is the addition of geometric information that allows us to define transition rates in a physically meaningful way. The combination of these two perspectives allows for a more complete understanding of the underlying processes than either could provide individually. 
+
+
+
+
+
+
+%Our most important contributions lie in the combination of combinatorial and geometric aspects of the Building Game model for self-assembly. By taking an energetic perspective, a reversible Markov chain was defined on the Building Game configuration space with transition rates informed by the reflected Brownian motion simulated in the geometric configuration space for each intermediate. 
 
 %-- Formalized mathematical framework for BG
 %-- Enumerated combinatorial configuration space for all Platonic, Archimedean, and Catalan solids up to 30 faces.
