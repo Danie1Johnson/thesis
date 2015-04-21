@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  13 APR 2015 12:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  20 APR 2015 20:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -992,7 +992,11 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 204--205
 [][] 
  []
 
-[43] [44]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [43]
+[44]
 Overfull \hbox (104.1737pt too wide) in paragraph at lines 227--227
 [] 
  []
@@ -1030,17 +1034,18 @@ Underfull \vbox (badness 4660) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [52]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1112) has occurred while \output is active []
 
  [53]
+[54]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [54]
-[55]
+ [55]
+[56]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [56]
-[57]) [58]
+ [57])
+[58]
 Chapter 4.
 
 Underfull \hbox (badness 10000) in alignment at lines 160--160
@@ -1383,4 +1388,4 @@ Here is how much of TeX's memory you used:
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1646b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (135 pages, 278320 bytes).
+Output written on thesis.dvi (135 pages, 277496 bytes).
