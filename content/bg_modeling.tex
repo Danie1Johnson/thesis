@@ -2,7 +2,7 @@
 %\lipsum[101-120]
 \section{The Building Game as a Mathematical Framework for Self-assembly}
 
-The Building Game was first introduced by Wales~\cite{Wales1987} as a model for the formation of close-boranes. Zlotnick subsequently altered the Building Game and used it as a model for the assembly of polyhedral viral capsids~\cite{Zlotnick1994}. In the model, a capsid is idealized as a polyhedron with each face treated as a subunit. Assembly proceeds from a singe face with a second face attached to the first along an edge. At each subsequent step of the process, an additional face is added along an edge of one of the already added faces. The process ends when all of the faces have been added resulting in a completed polyhedron.
+The Building Game was first introduced by Wales~\cite{Wales1987} as a model for the formation of close-boranes. Zlotnick subsequently altered the Building Game and used it as a model for the assembly of polyhedral viral capsids~\cite{Zlotnick1994}. In the model, a capsid is idealized as a polyhedron with each face treated as a subunit. Assembly proceeds from a single face with a second face attached to the first along an edge. At each subsequent step of the process, an additional face is added along an edge of one of the already added faces. The process ends when all of the faces have been added resulting in a completed polyhedron.
 
 A useful way to think about the Building Game is as a sequential coloring process. Given a polyhedron with each face painted white, choose a face and paint it black. At each subsequent step, choose a white face that is adjacent to a black face and paint it black. Repeat until all faces are black. Here the black faces represent a face being present at a given step of the assembly process.
 
@@ -19,7 +19,7 @@ We formalize the Building Game in terms of the group action of the polyhedron's 
   A Building Game \textbf{state} $x \subset F$ is a non-empty subset of the faces $F$ of a polyhedron such that the sub-graph of $\PolyGraph$ restricted to $x$, $\PolyGraph|_x$, is a single connected component. As a result, every state can be formed through the Building Game attachment process.  
 \end{mydef} 
 
-Schlegel diagrams are two dimensional projections of the three dimensional polyhedron~\cite{Sommerville1929}. By coloring different subsets of faces, it is often useful to depict Building Game states with Schlegel diagrams.  Figure~\ref{fig:TetraStates} uses Schlegel diagrams to depicts all of the states of the tetrahedron. Since every face of the tetrahedron is adjacent to every other face, any non-empty subset of faces is a Building Game state. Thus, there are ${4 \choose k}$ tetrahedron states that have $k$ faces and $2^4 - 1 = 15$ states in total. 
+Schlegel diagrams are two dimensional projections of the three dimensional polyhedron~\cite{Sommerville1929}. By coloring different subsets of faces, it is often useful to depict Building Game states with Schlegel diagrams.  Figure~\ref{fig:TetraStates} uses Schlegel diagrams to depict all of the states of the tetrahedron. Since every face of the tetrahedron is adjacent to every other face, any non-empty subset of faces is a Building Game state. Thus, there are ${4 \choose k}$ tetrahedron states that have $k$ faces and $2^4 - 1 = 15$ states in total. 
 \begin{figure}[ht]
 \centering
   %\includegraphics[scale=0.1, angle=0]{tetrahedron_states.eps}
@@ -329,7 +329,7 @@ Conversely, suppose $\hat{f} \in g.x \cup g.y$ and without loss pick $\hat{f}$ t
 
 \begin{mythm}
 \label{thm:rSrS}
-For two Building Game intermediates $[x^j]$ and $[x^k]$ are connected in the combinatorial configuration space, $r_kS_{jk} = r_jS_{kj}$.
+Let $[x^j]$ and $[x^k]$ be two Building Game intermediates connected in the combinatorial configuration space. If $r_j$ and $r_k$ are the intermediates' symmetry numbers and $S_{jk}$ and $S_{kj}$ are the forward and backward degeneracy numbers, then $r_kS_{jk} = r_jS_{kj}$.
 \end{mythm}
 \begin{proof}
 
@@ -361,20 +361,33 @@ For two Building Game intermediates $[x^j]$ and $[x^k]$ are connected in the com
 %\end{align}
 %The result $r_kS_{jk} = r_jS_{kj}$ follows.
 
-\begin{align}
+We prove the result by arguing the following three equalities.
+
+\begin{align} 
+\label{eq:rS1}
+r_kS_{jk} &= |\{(f,g) \in F \times G : x^j \cup \{f\} = g.x^k\}| &= \sum_{f \in F} |\{g \in G : x^j \cup \{f\} = g.x^k \}| \\
+\label{eq:rS2}
+&= |\{(f,g) \in F \times G : x^k \setminus \{f\} = g.x^j\}| &= \sum_{f \in F} |\{g \in G : x^k \setminus \{f\} = g.x^j \}| \\
+\label{eq:rS3}
+&= r_jS_{kj}
+\end{align}
+
+First, equality~\ref{eq:rS1} is shown as follows.
+\begin{align} 
 |\{(f,g) \in F \times G : x^j \cup \{f\} = g.x^k\}| &= \sum_{f \in F} |\{g \in G : x^j \cup \{f\} = g.x^k \}| \\
-\intertext{This sum can reduced to be only over $f \in F^{jk}$ since the inner condition means that $x^j \cup \{f\} \in [x^k]$ and thus $f \in F^{jk}$.}
+\label{eq:rS4}
 &= \sum_{f \in F^{jk}} |\{g \in G : x^j \cup \{f\} = g.x^k \}| \\
-\intertext{Since  $x^j \cup \{f\} \in [x^k]$, there is a $h^{(f)} \in G$ such that $x^j \cup \{f\} = h^{(f)}.x^k$. Here the $(f)$ superscript just denotes dependence on the particular $f$ in the sum.}
+\label{eq:rS5}
 &= \sum_{f \in F^{jk}} |\{g \in G : h^{(f)}.x^k = g.x^k \}| \\
 &= \sum_{f \in F^{jk}} |\{g \in G : g^{-1}h^{(f)}.x^k = x^k \}| \\
-\intertext{Now we just reindex $G$ using $\tilde{g} = g^{-1}h^{(f)}$ since this still represents all elements in $G$.}
+\label{eq:rS6}
 &= \sum_{f \in F^{jk}} |\{\tilde{g} \in G : \tilde{g}.x^k = x^k \}| \\
 &= \sum_{f \in F^{jk}} |G_y| \\
 &= r_kS_{jk}
 \end{align}
+This sum in~\ref{eq:rS4} is reduced to be only over $f \in F^{jk}$ since the inner condition means that $x^j \cup \{f\} \in [x^k]$ and thus $f \in F^{jk}$. Since  $x^j \cup \{f\} \in [x^k]$, in~\ref{eq:rS5} there is a $h^{(f)} \in G$ such that $x^j \cup \{f\} = h^{(f)}.x^k$. Here the $(f)$ superscript just denotes dependence on the particular $f$ in the sum. Equation~\ref{eq:rS6} reindexes $G$ using $\tilde{g} = g^{-1}h^{(f)}$ since this still represents all elements in $G$.
 
-Arguing similarly we find an equality for $r_jS^{kj}$ 
+Arguing similarly, we prove equality~\ref{eq:rS3}. 
 \begin{align}
 |\{(f,g) \in F \times G : x^k \setminus \{f\} = g.x^j\}| &= \sum_{f \in F} |\{g \in G : x^k \setminus \{f\} = g.x^j \}| \\
 &= \sum_{f \in F^{kj}} |\{g \in G : x^k \setminus \{f\} = g.x^j \}| \\
@@ -384,10 +397,8 @@ Arguing similarly we find an equality for $r_jS^{kj}$
 &= \sum_{f \in F^{kj}} |G_{x^j}| \\
 &= r_jS_{kj}
 \end{align}
-
-It just remains to equate the two halves.
-
-\begin{align}
+It only remains to prove equality~\ref{eq:rS2}.
+\begin{align} 
 |\{(f,g) \in F \times G : x^j \cup \{f\} = g.x^k\}| &= \sum_{g \in G} |\{f \in F : x^j \cup \{f\} = g.x^k \}| \\
 &= \sum_{g \in G} |\{f \in F : g^{-1}.x^j \cup g^{-1}.\{f\} = x^k \}| \\
 &= \sum_{g \in G} |\{f \in F : g^{-1}.x^j  = x^k \setminus g^{-1}.\{f\} \}| \\
@@ -397,13 +408,12 @@ It just remains to equate the two halves.
 &= \sum_{\hat{f} \in F}|\{\hat{g} \in G : x^k \setminus \{\hat{f}\} = \hat{g}.x^j\}| \\
 &= |\{(f,g) \in F \times G : x^k \setminus \{f\} = g.x^j\}|
 \end{align}
-
-
 \end{proof}
 
 
 \section{Stochastic Modeling Results}
 \label{sec:StochMod}
+
 Since the Building Game is a sequential process with several choices at each step, it is natural to consider it as a stochastic process. If we define a Building Game process that allows faces to be sequentially added or removed in a reversible way, the process consists of transitions from intermediate to intermediate along connections in the combinatorial configuration space. By specifying a distribution on these transitions, it will induce a stationary distribution on the state space and provide a framework for compute relevant statistics such as expected formation times.
 
 
@@ -412,7 +422,7 @@ Since the Building Game is a sequential process with several choices at each ste
 %--Math and graphical results about putting a distribution on pathways
 
 
-We define the Markov process $X_t$ by the transition rate matrix $Q$, with the heuristic that the rate of transition to an intermediate $[x^k]$ from an intermediate $[x^j]$ should be proportional to the number of faces that can be added or removed from $[x^j]$ to reach $[x^k]$. For this reason, we include the degeneracy number $S_{jk}$ as a factor in the transition rate matrix. Furthermore, we model the process using an energetic interpretation in which each intermediate has an energy and to transition between intermediates, an energy barrier $E_{jk} = E_{kj}$ must be overcome. 
+We define the Markov process $X_t$ by the transition rate matrix $Q$ from equation~\ref{eq:Qdef}, with the heuristic that the rate of transition to an intermediate $[x^k]$ from an intermediate $[x^j]$ should be proportional to the number of faces that can be added or removed from $[x^j]$ to reach $[x^k]$. For this reason, we include the degeneracy number $S_{jk}$ as a factor in the transition rate matrix. Furthermore, we model the process using an energetic interpretation in which each intermediate has an energy and to transition between intermediates, an energy barrier $E_{jk} = E_{kj}$ must be overcome. 
 %\begin{align}
 %\label{eq:TransitionProbability}
 % P_{jk} = \frac{1}{z_j}S_{jk}\rh 
@@ -438,7 +448,7 @@ Here, $z_j \doteq \sum_{\ell: \ell \neq j} S_{j\ell}e^{-\beta\left(E_{j\ell} - E
 
 \begin{mythm}
 \label{thm:StatDist}
-If the transition rate matrix $Q$ can be decomposed as $Q = DC$ where $D$ is a diagonal matrix with positive entries and $C$ is a symmetric matrix with the non-diagonal entries $C_{jk} > 0$ if and only if $[x^j]$ and $[x^k]$ are connected and $C_{jk} = 0$ if they are not, then $X_t$ has the unique stationary distribution $\pi = \diag\left(D^{-1}\right)$.         
+Let $D$ be a diagonal matrix with positive entries and $C$ be a symmetric matrix with $C_{jk} > 0$ for connected intermediates and $C_{jk} = 0$ for unconnected intermediates. If a transition rate matrix can be factorized as $Q = DC$, then $X_t$ has the unique stationary distribution $\pi = \diag\left(D^{-1}\right)$.         
 \end{mythm}
 \begin{proof}
 First, we show $Q$ and $\pi$ satisfy detailed balance.
@@ -449,23 +459,22 @@ First, we show $Q$ and $\pi$ satisfy detailed balance.
 &= \left(\frac{1}{D_{kk}}\right)\left(D_{kk}C_{kj}\right) \\
                     &= \pi_kQ_{kj}
 \end{align}
-
-Since the combinatorial state space is connected and $Q_{jk}, Q_{kj} > 0$ for all connected intermediates $[x^j]$ and $[x^k]$, the process it trivially aperiodic and positive recurrent. Thus, $\pi$ is the unique stationary distribution of the Markov process~\cite{Norris1998}. 
+Now, since the combinatorial state space is connected and $Q_{jk}, Q_{kj} > 0$ for all connected intermediates $[x^j]$ and $[x^k]$, the process is clearly aperiodic and positive recurrent. Thus, $\pi$ is the unique stationary distribution of the Markov process~\cite{Norris1998}. 
 \end{proof}
 
 
 \begin{mythm}
 \label{thm:E}
-The Markov process $X_t$ defined by the transition rate matrix  $Q$ in equation~\ref{eq:Qdef} admits the unique stationary distribution $\frac{1}{zr_j}e^{-\beta E_j}$ where $z \doteq \sum_\ell \frac{1}{r_\ell}e^{-\beta E_\ell}$ is the partition function. 
+The Markov process $X_t$ defined by the transition rate matrix  $Q$ in equation~\ref{eq:Qdef} admits the unique stationary distribution $\frac{1}{Zr_j}e^{-\beta E_j}$ where $Z \doteq \sum_\ell \frac{1}{r_\ell}e^{-\beta E_\ell}$ is the partition function. 
 \end{mythm}
 \begin{proof}
-We take $C_{jk} \doteq \frac{S_{jk}}{zr_j}e^{-\beta E_{jk}}$ and notice that it is symmetric by theorem~\ref{thm:rSrS}. With $D_{jj} \doteq zr_je^{\beta E_j}$ we have our partition.  
+We take $C_{jk} \doteq \frac{S_{jk}}{Zr_j}e^{-\beta E_{jk}}$ and notice that it is symmetric by theorem~\ref{thm:rSrS}. With $D_{jj} \doteq Zr_je^{\beta E_j}$ we have our factorization 
 \begin{align}
 Q_{jk} &= S_{jk}e^{-\beta\left(E_{jk} - E_j\right)} \\
-       &= \left(zr_je^{\beta E_j}\right) \left(\frac{S_{jk}}{zr_j}e^{-\beta E_{jk}}\right) \\
-       &= D_{jj}C_{jk}    
+       &= \left(Zr_je^{\beta E_j}\right) \left(\frac{S_{jk}}{Zr_j}e^{-\beta E_{jk}}\right) \\
+       &= D_{jj}C_{jk}.    
 \end{align}
-Thus, by theorem~\ref{thm:StatDist},  $\pi_j = \frac{1}{D_{jj}} = \frac{1}{zr_j}e^{-\beta E_j}$.
+Thus, by theorem~\ref{thm:StatDist},  $\pi_j = \frac{1}{D_{jj}} = \frac{1}{Zr_j}e^{-\beta E_j}$.
 \end{proof}
 
 
@@ -491,7 +500,7 @@ To assist in our calculations of hitting times, it is helpful to use $X_t$'s dis
    0  & \text{if } j = k 
   \end{cases}
 \end{align}
-With this definition, the continuous time process $X_t$ has the alternative interpretation where the intermediate that $X_t$ occupies changes according to the jump process $Y_n$ and stays at each intermediate $[x^j]$ for an exponentially distributed amount of time with parameter $-Q_{jj}$~\cite{Norris1998}. 
+With this definition, the continuous time process $X_t$ has the alternative interpretation where the intermediate $X_t$ changes according to the jump process $Y_n$ and stays at each intermediate $[x^j]$ for an exponentially distributed amount of time with parameter $-Q_{jj}$~\cite{Norris1998}. 
 %
 %Since we are looking at events in which the process first reaches a particular set of intermediates, it is helpful to use $X_t$'s discrete time jump process $Y_n$ which simply records the sequence of intermediates that $X_t$ passes through. Here we formally define $Y_n$ in a recursive manner, such that it is the first intermediate visited after the process $X_t$ leaves $Y_{n-1}$.
 %\begin{align}
@@ -504,22 +513,22 @@ With this definition, the continuous time process $X_t$ has the alternative inte
 %	\nu^{A}_{j} &\doteq \inf\left\{n \geq 0 : Y_n \in A, Y_0 = x^j\right\}
 %\end{align}
 
-Using first step analysis, we derive the expected hitting time $\tau_j^A$. Consider the case of $j \not\in A$.
+Using first step analysis, we derive the expected hitting time $\tau_j^A$. Consider the case of $j \not\in A$:
 \begin{align}
 	E\left[\tau^{A}_{j}\right] &= E\left[E\left[\tau^{A}_{j} | Y_1 \right]\right] \\
-        &= E\left[ Exp\left(z_j\right) + \tau^{A}_{Y_1} \right] \\
-        &=  \frac{1}{z_j} + E\left[\sum_{k}\tau^{A}_{Y_1}\mathbbm{1}_{Y_1 = k}\right] \\
-        &=  \frac{1}{z_j} + \sum_{k: k\neq j}E\left[\tau^{A}_{k}\right] P\left(Y_1 = k\right) \\
-        &=  \frac{1}{z_j}\left(1 + \sum_{k: k\neq j}Q_{jk}E\left[\tau^{A}_{k}\right]\right)     \\
-  1 &=  -\sum_{k}Q_{jk}E\left[\tau^{A}_{k}\right]  \\
+        &= E\left[ \frac{1}{Z_j} + \tau^{A}_{Y_1} \right] \\
+        &=  \frac{1}{Z_j} + E\left[\sum_{k}\tau^{A}_{Y_1}\mathbbm{1}_{Y_1 = k}\right] \\
+        &=  \frac{1}{Z_j} + \sum_{k: k\neq j}E\left[\tau^{A}_{k}\right] P\left(Y_1 = k\right) \\
+        &=  \frac{1}{Z_j}\left(1 + \sum_{k: k\neq j}Q_{jk}E\left[\tau^{A}_{k}\right]\right)     \\
+  1 &=  -\sum_{k}Q_{jk}E\left[\tau^{A}_{k}\right].
 \end{align}
 Now, clearly for $j \in A$ we trivially have a stopping time of zero:
 \begin{align}
-	E\left[\tau^{A}_{j}\right] &= 0. \\
+	E\left[\tau^{A}_{j}\right] &= 0.
 \end{align}
-Putting together the two case, we write the solution as a linear system with $\tau^A$ the vector of stopping times with each possible initial intermediate.
+Putting together the two cases, we write the solution as a linear system with $\tau^A$ the vector of stopping times with each possible initial intermediate
 \begin{align}
-	\left(\diag\left(\mathbbm{1}_A\right) - \diag\left(\mathbbm{1}_{A^c}\right)Q\right)E\left[\tau^{A}\right] =\mathbbm{1}_{A^c}\\
+	\left(\diag\left(\mathbbm{1}_A\right) - \diag\left(\mathbbm{1}_{A^c}\right)Q\right)E\left[\tau^{A}\right] =\mathbbm{1}_{A^c}.\\
 \end{align}
 Thus, we have
 \begin{align}
@@ -537,19 +546,19 @@ Thus, for the case of $j \not\in A$ we find
 \begin{align}
 \psi_j^A\left(t\right) &\doteq P\left(\tau^A_j \leq t\right) \\
                        &= \sum_k P\left(\tau^A_j \leq t | Y_1 = x^k\right) P\left(Y_1 = x^k\right) \\ 
-                       &= \frac{1}{z_j}\sum_{k: k \neq j} Q_{jk} P\left(Exp\left(z_j\right) + \tau^A_k \leq t\right)  \\
-                       &= \frac{1}{z_j}\sum_{k: k \neq j} Q_{jk} \int^t_0 P\left(\tau^A_k \leq t - s\right) z_j e^{-z_j s} ds  \\
-                       &= \sum_{k: k \neq j} Q_{jk} \int^t_0\psi^A_k\left(t-s\right)e^{-z_j s} ds  \\
-                       &= \sum_{k: k \neq j} Q_{jk} \int^t_0\psi^A_k\left(r\right)e^{-z_j\left(t-r\right)} dr  \\
-e^{z_jt}\psi^A_j\left(t\right) &= \sum_{k: k \neq j} Q_{jk} \int^t_0 e^{z_jr}\psi^A_k\left(r\right) dr  \\
-e^{z_jt}\frac{d\psi^A_j}{dt} + z_j e^{z_j t} \psi^A_j\left(t\right) &= \sum_{k: k \neq j} q_{jk} e^{z_jt}\psi^A_k\left(t\right)  \\
+                       &= \frac{1}{Z_j}\sum_{k: k \neq j} Q_{jk} P\left(Exp\left(Z_j\right) + \tau^A_k \leq t\right)  \\
+                       &= \frac{1}{Z_j}\sum_{k: k \neq j} Q_{jk} \int^t_0 P\left(\tau^A_k \leq t - s\right) Z_j e^{-Z_j s} ds  \\
+                       &= \sum_{k: k \neq j} Q_{jk} \int^t_0\psi^A_k\left(t-s\right)e^{-Z_j s} ds  \\
+                       &= \sum_{k: k \neq j} Q_{jk} \int^t_0\psi^A_k\left(r\right)e^{-Z_j\left(t-r\right)} dr  \\
+e^{Z_jt}\psi^A_j\left(t\right) &= \sum_{k: k \neq j} Q_{jk} \int^t_0 e^{Z_jr}\psi^A_k\left(r\right) dr  \\
+e^{Z_jt}\frac{d\psi^A_j}{dt} + Z_j e^{Z_j t} \psi^A_j\left(t\right) &= \sum_{k: k \neq j} q_{jk} e^{Z_jt}\psi^A_k\left(t\right)  \\
 \frac{d\psi^A_j}{dt} &= \sum_{k} q_{jk} \psi^A_k\left(t\right).
 \end{align}
 Combining both cases, we get the linear system and solution.
 \begin{align}
         \frac{d\psi^A}{dt} &= \diag\left(\mathbbm{1}_{A^c}\right)Q\psi^A \\
         \psi^A\left(0\right) &= \mathbbm{1}_{A} \\
-        \psi^A\left(t\right) &= e^{\diag\left(\mathbbm{1}_{A^c}\right)Qt} \mathbbm{1}_{A} \\ 
+        \psi^A\left(t\right) &= e^{\diag\left(\mathbbm{1}_{A^c}\right)Qt} \mathbbm{1}_{A} 
 \end{align}
 This is the solution for the CDF of the stopping time $\tau^A$, but we can also compute the PDF explicitly for $t > 0$.
 \begin{align}
@@ -576,7 +585,7 @@ but must compute the case of $j \in (A\cup B)^C$.
 &= \sum_{k}P(\tau^A_j < \tau^B_j, Y_1 = k) \\
 &= \sum_{k}P(\tau^A_j < \tau^B_j|Y_1 = k)P(Y_1 = k) \\
 &= \sum_{k}P(\tau^A_k < \tau^B_k)P(Y_1 = k) \\
-&= \frac{1}{z_j}\sum_{k \neq j} \rho^{A,B}_kQ_{jk} \\
+&= \frac{1}{Z_j}\sum_{k \neq j} \rho^{A,B}_kQ_{jk} \\
 0 &= Q\rho^{A,B}
 \end{align}
 Again, putting each of these cases together, we get the linear system
