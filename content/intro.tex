@@ -49,9 +49,16 @@ Protein and RNA folding are active fields of research. If we can predict the thr
 
 \section{Mathematical Constructs for Self-Assembly}
 
-A common theme for mathematically modeling self-assembly involves specifying a framework of rules or steps by which the self-assembly of a particular structure can occur.
+Discrete geometric models for self-assembly are our primary focus. These models often decompose the self-assembly process into many intermediate steps. Organizing the space of these intermediate configurations as a graph, successful assemblies are paths through this graph. Using the mathematical structure of the graph, a quantitative analysis of the process is possible. The following are different mathematical approaches to self assembly. The attachment and folding models empoy the graph enumeration straegy, but others are more qualitative. 
 
- Given such a model, all of the possible intermediate stages or states in which the process can occupy is enumerated. With this atlas of possible configurations represented as a graph, the entire self-assembly process can be described as a path through this graph. Using the mathematical structure of the graph, a quantitative analysis of the process is possible. The following are different mathematical approaches to self assembly. Some follow the graph enumeration approach, but others are more qualitative. 
+
+%--focus on discrete geometric models
+%--two are folding and bg
+
+
+%A common theme for mathematically modeling self-assembly involves specifying a framework of rules or steps by which the self-assembly of a particular structure can occur.
+
+% Given such a model, all of the possible intermediate stages or states in which the process can occupy is enumerated. With this atlas of possible configurations represented as a graph, the entire self-assembly process can be described as a path through this graph. Using the mathematical structure of the graph, a quantitative analysis of the process is possible. The following are different mathematical approaches to self assembly. Some follow the graph enumeration approach, but others are more qualitative. 
 
 %The concept of formation pathways that occur with overwhelming frequency relative to the myriad of other theoretically possible pathways is a primary interest of our work. To identify the nature of such dominant pathways is to identify the mechanism of self-assembly itself. This knowledge would hopefully enable the proliferation of the self-assembled products to become more efficient and faster, or in cases such as biological viruses, inhibit formation altogether. There are several means, both quantitative and qualitative, by which we seek to identify and study these dominant pathways. 
 
@@ -102,7 +109,7 @@ First proposed by Wales, the Building Game is a discrete attachment model that s
 %
 %
 \subsection{Folding}
-Another model--we refer to as the Folding Model--was used to model the self-folding of meso-scale metallic polyhedra mentioned in section~\ref{ssc:SelfFold}. In this model, a polyhedron's net is sequentially folded up into the finished polyhedron. At each stage one vertex is closed to form a pyramidal structure by a folding move. In analogy with the Building Game, we can define folding intermediates to be partially folded states and a state spaces where intermediates are connected if one can form the other with a single fold. One possible sequence of fold resulting in the octahedron is shown in figure~\ref{fig:fold_octa}. 
+Another model--we refer to as the Folding Model--was used to model the self-folding of meso-scale metallic polyhedra mentioned in section~\ref{ssc:SelfFold}. In this model, a polyhedron's net is sequentially folded up into the finished polyhedron. At each stage one vertex is closed by a folding move. In analogy with the Building Game, we can define folding intermediates to be partially folded states and a state spaces where intermediates are connected if one can form the other by folding to close an additional vertex. One possible sequence of fold resulting in the octahedron is shown in figure~\ref{fig:fold_octa}. 
 
 Interestingly, each polyhedron may has multiple nets. In fact, the number of distinct nets grows rapidly with the size of the polyhedron. Certain nets have different folding pathways and measuring the favorability of one of these nets over another introduces an design problem. If nets that fold into the completed polyhedron most reliably can be identified, the efficiency of the self-assembly process can be optimized~\cite{Pandey2011, Pandey2014}
 
@@ -190,16 +197,24 @@ Several previously studied models for self-assembly can be classified as \textit
 %Since we are interested in the formation of the completed polyhedron beginning from a single face, we can ask about how likely a specific intermediate is to be reached if the state transitions until it reaches the terminal closed polyhedron. If we define the stopping time $\tau_k \doteq \inf\left\{n>0: X_n = x_k\right\}$ with $\tau_F$ the equivalent stopping time corresponding to the terminal state, we can formulate this question as computing the probability $\rho_k\left(\beta\right) \doteq P\left(\tau_k < \tau_F\right)$. These statistics can be computed exactly via dynamic programming, but it is possible that martingales or other analytic tools would allow a more direct and illuminating derivation. 
 %
 
-Due to the scale of many of these self-assembly processes, statistical mechanics provides a framework to think about these models. By finding an analogy with a diffusion process on an implied potential energy surface, we can use statistical mechanical tools to examine the properties of this potential surface. 
+Due to the scale of many of these self-assembly processes, statistical mechanics provides a natural framework for thinking about these models. Each intermediate configuration of self-assembly processes is a local minimum of the potential energy landscape and the Gibbs distribution provides the stationary measure for the process. Dynamics of the process are dictated by energy barriers that must be overcome for the process to transition between potential energy minima. 
 
-Reversible Markov processes can be used for a variety of different discrete models for self-assembly. If a graph of the model's possible configurations is known, one can put a Markov process on this graph as a discrete version of a diffusion process on an energy landscape. By giving each graph node an energy level and treating graph edges as barriers, the Markov process transition rates are related to the height of the energy barrier that must be overcome to jump to another node. With this flexible mathematical machinery, a wide variety of questions can be asked: from pathway probabilities to formation related stopping times.
+This idea carries over to our discrete model. Every intermediate is treated as a local minimum and assigned an energy level. Graph connections are given energy barrier heights that must be overcome. The dynamics of discrete process are modeled using a reversible Markov process with transition rates proportional to energy barrier differences. With this flexible mathematical machinery, a wide variety of questions can be asked: from pathway probabilities to formation related stopping times.
+
+
+%By finding an analogy with a diffusion process on an implied potential energy surface, we can use statistical mechanical tools to examine the properties of this potential surface. 
+
+%Reversible Markov processes can be used for a variety of different discrete models for self-assembly. If a graph of the model's possible configurations is known, one can put a Markov process on this graph as a discrete version of a diffusion process on an energy landscape. 
+
+%By giving each graph node an energy level and treating graph edges as barriers, the Markov process transition rates are related to the height of the energy barrier that must be overcome to jump to another node. 
+
 
 %The folding model tends to describe an irreversible process, so some of the concepts inherent to reversible Markov processes, such as the stationary distribution would not apply. The dynamical aspects, however, may still be appropriately modeled with Markov processes. While we have not explored the topic extensively, it seems as though, due to their modeling and analytic flexibility, Markov processes provide a natural approach to many local rules type models as well. 
 
 
-\subsection{Disconnectivity Graphs and Qualitative Approaches}
+%\subsection{Disconnectivity Graphs and Qualitative Approaches}
 
-Wales et al. introduced a graphical way to represent the structure of a potential surface possessing many local minima and intermediary transition states~\cite{Wales1998, Doye1999}. Named a \textit{discontinuity graph}, the tree with leaves representing local minima of the potential and other connecting nodes representing transition states that the minima can be reached from provides a way of picturing the structure of the a potentially high dimensional energy landscape that looks past simple energy differences. The vertical height of each node is used to represent the potential energy of that state. Horizontally, the tree is organized to partition these local minima into corresponding funnels. If the graph is truncated at a specific energy level, two minima are reachable via transitions to states strictly below this truncation energy if and only if they remain connected in the truncated disconnectivity tree. 
+Wales et al. introduced a graphical way to represent the structure of a potential surface possessing many local minima and intermediary transition states~\cite{Wales1998, Doye1999}. Named a \textit{discontinuity graph}, the tree with leaves representing local minima of the potential surface and other connecting nodes representing transition states that the minima can be reached from. This provides a way of picturing the structure of the a potentially high dimensional energy landscape that looks past simple energy differences. The vertical height of each node is used to represent the potential energy of that state. Horizontally, the tree is organized to partition these local minima into corresponding funnels. If the graph is truncated at a specific energy level, two minima are reachable via transitions to states strictly below this truncation energy if and only if they remain connected in the truncated disconnectivity tree. 
 
 %\begin{figure}[!h]
 %%\centering
@@ -295,7 +310,7 @@ Each Building Game intermediate is defined by its combinatorial structure, but b
 %Using the geomet
 
 
-In this work we have shown ways in which combinatorial and geometric structure of self-assembly intermediates are related. The information that is expressed in the Building Game combinatorial configuration space sets template for treating the self-assembly process as a Markov process. It is the addition of geometric information that allows us to define transition rates in a physically meaningful way. The combination of these two perspectives allows for a more complete understanding of the underlying processes than either could provide individually. 
+In this work we have shown ways in which combinatorial and geometric structure of self-assembly intermediates are related. We model the self-assembly process as a Markov process using the Building Game combinatorial configuration space. It is the addition of geometric information that allows us to define transition rates in a physically meaningful way. The combination of these two perspectives allows for a more complete understanding of the underlying processes than either could provide individually. 
 
 
 
