@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  21 APR 2015 14:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  22 APR 2015 12:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -705,7 +705,32 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <11.5> not available
 (Font)              size <12> substituted on input line 112.
 
-(./thesis.lot)
+(./thesis.lot
+LaTeX Font Info:    Calculating math sizes for size <11.5> on input line 4.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <11.5> not available
+(Font)              size <12> substituted on input line 4.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <11.5> not available
+(Font)              size <12> substituted on input line 4.
+
+
+LaTeX Font Warning: Font shape `U/lasy/m/n' in size <11.5> not available
+(Font)              size <12> substituted on input line 4.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <11.5> not available
+(Font)              size <12> substituted on input line 4.
+
+
+Overfull \hbox (38.17238pt too wide) in paragraph at lines 5--5
+ [][] []\OT1/cmr/m/n/12 Building Game enu-mer-a-tive shella-bil-ity re-sults fo
+r the Pla-tonic, Archimedean, 
+ []
+
+)
 \tf@lot=\write6
 \openout6 = `thesis.lot'.
 
@@ -717,49 +742,24 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <11.5> not available
 
 
 ] (./thesis.lof
-LaTeX Font Info:    Calculating math sizes for size <11.5> on input line 2.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <11.5> not available
-(Font)              size <12> substituted on input line 2.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <11.5> not available
-(Font)              size <12> substituted on input line 2.
-
-
-LaTeX Font Warning: Font shape `U/lasy/m/n' in size <11.5> not available
-(Font)              size <12> substituted on input line 2.
-
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <11.5> not available
-(Font)              size <12> substituted on input line 2.
-
-
-Overfull \hbox (38.17238pt too wide) in paragraph at lines 21--21
- [][] []\OT1/cmr/m/n/12 Building Game enu-mer-a-tive shella-bil-ity re-sults fo
-r the Pla-tonic, Archimedean, 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [15
 
 ]
-Overfull \hbox (5.78796pt too wide) in paragraph at lines 54--54
+Overfull \hbox (5.78796pt too wide) in paragraph at lines 51--51
  \OT1/cmr/m/n/12 in hyper-cubes of in-creas-ing di-men-sion across dif-fer-ent 
 choices of timestep. []  
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [16])
+)
 \tf@lof=\write7
 \openout7 = `thesis.lof'.
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16]
 [17] [18
 
 
@@ -916,15 +916,12 @@ Underfull \hbox (badness 10000) in alignment at lines 158--158
 ] (./content/bg_enumeration.tex
 File: images/tetris.eps Graphic file (type eps)
  <images/tetris.eps>
-Underfull \vbox (badness 1057) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [38]
-Underfull \vbox (badness 1308) has occurred while \output is active []
-
- [39]
+[39]
 File: images/polys_face_int.eps Graphic file (type eps)
-
-<images/polys_face_int.eps>
+ <images/polys_face_int.eps>
 Overfull \hbox (4.34044pt too wide) in paragraph at lines 64--65
  [][] 
  []
@@ -978,27 +975,29 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 204--205
 [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [43]
-[44]
+[43]
 Overfull \hbox (104.1737pt too wide) in paragraph at lines 227--227
 [] 
  []
 
-
+[44]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [45]
-[46]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [46]
 File: images/polys_face_shellings.eps Graphic file (type eps)
- <images/polys_face_shellings.eps>
+
+<images/polys_face_shellings.eps>
 Overfull \hbox (4.34044pt too wide) in paragraph at lines 276--277
 [][] 
  []
 
-[47]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [48]
@@ -1357,12 +1356,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 13649 strings out of 493305
- 250071 string characters out of 6139898
+ 13650 strings out of 493305
+ 250088 string characters out of 6139898
  310624 words of memory out of 5000000
- 16699 multiletter control sequences out of 15000+600000
+ 16700 multiletter control sequences out of 15000+600000
  24886 words of font info for 109 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1646b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (135 pages, 277984 bytes).
+Output written on thesis.dvi (135 pages, 277448 bytes).
