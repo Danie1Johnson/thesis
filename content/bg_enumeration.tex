@@ -26,37 +26,6 @@ As we consider polyhedra with more and more faces, there is a combinatorial expl
 
 
 
-\begin{table}[ht]
-\scalebox{0.8}{
-%{\footnotesize
-\centering
-%\textbf{Building Game Enumerative Results for the Platonic Solids}
-\begin{tabular}{ l | c | r | r | r}
-Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
-  \hline    
-Tetrahedron                     & 4        & 4     	& 3             & 1\\
-Cube                            & 6        & 8     	& 9    		& 3\\
-Octahedron                      & 8        & 14    	& 21    	& 14\\
-Dodecahedron                    & 12       & 73    	& 263   	& 17,696 \\
-Icosahedron                     & 20       & 2,649 	& 17,241        & 57,396,146,640\\ \hline
-Truncated Tetrahedron           & 8     & 28    	& 63            & 402\\
-Cuboctahedron                   & 14  	& 340   	& 1,634         & 10,170,968\\
-Truncated Cube                  & 14  	& 499   	& 2,729         & 101,443,338 \\
-Truncated Octahedron            & 14  	& 555           & 3,069         & 68,106,377\\
-Rhombicuboctahedron             & 26  	& 638,850       & 6,459,801     & 164,068,345,221,515,292,308\\
-Truncated Cuboctahedron         & 26  	& 1,525,658     & 17,672,374    & 13,837,219,462,483,379,105,902\\ \hline  
-Triakis Tetrahedron             & 12  	& 98            & 318           & 38,938\\
-Rhombic Dodecahedron            & 12  	& 127           & 493           & 76,936\\
-Triakis Octahedron              & 24  	& 12,748        & 81,296        & 169,402,670,046,670\\
-Tetrakis Hexahedron             & 24  	& 50,767        & 394,377       & 4,253,948,297,210,346\\
-Deltoidal Icositetrahedron      & 24  	& 209,675       & 1,989,548     & 418,663,242,727,526,726 \\
-Pentagonal Icositetrahedron     & 24  	& 345,938       & 3,544,987     & 2,828,128,000,716,774,492\\
-Rhombic Triacontahedron         & 30  	& 2,423,212     & 26,823,095    & 161,598,744,916,797,017,978,128\\
-\end{tabular}
-}
-\caption{Building Game combinatorial configuration space enumerative results for the Platonic, Archimedean, and Catalan solids.}
-\label{tab:bgEnum}
-\end{table}
 
 %--Scatter plot commentary.
 \begin{figure}[ht]
@@ -168,36 +137,6 @@ Table~\ref{tab:bgEnumShell} details the shellability statistics for the Platonic
 %\begin{proof}
 %\end{proof}
 
-\begin{table}[ht]
-\scalebox{0.85}{
-\centering
-%\textbf{Building Game Enumerative Results for the Platonic Solids}
-\begin{tabular}{ l | c | r | r | r}
-Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
-  \hline    
-Tetrahedron                     & 4     & 4     	& 5 		& 1\\
-Cube                            & 6     & 7     	& 7 		& 2\\
-Octahedron                      & 8     & 11    	& 13 		& 4 \\
-Dodecahedron                    & 12    & 52    	& 155 		& 2,166\\
-Icosahedron                     & 20    & 469   	& 1,985 	& 105,999,738\\  \hline    
-Truncated Tetrahedron           & 8     & 21		& 40 		& 174\\
-Cuboctahedron                   & 14	& 136		& 468 		& 477,776\\
-Truncated Cube                  & 14	& 247		& 1,000 	& 5,232,294\\
-Truncated Octahedron            & 14	& 342		& 1,464 	& 5,704,138\\
-Rhombicuboctahedron             & 26	& 70,887	& 462,721 	& 64,308,526,503,247,584\\
-Truncated Cuboctahedron         & 26	& 515,335	& 4,070,813	& 13,890,723,216,176,694,816\\  \hline    
-Triakis Tetrahedron             & 12    & 48		& 115 		& 5,012\\
-Rhombic Dodecahedron            & 12 	& 67		& 195 		& 6,258\\
-Triakis Octahedron              & 24	& 1,021		& 4,237 	& 210,459,770,300\\
-Tetrakis Hexahedron             & 24	& 4,224		& 21,125 	& 5,894,431,702,846\\
-Deltoidal Icositetrahedron      & 24	& 33,046	& 208,317 	& 703,619,122,996,096\\
-Pentagonal Icositetrahedron     & 24	& 95,326	& 657,013 	& 7,572,459,719,248,765\\
-Rhombic Triacontahedron         & 30	& 97,741	& 702,219 	& 7,057,239,571,753,327,764\\
-\end{tabular}
-}
-\caption{Building Game enumerative shellability results for the Platonic, Archimedean, and Catalan solids.}
-\label{tab:bgEnumShell}
-\end{table}
 
 \begin{figure}[ht]
 \includegraphics[scale=0.6, angle=0]{images/polys_face_shell_int.eps}
@@ -249,6 +188,73 @@ a_{i,k} &\doteq \sum_{\substack{\text{shellable subpaths}:\\ p_1, \dots, p_k \\ 
 &= \sum_{[x^\ell]:[x^\ell]\xrightarrow{shell}[x^i]} S_{\ell i} a_{\ell, k-1}
 \end{align}
 Thus, using the base cases $a_{j,1} = |G.x^j|$ for each single faced intermediate $[x^j]$, we can use this relation to recursively solve for the number of shellings $a_{N,|F|}$.
+
+\begin{table}[ht]
+\scalebox{0.8}{
+%{\footnotesize
+\centering
+%\textbf{Building Game Enumerative Results for the Platonic Solids}
+\begin{tabular}{ l | c | r | r | r}
+Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
+  \hline    
+Tetrahedron                     & 4        & 4     	& 3             & 1\\
+Cube                            & 6        & 8     	& 9    		& 3\\
+Octahedron                      & 8        & 14    	& 21    	& 14\\
+Dodecahedron                    & 12       & 73    	& 263   	& 17,696 \\
+Icosahedron                     & 20       & 2,649 	& 17,241        & 57,396,146,640\\ \hline
+Truncated Tetrahedron           & 8     & 28    	& 63            & 402\\
+Cuboctahedron                   & 14  	& 340   	& 1,634         & 10,170,968\\
+Truncated Cube                  & 14  	& 499   	& 2,729         & 101,443,338 \\
+Truncated Octahedron            & 14  	& 555           & 3,069         & 68,106,377\\
+Rhombicuboctahedron             & 26  	& 638,850       & 6,459,801     & 164,068,345,221,515,292,308\\
+Truncated Cuboctahedron         & 26  	& 1,525,658     & 17,672,374    & 13,837,219,462,483,379,105,902\\ \hline  
+Triakis Tetrahedron             & 12  	& 98            & 318           & 38,938\\
+Rhombic Dodecahedron            & 12  	& 127           & 493           & 76,936\\
+Triakis Octahedron              & 24  	& 12,748        & 81,296        & 169,402,670,046,670\\
+Tetrakis Hexahedron             & 24  	& 50,767        & 394,377       & 4,253,948,297,210,346\\
+Deltoidal Icositetrahedron      & 24  	& 209,675       & 1,989,548     & 418,663,242,727,526,726 \\
+Pentagonal Icositetrahedron     & 24  	& 345,938       & 3,544,987     & 2,828,128,000,716,774,492\\
+Rhombic Triacontahedron         & 30  	& 2,423,212     & 26,823,095    & 161,598,744,916,797,017,978,128\\
+\end{tabular}
+}
+\caption{Building Game combinatorial configuration space enumerative results for the Platonic, Archimedean, and Catalan solids.}
+\label{tab:bgEnum}
+\end{table}
+
+
+\begin{table}[ht]
+\scalebox{0.85}{
+\centering
+%\textbf{Building Game Enumerative Results for the Platonic Solids}
+\begin{tabular}{ l | c | r | r | r}
+&  & Shellable& Shellable& Shellable \\
+Polyhedra Name & $|F|$ & Intermediates & Connections & Pathways \\
+  \hline    
+Tetrahedron                     & 4     & 4     	& 5 		& 1\\
+Cube                            & 6     & 7     	& 7 		& 2\\
+Octahedron                      & 8     & 11    	& 13 		& 4 \\
+Dodecahedron                    & 12    & 52    	& 155 		& 2,166\\
+Icosahedron                     & 20    & 469   	& 1,985 	& 105,999,738\\  \hline    
+Truncated Tetrahedron           & 8     & 21		& 40 		& 174\\
+Cuboctahedron                   & 14	& 136		& 468 		& 477,776\\
+Truncated Cube                  & 14	& 247		& 1,000 	& 5,232,294\\
+Truncated Octahedron            & 14	& 342		& 1,464 	& 5,704,138\\
+Rhombicuboctahedron             & 26	& 70,887	& 462,721 	& 64,308,526,503,247,584\\
+Truncated Cuboctahedron         & 26	& 515,335	& 4,070,813	& 13,890,723,216,176,694,816\\  \hline    
+Triakis Tetrahedron             & 12    & 48		& 115 		& 5,012\\
+Rhombic Dodecahedron            & 12 	& 67		& 195 		& 6,258\\
+Triakis Octahedron              & 24	& 1,021		& 4,237 	& 210,459,770,300\\
+Tetrakis Hexahedron             & 24	& 4,224		& 21,125 	& 5,894,431,702,846\\
+Deltoidal Icositetrahedron      & 24	& 33,046	& 208,317 	& 703,619,122,996,096\\
+Pentagonal Icositetrahedron     & 24	& 95,326	& 657,013 	& 7,572,459,719,248,765\\
+Rhombic Triacontahedron         & 30	& 97,741	& 702,219 	& 7,057,239,571,753,327,764\\
+\end{tabular}
+}
+\caption{Building Game enumerative shellability results for the Platonic, Archimedean, and Catalan solids.}
+\label{tab:bgEnumShell}
+\end{table}
+
+
 
 \begin{table}[ht]
 %\scalebox{0.6}{
@@ -359,22 +365,29 @@ At each stage of our algorithm, we know the set of intermediates that have $k$ f
 
 The act of comparing two states $y$ and $\hat{y}$ to check if they are members of the same intermediate is the task where the majority of computational time is spent. The brute force method of checking if $y \sim \hat{y}$ involves checking if $g.y = \hat{y}$ for each $g \in G$. If a $g$ is found that makes this equality hold, then $[y] = [ \hat{y}]$ and the computation terminates and we know that $[y]$ is not a new intermediate. In this case, nothing is added to $A_{k+1}$ but a connection $x \leftrightarrow \hat{y}$ is added in the combinatorial configuration space. Furthermore, by tracking how many time a particular connection $x \leftrightarrow \hat{y}$ is found, the forward degeneracy numbers can be computed quickly. 
 
-\subsection{Hash Functions}
-In practice, we implement a hash function $\textswab{h}$ that maps each state to an integer with the property that if $[y] = [\hat{y}]$, then $\textswab{h}(y) = \textswab{h}(\hat{y})$. If we can design such a function and it is computable in significantly less time relative to the method of trying every rotation, the overall computation can be majorly diminished. 
+\subsection{Efficient Congruence Testing}
 
-When checking if two states $y$ and $\hat{y}$ are members of the same intermediate, we first check if $\textswab{h}(y) = \textswab{h}(\hat{y})$. If they do not have the same hash, then they cannot be members of the same intermediate and the check is complete. Alternatively, if they do have identical hashes, it is not a guarantee that they are members of the same intermediate, so the exhastive rotation method must be used. If the hash is carefully designed then this false positive rate ($\textswab{h}(y) = \textswab{h}(\hat{y})$ when $[y] \neq [\hat{y}]$) is small and almost all of the tedious rotation calculations will result in a positive match. 
+Similar to the approach of~\cite{Pandey2011}, we implement a hash function $\textswab{h}$ that maps each state to an integer with the property that $[y] = [\hat{y}]$ if and only if $\textswab{h}(y) = \textswab{h}(\hat{y})$. By designing such a function, checing for congruence between two states just amounts to a comparison of the states' hash values. 
 
-In an ideal world, a hash function that also gives the property $[x] = [\hat{x}]$ whenever $\textswab{h}(x) = \textswab{h}(\hat{x})$ would be best. However we have not been able to find such an $\textswab{h}$ that is computable in a relatively reduced amount of time in comparison to the default method. We leave the existence of such a hash as a possibility. 
+Given an enumeration of the polyhedron's faces, each state may be represented by a binary vector giving each face's inclusion or exclusion in the state. The hash we use is the base ten integer corresponding to the minimal binary representation of the state staken over all possible rotations
+\begin{align}
+\textswab{h}(y) &= \min_{g \in G} \text{int}(g.y).
+\end{align} 
+While this does require considering each possible roation for every proposal state, this computation must only be performed once. 
 
-Since any hash we choose must a function that maps states that are rotations of each other to the same integer, we look at local connectivity properties. For each face $f_k \in F$ define its local connectivity within $y$ as  $\textswab{h}_k(y) = |\{\hat{f} \in F : \hat{f} \in y, f_k \cap \hat{f} \in E\}|$, the number of faces adjacent to $f_k$ that are also in $y$. Since this connectivity is preserved by rotations, even though we wont necessarily have $\textswab{h}_k(y) = \textswab{h}_k(\hat{y})$ when $[y] = [\hat{y}]$, if we take a histogram of all values of $\textswab{h}_k$ for $k = 1,\dots,|F|$, the histogram will be the same for both $y$ and $\hat{y}$. Once a histogram is computed, the final hash $\textswab{h}$ is just a simple function that maps histograms to integers.
+%When checking if two states $y$ and $\hat{y}$ are members of the same intermediate, we first check if $\textswab{h}(y) = \textswab{h}(\hat{y})$. If they do not have the same hash, then they cannot be members of the same intermediate and the check is complete. Alternatively, if they do have identical hashes, it is not a guarantee that they are members of the same intermediate, so the exhastive rotation method must be used. If the hash is carefully designed then this false positive rate ($\textswab{h}(y) = \textswab{h}(\hat{y})$ when $[y] \neq [\hat{y}]$) is small and almost all of the tedious rotation calculations will result in a positive match. 
 
-There are many variants of statistics that this histogram strategy can be used with. We found that taking separate histograms for faces in $y$ and faces not in $y$ provided a hash with less false positives, while only increasing the hash computation time marginally. Depending on the polyhedron, the implementation of this hash lead to an over all speed up of at least an order of magnitude over the naive method.  
+%In an ideal world, a hash function that also gives the property $[x] = [\hat{x}]$ whenever $\textswab{h}(x) = \textswab{h}(\hat{x})$ would be best. However we have not been able to find such an $\textswab{h}$ that is computable in a relatively reduced amount of time in comparison to the default method. We leave the existence of such a hash as a possibility. 
+
+%Since any hash we choose must a function that maps states that are rotations of each other to the same integer, we look at local connectivity properties. For each face $f_k \in F$ define its local connectivity within $y$ as  $\textswab{h}_k(y) = |\{\hat{f} \in F : \hat{f} \in y, f_k \cap \hat{f} \in E\}|$, the number of faces adjacent to $f_k$ that are also in $y$. Since this connectivity is preserved by rotations, even though we wont necessarily have $\textswab{h}_k(y) = \textswab{h}_k(\hat{y})$ when $[y] = [\hat{y}]$, if we take a histogram of all values of $\textswab{h}_k$ for $k = 1,\dots,|F|$, the histogram will be the same for both $y$ and $\hat{y}$. Once a histogram is computed, the final hash $\textswab{h}$ is just a simple function that maps histograms to integers.
+
+%There are many variants of statistics that this histogram strategy can be used with. We found that taking separate histograms for faces in $y$ and faces not in $y$ provided a hash with less false positives, while only increasing the hash computation time marginally. Depending on the polyhedron, the implementation of this hash lead to an over all speed up of at least an order of magnitude over the naive method.  
 
 \subsection{Data Structures}
 
 Before the computation of the combinatorial configuration space, we hard-code an enumeration $f_1, \dots, f_{|F|}$ of the faces of our polyhedron. Then, any state $x$ is represented by a binary vector of length $|F|$ with a one in the $k$th entry if $f_k \in x$ and zero otherwise. With this convention, each rotation $g \in G$ corresponds to a permutation of the indices of $x$. Each such permutation in the group is precomputed and then applied as necessary when performing a rotational comparison of two states. To track the connectivity structure of the polyhedron, an adjacency list on faces is stored as a two dimensional array. For each face number, the adjacency list specifies the index of adjacent faces.
 
-Each group of $k$-faced intermediates $A_k$ is stored as a hash table using the previously described hash function. This allows for order one look-up of intermediates already in the $A_k$ that share the hash of a new proposal intermediate. 
+Each group of $k$-faced intermediates $A_k$ is stored as a hash table using the previously described hash function. This allows for order one look-up of intermediates already in the $A_k$ that match the hash of a new proposal intermediate. 
 
 \subsection{Run Time}
 

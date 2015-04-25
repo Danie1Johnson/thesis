@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  24 APR 2015 13:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  25 APR 2015 14:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -925,56 +925,56 @@ LaTeX Warning: Reference `tab:bgEnum ' on page 39 undefined on input line 19.
 [39]
 File: images/polys_face_int.eps Graphic file (type eps)
  <images/polys_face_int.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 64--65
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 33--34
  [][] 
  []
 
 File: images/polys_face_con.eps Graphic file (type eps)
 <images/polys_face_con.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 70--71
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 39--40
 [][] 
  []
 
 File: images/polys_face_path.eps Graphic file (type eps)
 <images/polys_face_path.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 76--77
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 45--46
 [][] 
  []
 
 File: images/polys_int_con.eps Graphic file (type eps)
 <images/polys_int_con.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 83--84
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 52--53
  [][] 
  []
 
 File: images/polys_int_path.eps Graphic file (type eps)
 <images/polys_int_path.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 90--91
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 59--60
  [][] 
  []
 
 File: images/polys_con_path.eps Graphic file (type eps)
 <images/polys_con_path.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 97--98
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 66--67
  [][] 
  []
 
 [40] [41] [42] [43]
 File: images/polys_face_shell_int.eps Graphic file (type eps)
  <images/polys_face_shell_int.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 203--204
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 142--143
 [][] 
  []
 
 File: images/polys_face_shell_con.eps Graphic file (type eps)
 <images/polys_face_shell_con.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 209--210
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 148--149
 [][] 
  []
 
 File: images/polys_face_shell_path.eps Graphic file (type eps)
 <images/polys_face_shell_path.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 215--216
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 154--155
 [][] 
  []
 
@@ -982,14 +982,11 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 215--216
 Underfull \vbox (badness 1014) has occurred while \output is active []
 
  [44]
-Overfull \hbox (104.1737pt too wide) in paragraph at lines 238--238
+Overfull \hbox (104.1737pt too wide) in paragraph at lines 177--177
 [] 
  []
 
-
-Underfull \vbox (badness 3407) has occurred while \output is active []
-
- [45]
+[45]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [46]
@@ -999,7 +996,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: images/polys_face_shellings.eps Graphic file (type eps)
 
 <images/polys_face_shellings.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 287--288
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 293--294
 [][] 
  []
 
@@ -1019,20 +1016,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 2980) has occurred while \output is active []
 
  [52]
-Underfull \vbox (badness 3240) has occurred while \output is active []
+Underfull \vbox (badness 1112) has occurred while \output is active []
 
  [53]
-[54]
+[54] [55]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [55]
-Underfull \vbox (badness 7273) has occurred while \output is active []
+ [56])
+[57] [58
 
- [56]
-Underfull \vbox (badness 1400) has occurred while \output is active []
 
- [57])
-[58]
+]
 Chapter 4.
 
 Underfull \hbox (badness 10000) in alignment at lines 162--162
@@ -1040,8 +1034,6 @@ Underfull \hbox (badness 10000) in alignment at lines 162--162
  []
 
 [59
-
-
 
 ] (./content/constraint.tex
 File: images/OctaGCS_0.eps Graphic file (type eps)
@@ -1372,10 +1364,10 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  13652 strings out of 493305
  250115 string characters out of 6139898
- 309624 words of memory out of 5000000
+ 314624 words of memory out of 5000000
  16702 multiletter control sequences out of 15000+600000
  24886 words of font info for 109 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1646b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (135 pages, 278308 bytes).
+Output written on thesis.dvi (135 pages, 275872 bytes).
