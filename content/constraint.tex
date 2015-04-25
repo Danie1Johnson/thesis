@@ -1,5 +1,5 @@
 
-While models such as the Building Game treat assembly intermediates as idealized structures, the intermediates of the physical application we are trying to model may face a chaotic and volatile range of forces. To more realistically model the ways in which our intermediate might flex and move under these forces, we impose a constraint model in which individual faces of an intermediate are rigid, but with the edges at which two faces meet modeled as a hinge. As seen in figure~\ref{fig:OctaGCS}, this approach allows for a variety of geometric configurations all while the combinatorial connectivity properties of the intermediate remain unchanged.  This geometric framework provides a physically motivated way of addressing questions that strictly combinatorial models cannot adequately answer. 
+While models such as the Building Game treat assembly intermediates as idealized structures, the intermediates of the physical application we are modeling may face unpredictable forces. To realistically model the ways in which our intermediate might flex and move under these forces, we use a constraint model in which individual faces of an intermediate are rigid, but with the edges at which two faces meet modeled as a hinge. As seen in figure~\ref{fig:OctaGCS}, this approach allows for a variety of geometric configurations all while the combinatorial connectivity properties of the intermediate remain unchanged.  This geometric framework provides a physically motivated way of addressing questions that strictly combinatorial models cannot adequately answer. 
 
 
 \begin{figure}[ht]
@@ -46,11 +46,11 @@ While models such as the Building Game treat assembly intermediates as idealized
 
 
 
-Using the notion of a constraint space, we can mathematically define the space of different geometric configurations that a given intermediate can take. Since we are treating each intermediate as collection of rigid polygons attached to each other along hinged edges, there are two basic types of constraint we must enforce. First, we must ensure that the each individual face is rigid and has the correct geometric shape. Additionally, each edge to edge connection must remain fixed with only hinge-like motion allowed. By defining this set of constraints as a single constraint function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$, the zero-set $\Omega \doteq \{z \in \mathbbm{R}^n : c(z) = 0\}$ is the corresponding constraint space. This constraint system implicitly specifies all of the ways in which an intermediate has freedom to move if it is able to move at all. If $c$ is composed of polynomial functions, then the constraint space is an algebraic variety. If this variety has no singularities, then it is also a manifold. 
+Using a system of constraint functions, we can mathematically define the space of different geometric configurations that a given intermediate can take. Since we are treating each intermediate as collection of rigid polygons attached to each other along hinged edges, there are two basic types of constraint we must enforce. First, we must ensure that the each individual face is rigid and has the correct geometric shape. Additionally, each edge to edge connection must remain fixed with only hinge-like motion allowed. By defining this set of constraints as a single constraint function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$, the solution set $\Omega \doteq \{z \in \mathbbm{R}^n : c(z) = 0\}$ is the set of points where all of the constraints are simultaneously satisfied. This constraint system implicitly specifies all of the ways in which an intermediate has freedom to move if it is able to move at all. If $c$ is composed of polynomial functions, then the solution set is an algebraic variety. If this variety has no singularities, then it is also a manifold. 
 
 
 \begin{mydef}
-The \textbf{geometric configuration space} of a Building Game intermediate is a constraint space that enforces the rigidity of individual faces and hinged motion along connected edges.
+The \textbf{geometric configuration space} of a Building Game intermediate is an agebraic variety corresponding to a system of polynomial constraints that enforces the rigidity of individual faces and hinged motion along connected edges.
 \end{mydef}
 
 To mathematically describe a particular configuration, we must specify the locations of the vertices of each face. Thus, for an intermediate $[x]$, its Building Game configuration space can be represented as a subset of the ambient space $\mathbb{R}^{3\times N_x}$ where $N_x \doteq \sum_{f\in x} s_f$ where $s_f$ is the number of sides (and vertices) of face $f$. Using this representation, we must then identify the corresponding constraint equations that give rise to the combinatorial configuration space as a function of points in ambient space. 
@@ -58,8 +58,7 @@ To mathematically describe a particular configuration, we must specify the locat
 It is worth noting that while we represent each face with $3\times s_f$ coordinates, only 6 are required to specify a face's position and orientation if they are chosen carefully. With this in mind, we will typically use a function of $6$ of a face's vertex coordinates to constrain each of the face's remaining vertex coordinates. 
 
 
-Notationally, we refer to the $k$th vertex of the $j$th face of $x$ as $v^{jk} = \left(v^{jk}_x,v^{jk}_y,v^{jk}_z\right)$.
-Since the context of a constraint space requires a function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$, we flatten the matrix of vertex coordinates into a vector of length $n = 3N_x$. 
+Notationally, we refer to the $k$th vertex of the $j$th face of $x$ as $v^{jk} = \left(v^{jk}_x,v^{jk}_y,v^{jk}_z\right)$. Since the context of a solution variety requires a function $c: \mathbbm{R}^n \to \mathbbm{R}^{n-m}$, we flatten the matrix of vertex coordinates into a vector of length $n = 3N_x$. 
 \begin{align}
 z = \begin{bmatrix} v^{1,1} \\ \vdots \\ v^{1,s_{f_1}} \\ \vdots \\ v^{|x|,1} \\ \vdots \\ v^{|x|,s_{f_{|x|}}} \end{bmatrix} \in \mathbbm{R}^n
 \end{align}
@@ -155,7 +154,7 @@ The \textbf{internal degrees of freedom} a Building Game intermediate at configu
 
 \subsection{Computing Degrees of Freedom}
 
-For a general constraint space, we can find the dimension of the space at a point $z$ by looking at the Jacobian matrix $C(z) \in \mathbbm{R}^{(n-m)\times n}$ of the constraint function $c$. Since the number of degrees of freedom is defined to be the dimension of that space, we look at the rank of the Jacobian. Since this rank quantifies the number of independent constraints given by $c$ at $z$, the number of degrees of freedom is given by the following.
+For a general solution variety, we can find the dimension of the space at a point $z$ by looking at the Jacobian matrix $C(z) \in \mathbbm{R}^{(n-m)\times n}$ of the constraint function $c$. Since the number of degrees of freedom is defined to be the dimension of that space, we look at the rank of the Jacobian. Since this rank quantifies the number of independent constraints given by $c$ at $z$, the number of degrees of freedom is given by the following.
 \begin{align}
 DoF &\doteq n - \text{rank}\left((C(z)\right)
 \end{align}
