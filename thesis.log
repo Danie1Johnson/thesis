@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  25 APR 2015 14:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  26 APR 2015 15:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1042,10 +1042,11 @@ File: images/OctaGCS_1.eps Graphic file (type eps)
  <images/OctaGCS_1.eps>
 File: images/OctaGCS_2.eps Graphic file (type eps)
 
-<images/OctaGCS_2.eps> [60]
+<images/OctaGCS_2.eps>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61]
+ [60]
+[61]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [62]
@@ -1055,10 +1056,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [64]
-[65] [66] [67]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [65]
+Underfull \vbox (badness 2538) has occurred while \output is active []
+
+ [66]
+[67]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [68]
+
+LaTeX Warning: Reference `con:TriMan' on page 69 undefined on input line 199.
+
 [69]
 File: images/G2x3_0.eps Graphic file (type eps)
  <images/G2x3_0.eps>
@@ -1069,81 +1079,76 @@ File: images/G2x3_2.eps Graphic file (type eps)
 File: ./images/cube_dof_hist.eps Graphic file (type eps)
 
 <./images/cube_dof_hist.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 253--254
+Overfull \hbox (4.33603pt too wide) in paragraph at lines 247--248
  [][] 
  []
 
-[70]
 File: ./images/octahedron_dof_hist.eps Graphic file (type eps)
- <./images/octahedron_dof_hist.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 260--261
+<./images/octahedron_dof_hist.eps>
+Overfull \hbox (4.33603pt too wide) in paragraph at lines 254--255
  [][] 
  []
 
 File: ./images/dodecahedron_dof_hist.eps Graphic file (type eps)
 <./images/dodecahedron_dof_hist.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 267--268
+Overfull \hbox (4.33603pt too wide) in paragraph at lines 261--262
  [][] 
  []
 
 File: ./images/icosahedron_dof_hist.eps Graphic file (type eps)
 <./images/icosahedron_dof_hist.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 274--275
+Overfull \hbox (4.33603pt too wide) in paragraph at lines 268--269
  [][] 
  []
 
-[71]
+[70]
 File: ./images/cube_dof_hist_facecount.eps Graphic file (type eps)
  <./images/cube_dof_hist_facecount.eps>
-Overfull \hbox (76.60382pt too wide) in paragraph at lines 283--284
+Overfull \hbox (76.60382pt too wide) in paragraph at lines 277--278
  [][] 
  []
 
 File: ./images/octahedron_dof_hist_facecount.eps Graphic file (type eps)
 <./images/octahedron_dof_hist_facecount.eps>
-Overfull \hbox (76.60382pt too wide) in paragraph at lines 290--291
+Overfull \hbox (76.60382pt too wide) in paragraph at lines 284--285
  [][] 
  []
 
 File: ./images/dodecahedron_dof_hist_facecount.eps Graphic file (type eps)
 <./images/dodecahedron_dof_hist_facecount.eps>
-Overfull \hbox (40.46661pt too wide) in paragraph at lines 297--298
+Overfull \hbox (40.46661pt too wide) in paragraph at lines 291--292
  [][] 
  []
 
 File: ./images/icosahedron_dof_hist_facecount.eps Graphic file (type eps)
 <./images/icosahedron_dof_hist_facecount.eps>
-Overfull \hbox (76.60382pt too wide) in paragraph at lines 304--305
+Overfull \hbox (76.60382pt too wide) in paragraph at lines 298--299
  [][] 
  []
 
-[72]
-Underfull \vbox (badness 3895) has occurred while \output is active []
-
- [73]
+[71]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [74])
-[75] [76] [77] [78
-
-
-]
+ [72])
+[73] [74] [75] [76]
 Chapter 5.
 
 Underfull \hbox (badness 10000) in alignment at lines 166--166
 []
  []
 
-[79
+[77
+
+
 
 ] (./content/constraint_processes.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [80]
-[81] [82] [83] [84]
+ [78]
+[79] [80] [81] [82]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [85]
+ [83]
 File: images/unitary_3_hist.eps Graphic file (type eps)
 
 <images/unitary_3_hist.eps>
@@ -1168,7 +1173,7 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 334--335
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [86]
+ [84]
 File: images/T3_diagram.eps Graphic file (type eps)
 
 <images/T3_diagram.eps>
@@ -1178,7 +1183,7 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 350--351
  [][] 
  []
 
-[87]
+[85]
 File: images/T2_3.eps Graphic file (type eps)
  <images/T2_3.eps>
 Overfull \hbox (4.34044pt too wide) in paragraph at lines 362--363
@@ -1197,7 +1202,7 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 372--373
  [][] 
  []
 
-[88]
+[86]
 File: images/T2_4.eps Graphic file (type eps)
  <images/T2_4.eps>
 Overfull \hbox (4.34044pt too wide) in paragraph at lines 381--382
@@ -1207,7 +1212,7 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 381--382
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [89]
+ [87]
 File: images/T3_5_2D.eps Graphic file (type eps)
 
 <images/T3_5_2D.eps>
@@ -1218,14 +1223,14 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 388--389
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [88]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [89]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [90]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [91]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [92]
-[93]
+[91]
 File: images/T2_5.eps Graphic file (type eps)
  <images/T2_5.eps>
 Overfull \hbox (4.34044pt too wide) in paragraph at lines 422--423
@@ -1241,7 +1246,7 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 429--430
 
 Underfull \vbox (badness 1112) has occurred while \output is active []
 
- [94]
+ [92]
 File: images/rejection_finite.eps Graphic file (type eps)
 
 <images/rejection_finite.eps>
@@ -1252,7 +1257,7 @@ Overfull \hbox (4.3294pt too wide) in paragraph at lines 469--470
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [95]
+ [93]
 File: images/T2_2.eps Graphic file (type eps)
 
 <images/T2_2.eps>
@@ -1281,8 +1286,8 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 502--503
 
 Underfull \vbox (badness 3679) has occurred while \output is active []
 
- [96])
-[97] [98] [99] [100] [101] [102] [103] [104
+ [94])
+[95] [96] [97] [98] [99] [100] [101] [102
 
 
 ]
@@ -1292,12 +1297,12 @@ Underfull \hbox (badness 10000) in alignment at lines 170--170
 []
  []
 
-[105
+[103
 
-] (./content/results.tex [106]
+] (./content/results.tex [104]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [107]
+ [105]
 File: images/octahedron_pi.eps Graphic file (type eps)
 
 <images/octahedron_pi.eps>
@@ -1326,7 +1331,7 @@ Overfull \hbox (91.0653pt too wide) in paragraph at lines 68--69
 
 Underfull \vbox (badness 3019) has occurred while \output is active []
 
- [108]
+ [106]
 File: images/octahedron_pi_Q_grid.eps Graphic file (type eps)
 
 <images/octahedron_pi_Q_grid.eps>
@@ -1343,16 +1348,16 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 86--87
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [109]
-[110] [111] [112] (./thesis.bbl
+ [107]
+[108] [109] [110] (./thesis.bbl
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [113
+ [111
 
 
 
-] [114]) [115] (./thesis.aux)
+] [112]) [113] (./thesis.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 4.0pt have occurred.
@@ -1370,4 +1375,4 @@ Here is how much of TeX's memory you used:
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1646b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (135 pages, 275872 bytes).
+Output written on thesis.dvi (133 pages, 274940 bytes).
