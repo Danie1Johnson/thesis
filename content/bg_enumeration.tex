@@ -167,13 +167,15 @@ The total number of shellings for a polyhedron is
 \end{align}
 \end{mythm}
 \begin{proof}
-We use the function that returns whether adding $f_k$ to the existing sub-shelling $f_1,\dots,f_{k-1}$ is itself a sub-shelling and call it $sh(\{f_1,\dots,f_{k-1}\}, f_k)$. Further, a Building Game connection between two shellable intermediates is called shellable and denoted  $[x^{p_i}] \xrightarrow{shell} [x^{p_{i+1}}]$. A pathway composed only of shellable intermediates and connections is called a $shellpath$. Using this notation, we compute the result directly.
+We use the function that returns whether adding $f_k$ to the existing sub-shelling $f_1,\dots,f_{k-1}$ is itself a sub-shelling and call it $sh(\{f_1,\dots,f_{k-1}\}, f_k)$. Further, a Building Game shellable connection between two intermediates is denoted  $[x^{p_i}] \xrightarrow{sh} [x^{p_{i+1}}]$. Using this notation, we compute the result directly:
 \begin{align*}
-\#(shellings) &= \sum_{f_1 \in F} \mathbbm{1}_{sh(\emptyset,f_1)} \cdots\sum_{f_k \in F\setminus \{f_1,\dots,f_{k-1}\}} \mathbbm{1}_{sh(\{f_1,\dots,f_{k-1}\}, f_k)}\cdots \sum_{f_{|F|} \in F\setminus \{f_1, f_2, \dots, f_{|F|-1}\}}\mathbbm{1}_{sh(\{f_1, f_2, \dots, f_{|F|-1}\},f_{|F|})}  \\
-&= \sum_{f_1 \in F} \mathbbm{1}_{sh(\emptyset,f_1)} \cdots\sum_{f_k \in F\setminus \{f_1,\dots,f_{k-1}\}} \mathbbm{1}_{sh(\{f_1,\dots,f_{k-1}\}, f_k)}\cdots \sum_{x^{p_{|F|}}: [x^{p_{|F|-1}}] \xrightarrow{shell} [x^{p_{|F|}}]} S_{p_{|F|-1}p_{|F|}}  \\
-&= \sum_{f_1 \in F} \sum_{x^{p_2}: [x^{p_1}] \xrightarrow{shell} [x^{p_2}]} S_{p_{1}p_{2}}  \cdots \sum_{x^{p_{|F|}}: [x^{p_{|F|-1}}] \xrightarrow{shell} [x^{p_{|F|}}]} S_{p_{|F|-1}p_{|F|}}  \\
-&= \sum_{[x^{p_1}} |[x^{p_1}]| \sum_{x^{p_2}: [x^{p_1}] \xrightarrow{shell} [x^{p_2}]} S_{p_{1}p_{2}}  \cdots \sum_{x^{p_{|F|}}: [x^{p_{|F|-1}}] \xrightarrow{shell} [x^{p_{|F|}}]} S_{p_{|F|-1}p_{|F|}}  \\
-&= \sum_{\substack{\text{shellable} \\ \text{pathways}: \\ p_1, p_2, \dots, p_{|F|} }}|[x^{p_1}]|\prod_j^{|F|-1}S_{p_jp_{(j+1)}} 
+\#(shellings) &= \sum_{f_1 \in F} \mathbbm{1}_{sh(\emptyset,f_1)} \cdots\sum_{f_k \in F\setminus \{f_1,\dots,f_{k-1}\}} \mathbbm{1}_{sh(\{f_1,\dots,f_{k-1}\}, f_k)} \\
+&\hspace{1cm} \cdots \sum_{f_{|F|} \in F\setminus \{f_1, f_2, \dots, f_{|F|-1}\}}\mathbbm{1}_{sh(\{f_1, f_2, \dots, f_{|F|-1}\},f_{|F|})}  \\
+&= \sum_{f_1 \in F} \mathbbm{1}_{sh(\emptyset,f_1)} \cdots\sum_{f_k \in F\setminus \{f_1,\dots,f_{k-1}\}} \mathbbm{1}_{sh(\{f_1,\dots,f_{k-1}\}, f_k)} \\
+&\hspace{1cm} \cdots \sum_{x^{p_{|F|}}: [x^{p_{|F|-1}}] \xrightarrow{sh} [x^{p_{|F|}}]} S_{p_{|F|-1}p_{|F|}}  \\
+&= \sum_{f_1 \in F} \sum_{x^{p_2}: [x^{p_1}] \xrightarrow{sh} [x^{p_2}]} S_{p_{1}p_{2}}  \cdots \sum_{x^{p_{|F|}}: [x^{p_{|F|-1}}] \xrightarrow{sh} [x^{p_{|F|}}]} S_{p_{|F|-1}p_{|F|}}  \\
+&= \sum_{[x^{p_1}] : |x^{p_1}| = 1} |[x^{p_1}]| \sum_{x^{p_2}: [x^{p_1}] \xrightarrow{sh} [x^{p_2}]} S_{p_{1}p_{2}}  \cdots \sum_{x^{p_{|F|}}: [x^{p_{|F|-1}}] \xrightarrow{sh} [x^{p_{|F|}}]} S_{p_{|F|-1}p_{|F|}}  \\
+&= \sum_{\substack{\text{shellable} \\ \text{pathways}: \\ p_1, p_2, \dots, p_{|F|} }}|[x^{p_1}]|\prod_j^{|F|-1}S_{p_jp_{(j+1)}}. 
 \end{align*}
 \end{proof}
 
@@ -183,9 +185,9 @@ a_{i,k} &\doteq  \sum_{\substack{\text{shellable subpaths}:\\ p_1, \dots, p_k \\
 where a subpath is the first $k$ intermediates in some valid pathway. Using this definition, we first note that the number of shellings, which is the quantity of interest, is equal to $a_{N,|F|}$ where $x^N = F$. Now, we set up the following recursion that will be the basis for our computation. 
 \begin{align}
 a_{i,k} &\doteq \sum_{\substack{\text{shellable subpaths}:\\ p_1, \dots, p_k \\ x^{p_k} \in [x^i]}}|G.x^{p_1}|\prod_{j=1}^{k-1}S_{p_j p_{j+1}} \\  
-&= \sum_{[x^\ell]:[x^\ell]\xrightarrow{shell}[x^i]} \sum_{\substack{\text{shellable subpaths}:\\ p_1, \dots, p_{k-1} \\ x^{p_{k-1}} \in [x^\ell]}}|G.x^{p_1}|S_{\ell i}\prod_{j=1}^{k-2}S_{p_j p_{j+1}} \\
-&= \sum_{[x^\ell]:[x^\ell]\xrightarrow{shell}[x^i]} S_{\ell i} \sum_{\substack{\text{shellable subpaths}:\\ p_1, \dots, p_{k-1} \\ x^{p_{k-1}} \in [x^\ell]}}|G.x^{p_1}|\prod_{j=1}^{k-2}S_{p_j p_{j+1}} \\
-&= \sum_{[x^\ell]:[x^\ell]\xrightarrow{shell}[x^i]} S_{\ell i} a_{\ell, k-1}
+&= \sum_{[x^\ell]:[x^\ell]\xrightarrow{sh}[x^i]} \sum_{\substack{\text{shellable subpaths}:\\ p_1, \dots, p_{k-1} \\ x^{p_{k-1}} \in [x^\ell]}}|G.x^{p_1}|S_{\ell i}\prod_{j=1}^{k-2}S_{p_j p_{j+1}} \\
+&= \sum_{[x^\ell]:[x^\ell]\xrightarrow{sh}[x^i]} S_{\ell i} \sum_{\substack{\text{shellable subpaths}:\\ p_1, \dots, p_{k-1} \\ x^{p_{k-1}} \in [x^\ell]}}|G.x^{p_1}|\prod_{j=1}^{k-2}S_{p_j p_{j+1}} \\
+&= \sum_{[x^\ell]:[x^\ell]\xrightarrow{sh}[x^i]} S_{\ell i} a_{\ell, k-1}
 \end{align}
 Thus, using the base cases $a_{j,1} = |G.x^j|$ for each single faced intermediate $[x^j]$, we can use this relation to recursively solve for the number of shellings $a_{N,|F|}$.
 
