@@ -1,6 +1,6 @@
 \section{Constrained Dynamics}
 
-Sometimes we are interested in more than simply the number of degrees of freedom a particular configuration has. To explore the configuration space, find similarities between different configurations, analyze the geometric configuration space's topology, or compute other relevant statistics, it can be useful to compute dynamic processes on the constraint space. There are clear computational challenges to computing such dynamics due to computational handling of constraints, the lack of an explicit parameterizations, and the fact that geometric configuration space is often of much smaller dimension than the ambient space it sits in.
+Sometimes we are interested in more than simply the number of degrees of freedom a particular configuration has. To explore the configuration space, find similarities between different configurations, analyze the geometric configuration space's topology, or compute other relevant statistics, it can be useful to compute dynamic processes on the constraint space. There are clear computational challenges to computing such dynamics due to computational handling of constraints, the lack of an explicit parameterization, and the fact that geometric configuration space is often of much smaller dimension than the ambient space it sits in.
 
 Constraint algorithms have been widely studied for use in molecular dynamic simulations. Many  methods use a two stage scheme in which the unconstrained dynamics are first used to evolve the system to an intermediary configuration $\hat{z}_{n+1}$ based on the previous configuration $z_n$. In the second stage, Lagrange multipliers are used to correct $\hat{z}_{n+1}$ to a new configuration $z_{n+1}$ which satisfies the constraints. Previously, we used the SHAKE algorithm--which employs this two stage philosophy--to examine a constraint space used to model the configurations of cyclohexane~\cite{Pandey2014}. 
 
@@ -182,7 +182,7 @@ We may also be interested in the behavior of a small part of the configuration a
 %	\caption{Configuration Graphs for Cyclohexane and Folding}
 %	\label{fig:cyclofold}
 %\end{figure}
-\section{Manifold Brownian Motion}
+\section{Brownian Motion on a Manifold}
 
 To explore various properties of the Building Game geometric configuration spaces, we simulate a Brownian motion on the corresponding constraint space. Assuming that the constraint space has no singularities, it is a manifold. Using a two step scheme similar to those described above, we use a random walk to approximate the Brownian motion. To compute each new random walk step, we first take a step in the tangent space and then project this point back to the manifold. 
 
@@ -290,7 +290,7 @@ we arrive at the iteration routine below, which typically commences with the ini
 
 \subsection{Validation and Test Cases}
 
-An interesting test of our sampling scheme is unitary matrices. Since unitary matrices are, complex matrices that satisfy $U^*U = UU^* = I$, we can use constraints to frame the space of unitary $N \times N$ matrices as an algebraic variety sitting in a $n = 2N^2$ dimensional ambient space. If we use the coordinates $U = A + iB$ for real, $N \times N$ matrices $A$ and $B$. We use the constraints given by the following. 
+An interesting test of our sampling scheme is unitary matrices. Since unitary matrices are complex matrices that satisfy $U^*U = UU^* = I$, we can use a system constraints to represent the space of unitary $N \times N$ matrices as an algebraic variety sitting in a $n = 2N^2$ dimensional ambient space. If we use the coordinates $U = A + iB$ for real, $N \times N$ matrices $A$ and $B$. We use the constraints given by the following. 
 \begin{align}
 I &= U^*U \\
 &= (A^T - iB^T)(A + iB) \\
@@ -309,7 +309,9 @@ Using our random walk scheme to simulate a Brownian motion of the constraint spa
 \caption{Empirical distribution of $3\times 3$ Unitary matrices is uniform.}
 \label{fig:Uny3}
 \end{figure}
-Mezzadri outlines properties of random unitary matrices~\cite{Mezzadri2007}. In particular, a uniform distribution according to the Haar measure corresponds to a uniform sampling of of the arguments $\theta$ of the matrices eigenvalues. Using our scheme, $3,000,000$ samples were drawn for both $N = 3$ and $N = 10$. Figures~\ref{fig:Uny3} and~\ref{fig:Uny10} show the eigenvalue distribution of our sampled matrices to be uniform.  
+%Mezzadri outlines properties of random unitary matrices~\cite{Mezzadri2007}. In particular, 
+
+A uniform distribution according to the Haar measure corresponds to a uniform sampling of of the arguments $\theta$ of the matrices eigenvalues~\cite{Mezzadri2007}. Using our scheme, $3,000,000$ samples were drawn for both $N = 3$ and $N = 10$. Figures~\ref{fig:Uny3} and~\ref{fig:Uny10} show the eigenvalue distribution of our sampled matrices to be uniform.  
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6, angle=0]{images/unitary_10_hist.eps}
@@ -319,9 +321,9 @@ Mezzadri outlines properties of random unitary matrices~\cite{Mezzadri2007}. In 
 
 %--ellipsoid examples.?
  
-\subsection{MBM on Geometric Configuration Spaces}
+\subsection{Brownian Motion on Geometric Configuration Spaces}
 \label{ssc:MBMGCS}
-As an initial test case of our Manifold Brownian Motion scheme on Building Game geometric configuration spaces, we first consider two simple triangle linkages. The first has two triangles linked together along a hinged edge. As seen in figure~\ref{fig:T2_diagram}, the linkage can be specified by the $3$-dimensional locations of four vertices, giving an ambient space of $\mathbbm{R}^3$. In addition to the six trivial degrees of freedom, this configuration also carries an internal degree of freedom corresponding to the dihedral angle formed at the hinged edge. 
+As an initial test case of our Brownian Motion scheme on Building Game geometric configuration spaces, we first consider two simple triangle linkages. The first has two triangles linked together along a hinged edge. As seen in figure~\ref{fig:T2_diagram}, the linkage can be specified by the $3$-dimensional locations of four vertices, giving an ambient space of $\mathbbm{R}^3$. In addition to the six trivial degrees of freedom, this configuration also carries an internal degree of freedom corresponding to the dihedral angle formed at the hinged edge. 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.1]{images/T2_diagram.eps}
@@ -354,7 +356,7 @@ This configuration has two internal degrees of freedom, which are represented my
 
 
 \subsubsection{Fixing Trivial Degrees of Freedom}
-From the two and three triangle linkage examples, we see that the sampling scheme does not sample the dihedral angles of the configuration uniformly. This was unexpected, but possible explained by the choice to not explicitly mod out the trivial rotational and translational degrees of freedom. 
+From the two and three triangle linkage examples, we see that the sampling scheme does not sample the dihedral angles of the configuration uniformly. This was unexpected, but possibly explained by the choice to not explicitly mod out the trivial rotational and translational degrees of freedom. 
 
 The first apparent way of fixing the trivial degrees of freedom is to fix an individual face at a specific location. Without letting this face translate or rotate, we are also preventing these trivial degrees of freedom from entering the entire configuration. As seen in figure~\ref{fig:T2_3}, fixing of one of the faces in a two triangle linkage will give the dihedral angle a uniform distribution as hoped. 
 \begin{figure}[ht]
@@ -431,8 +433,10 @@ Similarly, the three triangle linkage also does not produce a uniform sampling o
 \label{fig:T3_6}
 \end{figure}
 
-\section{Manifold Reflected Brownian Motion}
-In our sampling of Building Game geometric configurations, we see that many of the sampled configurations or Brownian motion paths do not make physical sense. For example, we do not prevent the triangles of the configuration from intersecting each other. Additionally, two faces attached by a hinge may pass through each other as the dihedral angle passes through zero. We introduce implicit boundaries to turn the manifold Brownian motion into a manifold reflected Brownian motion. With these added boundaries, the process will be prevented from entering nonphysical configurations, and represents a better sampling on configurations that coincide with the actual self-assembly processes we are attempting to model.
+\section{Reflected Brownian Motion on a Manifold}
+%In our sampling of Building Game geometric configurations, we see that many of the sampled configurations or Brownian motion paths do not make physical sense. For example, we do not prevent the triangles of the configuration from intersecting each other. Additionally, two faces attached by a hinge may pass through each other as the dihedral angle passes through zero. We introduce implicit boundaries to turn the Brownian motion into a Reflected Brownian motion on. With these added boundaries, the process will be prevented from entering nonphysical configurations, and represents a better sampling on configurations that coincide with the actual self-assembly processes we are attempting to model.
+
+In our sampling of Building Game geometric configurations, we see that many of the sampled configurations or Brownian motion paths are self-interesecting. These configuration are unphysical and can be avoided by using reflected Brownain motion. 
 
 \subsection{Computational Scheme}
 
@@ -449,7 +453,7 @@ To sample from a reflected Brownian motion on the manifold, we use a rejection s
 %\caption{Reflected Random Walk on $\mathcal{M}$}
 %\end{figure}
 
-\subsubsection{Self-Intersection Testing}
+\subsubsection{Testing for Self-Intersection}
 
 In order to compute our implicit self-intersection function at each step, we must ensure that no two triangles intersect. Thus, for an intermediate $[x]$, each function call requires that $\frac{1}{2}|x|(|x| - 1)$ pairs of triangle be tested for intersection. For the scheme to remain computationally feasible, it is imperative that these comparisons are carried out as efficiently as possible. We use an algorithm presented by M\"oller, which has been shown to be effective ~\cite{Möller97afast}.
 
@@ -470,9 +474,9 @@ One way to test whether our rejection scheme has the properties that coincide wi
 \caption{Finite time distribution of first dimension of rejection sampled points in hyper-cubes of increasing dimension across different choices of timestep.}
 \label{fig:HCFin}
 \end{figure}
-The results match almost perfectly with the biggest errors occurring at the boundaries. This is to be expected since the rejection method is biases the sampling slightly to points away from the boundary. 
+The results match almost perfectly with the biggest errors occurring at the boundaries. This is to be expected since the rejection method biases the sampling slightly to points away from the boundary. 
 
-\subsection{MRBM on Geometric Configuration Spaces}
+\subsection{Reflected Brownian Motion on Geometric Configuration Spaces}
 Now, we again consider the two and three triangle linkage examples from section~\ref{ssc:MBMGCS}. Figure~\ref{fig:T2_2} depicts the same conditions (no fixed trivial degrees of freedom) as figure~\ref{fig:T2_1} previously, but with the addition of boundaries that prevent the two triangles from rotating through each other. The agreement in the two histograms is strong with the greatest differences being at the boundary as expected. 
 \begin{figure}[ht]
 \centering
@@ -509,4 +513,4 @@ Now we compare the analogous cases in which we fixed all of the trivial degrees 
 
 \section{Computational Implementation}
 
-As with our enumeration work, simulations were carried out on a desktop computer running 64-bit Ubuntu 14.04 LTS with 15.6 GiB memory and a quad-core 3.20GHz Intel processor. The module for simulating the manifold Brownian motion was implemented in Python and was able to sample at a rate on the order of $3,000,000$ samples per hour. This rate varies with use of a boundary and the dimension of the manifold and ambient spaces as well. 
+As with our enumeration work, simulations were carried out on a desktop computer running 64-bit Ubuntu 14.04 LTS with 15.6 GiB memory and a quad-core 3.20GHz Intel processor. The module for simulating the Brownian motion on a manifold was implemented in Python and was able to sample at a rate on the order of $3,000,000$ samples per hour. This rate varies with use of a boundary and the dimension of the manifold and ambient spaces as well. 
