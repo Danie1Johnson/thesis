@@ -74,6 +74,16 @@ z = \begin{bmatrix} v^{1,1} \\ \vdots \\ v^{1,s_{f_1}} \\ \vdots \\ v^{|x|,1} \\
 
 There are four fundamental types of constraint equations: edge length constraints, angle constraints, and $2D$ face constraint to enforce the rigid structure of each face as well as vertex identification constraints to enforce the hinged connections.
 
+\begin{table}
+\begin{tabular}{ l | l}
+Constraint Type & Constraint Equation \\
+  \hline    
+edge length &\\
+angle & \\
+
+\end{tabular}
+\end{table}
+
 Edge length constraints enforce that the lengths of the edges of each face in an intermediate cannot change. If the $k$th edge is defined to be that between the $(k-1)$st and $k$th vertices, we use the following function to constrain its lengths to a known value $\ell^{jk}$.
 \begin{align}
 c_{edge}^{j,k}\left(z\right)& = \left|v^{j,k} - v^{j,k-1}\right|^2 - (\ell_{j,k})^2 \\
