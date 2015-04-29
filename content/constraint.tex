@@ -72,17 +72,63 @@ Notationally, we refer to the $k$th vertex of the $j$th face of $x$ as $v^{jk} =
 z = \begin{bmatrix} v^{1,1} \\ \vdots \\ v^{1,s_{f_1}} \\ \vdots \\ v^{|x|,1} \\ \vdots \\ v^{|x|,s_{f_{|x|}}} \end{bmatrix} \in \mathbbm{R}^n
 \end{align}
 
-There are four fundamental types of constraint equations: edge length constraints, angle constraints, and $2D$ face constraint to enforce the rigid structure of each face as well as vertex identification constraints to enforce the hinged connections.
+There are four fundamental types of constraint equations: edge length constraints, angle constraints, and $2D$ face constraint to enforce the rigid structure of each face as well as vertex identification constraints to enforce the hinged connections. The equations for these constraints are outlined in table~\ref{tab:cons} with an extended discussion appearing in section~\ref{ssc:cons}
 
 \begin{table}
+\label{tab:cons}
 \begin{tabular}{ l | l}
 Constraint Type & Constraint Equation \\
   \hline    
-edge length &\\
-angle & \\
-
+edge length & $c_{edge}^{j,k}\left(z\right) = \left|v^{j,k} - v^{j,k-1}\right|^2 - (\ell_{j,k})^2$ \\
+angle & $c_{ang}^{j,k}\left(z\right) = (v^{j,k-1} - v^{j,k})\cdot(v^{j,k+1} - v^{j,k})  - \ell^{j,k}\ell^{j,k+1}\cos(\theta^{j,k})$\\
+2D face & $c_{2D}^{j,k}(z) = v^{1,k} + \ell^{j,k,1}R(v^{j,0} - v^{j,1}) - v^{j,k} $\\
+vetex identification & $c_{ident}^{j_1,k_1,j_1,k_1,d}(z) = v^{j_1,k_1}_d - v^{j_2,k_2}_d$ 
 \end{tabular}
+\caption{The different types of polynomial constraint equations used to describe the geometric configuration space.}
+\label{tab:cons}
 \end{table}
+
+
+%To mathematically represent each of the possible geometric configurations, we parameterize the embedding using its vertex locations. If a Building Game state is composed of the faces $\{f_1,\dots, f_i\}$, then any embedding of the intermediate can be described by a point in $\mathbbm{R}^n$, where $n$ is the three times sum $3\sum_{j=1}^i \#\text{vertices}(f_j)$, of the number of vertices in each face. Simply put, the point 
+% which is the concatenation of all of the vertex locations $v_1, v_2, \dots, v_{n/3} \in \mathbbm{R}^3$ for each verted on each face of an intermediate is used to represent a particular embedding. 
+
+\subsection{Special Case of Triangular Faces}
+
+In the case where all of the faces of the polyhedron we consider are triangles (tetrahedron, octahedron, icosahedron, etc.) we notice that by simple enforcing that each edge of each triangle has a specified length, the triangle will be rigid. This means that we do not have to use the angle and 2D face constraints. Further, rather than explicitly using vertex identification constraints, we can either treat them as length constraints with zero length between identified vertices or we can simply reindex the vertices so that identified vertices are actually treated as a single vertex. With either choice, in the triangular case, we may only deal with length constraints if we wish. This will be a useful property in the next chapter. 
+
+%Additionally, we make a conjecture that under certain triangular conditions, our algebraic variety has no singularities and is thus a manifold.
+%\begin{mycon}
+%\label{con:TriMan}
+%The geometric configuration space for each intermediate composed of equilateral triangular faces is a manifold.
+%\end{mycon}
+
+\section{Degrees of Freedom}
+\label{ssc:cons} 
+Roughly speaking, the degrees of freedom of a system are the different independent motions the system is able to exercise. Since the concept of degrees of freedom exists in many diverse scientific fields, such as mechanical engineering and statistical physics, many different formal definitions of degrees of freedom are used in the literature~\cite{Pennestri2005}. McCarthy defines degrees of freedom of a mechanical system as follows~\cite{McCarthy1990}. 
+\begin{quote}
+We derive formulas for the number of parameters needed to specify the configuration of a mechanism, in terms of the number of links and joints and the freedom of movement allowed at each joint. This number is the \textit{degrees of freedom} or \textit{mobility} of the mechanism. Changing the values of these parameters changes the configuration of the mechanism. Thus, if we view the set of all configuration available to a mechanism as a manifold, then the mobility of the mechanism is the dimension of this manifold. 
+\end{quote}
+
+Since our geometric configuration space is an algebraic variety and not a manifold in general, this definition must be modified to make degrees of freedom a statistic of each individual configuration r ather than a global statistic of the geometric configuration space. 
+
+\begin{mydef}
+The number of \textbf{degrees of freedom} of a Building Game intermediate at configuration $z$ is the dimension of the geometric configuration space at $z$. If $z$ is a singularity of the algebraic variety, then the degrees of freedom is undefined.
+\end{mydef}
+
+In most cases we consider, rigid rotation and rigid translation will preserve the value of the constraint function since they do not move the vertices relative to one another. In other words, if $c(z) = 0$ then we also have $c(Rz + T) = 0$ where $R \in \mathbbm{R}^{n}\times n$ rotates each vertex in the configuration by some $\hat{R} \in SO(3)$ and translates each vertex by $\hat{T} \in \mathbbm{R}^3$. With this definition, $R$ is the block diagonal matrix with each of the $n/3$ block being $\hat{R} \in SO(3)$ and $T \in \mathbbm{R}^n$ is composed of $n/3$ copies of $\hat{T} \in \mathbbm{R}^3$ stacked upon each other. These rigid body rotations account for $6$ of the configuration's degrees of freedom: $3$ rotational degrees of freedom and $3$ translational and are called the \textit{trivial degrees of freedom}. Thus, the degrees of freedom we are most interested in are those that do represent movement of the vertices and faces relative to each other. The \textit{internal degrees of freedom} a Building Game intermediate at configuration $z$ are the degrees of freedom that are not trivial.
+
+
+\subsection{Computing Degrees of Freedom}
+
+For a generic solution variety, we can find the dimension of the space at a point $z$ by looking at the Jacobian matrix $C(z) \in \mathbbm{R}^{(n-m)\times n}$ of the constraint function $c$. Since the number of degrees of freedom is defined to be the dimension of that space, we look at the rank of the Jacobian. Since this rank quantifies the number of independent constraints given by $c$ at $z$, the number of degrees of freedom is given by the following.
+\begin{align}
+DoF &\doteq n - \text{rank}\left((C(z)\right)
+\end{align}
+Since the rank can take values between $0$ and $\min\{n,n-m\} = n-m$, there can be anywhere from $0$ degrees of freedom, when there are functionally no constraints on $z$, and $m$ degrees of freedom in the case where all $n-m$ constraint equations are independent and $C(z)$ is of full rank. 
+
+In the typical case in which the constraint equations are invariant under three-dimensional rotation and translation, there will be six trivial degrees of freedom. The number of internal degrees of freedom would then be $n - \text{rank}\left((C(z)\right) - 6$. If there are zero internal degrees of freedom at a configuration $z$, we say that the configuration is \textit{rigid}.
+
+To actually compute the number of degrees of freedom for configurations of Building Game intermediates, we must first find an explicit form for the the constraint function $c$ and its Jacobian matrix $C$.
 
 Edge length constraints enforce that the lengths of the edges of each face in an intermediate cannot change. If the $k$th edge is defined to be that between the $(k-1)$st and $k$th vertices, we use the following function to constrain its lengths to a known value $\ell^{jk}$.
 \begin{align}
@@ -137,45 +183,7 @@ where $v^{j_1,k_1}$ and $v^{j_2,k_2}$ are corresponding vertices from the faces 
 With all four constraint types explicitly defined, the aggregate constraint function for $x$ will have $n-m = 2|F_x|+ |F_x| + (N_x - 3|F_x|) + 6|E_x| = N_x + 6|E_x|$ total constraints. 
 
 
-%To mathematically represent each of the possible geometric configurations, we parameterize the embedding using its vertex locations. If a Building Game state is composed of the faces $\{f_1,\dots, f_i\}$, then any embedding of the intermediate can be described by a point in $\mathbbm{R}^n$, where $n$ is the three times sum $3\sum_{j=1}^i \#\text{vertices}(f_j)$, of the number of vertices in each face. Simply put, the point 
-% which is the concatenation of all of the vertex locations $v_1, v_2, \dots, v_{n/3} \in \mathbbm{R}^3$ for each verted on each face of an intermediate is used to represent a particular embedding. 
-
-\subsection{Special Case of Triangular Faces}
-
-In the case where all of the faces of the polyhedron we consider are triangles (tetrahedron, octahedron, icosahedron, etc.) we notice that by simple enforcing that each edge of each triangle has a specified length, the triangle will be rigid. This means that we do not have to use the angle and 2D face constraints. Further, rather than explicitly using vertex identification constraints, we can either treat them as length constraints with zero length between identified vertices or we can simply reindex the vertices so that identified vertices are actually treated as a single vertex. With either choice, in the triangular case, we may only deal with length constraints if we wish. This will be a useful property in the next chapter. 
-
-%Additionally, we make a conjecture that under certain triangular conditions, our algebraic variety has no singularities and is thus a manifold.
-%\begin{mycon}
-%\label{con:TriMan}
-%The geometric configuration space for each intermediate composed of equilateral triangular faces is a manifold.
-%\end{mycon}
-
-\section{Degrees of Freedom}
-Roughly speaking, the degrees of freedom of a system are the different independent motions the system is able to exercise. Since the concept of degrees of freedom exists in many diverse scientific fields, such as mechanical engineering and statistical physics, many different formal definitions of degrees of freedom are used in the literature~\cite{Pennestri2005}. McCarthy defines degrees of freedom of a mechanical system as follows~\cite{McCarthy1990}. 
-\begin{quote}
-We derive formulas for the number of parameters needed to specify the configuration of a mechanism, in terms of the number of links and joints and the freedom of movement allowed at each joint. This number is the \textit{degrees of freedom} or \textit{mobility} of the mechanism. Changing the values of these parameters changes the configuration of the mechanism. Thus, if we view the set of all configuration available to a mechanism as a manifold, then the mobility of the mechanism is the dimension of this manifold. 
-\end{quote}
-
-Since our geometric configuration space is an algebraic variety and not a manifold in general, this definition must be modified to make degrees of freedom a statistic of each individual configuration r ather than a global statistic of the geometric configuration space. 
-
-\begin{mydef}
-The number of \textbf{degrees of freedom} of a Building Game intermediate at configuration $z$ is the dimension of the geometric configuration space at $z$. If $z$ is a singularity of the algebraic variety, then the degrees of freedom is undefined.
-\end{mydef}
-
-In most cases we consider, rigid rotation and rigid translation will preserve the value of the constraint function since they do not move the vertices relative to one another. In other words, if $c(z) = 0$ then we also have $c(Rz + T) = 0$ where $R \in \mathbbm{R}^{n}\times n$ rotates each vertex in the configuration by some $\hat{R} \in SO(3)$ and translates each vertex by $\hat{T} \in \mathbbm{R}^3$. With this definition, $R$ is the block diagonal matrix with each of the $n/3$ block being $\hat{R} \in SO(3)$ and $T \in \mathbbm{R}^n$ is composed of $n/3$ copies of $\hat{T} \in \mathbbm{R}^3$ stacked upon each other. These rigid body rotations account for $6$ of the configuration's degrees of freedom: $3$ rotational degrees of freedom and $3$ translational and are called the \textit{trivial degrees of freedom}. Thus, the degrees of freedom we are most interested in are those that do represent movement of the vertices and faces relative to each other. The \textit{internal degrees of freedom} a Building Game intermediate at configuration $z$ are the degrees of freedom that are not trivial.
-
-
-\subsection{Computing Degrees of Freedom}
-
-For a generic solution variety, we can find the dimension of the space at a point $z$ by looking at the Jacobian matrix $C(z) \in \mathbbm{R}^{(n-m)\times n}$ of the constraint function $c$. Since the number of degrees of freedom is defined to be the dimension of that space, we look at the rank of the Jacobian. Since this rank quantifies the number of independent constraints given by $c$ at $z$, the number of degrees of freedom is given by the following.
-\begin{align}
-DoF &\doteq n - \text{rank}\left((C(z)\right)
-\end{align}
-Since the rank can take values between $0$ and $\min\{n,n-m\} = n-m$, there can be anywhere from $0$ degrees of freedom, when there are functionally no constraints on $z$, and $m$ degrees of freedom in the case where all $n-m$ constraint equations are independent and $C(z)$ is of full rank. 
-
-In the typical case in which the constraint equations are invariant under three-dimensional rotation and translation, there will be six trivial degrees of freedom. The number of internal degrees of freedom would then be $n - \text{rank}\left((C(z)\right) - 6$. If there are zero internal degrees of freedom at a configuration $z$, we say that the configuration is \textit{rigid}.
-
-To actually compute the number of degrees of freedom for configurations of Building Game intermediates, we must first find an explicit form for the Jacobian matrix $C$. Below are the partial derivatives of the constraint functions we specified above.  
+Below are the partial derivatives of the constraint functions we specified above.  
 \begin{align}
 	\frac{\partial c_{edge}^{j,k}}{\partial z_i} &=
   	\begin{cases}
@@ -206,7 +214,7 @@ To actually compute the number of degrees of freedom for configurations of Build
   	\end{cases} 
 \end{align}
 
-Since the number of degrees of freedom is defined as a local property of a specific configuration $z$, different configurations of the same Building Game intermediate could theoretically have differing numbers of degrees of freedom. However, we have yet to observe a Building Game intermediate that has this property and is evidence that supports conjecture~\ref{con:TriMan}. A contrived case in which a linkage of squares leads to a configuration space with differing degrees of freedom is described in section~\ref{ssc:NonMan}. When we report the number of degrees of freedom that a Building Game intermediate has, we use its canonical configuration in computation.
+Since the number of degrees of freedom is defined as a local property of a specific configuration $z$, different configurations of the same Building Game intermediate could theoretically have differing numbers of degrees of freedom. However, we have yet to observe a Building Game intermediate that has this property. A contrived case in which a linkage of squares leads to a configuration space with differing degrees of freedom is described in section~\ref{ssc:NonMan}. When we report the number of degrees of freedom that a Building Game intermediate has, we use its canonical configuration in computation.
 
 In practice, we use NumPy's numpy.linalg.svd module to take the singular value decomposition of the compute Jacobian matrix in Python. The rank of the Jacobian is then the number of effectively non-zero singular values where a small cutoff is used to determine whether a small singular value is indeed zero or non-zero.
 

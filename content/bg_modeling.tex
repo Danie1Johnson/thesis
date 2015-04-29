@@ -444,6 +444,8 @@ We define the Markov process $X_t$ by the transition rate matrix $Q$ from equati
 %\]
 Here, $z_j \doteq \sum_{\ell: \ell \neq j} S_{j\ell}e^{-\beta\left(E_{j\ell} - E_j\right)}$ is the rate at which the process leaves \xj. 
 
+Both~\cite{Keef2006} and~\cite{Endres2005} adopt a similar approach, but handle degeneracies differently and use a different energy function. 
+
 \subsection{Stationary Distribution}
 
 \begin{mythm}
@@ -513,59 +515,61 @@ With this definition, the continuous time process $X_t$ has the alternative inte
 %	\nu^{A}_{j} &\doteq \inf\left\{n \geq 0 : Y_n \in A, Y_0 = x^j\right\}
 %\end{align}
 
-Using first step analysis, we derive the expected hitting time $\tau_j^A$. Consider the case of $j \not\in A$:
+The expected hitting time $E\left[\tau_j^A\right]$ can be computed as the solution to se set of linear equations: one for each intermediate~\cite{Norris1998}. In the case of $j \not\in A$:
 \begin{align}
-	E\left[\tau^{A}_{j}\right] &= E\left[E\left[\tau^{A}_{j} | Y_1 \right]\right] \\
-        &= E\left[ \frac{1}{Z_j} + \tau^{A}_{Y_1} \right] \\
-        &=  \frac{1}{Z_j} + E\left[\sum_{k}\tau^{A}_{Y_1}\mathbbm{1}_{Y_1 = k}\right] \\
-        &=  \frac{1}{Z_j} + \sum_{k: k\neq j}E\left[\tau^{A}_{k}\right] P\left(Y_1 = k\right) \\
-        &=  \frac{1}{Z_j}\left(1 + \sum_{k: k\neq j}Q_{jk}E\left[\tau^{A}_{k}\right]\right)     \\
-  1 &=  -\sum_{k}Q_{jk}E\left[\tau^{A}_{k}\right].
+%	E\left[\tau^{A}_{j}\right] &= E\left[E\left[\tau^{A}_{j} | Y_1 \right]\right] \\
+%        &= E\left[ \frac{1}{Z_j} + \tau^{A}_{Y_1} \right] \\
+%        &=  \frac{1}{Z_j} + E\left[\sum_{k}\tau^{A}_{Y_1}\mathbbm{1}_{Y_1 = k}\right] \\
+%        &=  \frac{1}{Z_j} + \sum_{k: k\neq j}E\left[\tau^{A}_{k}\right] P\left(Y_1 = k\right) \\
+%        &=  \frac{1}{Z_j}\left(1 + \sum_{k: k\neq j}Q_{jk}E\left[\tau^{A}_{k}\right]\right)     \\
+  1 &=  -\sum_{k}Q_{jk}E\left[\tau^{A}_{k}\right],
 \end{align}
-Now, clearly for $j \in A$ we trivially have a stopping time of zero:
+and clearly for $j \in A$ we trivially have a stopping time of zero
 \begin{align}
 	E\left[\tau^{A}_{j}\right] &= 0.
 \end{align}
 Putting together the two cases, we write the solution as a linear system with $\tau^A$ the vector of stopping times with each possible initial intermediate
 \begin{align}
-	\left(\diag\left(\mathbbm{1}_A\right) - \diag\left(\mathbbm{1}_{A^c}\right)Q\right)E\left[\tau^{A}\right] =\mathbbm{1}_{A^c}.\\
+	\left(\diag\left(\mathbbm{1}_A\right) - \diag\left(\mathbbm{1}_{A^c}\right)Q\right)E\left[\tau^{A}\right] =\mathbbm{1}_{A^c}.
 \end{align}
 Thus, we have
 \begin{align}
-	E\left[\tau^{A}\right] = \left[\left(\diag\left(\mathbbm{1}_A\right) - \diag\left(\mathbbm{1}_{A^c}\right)Q\right)\right]^{-1} \mathbbm{1}_{A^c}.\\
+	E\left[\tau^{A}\right] = \left[\left(\diag\left(\mathbbm{1}_A\right) - \diag\left(\mathbbm{1}_{A^c}\right)Q\right)\right]^{-1} \mathbbm{1}_{A^c}
 \end{align}
 which contains the particular value $E[\tau^A_j]$ that we are interested in.
  
-Further, we can also compute the exact distribution of the stopping times $\tau^A$. First, we define the CDF as follows.
+Further, we can also compute the exact distribution of the stopping times $\tau^A$ in a similar manner~\cite{Norris1998}. First, we define the CDF as 
 \begin{align}
 \psi_j^A\left(t\right) &\doteq P\left(\tau^A_j \leq t\right) \\
-\psi_j^A\left(0\right) &= \mathbbm{1}_{j\in A} \\
-\psi_j^A\left(t\right) &= 0\text{  }\forall j \in A                        
+%\psi_j^A\left(0\right) &= \mathbbm{1}_{j\in A} \\
 \end{align}
-Thus, for the case of $j \not\in A$ we find
-\begin{align}
-\psi_j^A\left(t\right) &\doteq P\left(\tau^A_j \leq t\right) \\
-                       &= \sum_k P\left(\tau^A_j \leq t | Y_1 = x^k\right) P\left(Y_1 = x^k\right) \\ 
-                       &= \frac{1}{Z_j}\sum_{k: k \neq j} Q_{jk} P\left(Exp\left(Z_j\right) + \tau^A_k \leq t\right)  \\
-                       &= \frac{1}{Z_j}\sum_{k: k \neq j} Q_{jk} \int^t_0 P\left(\tau^A_k \leq t - s\right) Z_j e^{-Z_j s} ds  \\
-                       &= \sum_{k: k \neq j} Q_{jk} \int^t_0\psi^A_k\left(t-s\right)e^{-Z_j s} ds  \\
-                       &= \sum_{k: k \neq j} Q_{jk} \int^t_0\psi^A_k\left(r\right)e^{-Z_j\left(t-r\right)} dr  \\
-e^{Z_jt}\psi^A_j\left(t\right) &= \sum_{k: k \neq j} Q_{jk} \int^t_0 e^{Z_jr}\psi^A_k\left(r\right) dr  \\
-e^{Z_jt}\frac{d\psi^A_j}{dt} + Z_j e^{Z_j t} \psi^A_j\left(t\right) &= \sum_{k: k \neq j} q_{jk} e^{Z_jt}\psi^A_k\left(t\right)  \\
-\frac{d\psi^A_j}{dt} &= \sum_{k} q_{jk} \psi^A_k\left(t\right).
-\end{align}
-Combining both cases, we get the linear system and solution.
+which gives rise to the system of differential equations and boundary conditions
+%Thus, for the case of $j \not\in A$ we find
+%\begin{align}
+%\psi_j^A\left(t\right) &\doteq P\left(\tau^A_j \leq t\right) \\
+%                       &= \sum_k P\left(\tau^A_j \leq t | Y_1 = x^k\right) P\left(Y_1 = x^k\right) \\ 
+%                       &= \frac{1}{Z_j}\sum_{k: k \neq j} Q_{jk} P\left(Exp\left(Z_j\right) + \tau^A_k \leq t\right)  \\
+%                       &= \frac{1}{Z_j}\sum_{k: k \neq j} Q_{jk} \int^t_0 P\left(\tau^A_k \leq t - s\right) Z_j e^{-Z_j s} ds  \\
+%                       &= \sum_{k: k \neq j} Q_{jk} \int^t_0\psi^A_k\left(t-s\right)e^{-Z_j s} ds  \\
+%                       &= \sum_{k: k \neq j} Q_{jk} \int^t_0\psi^A_k\left(r\right)e^{-Z_j\left(t-r\right)} dr  \\
+%e^{Z_jt}\psi^A_j\left(t\right) &= \sum_{k: k \neq j} Q_{jk} \int^t_0 e^{Z_jr}\psi^A_k\left(r\right) dr  \\
+%e^{Z_jt}\frac{d\psi^A_j}{dt} + Z_j e^{Z_j t} \psi^A_j\left(t\right) &= \sum_{k: k \neq j} q_{jk} e^{Z_jt}\psi^A_k\left(t\right)  \\
+%\frac{d\psi^A_j}{dt} &= \sum_{k} q_{jk} \psi^A_k\left(t\right).
+%\end{align}
 \begin{align}
         \frac{d\psi^A}{dt} &= \diag\left(\mathbbm{1}_{A^c}\right)Q\psi^A \\
         \psi^A\left(0\right) &= \mathbbm{1}_{A} \\
+        \psi_j^A\left(t\right) &= 0\text{  }\forall j \in A.                        
+\end{align}
+This gives rise to the solution 
+\begin{align}
         \psi^A\left(t\right) &= e^{\diag\left(\mathbbm{1}_{A^c}\right)Qt} \mathbbm{1}_{A} 
 \end{align}
-This is the solution for the CDF of the stopping time $\tau^A$, but we can also compute the PDF explicitly for $t > 0$.
+for the CDF of the stopping time $\tau^A$, but we can also compute the PDF explicitly for $t > 0$.
 \begin{align}
         p\left(\tau^A = t\right) &= \frac{d\psi^A}{dt} \\
         &= \diag\left(\mathbbm{1}_{A^c}\right)Q\psi^A
 \end{align} 
-
 
 Another hitting time statistic we may be interested in is, given an initial intermediate, what is the probability we will hit a subset of intermediates $A$ before some other disjoint subset of intermediates $B$. 
 
@@ -582,8 +586,8 @@ but must compute the case of $j \in (A\cup B)^C$.
 
 \begin{align}
 \rho^{A,B}_j &= P(\tau^A_j < \tau^B_j) \\
-&= \sum_{k}P(\tau^A_j < \tau^B_j, Y_1 = k) \\
-&= \sum_{k}P(\tau^A_j < \tau^B_j|Y_1 = k)P(Y_1 = k) \\
+%&= \sum_{k}P(\tau^A_j < \tau^B_j, Y_1 = k) \\
+%&= \sum_{k}P(\tau^A_j < \tau^B_j|Y_1 = k)P(Y_1 = k) \\
 &= \sum_{k}P(\tau^A_k < \tau^B_k)P(Y_1 = k) \\
 &= \frac{1}{Z_j}\sum_{k \neq j} \rho^{A,B}_kQ_{jk} \\
 0 &= Q\rho^{A,B}
