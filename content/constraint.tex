@@ -57,7 +57,7 @@ Using a system of constraint functions, we can mathematically define the space o
 
 
 \begin{mydef}
-The \textbf{geometric configuration space} of a Building Game intermediate is an agebraic variety corresponding to a system of polynomial constraints that enforces the rigidity of individual faces and hinged motion along connected edges.
+The \textbf{geometric configuration space} of a Building Game intermediate is an algebraic variety corresponding to a system of polynomial constraints that enforces the rigidity of individual faces and hinged motion along connected edges.
 \end{mydef}
 
 
@@ -82,7 +82,7 @@ Constraint Type & Constraint Equation \\
 edge length & $c_{edge}^{j,k}\left(z\right) = \left|v^{j,k} - v^{j,k-1}\right|^2 - (\ell_{j,k})^2$ \\
 angle & $c_{ang}^{j,k}\left(z\right) = (v^{j,k-1} - v^{j,k})\cdot(v^{j,k+1} - v^{j,k})  - \ell^{j,k}\ell^{j,k+1}\cos(\theta^{j,k})$\\
 2D face & $c_{2D}^{j,k}(z) = v^{1,k} + \ell^{j,k,1}R(v^{j,0} - v^{j,1}) - v^{j,k} $\\
-vetex identification & $c_{ident}^{j_1,k_1,j_1,k_1,d}(z) = v^{j_1,k_1}_d - v^{j_2,k_2}_d$ 
+vertex identification & $c_{ident}^{j_1,k_1,j_1,k_1,d}(z) = v^{j_1,k_1}_d - v^{j_2,k_2}_d$ 
 \end{tabular}
 \caption{The different types of polynomial constraint equations used to describe the geometric configuration space.}
 \label{tab:cons}
@@ -109,7 +109,7 @@ Roughly speaking, the degrees of freedom of a system are the different independe
 We derive formulas for the number of parameters needed to specify the configuration of a mechanism, in terms of the number of links and joints and the freedom of movement allowed at each joint. This number is the \textit{degrees of freedom} or \textit{mobility} of the mechanism. Changing the values of these parameters changes the configuration of the mechanism. Thus, if we view the set of all configuration available to a mechanism as a manifold, then the mobility of the mechanism is the dimension of this manifold. 
 \end{quote}
 
-Since our geometric configuration space is an algebraic variety and not a manifold in general, this definition must be modified to make degrees of freedom a statistic of each individual configuration r ather than a global statistic of the geometric configuration space. 
+Since our geometric configuration space is an algebraic variety and not a manifold in general, this definition must be modified to make degrees of freedom a statistic of each individual configuration rather than a global statistic of the geometric configuration space. 
 
 \begin{mydef}
 The number of \textbf{degrees of freedom} of a Building Game intermediate at configuration $z$ is the dimension of the geometric configuration space at $z$. If $z$ is a singularity of the algebraic variety, then the degrees of freedom is undefined.
@@ -141,7 +141,7 @@ Angle constraints ensure that each face's polygonal angles are conserved. Using 
 \begin{align}
 c_{ang}^{j,k}\left(z\right) &= (v^{j,k-1} - v^{j,k})\cdot(v^{j,k+1} - v^{j,k})  - \ell^{j,k}\ell^{j,k+1}\cos(\theta^{j,k})
 \end{align}  
-Here, $\theta^{j,k}$ is the angle at $v^{j,k}$ between $k$th and $(k+1)st$ edges. This angle is a constant that is known a priori as it is one of the polygonal angles apreaing in a rigid subunit. In practice, we only enforce that the $k=1$ angle constraint for each face.
+Here, $\theta^{j,k}$ is the angle at $v^{j,k}$ between $k$th and $(k+1)st$ edges. This angle is a constant that is known a priori as it is one of the polygonal angles appearing in a rigid subunit. In practice, we only enforce that the $k=1$ angle constraint for each face.
 
 Now, between the two edge constraints and one angle constraints, we have described $3$ constraints as a function of $9$ vertex coordinates per face. Thus for any choice of the $6$ coordinates, $v^{j,1}_1, v^{j,1}_2, v^{j,1}_3, v^{j,2}_1, v^{j,2}_2, v^{j,0}_1$, the remaining $3$ coordinates, $v^{j,2}_3, v^{j,0}_2, v^{j,0}_3$, are specified by the $3$ constraint equations. Similarly, since each face's location and rotational orientation can be defined by this choice of $6$ coordinates, we have enough information to specify the coordinates of the remaining vertices. 
 

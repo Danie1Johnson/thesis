@@ -16,7 +16,7 @@ The Building Game contains a wealth of combinatorial enumeration problems. Some 
 
 \section{New Enumerative Results}
 
-Previous enumeration results for the Building Game have focused on the number of intermediates of the Platonic solids. We extend these results to also count the number of Building Game connections and pathways in the combinatorial configuration space. Additionally, we consider the Platonic, Archimedean, and Catalan solids classes with these results presented in table~\ref{tab:bgEnum }. 
+Previous enumeration results for the Building Game have focused on the number of intermediates of the Platonic solids. We extend these results to also count the number of Building Game connections and pathways in the combinatorial configuration space. Additionally, we consider the Platonic, Archimedean, and Catalan solids classes with these results presented in table~\ref{tab:bgEnum}. 
 
 As we consider polyhedra with more and more faces, there is a combinatorial explosion in the number of intermediates in combinatorial configuration space. This was noted in~\cite{Endres2005}, where the dodecahedron has $73$ intermediates and the icosahedron has $2,649$~\cite{Endres2005}. We have enumerated the intermediates for polyhedra of up to $30$ faces in our three classes of polyhedra. The $30$-faced rhombic triacontahdron has the most intermediates of all polyhedra in our computation with $2,423,212$.
 
@@ -80,7 +80,7 @@ A (geometric) \textbf{polytopal complex} $\mathcal{C}$ in $\mathbbm{R}^d$ is a c
 \item for any $P \in \mathcal{C}$ all faces of $P$ are in $\mathcal{C}$,
 \item the intersection of any two polytopes in $\mathcal{C}$ is a face of both..
 \end{enumerate}
-If all facests are of the same dimension then $\mathcal{C}$ is \textbf{pure}. 
+If all facets are of the same dimension then $\mathcal{C}$ is \textbf{pure}. 
 \end{mydef}
 
 \begin{mydef}
@@ -334,7 +334,7 @@ We can get a similar bound on the number of intermediates with a particular numb
 \end{align}
 but again, this is not particularly useful, especially for intermediates with around $\frac{1}{2}|F|$ faces.
 
-Since the Building Game is similar in spirit to polyomino enumeration, one might try to assimilate some the techniques used for polyominoes. For example, through fairly simple arguments, one can show that $s_ms_n \leq s_{m+n}$ where $s_m$ is the number of unique polyominoes with $m$ subunits~\cite{Klarner1973}. This leads to the bound $s_m \leq (const)^m$. Unfortunately, this approach is cannot be applied to the Building Game as thereis a fundamental difference between the two growth models. In the polyomino case, there is no limit to the number of subunits that can be considered. Importantly, this is not the case for the Building Game since an intermediate can only have $|F|$ faces at most. Thus any such recurrence relation for the Building Game will result in a good upper bound for the intermediates with a small number of faces at best.
+Since the Building Game is similar in spirit to polyomino enumeration, one might try to assimilate some the techniques used for polyominoes. For example, through fairly simple arguments, one can show that $s_ms_n \leq s_{m+n}$ where $s_m$ is the number of unique polyominoes with $m$ subunits~\cite{Klarner1973}. This leads to the bound $s_m \leq (const)^m$. Unfortunately, this approach is cannot be applied to the Building Game as there is a fundamental difference between the two growth models. In the polyomino case, there is no limit to the number of subunits that can be considered. Importantly, this is not the case for the Building Game since an intermediate can only have $|F|$ faces at most. Thus any such recurrence relation for the Building Game will result in a good upper bound for the intermediates with a small number of faces at best.
 
 The formulation of meaningful bounds for the number of Building Game intermediates with $k$ faces remains an open problem, especially for $k \sim \frac{1}{2}|F|$. At the root of the problem is the difficulty in mathematically describing the subsets of $F$ are edge connected. Future approaches may incorporate enumeration results for connected sub-graphs or Hamiltonian paths since these topics explicitly acknowledge connectedness properties. 
 
@@ -346,7 +346,7 @@ From looking at the statistics on number of faces $|F|$ of a polyhedron and the 
 
 We use a brute force method to compute the combinatorial configuration space and enumerate the intermediates for a particular polyhedron. Computation begins by first enumerating the intermediates with a single face. The results of this enumeration are then used to compute the intermediates with two faces. This process proceeds iteratively until all intermediates are accounted for. Figure~\ref{alg:CCS} outlines the detailed algorithm for this computation. 
 
-At each stage of our algorithm, we know the set of intermediates that have $k$ faces, which we call $A_k$. This information is then used to compute the set of faces with $k+1$ faces, $A_{k+1}$. Since all intermediates in $A_{k+1}$ must be formed by adding a single face to an intermediate from $A_k$, we take each intermediate $[x] \in A_k$ and try adding each face to $x$ that is allowable under the Building Game rules. This means we look at every face $f \in F\setminus x$ and look for another face  $\hat{f} \in x$ such that $f$ and $\hat{f}$ shae an edge. For every such face $f$, we look at the new $(k+1)$-faced state $y \doteq x\cup \{f\}$. Since we know that $[y]$ is a Building Game intermediate, it must be represented in $A_{k+1}$, however before adding $y$ to $A_{k+1}$, we must verify that there is no $\hat{y}$ already in $A_{k+1}$ such that $y \in [\hat{y}]$.
+At each stage of our algorithm, we know the set of intermediates that have $k$ faces, which we call $A_k$. This information is then used to compute the set of faces with $k+1$ faces, $A_{k+1}$. Since all intermediates in $A_{k+1}$ must be formed by adding a single face to an intermediate from $A_k$, we take each intermediate $[x] \in A_k$ and try adding each face to $x$ that is allowable under the Building Game rules. This means we look at every face $f \in F\setminus x$ and look for another face  $\hat{f} \in x$ such that $f$ and $\hat{f}$ share an edge. For every such face $f$, we look at the new $(k+1)$-faced state $y \doteq x\cup \{f\}$. Since we know that $[y]$ is a Building Game intermediate, it must be represented in $A_{k+1}$, however before adding $y$ to $A_{k+1}$, we must verify that there is no $\hat{y}$ already in $A_{k+1}$ such that $y \in [\hat{y}]$.
 
 \begin{figure}[ht]
 \centering
@@ -384,13 +384,13 @@ The act of comparing two states $y$ and $\hat{y}$ to check if they are members o
 
 \subsection{Efficient Congruence Testing}
 
-Similar to the approach of~\cite{Pandey2011}, we implement a hash function $\textswab{h}$ that maps each state to an integer with the property that $[y] = [\hat{y}]$ if and only if $\textswab{h}(y) = \textswab{h}(\hat{y})$. By designing such a function, checing for congruence between two states just amounts to a comparison of the states' hash values. 
+Similar to the approach of~\cite{Pandey2011}, we implement a hash function $\textswab{h}$ that maps each state to an integer with the property that $[y] = [\hat{y}]$ if and only if $\textswab{h}(y) = \textswab{h}(\hat{y})$. By designing such a function, checking for congruence between two states just amounts to a comparison of the states' hash values. 
 
-Given an enumeration of the polyhedron's faces, each state may be represented by a binary vector giving each face's inclusion or exclusion in the state. The hash we use is the base ten integer corresponding to the minimal binary representation of the state staken over all possible rotations
+Given an enumeration of the polyhedron's faces, each state may be represented by a binary vector giving each face's inclusion or exclusion in the state. The hash we use is the base ten integer corresponding to the minimal binary representation of the state taken over all possible rotations
 \begin{align}
 \textswab{h}(y) &= \min_{g \in G} \text{int}(g.y).
 \end{align} 
-While this does require considering each possible roation for every proposal state, this computation must only be performed once. 
+While this does require considering each possible rotation for every proposal state, this computation must only be performed once. 
 
 %When checking if two states $y$ and $\hat{y}$ are members of the same intermediate, we first check if $\textswab{h}(y) = \textswab{h}(\hat{y})$. If they do not have the same hash, then they cannot be members of the same intermediate and the check is complete. Alternatively, if they do have identical hashes, it is not a guarantee that they are members of the same intermediate, so the exhastive rotation method must be used. If the hash is carefully designed then this false positive rate ($\textswab{h}(y) = \textswab{h}(\hat{y})$ when $[y] \neq [\hat{y}]$) is small and almost all of the tedious rotation calculations will result in a positive match. 
 

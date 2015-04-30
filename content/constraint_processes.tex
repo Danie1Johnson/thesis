@@ -279,7 +279,7 @@ we arrive at the iteration routine below, which typically commences with the ini
         \State $z \gets z + \sqrt{\Delta t}w + Q^{(1)}\gamma$
 \EndFor
 \end{algorithmic}
-\caption{Random Walk on $\mathcal{M}$}
+\caption{Random Walk algorithm on $\mathcal{M}$.}
 \label{alg:MBMRW}
 \end{figure}
 
@@ -327,7 +327,7 @@ A uniform distribution according to the Haar measure corresponds to a uniform sa
  
 \subsection{Brownian Motion on Geometric Configuration Spaces}
 \label{ssc:MBMGCS}
-As an initial test case of our Brownian Motion scheme on Building Game geometric configuration spaces, we first consider two simple triangle linkages. The first has two triangles linked together along a hinged edge. As seen in figure~\ref{fig:T2_diagram}, the linkage can be specified by the $3$-dimensional locations of four vertices, giving an ambient space of $\mathbbm{R}^3$. In addition to the six trivial degrees of freedom, this configuration also carries an internal degree of freedom corresponding to the dihedral angle formed at the hinged edge. 
+As an initial test case of our Brownian Motion scheme on Building Game geometric configuration spaces, we first consider two simple triangle linkages. The first is a dimer composed of two triangles linked together along a hinged edge. As seen in figure~\ref{fig:T2_diagram}, the linkage can be specified by the $3$-dimensional locations of four vertices, giving an ambient space of $\mathbbm{R}^3$. In addition to the six trivial degrees of freedom, this configuration also carries an internal degree of freedom corresponding to the dihedral angle formed at the hinged edge. 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.1]{images/T2_diagram.eps}
@@ -338,7 +338,7 @@ Figure~\ref{fig:T2_1} shows a histogram of this dihedral angle as sampled using 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T2_1.eps}
-\caption{Histogram of the dihedral angle in sampled configurations of a two triangle linkage.}
+\caption{Histogram of the dihedral angle in sampled configurations of a two triangle linkage. The red curve has the form $\alpha_0 + \alpha_1\cos(\theta) + \alpha_2\cos(2\theta)$.}
 \label{fig:T2_1}
 \end{figure}
 
@@ -357,11 +357,11 @@ This configuration has two internal degrees of freedom, which are represented my
 \caption{Histogram of the dihedral angle in sampled configurations of a three triangle linkage.}
 \label{fig:T3_1}
 \end{figure}
-As a test of convergence for our scheme, figure~\ref{fig:KDS1} show the Kolmogorov-Smirnov distance of the empirical distribution on the first dihedral angle of the three triangle linkage as a function of the number of samples. The line of best fit has a slope of $-0.461$. This is nearly $-0.5$ indicating that the expected square root rate of convergence is close to being acheived. 
+As a test of convergence for our scheme, figure~\ref{fig:KSD1} show the Kolmogorov-Smirnov distance of the empirical distribution on the first dihedral angle of the three triangle linkage as a function of the number of samples. The line of best fit has a slope of $-0.461$. This is nearly $-0.5$ indicating that the expected square root rate of convergence is close to being achieved. 
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/KSD1.eps}
-\caption{Convergence of the sampling scheme for the three-triangle linakge.}
+\caption{Convergence of the sampling scheme for the three-triangle linkage.}
 \label{fig:KSD1}
 \end{figure}
 
@@ -390,11 +390,11 @@ Since we are only interested in internal degrees of freedom and statistics invar
 %\end{figure}
 %This poses a bit of a problem. If the choice of face to fix affects the resulting distribution, then we must have justification for selecting one face over another. Since a clear reasoning for this choice is not apparent--especially in the case of an arbitrary linkage--we look to other methods for fixing the trivial degrees of freedom that the system has. 
 
-As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translational degrees of freedom is to fix the center of mass of the configuration. While this method does not address the rotational degrees of freedom, it does appear to maintain the same distribution on the internal modes. In fact, the Kolmogorov-Smirnov distance between the sampled points for the first dihedral angle in figures~\ref{fig:T3_1} and~\ref{fig:T3_5} is just $0.00296$ indicating an excllent agreement. Thus, it remains to account for the rotational degrees of freedom separately.  
+As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translational degrees of freedom is to fix the center of mass of the configuration. While this method does not address the rotational degrees of freedom, it does appear to maintain the same distribution on the internal modes. In fact, the Kolmogorov-Smirnov distance between the sampled points for the first dihedral angle in figures~\ref{fig:T3_1} and~\ref{fig:T3_5} is just $0.00296$ indicating an excellent agreement. Thus, it remains to account for the rotational degrees of freedom separately.  
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T2_4.eps}
-\caption{Sampling of two triangle linkage with fixed center of mass.}
+\caption{Sampling of two triangle linkage with fixed center of mass. The red curve has the form $\alpha_0 + \alpha_1\cos(\theta) + \alpha_2\cos(2\theta)$.}
 \label{fig:T2_4}
 \end{figure}
 
@@ -435,7 +435,7 @@ Figure~\ref{fig:T2_5} shows the results for a sampling of configurations for the
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T2_5.eps}
-\caption{Sampling of two triangle linkage with fixed center of mass and rotations.}
+\caption{Sampling of two triangle linkage with fixed center of mass and rotations. The green curve has the form $\alpha_0 + \alpha_1\cos(\theta)$.}
 \label{fig:T2_5}
 \end{figure}
 Similarly, the three triangle linkage also produces a different distribution on dihedral angles. As seen in figure~\ref{fig:T3_6}, the distribution is not the simple product of one-dimensional distributions. There are local maxima at $(0,0), (\frac{\pi}{3}, \frac{5\pi}{3})$, and $(\frac{5\pi}{3}, \frac{\pi}{3})$ With a local minima at $(\pi,\pi)$. 
@@ -451,7 +451,7 @@ Since the fixing of rotation alters our sampling distribution, this method is no
 \section{Reflected Brownian Motion on a Manifold}
 %In our sampling of Building Game geometric configurations, we see that many of the sampled configurations or Brownian motion paths do not make physical sense. For example, we do not prevent the triangles of the configuration from intersecting each other. Additionally, two faces attached by a hinge may pass through each other as the dihedral angle passes through zero. We introduce implicit boundaries to turn the Brownian motion into a Reflected Brownian motion on. With these added boundaries, the process will be prevented from entering nonphysical configurations, and represents a better sampling on configurations that coincide with the actual self-assembly processes we are attempting to model.
 
-In our sampling of Building Game geometric configurations, we see that many of the sampled configurations of Brownian motion paths are self-interesecting. These configuration are unphysical and can be avoided by using reflected Brownain motion. 
+In our sampling of Building Game geometric configurations, we see that many of the sampled configurations of Brownian motion paths are self-intersecting. These configuration are nonphysical and can be avoided by using reflected Brownian motion. 
 
 \subsection{Computational Scheme}
 
@@ -496,7 +496,7 @@ Now, we again consider the two and three triangle linkage examples from section~
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T2_2.eps}
-\caption{Sampling of two triangle linkage with boundaries.}
+\caption{Sampling of two triangle linkage with boundaries. The red curve has the form $\alpha_0 + \alpha_1\cos(\theta) + \alpha_2\cos(2\theta)$.}
 \label{fig:T2_2}
 \end{figure}
 
@@ -508,11 +508,11 @@ Similarly, we consider the three triangle linkage with no fixed degrees of freed
 \label{fig:T3_2}
 \end{figure}
 
-Again, we test the convergence for our scheme, using show the Kolmogorov-Smirnov distance of the empirical distribution on the first dihedral angle of the three triangle linkage with boundaries as a function of the number of samples. As seen in figure~\ref{fig:KDS2} the line of best fit has a slope of $-0.449$ which is again close to square root convergence.
+Again, we test the convergence for our scheme, using show the Kolmogorov-Smirnov distance of the empirical distribution on the first dihedral angle of the three triangle linkage with boundaries as a function of the number of samples. As seen in figure~\ref{fig:KSD2} the line of best fit has a slope of $-0.449$ which is again close to square root convergence.
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/KSD2.eps}
-\caption{Convergence of the sampling scheme for the three-triangle linakge with self-intersection bondaries.}
+\caption{Convergence of the sampling scheme for the three-triangle linkage with self-intersection boundaries.}
 \label{fig:KSD2}
 \end{figure}
 
@@ -523,7 +523,7 @@ Again, we test the convergence for our scheme, using show the Kolmogorov-Smirnov
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T2_6.eps}
-\caption{Sampling of two triangle linkage with boundaries and fixed center of mass and rotations.}
+\caption{Sampling of two triangle linkage with boundaries and fixed center of mass and rotations. The green curve has the form $\alpha_0 + \alpha_1\cos(\theta)$.}
 \label{fig:T2_6}
 \end{figure}
 
