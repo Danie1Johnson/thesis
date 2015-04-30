@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  29 APR 2015 19:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  29 APR 2015 22:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -750,16 +750,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [15
 
 ]
-Overfull \hbox (5.78796pt too wide) in paragraph at lines 48--48
+Overfull \hbox (5.78796pt too wide) in paragraph at lines 49--49
  \OT1/cmr/m/n/12 in hyper-cubes of in-creas-ing di-men-sion across dif-fer-ent 
 choices of timestep. []  
  []
 
-)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16])
 \tf@lof=\write7
 \openout7 = `thesis.lof'.
 
- [16]
+
+[17] [18
+
+
+]
 \c@mythm=\count148
 \c@mylem=\count149
 \c@mycor=\count150
@@ -773,8 +780,6 @@ Underfull \hbox (badness 10000) in alignment at lines 150--150
  []
 
 [1
-
-
 
 ] (./content/intro.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -984,10 +989,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [45]
-File: images/polys_face_shellings.eps Graphic file (type eps)
+File: images/icosahedron.eps Graphic file (type eps)
 
-<images/polys_face_shellings.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 295--296
+<images/icosahedron.eps>
+File: images/truncated_cuboctahedron.eps Graphic file (type eps)
+ <images/truncated_cuboctahedron.eps>
+File: images/rhombic_triacontahedron.eps Graphic file (type eps)
+
+<images/rhombic_triacontahedron.eps>
+File: images/polys_face_shellings.eps Graphic file (type eps)
+ <images/polys_face_shellings.eps>
+Overfull \hbox (4.34044pt too wide) in paragraph at lines 310--311
 [][] 
  []
 
@@ -1004,20 +1016,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [49]
-Underfull \vbox (badness 2980) has occurred while \output is active []
+Underfull \vbox (badness 5460) has occurred while \output is active []
 
  [50]
-Underfull \vbox (badness 1112) has occurred while \output is active []
+Underfull \vbox (badness 1009) has occurred while \output is active []
 
  [51]
-[52] [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [54])
-[55] [56
+ [52]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [53]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-]
+ [54]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [55])
+[56]
 Chapter 4.
 
 Underfull \hbox (badness 10000) in alignment at lines 162--162
@@ -1025,6 +1042,8 @@ Underfull \hbox (badness 10000) in alignment at lines 162--162
  []
 
 [57
+
+
 
 ] (./content/constraint.tex
 File: images/OctaGCS_0.eps Graphic file (type eps)
@@ -1350,12 +1369,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13647 strings out of 493305
- 250050 string characters out of 6139898
- 314634 words of memory out of 5000000
- 16700 multiletter control sequences out of 15000+600000
+ 13654 strings out of 493305
+ 250221 string characters out of 6139898
+ 315646 words of memory out of 5000000
+ 16704 multiletter control sequences out of 15000+600000
  24886 words of font info for 109 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,19n,69p,1690b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis.dvi (125 pages, 266680 bytes).
+Output written on thesis.dvi (127 pages, 268360 bytes).
