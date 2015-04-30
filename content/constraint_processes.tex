@@ -357,6 +357,13 @@ This configuration has two internal degrees of freedom, which are represented my
 \caption{Histogram of the dihedral angle in sampled configurations of a three triangle linkage.}
 \label{fig:T3_1}
 \end{figure}
+As a test of convergence for our scheme, figure~\ref{fig:KDS1} show the Kolmogorov-Smirnov distance of the empirical distribution on the first dihedral angle of the three triangle linkage as a function of the number of samples. The line of best fit has a slope of $-0.461$. This is nearly $-0.5$ indicating that the expected square root rate of convergence is close to being acheived. 
+\begin{figure}[ht]
+\centering
+  \includegraphics[scale=0.6]{images/KSD1.eps}
+\caption{Convergence of the sampling scheme for the three-triangle linakge.}
+\label{fig:KSD1}
+\end{figure}
 
 
 \subsubsection{Fixing Trivial Degrees of Freedom}
@@ -383,7 +390,7 @@ Since we are only interested in internal degrees of freedom and statistics invar
 %\end{figure}
 %This poses a bit of a problem. If the choice of face to fix affects the resulting distribution, then we must have justification for selecting one face over another. Since a clear reasoning for this choice is not apparent--especially in the case of an arbitrary linkage--we look to other methods for fixing the trivial degrees of freedom that the system has. 
 
-As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translational degrees of freedom is to fix the center of mass of the configuration. While this method does not address the rotational degrees of freedom, it does appear to maintain the same distribution on the internal modes. This can bee seen in figures~\ref{fig:T2_4} and~\ref{fig:T3_5} which mirror figures~\ref{fig:T2_1} and ~\ref{fig:T3_1}.  Thus, we account for the rotational degrees of freedom separately.  
+As mentioned in section~\ref{ssc:RemTrivDoF}, one way of fixing the translational degrees of freedom is to fix the center of mass of the configuration. While this method does not address the rotational degrees of freedom, it does appear to maintain the same distribution on the internal modes. In fact, the Kolmogorov-Smirnov distance between the sampled points for the first dihedral angle in figures~\ref{fig:T3_1} and~\ref{fig:T3_5} is just $0.00296$ indicating an excllent agreement. Thus, it remains to account for the rotational degrees of freedom separately.  
 \begin{figure}[ht]
 \centering
   \includegraphics[scale=0.6]{images/T2_4.eps}
@@ -500,6 +507,17 @@ Similarly, we consider the three triangle linkage with no fixed degrees of freed
 \caption{Sampling of three triangle linkage with boundaries.}
 \label{fig:T3_2}
 \end{figure}
+
+Again, we test the convergence for our scheme, using show the Kolmogorov-Smirnov distance of the empirical distribution on the first dihedral angle of the three triangle linkage with boundaries as a function of the number of samples. As seen in figure~\ref{fig:KDS2} the line of best fit has a slope of $-0.449$ which is again close to square root convergence.
+\begin{figure}[ht]
+\centering
+  \includegraphics[scale=0.6]{images/KSD2.eps}
+\caption{Convergence of the sampling scheme for the three-triangle linakge with self-intersection bondaries.}
+\label{fig:KSD2}
+\end{figure}
+
+
+
 
 
 \begin{figure}[ht]
