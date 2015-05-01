@@ -1,1 +1,75 @@
-%\lipsum[1-2]
+%\lipsum[1-2
+
+%&latex
+
+
+
+\oddsidemargin -.5in
+\evensidemargin -.5in
+\textwidth=6.0in
+\itemsep=0in
+\parsep=0in
+% if using pdflatex:
+%\setlength{\pdfpagewidth}{\paperwidth}
+%\setlength{\pdfpageheight}{\paperheight} 
+
+\newenvironment{list1}{
+  \begin{list}{\ding{113}}{%
+      \setlength{\itemsep}{0in}
+      \setlength{\parsep}{0in} \setlength{\parskip}{0in}
+      \setlength{\topsep}{0in} \setlength{\partopsep}{0in} 
+      \setlength{\leftmargin}{0.17in}}}{\end{list}}
+\newenvironment{list2}{
+  \begin{list}{$\bullet$}{%
+      \setlength{\itemsep}{0in}
+      \setlength{\parsep}{0in} \setlength{\parskip}{0in}
+      \setlength{\topsep}{0in} \setlength{\partopsep}{0in} 
+      \setlength{\leftmargin}{0.2in}}}{\end{list}}
+
+
+
+
+
+
+
+\section*{\sc Personal Information}
+\begin{list1}
+    \item[] American citizen.
+    \item[] Born November 6$^{th}$, 1987 in Rochester, New York.
+\end{list1}
+
+
+
+
+\section*{\sc Education}
+
+{\bf Brown University}, Providence, Rhode Island USA\\
+%{\em Department of Statistics} 
+\vspace*{-.1in}
+\begin{list1}
+
+
+\vspace*{.05in}
+\item[] Sc.M., Applied Mathematics,  May 2012
+\end{list1}
+
+
+{\bf Rensselaer Polytechnic Institute}, Troy, New York USA\\
+%{\em Department of Mathematics and Statistics} 
+\vspace*{-.1in}
+\begin{list1}
+\item[] B.S., Mathematics, May 2009
+\end{list1}
+
+
+\section*{\sc Publications}
+{\it Dynamics of the exponential integrate-and-fire model with slow currents and adaptation}, Victor Barranca, Daniel Johnson, Jennifer Moyher, Joshua Sauppe, Maxim Shkarayev, Gregor Kovacic, and David Cai. Journal of Computational Neuroscience, 2014.
+
+ \hspace{-18pt}{\it Self-assembly of mesoscale isomers: The role of
+pathways and degrees of freedom}, Shivendra Pandey, Daniel Johnson, Ryan Kaplan, Joseph Klobusicky, Govind
+Menon, and David Gracias. PLoS ONE, 2014.
+
+
+
+
+

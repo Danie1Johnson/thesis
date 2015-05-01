@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  30 APR 2015 20:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.9.9)  1 MAY 2015 08:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -609,11 +609,7 @@ Package tocloft Info: The document has chapter divisions on input line 44.
 \cftbeforetabskip=\skip97
 \cfttabindent=\skip98
 \cfttabnumwidth=\skip99
-) (./thesis.aux
-
-LaTeX Warning: Label `tab:cons' multiply defined.
-
-)
+) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
@@ -632,7 +628,8 @@ LaTeX Font Info:    Checking defaults for LY/yfrak/m/n on input line 72.
 LaTeX Font Info:    ... okay on input line 72.
 LaTeX Font Info:    Checking defaults for LYG/ygoth/m/n on input line 72.
 LaTeX Font Info:    ... okay on input line 72.
- ABD: EveryShipout initializing macros
+
+ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  [1
@@ -673,57 +670,37 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 
 ]
-(./content/vita.tex) [4
+(./content/vita.tex [4
 
 
 ]
+Overfull \hbox (1.37411pt too wide) in paragraph at lines 68--71
+\OT1/cmr/m/n/12 Shiv-en-dra Pandey, Daniel John-son, Ryan Ka-plan, Joseph Klobu
+-sicky, Govind Menon,
+ []
+
+) [5]
 Acknowledgments
-(./content/acknowledgments.tex) [5
+(./content/acknowledgments.tex) [6
 
 
-] (./content/abstract.tex) [6
+] (./content/abstract.tex) [7
 
 
-] (./thesis.toc
-[6
-
-
-
-])
+] (./thesis.toc)
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
- [7]
+[7
+
+
+
+]
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <11.5> not available
 (Font)              size <12> substituted on input line 112.
 
-(./thesis.lot
-LaTeX Font Info:    Calculating math sizes for size <11.5> on input line 4.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <11.5> not available
-(Font)              size <12> substituted on input line 4.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <11.5> not available
-(Font)              size <12> substituted on input line 4.
-
-
-LaTeX Font Warning: Font shape `U/lasy/m/n' in size <11.5> not available
-(Font)              size <12> substituted on input line 4.
-
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <11.5> not available
-(Font)              size <12> substituted on input line 4.
-
-
-Overfull \hbox (38.17238pt too wide) in paragraph at lines 5--5
- [][] []\OT1/cmr/m/n/12 Building Game enu-mer-a-tive shella-bil-ity re-sults fo
-r the Pla-tonic, Archimedean, 
- []
-
-)
+(./thesis.lot)
 \tf@lot=\write6
 \openout6 = `thesis.lot'.
 
@@ -731,21 +708,15 @@ r the Pla-tonic, Archimedean,
 
 
 
-] (./thesis.lof [9
+] (./thesis.lof)
+\tf@lof=\write7
+\openout7 = `thesis.lof'.
+
+ [9
 
 
 
 ]
-Overfull \hbox (5.78796pt too wide) in paragraph at lines 50--50
- \OT1/cmr/m/n/12 in hyper-cubes of in-creas-ing di-men-sion across dif-fer-ent 
-choices of timestep. []  
- []
-
-[10])
-\tf@lof=\write7
-\openout7 = `thesis.lof'.
-
- [11]
 \c@mythm=\count148
 \c@mylem=\count149
 \c@mycor=\count150
@@ -762,13 +733,74 @@ Underfull \hbox (badness 10000) in alignment at lines 150--150
 
 
 
-] (./content/intro.tex [2] [3] [4]
+] (./content/intro.tex [2]
+
+LaTeX Warning: Citation `Sachse1890' on page 3 undefined on input line 15.
+
+
+LaTeX Warning: Citation `Kroto1985' on page 3 undefined on input line 15.
+
+
+LaTeX Warning: Citation `Cromwell1997' on page 3 undefined on input line 19.
+
+[3]
+
+LaTeX Warning: Citation `Ziegler1995' on page 4 undefined on input line 21.
+
+
+LaTeX Warning: Citation `Kaplan2014' on page 4 undefined on input line 25.
+
+
+LaTeX Warning: Citation `Pandey2011' on page 4 undefined on input line 29.
+
+
+LaTeX Warning: Citation `Pandey2014' on page 4 undefined on input line 29.
+
+[4]
+
+LaTeX Warning: Citation `Sun2010' on page 5 undefined on input line 33.
+
+
+LaTeX Warning: Citation `Li2011' on page 5 undefined on input line 35.
+
+
 Overfull \hbox (5.47191pt too wide) in paragraph at lines 35--36
 []\OT1/cmr/m/n/12 Fujita et. al. have the-o-rized and sub-se-quently syn-the-si
 zed a fam-ily of organometal-
  []
 
-[5] [6] [7] [8]
+[5]
+
+LaTeX Warning: Citation `Liu2011' on page 6 undefined on input line 39.
+
+
+LaTeX Warning: Citation `Berger1994' on page 6 undefined on input line 43.
+
+
+LaTeX Warning: Citation `Caspar1962' on page 6 undefined on input line 43.
+
+[6]
+
+LaTeX Warning: Citation `Lindorff-Larsen2011' on page 7 undefined on input line
+ 47.
+
+[7]
+
+LaTeX Warning: Citation `Wales1987' on page 8 undefined on input line 67.
+
+
+LaTeX Warning: Citation `Zlotnick1994' on page 8 undefined on input line 67.
+
+
+LaTeX Warning: Citation `Endres2005' on page 8 undefined on input line 67.
+
+
+LaTeX Warning: Citation `Pandey2011' on page 8 undefined on input line 114.
+
+
+LaTeX Warning: Citation `Pandey2014' on page 8 undefined on input line 114.
+
+[8]
 File: images/folds_0.eps Graphic file (type eps)
  <images/folds_0.eps>
 File: images/folds_1.eps Graphic file (type eps)
@@ -791,7 +823,37 @@ File: images/folds_3B.eps Graphic file (type eps)
  <images/folds_3B.eps>
 File: images/folds_4B.eps Graphic file (type eps)
 
-<images/folds_4B.eps> [9] [10] [11] [12]) [13]
+<images/folds_4B.eps>
+
+LaTeX Warning: Citation `Berger1994' on page 9 undefined on input line 155.
+
+
+LaTeX Warning: Citation `Schwartz1998' on page 9 undefined on input line 155.
+
+[9]
+
+LaTeX Warning: Citation `Wales1998' on page 10 undefined on input line 217.
+
+
+LaTeX Warning: Citation `Doye1999' on page 10 undefined on input line 217.
+
+[10]
+
+LaTeX Warning: Reference `tab:bgEnum' on page 11 undefined on input line 272.
+
+
+LaTeX Warning: Reference `tab:bgEnumShell' on page 11 undefined on input line 2
+72.
+
+
+LaTeX Warning: Reference `tab:Shellings' on page 11 undefined on input line 272
+.
+
+[11]
+
+LaTeX Warning: Reference `fig:OctaGCS' on page 12 undefined on input line 285.
+
+[12]) [13]
 Chapter 2.
 
 Underfull \hbox (badness 10000) in alignment at lines 154--154
@@ -802,7 +864,18 @@ Underfull \hbox (badness 10000) in alignment at lines 154--154
 
 
 
-] (./content/bg_modeling.tex [15]
+] (./content/bg_modeling.tex
+
+LaTeX Warning: Citation `Wales1987' on page 15 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Zlotnick1994' on page 15 undefined on input line 5.
+
+[15]
+
+LaTeX Warning: Citation `Sommerville1929' on page 16 undefined on input line 22
+.
+
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
@@ -814,10 +887,32 @@ File: ./images/octa_state_yes.eps Graphic file (type eps)
  <./images/octa_state_yes.eps>
 File: ./images/octa_state_no.eps Graphic file (type eps)
 
-<./images/octa_state_no.eps> [17] [18]
+<./images/octa_state_no.eps>
+
+LaTeX Warning: Citation `Endres2005' on page 17 undefined on input line 65.
+
+
+LaTeX Warning: Citation `Rotman1995' on page 17 undefined on input line 68.
+
+[17]
+
+LaTeX Warning: Citation `Rotman1995' on page 18 undefined on input line 73.
+
+
+LaTeX Warning: Citation `Rotman1995' on page 18 undefined on input line 77.
+
+
+LaTeX Warning: Citation `Rotman1995' on page 18 undefined on input line 80.
+
+
+LaTeX Warning: Citation `Rotman1995' on page 18 undefined on input line 83.
+
+
+LaTeX Warning: Citation `Rotman1995' on page 18 undefined on input line 86.
+
+[18]
 File: ./images/octa_stabilizers.eps Graphic file (type eps)
- <./images/octa_stabilizers.eps> [19]
-[20]
+ <./images/octa_stabilizers.eps> [19] [20]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 161.
 
@@ -840,13 +935,33 @@ Overfull \hbox (2.92418pt too wide) in paragraph at lines 202--203
 
 [22]
 File: ./images/cube_degens.eps Graphic file (type eps)
- <./images/cube_degens.eps> [23] [24] [25] [26] [27] [28] [29] [30]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 534.
+ <./images/cube_degens.eps> [23] [24] [25] [26] [27]
 
-(/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+LaTeX Warning: Citation `Keef2006' on page 28 undefined on input line 447.
+
+
+LaTeX Warning: Citation `Endres2005' on page 28 undefined on input line 447.
+
+[28]
+
+LaTeX Warning: Citation `Norris1998' on page 29 undefined on input line 464.
+
+[29]
+
+LaTeX Warning: Citation `Norris1998' on page 30 undefined on input line 505.
+
+
+LaTeX Warning: Citation `Norris1998' on page 30 undefined on input line 518.
+
+[30]
+LaTeX Font Info:    Try loading font information for U+bbm on input line 534.
+ (/usr/share/texlive/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-) [31] [32])
-[33]
+)
+
+LaTeX Warning: Citation `Norris1998' on page 31 undefined on input line 541.
+
+[31] [32]) [33]
 Chapter 3.
 
 Underfull \hbox (badness 10000) in alignment at lines 158--158
@@ -859,10 +974,29 @@ Underfull \hbox (badness 10000) in alignment at lines 158--158
 
 ] (./content/bg_enumeration.tex
 File: images/tetris.eps Graphic file (type eps)
- <images/tetris.eps> [35] [36]
-File: images/polys_face_int.eps Graphic file (type eps)
+ <images/tetris.eps>
 
-<images/polys_face_int.eps>
+LaTeX Warning: Citation `Endres2005' on page 35 undefined on input line 15.
+
+
+LaTeX Warning: Citation `Endres2005' on page 35 undefined on input line 15.
+
+
+LaTeX Warning: Citation `OEIS' on page 35 undefined on input line 15.
+
+[35]
+
+LaTeX Warning: Reference `tab:bgEnum' on page 36 undefined on input line 19.
+
+
+LaTeX Warning: Citation `Endres2005' on page 36 undefined on input line 21.
+
+
+LaTeX Warning: Citation `Endres2005' on page 36 undefined on input line 21.
+
+[36]
+File: images/polys_face_int.eps Graphic file (type eps)
+ <images/polys_face_int.eps>
 Overfull \hbox (4.34044pt too wide) in paragraph at lines 33--34
  [][] 
  []
@@ -897,7 +1031,15 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 66--67
  [][] 
  []
 
-[37] [38] [39] [40]
+
+LaTeX Warning: Citation `Ziegler1995' on page 37 undefined on input line 74.
+
+[37] [38] [39]
+
+LaTeX Warning: Reference `tab:bgEnumShell' on page 40 undefined on input line 1
+32.
+
+[40]
 File: images/polys_face_shell_int.eps Graphic file (type eps)
  <images/polys_face_shell_int.eps>
 Overfull \hbox (4.34044pt too wide) in paragraph at lines 142--143
@@ -917,282 +1059,26 @@ Overfull \hbox (4.34044pt too wide) in paragraph at lines 154--155
  []
 
 [41] [42] [43] [44]
-File: images/icosahedron.eps Graphic file (type eps)
- <images/icosahedron.eps>
-File: images/truncated_cuboctahedron.eps Graphic file (type eps)
 
-<images/truncated_cuboctahedron.eps>
-File: images/rhombic_triacontahedron.eps Graphic file (type eps)
- <images/rhombic_triacontahedron.eps>
-File: images/polys_face_shellings.eps Graphic file (type eps)
-
-<images/polys_face_shellings.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 310--311
-[][] 
- []
-
-[45] [46] [47] [48] [49] [50] [51] [52] [53] [54]) [55]
-Chapter 4.
-
-Underfull \hbox (badness 10000) in alignment at lines 162--162
-[]
- []
-
-[56
+LaTeX Warning: File `images/icosahedron.eps' not found on input line 198.
 
 
+! LaTeX Error: File `images/icosahedron.eps' not found.
 
-] (./content/constraint.tex
-File: images/OctaGCS_0.eps Graphic file (type eps)
- <images/OctaGCS_0.eps>
-File: images/OctaGCS_1.eps Graphic file (type eps)
- <images/OctaGCS_1.eps>
-File: images/OctaGCS_2.eps Graphic file (type eps)
-
-<images/OctaGCS_2.eps> [57] [58] [59] [60] [61] [62] [63] [64] [65] [66]
-File: images/G2x3_0.eps Graphic file (type eps)
-
-<images/G2x3_0.eps>
-File: images/G2x3_1.eps Graphic file (type eps)
- <images/G2x3_1.eps>
-File: images/G2x3_2.eps Graphic file (type eps)
- <images/G2x3_2.eps> [67]
-File: ./images/cube_dof_hist.eps Graphic file (type eps)
-
-<./images/cube_dof_hist.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 265--266
- [][] 
- []
-
-File: ./images/octahedron_dof_hist.eps Graphic file (type eps)
-<./images/octahedron_dof_hist.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 272--273
- [][] 
- []
-
-File: ./images/dodecahedron_dof_hist.eps Graphic file (type eps)
-<./images/dodecahedron_dof_hist.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 279--280
- [][] 
- []
-
-File: ./images/icosahedron_dof_hist.eps Graphic file (type eps)
-<./images/icosahedron_dof_hist.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 286--287
- [][] 
- []
-
-[68]
-File: ./images/cube_dof_hist_facecount.eps Graphic file (type eps)
- <./images/cube_dof_hist_facecount.eps>
-Overfull \hbox (76.60382pt too wide) in paragraph at lines 295--296
- [][] 
- []
-
-File: ./images/octahedron_dof_hist_facecount.eps Graphic file (type eps)
-<./images/octahedron_dof_hist_facecount.eps>
-Overfull \hbox (76.60382pt too wide) in paragraph at lines 302--303
- [][] 
- []
-
-File: ./images/dodecahedron_dof_hist_facecount.eps Graphic file (type eps)
-<./images/dodecahedron_dof_hist_facecount.eps>
-Overfull \hbox (40.46661pt too wide) in paragraph at lines 309--310
- [][] 
- []
-
-File: ./images/icosahedron_dof_hist_facecount.eps Graphic file (type eps)
-<./images/icosahedron_dof_hist_facecount.eps>
-Overfull \hbox (76.60382pt too wide) in paragraph at lines 316--317
- [][] 
- []
-
-[69] [70]) [71] [72] [73]
-Chapter 5.
-
-Underfull \hbox (badness 10000) in alignment at lines 166--166
-[]
- []
-
-[74
-
-
-
-] (./content/constraint_processes.tex [75] [76] [77] [78] [79]
-File: images/unitary_3_hist.eps Graphic file (type eps)
-
-<images/unitary_3_hist.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 312--313
- [][] 
- []
-
-File: images/unitary_10_hist.eps Graphic file (type eps)
-<images/unitary_10_hist.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 321--322
- [][] 
- []
-
-[80]
-File: images/T2_diagram.eps Graphic file (type eps)
- <images/T2_diagram.eps>
-File: images/T2_1.eps Graphic file (type eps)
- <images/T2_1.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 340--341
- [][] 
- []
-
-File: images/T3_diagram.eps Graphic file (type eps)
-<images/T3_diagram.eps>
-File: images/T3_1_2D.eps Graphic file (type eps)
- <images/T3_1_2D.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 356--357
- [][] 
- []
-
-File: images/KSD1.eps Graphic file (type eps)
-<images/KSD1.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 363--364
- [][] 
- []
-
-[81] [82]
-File: images/T2_4.eps Graphic file (type eps)
- <images/T2_4.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 396--397
- [][] 
- []
-
-File: images/T3_5_2D.eps Graphic file (type eps)
-<images/T3_5_2D.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 403--404
- [][] 
- []
-
-[83] [84] [85] [86] [87]
-File: images/T2_5.eps Graphic file (type eps)
- <images/T2_5.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 437--438
- [][] 
- []
-
-File: images/T3_6_2D.eps Graphic file (type eps)
-<images/T3_6_2D.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 444--445
- [][] 
- []
-
-[88] [89]
-File: images/rejection_finite.eps Graphic file (type eps)
- <images/rejection_finite.eps>
-Overfull \hbox (4.3294pt too wide) in paragraph at lines 488--489
- [][] 
- []
-
-[90]
-File: images/T2_2.eps Graphic file (type eps)
- <images/T2_2.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 498--499
- [][] 
- []
-
-File: images/T3_2_2D.eps Graphic file (type eps)
-<images/T3_2_2D.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 506--507
- [][] 
- []
-
-[91]
-File: images/KSD2.eps Graphic file (type eps)
- <images/KSD2.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 514--515
- [][] 
- []
-
-File: images/T2_6.eps Graphic file (type eps)
-<images/T2_6.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 525--526
- [][] 
- []
-
-File: images/T3_7_2D.eps Graphic file (type eps)
-<images/T3_7_2D.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 532--533
- [][] 
- []
-
-) [92] [93] [94] [95] [96] [97]
-Chapter 6.
-
-Underfull \hbox (badness 10000) in alignment at lines 170--170
-[]
- []
-
-[98
-
-
-
-] (./content/results.tex [99] [100]
-File: images/octahedron_pi.eps Graphic file (type eps)
- <images/octahedron_pi.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 43--44
- [][] 
- []
-
-File: images/octahedron_log_pi.eps Graphic file (type eps)
-<images/octahedron_log_pi.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 50--51
- [][] 
- []
-
-File: images/octahedron_finite_dist.eps Graphic file (type eps)
-<images/octahedron_finite_dist.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 59--60
- [][] 
- []
-
-File: images/octahedron_ccs.eps Graphic file (type eps)
-<images/octahedron_ccs.eps>
-Overfull \hbox (4.33603pt too wide) in paragraph at lines 68--69
- [][] 
- []
-
-[101]
-File: images/octahedron_pi_Q_grid.eps Graphic file (type eps)
- <images/octahedron_pi_Q_grid.eps>
-Overfull \hbox (47.70067pt too wide) in paragraph at lines 77--78
- [][] 
- []
-
-File: images/octahedron_tau.eps Graphic file (type eps)
-<images/octahedron_tau.eps>
-Overfull \hbox (4.34044pt too wide) in paragraph at lines 86--87
- [][] 
- []
-
-) [102] [103] [104] [105] (./thesis.bbl [106
-
-
-
-]
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no “ in font cmr12!
- [107]) [108] (./thesis.aux)
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 4.0pt have occurred.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.198 ...th=0.3\textwidth]{images/icosahedron.eps}
+                                                  
+? x
+ 
 Here is how much of TeX's memory you used:
- 13659 strings out of 493305
- 250274 string characters out of 6139898
- 315631 words of memory out of 5000000
- 16707 multiletter control sequences out of 15000+600000
- 24886 words of font info for 109 fonts, out of 8000000 for 9000
+ 13430 strings out of 493305
+ 246615 string characters out of 6139898
+ 301585 words of memory out of 5000000
+ 16539 multiletter control sequences out of 15000+600000
+ 20203 words of font info for 83 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,19n,69p,1690b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on thesis.dvi (120 pages, 273736 bytes).
+ 56i,19n,69p,1692b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
+Output written on thesis.dvi (54 pages, 106552 bytes).
